@@ -14,6 +14,51 @@ To install and use the Moksha Theme you will need:
 
 This package will install on e17 and current versions of enlightenment. It is not a proper e theme for versions of e>17 so this is not recommended.
 
+# Installation
+
+It is recommended Bodhi users install from Bodhi's repo:
+
+```ShellSession
+sudo apt update
+sudo apt install bodhi-theme-moksha-moonlight
+```
+Other users need to manually install or use the meson build system.
+
+To install the Moksha theme, and the matching elementary theme, icons and application theme system wide for all users run the following commands in the top directory of this repo:
+
+```ShellSession
+meson . build
+ninja -C build
+sudo ninja -C build install
+```
+To install the Moksha theme and the matching elementary theme icons and application theme system wide only for the current user run the following commands in the top directory of this repo:
+
+```ShellSession
+meson . build
+ninja -C build
+ninja -C build install
+```
+Note each component can be install seperately, see [meson_options.txt](https://github.com/rbtylee/MoonLIght/blob/master/meson_options.txt)
+
+# Reporting bugs
+
+Please use the GitHub issue tracker for any bugs or feature suggestions:
+
+>https://github.com/rbtylee/MoonLIght/issues
+
+# Contributing
+
+Help is always Welcome, as with all Open Source Projects the more people that help the better it gets!
+More icons would be especially welcome and much needed.
+
+Please submit patches as GitHub pull requests!
+
+Contributions must be licensed under this project's copyright (see LICENSE).
+
+# Support This Project
+
+Donations to [Bodhi Linux](https://www.bodhilinux.com/donate/) would be greatly appreciate and keep our distro moving along. But if you like the work we do for Bodhi and wish to see more of it, we'd be happy about a donation. You can either donate via [PayPall](https://www.paypal.com/paypalme/rbtylee) or [Liberapay](https://liberapay.com/ylee/). 
+
 # Credits
 ###  Moksha Theme
 Full credit for the original code of the Moksha theme go to the OpenGEU team and Duma:
@@ -34,5 +79,10 @@ Bodhi specific modifications:
 * _*Štefan Uram*_
 
 ###  Application Theme
+The GTK theme produced using the [Themix GUI designer](https://github.com/themix-project/oomox)
+* _*[Themix project](https://github.com/themix-project)*_
+* _*Štefan Uram*_
+
+###  Build System
 Meson Build system and file reorganization:
 * _*Robert Wiley*_
