@@ -1,6 +1,9 @@
 [![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif)](https://www.paypal.com/paypalme/rbtylee)
 
 # MokshaMoonlight
+This repo contains the MokshaMoonlight Moksha theme with matching elementary theme, application theme and icons.
+
+The Moksha theme is a continuation of the [OpenGEU](https://en.wikipedia.org/wiki/OpenGEU) Quarto di Luna Theme, updated originally by Alberto "Duma" Verdoja. 
 
 ![Current Image](http://i.imgur.com/kM9AIVv.png "Moonlight Theme")
 
@@ -38,7 +41,16 @@ meson . build
 ninja -C build
 ninja -C build install
 ```
-Note each component can be install seperately, see [meson_options.txt](https://github.com/rbtylee/MoonLIght/blob/master/meson_options.txt)
+Note each component can be install seperately, see [meson_options.txt](https://github.com/rbtylee/MoonLIght/blob/master/meson_options.txt). For example to install only the icons system wide:
+
+```ShellSession
+meson -Dedj=false -Delm=false -Dgtk=false . build
+ninja -C build
+sudo ninja -C build install
+```
+### Uninstalling
+
+The ninja build system does not properly support uninstalling components install by scripts. Therefore everything installed has to be manually uninstalled by the user.
 
 # Reporting bugs
 
