@@ -1,6 +1,6 @@
-/*	This file contains the code for the animated and the static background
-*	of the Morning Sunshine theme, so users can choose if spend more memory
-*	for animated background (the original written) or keep the static one. */
+/*  This file contains the code for the animated and the static background
+ *    so users can choose if spend more memory for animated background 
+ *    or keep the static one. */
 
 #define BACKGROUND_LIGHT												\
  images.image: "Midnight_light.jpg" COMP;								\
