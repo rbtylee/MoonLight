@@ -1,0 +1,38 @@
+group { name: "e/modules/start/main";
+  max: 149 149;
+  images {
+    image: "logo.png" COMP;
+  }
+  parts {
+    part { name: "base";
+      description { state: "default" 0.0;
+        aspect: 1.0 1.0;
+        aspect_preference: BOTH;
+        image.normal: "logo.png";
+        map.on: 1;
+        map.smooth: 1;
+        map.rotation.center: "base";
+      }
+      description { state: "spin" 0.0;
+        inherit: "default" 0.0;
+        map.rotation.z: 360;
+      }
+    }
+  }
+  programs {
+    program {
+       signal: "e,state,focused";
+       source: "e";
+       transition: LINEAR 1.0;
+       action: STATE_SET "spin" 0.0;
+       target: "base";
+    }
+    program {
+       signal: "e,state,unfocused";
+       source: "e";
+       transition: LINEAR 0.0;
+       action: STATE_SET "default" 0.0;
+       target: "base";
+    }
+  }
+}

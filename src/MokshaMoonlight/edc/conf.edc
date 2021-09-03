@@ -1,0 +1,129 @@
+group { name: "e/widgets/configure/main";
+	images {
+		image: "dia_bg.png" COMP;
+		image: "dia_topshad.png" COMP;
+		image: "dia_botshad.png" COMP;
+		image: "menu_sep.png" COMP;
+	}
+	parts {
+		part { name: "base";
+			mouse_events:  0;
+			description { state: "default" 0.0;
+				color_class: "dialog_base";
+				image.normal: "dia_bg.png";
+				image.border: 15 15 1 1; 
+				fill.smooth: 0;
+			}
+		}
+		part { name: "shadow";
+			mouse_events:  0;
+			description { state: "default" 0.0;
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -1 31;
+				image.normal: "dia_topshad.png";
+				color_class: "dialog_base";
+				image.border: 15 15 1 1; 
+				fill.smooth: 0;
+			}
+		}
+		part { name: "shadow2";
+			mouse_events:  0;
+			description { state: "default" 0.0;
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 0 -4;
+				image.normal: "dia_botshad.png";
+				image.border: 15 15 1 1; 
+				fill.smooth: 0;
+				color_class: "dialog_base";
+			}
+		}
+		part { name: "separator"; mouse_events: 0;
+			 description { state: "default" 0.0;
+					min: 16 2;
+					max: 99999 2;
+					rel1.relative: 0.0 1.0;
+					rel1.offset: 2 4;
+					rel1.to_y: "e.swallow.content";
+					rel2.relative: 1.0 0.0;
+					rel2.offset: -3 -5;
+					rel2.to_y: "e.swallow.button";
+					image.normal: "menu_sep.png";
+					fill.smooth: 0;
+					fixed: 0 1;
+			 }
+		}
+		part { name: "e.swallow.content"; type: SWALLOW;
+			 description { state: "default" 0.0;
+					rel1.offset: 4 4;
+					rel1.to_x: "base";
+					rel2.relative: 1.0 0.0;
+					rel2.offset: -5 -8;
+					rel2.to_y: "e.swallow.button";
+			 }
+		}
+		part { name: "e.swallow.button"; type: SWALLOW;
+			 description { state: "default" 0.0;
+					align: 0.5 1.0;
+					rel1.relative: 0.5 1.0;
+					rel1.offset: 0 -5;
+					rel2.relative: 0.5 1.0;
+					rel2.offset: -1 -5;
+					fixed: 1 1;
+			 }
+		}
+	}
+}
+
+group { name: "e/modules/conf/main";
+
+ images.image: "spanner_inset.png" COMP;
+ 
+ min: 16 16;
+ max: 144 144;
+ parts {
+	 part { name: "base";
+			 description { state: "default" 0.0;
+					image.normal: "button-normal.png";
+					image.border: 8 8 8 8;
+			 }
+			 description { state: "over" 0.0;
+		 inherit: "default" 0.0;
+					image.normal: "button-prelight.png";
+			 }
+			 description { state: "clicked" 0.0;
+		 inherit: "default" 0.0;			 
+					image.normal: "button-pressed.png";
+			 }
+		}
+
+	part { name: "icon";
+		description { state: "default" 0.0;
+		image.normal: "spanner_inset.png";
+		max: 144 144;
+		rel1.offset: 2 2;
+		rel1.to: "base";
+		rel2.to: "base";
+					rel2.offset: -3 -3;
+		}
+	}      
+
+		}      
+
+ programs {
+	 OVER_P("base", "icon","default","over")
+	 program {
+			 signal: "mouse,down,1*"; source: "icon";
+			 action: STATE_SET "clicked" 0.0;
+			 target: "base";
+		}
+		program {
+			 signal: "mouse,up,1*"; source: "icon";
+			 action: STATE_SET "default" 0.0;
+			 target: "base";
+		}
+		program {
+			 signal: "mouse,clicked,1*"; source: "icon";
+			 action: SIGNAL_EMIT "e,action,conf" "";
+		}
+}
+}

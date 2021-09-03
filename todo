@@ -1,0 +1,15 @@
+todo
+
+meson -Delm=false . build
+add gtk theme
+
+option to install icons
+option to install gtk
+option to install edj
+
+edj folder sanity check
+install elm option
+
+clean up edc stuff
+remove code for modules we lack
+icons are they the same or have they been processed?

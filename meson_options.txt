@@ -1,0 +1,26 @@
+option('edje-cc',
+       type       : 'string',
+       description: 'A path to a edje_cc. Defaults to system edje_cc')
+option('icon-dir', 
+       type : 'combo', 
+       choices : ['std', 'bl6'], value : 'bl6',
+       description: 'Determines Icon Dir name. Defaults to bl6, ie Icons-Moksha-Moonlight')
+option('gtk-dir', 
+       type : 'combo', 
+       choices : ['std', 'bl6'], value : 'bl6',
+       description: 'Determines GTK theme Dir name. Defaults to bl6, ie Moonlight-GTK')
+option('edje-name',
+       type       : 'string',
+       description: 'Custom name for Moksha Theme. Defaults to MokshaMoonlight')
+option('elm', 
+       type : 'boolean', value : true,
+       description: 'Install elementary theme. Defaults to true')
+option('edj', 
+       type : 'boolean', value : true,
+       description: 'Install moksha theme. Defaults to true')
+option('icons', 
+       type : 'boolean', value : true,
+       description: 'Install icon theme. Defaults to true')
+option('gtk', 
+       type : 'boolean', value : true,
+       description: 'Install gtk theme. Defaults to true')

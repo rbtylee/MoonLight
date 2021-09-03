@@ -1,0 +1,472 @@
+group { name: "e/widgets/syscon/main";
+	images {
+		image: "dia_bg.png" COMP;
+		image: "button-normal.png" COMP;
+		image: "button-pressed.png" COMP;
+		image: "button-insensitive.png" COMP;
+	}
+	parts {
+		part { name: "base";
+			mouse_events:  0;
+			description { state: "default" 0.0;
+			color_class: "dialog_base";
+				image {
+					normal: "dia_bg.png";
+					border: 15 15 2 2;
+				}
+				fill.smooth: 0;
+			}
+		}
+		part { name: "e.swallow.main";
+			type: SWALLOW;
+			description { state: "default" 0.0;
+				fixed: 0 1;
+				align: 0.5 0.0;
+				rel1.offset: 12 12;
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -13 12;
+			}
+		}
+		part { name: "e.swallow.secondary";
+			type: SWALLOW;
+			description { state: "default" 0.0;
+				rel1.to: "e.swallow.main";
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 0 12;
+				rel2.to: "e.swallow.main";
+				align: 0.5 0.0;
+				fixed: 0 1;
+			}
+		}
+		part { name: "e.swallow.extra";
+			type: SWALLOW;
+			description { state: "default" 0.0;
+				align: 0.5 0.0;
+				rel1.to: "e.swallow.secondary";
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 0 12;
+				rel2.to: "e.swallow.secondary";
+				fixed: 0 1;
+			}
+		}
+		part { name: "button_image";
+			mouse_events: 1;
+			scale: 1;
+			description { state: "default" 0.0;
+				fixed: 1 0;
+				align: 0.5 1.0;
+				rel1.offset: 0 12;
+				rel1.relative: 0.5 0.0;
+				rel1.to_y: "e.swallow.extra";
+				rel2.offset: -1 -14;
+				rel2.relative: 0.5 1.0;
+				min: 64 26;
+				max: 64 26;
+				image {
+					normal: "button-normal.png";
+					border: 10 10 10 10;
+				}
+			}
+			description { state: "clicked" 0.0;
+				inherit: "default" 0.0;
+				image.border: 4 4 4 4;
+				image.normal: "button-pressed.png";
+			}
+			description { state: "disabled" 0.0;
+				inherit: "default" 0.0;
+				image.border: 4 4 4 4;
+				image.normal: "button-insensitive.png";
+			}
+		}
+		part { name: "e.text.label";
+			type: TEXT;
+			effect: SHADOW;
+			mouse_events: 0;
+			scale: 1;
+			description { state: "default" 0.0;
+				rel1 {
+					to: "button_image";
+					relative: 0.0  0.0;
+					offset:	3			3;
+				}
+				rel2 {
+					relative: 1.0  1.0;
+					offset:	-4	-4;
+					to:			 "button_image";
+				}
+				color: 0 0 0 192;
+				color3: 255 255 255 128;
+				color_class: "button_text";
+				text {
+					text:			 "Cancel";
+					font:			 "Sans";
+					size:			 10;
+					min:		1 1;
+					align:			0.5 0.5;
+					text_class: "button";
+				}
+			}
+			description { state: "disabled" 0.0;
+				inherit: "default" 0.0;
+				color: 201 181 156 255;
+				color3: 247 237 214 255;
+				color_class: "button_text_disabled";
+			}
+		}
+		part { name: "event"; type: RECT;
+			 ignore_flags: ON_HOLD;
+			 description { state: "default" 0.0;
+					color: 0 0 0 0;
+					STAY_ON("button_image")
+			 }
+			 description { state: "disabled" 0.0;
+					inherit: "default" 0.0;
+					visible: 0;
+			 }
+ }
+	}
+	programs {
+		program { name: "button_click";
+			signal: "mouse,down,1";
+			source: "event";
+			action: STATE_SET "clicked" 0.0;
+			target: "button_image";
+		}
+		program { name: "button_unclick";
+			signal: "mouse,up,1";
+			source: "event";
+			action: STATE_SET "default" 0.0;
+			target: "button_image";
+		}
+		program { name: "button_unclick2";
+			signal: "mouse,clicked,1";
+			source: "event";
+			action: SIGNAL_EMIT "e,action,close" "";
+		}
+	}
+}
+
+group { name: "e/widgets/syscon/item/button";
+	images {
+		image: "button-normal.png" COMP;
+		image: "button-pressed.png" COMP;
+		image: "button-insensitive.png" COMP;
+	}
+	parts {
+		part { name: "button_image";
+			mouse_events: 1;
+			description { state: "default" 0.0;
+				min: 32 16;
+				image {
+					normal: "button-normal.png";
+					border: 10 10 4 10;
+				}
+			}
+			description { state: "clicked" 0.0;
+				inherit: "default" 0.0;
+				image.border: 4 4 4 4;
+				image.normal: "button-pressed.png";
+			}
+			description { state: "disabled" 0.0;
+				inherit: "default" 0.0;
+				image.border: 4 4 4 4;
+				image.normal: "button-insensitive.png";
+			}
+		}
+		part { name: "e.text.label";
+			type: TEXT;
+			effect: SHADOW;
+			mouse_events:  0;
+			scale: 1;
+			description { state: "default" 0.0;
+				fixed: 0 1;
+				align: 0.5 1.0;
+				rel1 {
+					relative: 0.0  1.0;
+					offset:	3			-4;
+					to:			 "button_image";
+				}
+				rel2 {
+					relative: 1.0  1.0;
+					offset:	-4	-4;
+					to:			 "button_image";
+				}
+				color: 0 0 0 192;
+				color3: 255 255 255 128;
+				color_class: "button_text";
+				text {
+					font:			 "Sans";
+					size:			 10;
+					min:		1 1;
+					align:			0.5 1.0;
+					text_class: "button";
+				}
+			}
+			description { state: "disabled" 0.0;
+				inherit: "default" 0.0;
+				color: 201 181 156 255;
+				color3: 247 237 214 255;
+				color_class: "button_text_disabled";
+			}
+		}
+		part { name: "glow"; mouse_events: 0;
+					description { state: "default" 0.0;
+			image.normal: "win_shadow.png";
+			image.border: 9 9 9 9;
+			image.middle: 0;
+			rel1.to: "button_image";
+			rel1.offset: -5 -4;
+			rel2.to: "button_image";
+			rel2.offset: 4 0;
+			fill.smooth: 0;
+			color: 255 255 255 0;
+			visible: 0;
+					}
+		description { state: "focused" 0.0;
+					inherit: "default" 0.0;
+			color: 255 255 255 255;
+			visible: 1;
+			 }
+		}
+		part {
+			name: "e.swallow.icon";
+			type: SWALLOW;
+			mouse_events: 0;
+			description {
+				state: "default" 0.0;
+				aspect: 1.0 1.0;
+				aspect_preference: BOTH;
+				align: 0.5 0.5;
+				rel1 {
+					relative: 0.0 0.0;
+					offset:	3  3;
+					to: "button_image";
+				}
+				rel2 {
+					relative: 1.0 0.0;
+					offset:	-4	-1;
+					to_x: "button_image";
+					to_y: "e.text.label";
+				}
+			}
+		}
+		part { name: "disabler";
+			type: RECT;
+			description { state: "default" 0.0;
+				color: 0 0 0 0;
+				visible: 0;
+			}
+			description { state: "disabled" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+			}
+		}
+	}
+	programs {
+		program {
+			name:	"button_click";
+			signal: "mouse,down,1";
+			source: "button_image";
+			action: STATE_SET "clicked" 0.0;
+			target: "button_image";
+		}
+		program {
+			name:	"button_unclick";
+			signal: "mouse,up,1";
+			source: "button_image";
+			action: STATE_SET "default" 0.0;
+			target: "button_image";
+		}
+		program {
+			name:	"button_unclick2";
+			signal: "mouse,clicked,1";
+			source: "button_image";
+			action: SIGNAL_EMIT "e,action,click" "";
+		}
+		program {
+			name: "disable";
+			signal: "e,state,disabled";
+			source: "e";
+			action: STATE_SET "disabled" 0.0;
+			target: "button_image";
+			target: "disabler";
+		}
+		program {
+			name: "enable";
+			signal: "e,state,enabled";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "button_image";
+			target: "disabler";
+		}
+		program { signal: "e,state,focused"; source: "e";
+			action: STATE_SET "focused" 0.0;
+			target: "glow";
+		}
+		program { signal: "e,state,unfocused"; source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "glow";
+		}
+	}
+}
+
+group { name: "e/sys/logout";
+	alias: "e/sys/halt";
+	alias: "e/sys/reboot";
+	alias: "e/sys/suspend";
+	alias: "e/sys/hibernate";
+	data.item: "borderless" "1";
+//		data.item: "shaped" "1";
+	images {
+		image: "inset_sunk.png" COMP;
+		image: "logo.png" COMP;
+		image: "busy-1.png" COMP;
+		image: "busy-2.png" COMP;
+		image: "busy-3.png" COMP;
+		image: "busy-4.png" COMP;
+		image: "busy-5.png" COMP;
+		image: "busy-6.png" COMP;
+		image: "busy-7.png" COMP;
+		image: "busy-8.png" COMP;
+		image: "busy-9.png" COMP;
+		image: "busy-10.png" COMP;
+		image: "busy-1a.png" COMP;
+		image: "busy-2a.png" COMP;
+		image: "busy-3a.png" COMP;
+		image: "busy-4a.png" COMP;
+		image: "busy-5a.png" COMP;
+		image: "busy-6a.png" COMP;
+		image: "busy-7a.png" COMP;
+		image: "busy-8a.png" COMP;
+		image: "busy-9a.png" COMP;
+	}
+	styles {
+		style {
+			name: "sys_style";
+			base: "font=Sans:style=Bold font_size=12 text_class=tb_plain align=center color=#000 style=none wrap=word";
+			tag:  "br" "\n";
+			tag:  "hilight" "+ font=Sans:style=Bold text_class=tb_light";
+		}
+	}
+	parts {
+		part {
+			name: "base";
+			type: RECT;
+			mouse_events: 0;
+			description {
+				state: "default" 0.0;
+				min: 250 250;
+				color: 245 237 220 255;
+			}
+		}
+		part { name: "over";
+			mouse_events: 0;
+			description { state: "default" 0.0;
+				image.normal: "inset_sunk.png";
+				image.border: 5 5 5 5;
+				image.middle: 0;
+				fill.smooth: 0;
+			}
+		}
+		part { name: "busy";
+			mouse_events:  0;
+			description { state: "default" 0.0;
+				FIXED_SIZE(128,18)
+				//aspect: 1.0 1.0;
+				align: 0.5 0.0;
+				aspect_preference: BOTH;
+				rel1 {
+					to_y: "logo";
+					relative: 0.0 1.0;
+					offset:	0 3;
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					offset:	-1 1;
+				}
+				image {
+					normal: "busy-1.png";
+					normal: "busy-1a.png";
+					tween:  "busy-2.png";
+					tween:  "busy-2a.png";
+					tween:  "busy-3.png";
+					tween:  "busy-3a.png";
+					tween:  "busy-4.png";
+					tween:  "busy-4a.png";
+					tween:  "busy-5.png";
+					tween:  "busy-5a.png";
+					tween:  "busy-6.png";
+					tween:  "busy-6a.png";
+					tween:  "busy-7.png";
+					tween:  "busy-7a.png";
+					tween:  "busy-8.png";
+					tween:  "busy-8a.png";
+					tween:  "busy-9.png";
+					tween:  "busy-9a.png";
+					tween:  "busy-10.png";
+					tween:  "busy-9a.png";
+					tween:  "busy-9.png";
+					tween:  "busy-8a.png";
+					tween:  "busy-8.png";
+					tween:  "busy-7a.png";
+					tween:  "busy-7.png";
+					tween:  "busy-6a.png";
+					tween:  "busy-6.png";
+					tween:  "busy-5a.png";
+					tween:  "busy-5.png";
+					tween:  "busy-4a.png";
+					tween:  "busy-4.png";
+					tween:  "busy-3a.png";
+					tween:  "busy-3.png";
+					tween:  "busy-2a.png";
+					tween:  "busy-2.png";
+					tween:  "busy-1a.png";
+					tween:  "busy-1.png";
+				}
+			}
+		}
+		part { name: "logo";
+			mouse_events: 0;
+			description { state: "default" 0.0;
+				min: 128 128;
+				max: 128 128;
+				rel1.offset: 10 10;
+				rel2.offset: -10 -10;
+				align: 0.5 0.0;
+				image.normal: "logo.png";
+			}
+			description { state: "done" 0.0;
+				inherit: "default" 0.0;
+				color: 255 255 255 0;
+			}
+		}
+		part { name: "e.textblock.message";
+			type: TEXTBLOCK;
+			mouse_events:  0;
+			scale: 1;
+			description {
+				state: "default" 0.0;
+				rel1 {
+					offset: 8 8;
+					relative: 0.0 1.0;
+					to_y: "busy";
+				}
+				rel2.offset: -9 -9;
+				text {
+					style:			"sys_style";
+					min:		1 1;
+				}
+			}
+		}
+	}
+	programs {
+		program { name: "busy_anim";
+			signal: "show";
+			source: "";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 1.0;
+			target: "busy";
+			after:  "busy_anim";
+		}
+	}
+}

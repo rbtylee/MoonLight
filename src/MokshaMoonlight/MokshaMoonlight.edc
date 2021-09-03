@@ -1,0 +1,183 @@
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                                                                     *
+ *              <Midnight Moonlight>                                   *
+ *                                                                     *
+ *      The E19 version of the OpenGEU Quarto di Luna Theme.           *
+ *        Updated by Alberto "Duma" Verdoja                            *
+ *      All the credits to Luca De Marini and Art Pulse!               *
+ *                                                                     *
+ *                                                                     *
+ *              give me a suggest: a.verdoja@gmail.com                 *
+ *             or search me (Duma) on forums.bodhilinux.com            *
+ * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+data {
+	item: "theme/name"    "Midnight Moonlight";
+	item: "theme/version" "beta";
+	item: "theme/author"  "Alberto 'Duma' Verdoja";
+	item: "gtk-theme"     "MokshaMoonlight-GTK";
+  item: "icon-theme"    "MokshaMoonlight-Icons";
+	item: "version"       "110";
+}
+
+/// This stuff can be changed also with Settings -> Look -> Colors, but
+/// won't affect the Elementary widget
+//Background of Window
+#define BACADA(TRASP) 186\ 202\ 218\ TRASP
+
+#define BGWIN 120\ 126\ 132
+
+//Focus Color
+#define SELECTED 186\ 202\ 218
+
+//Color of foreground: e.g.: labels on buttons, on menus
+#define FG_COLOR 0\ 0\ 0
+
+//The color of the Window Border
+#define RADIANCE_COLOR BGWIN
+
+//Color of selected foreground
+#define SEL_FG_COLOR FG_COLOR
+
+//Color of insensitive foreground
+#define INSENSITIVE_FG_COLOR 152\ 148\ 144
+
+//Color of EDJ Tooltips
+#define TOOLTIP_COLOR 0\ 0\ 0\ 255
+
+//Color of Label on EDJ Tooltips
+#define TOOLTIP_FG_COLOR 255\ 255\ 255
+
+//ELM Tooltip Opacity: they take RADIANCE_COLOR as background color
+#define TOOLTIP_OPACITY 200
+
+//Color of error on background entry (used only on desklock at the moment)
+#define ERROR_BG_COLOR 237\ 123\ 123
+///
+
+///Panel settings
+//Systray Background Color for Xembed
+#define RADCONF_SYS_BG "186 202 218"
+
+//Pixmap showed on hidden shelf
+#define RADCONF_SHELF_HID_SIZE 2
+
+#include "macros.edc"
+#include "color_class.edc"
+ 
+collections { /* begin the collection of edje groups that are in this file */
+
+#include "edc/shelf.edc"
+#include "edc/systray.edc"
+#include "edc/efm_toolbar.edc"
+#include "edc/tasks.edc"
+#include "edc/clock.edc"
+#include "edc/tclock.edc"
+#include "edc/ibaribox.edc"
+#include "edc/sysconbutton.edc"
+#include "edc/comp.edc"
+#include "edc/everything.edc"
+#include "edc/battery.edc"
+#include "edc/mixer.edc"
+#include "edc/music_control.edc"
+#include "edc/notification.edc"
+#include "edc/packagekit.edc"
+#include "edc/randr.edc"
+#include "edc/mokshapreview.edc"
+#include "edc/wallpaper.edc"
+//ELM Support
+#include "elm/access.edc"
+#include "elm/actionslider.edc"
+#include "elm/bg.edc"
+#include "elm/bubble.edc"
+#include "elm/button.edc"
+#include "elm/calendar.edc"
+#include "elm/check.edc"
+#include "elm/clock.edc"
+#include "elm/colorsel.edc"
+#include "elm/conform.edc"
+#include "elm/ctxpopup.edc"
+#include "elm/datetime.edc"
+#include "elm/dayselector.edc"
+#include "elm/diskselector.edc"
+#include "elm/epulse_playbacks.edc"
+#include "elm/fileselector.edc"
+#include "elm/flipselector.edc"
+#include "elm/focus.edc"
+#include "elm/genlist.edc"
+#include "elm/gengrid.edc"
+#include "elm/hover.edc"
+#include "elm/icon.edc"
+#include "elm/index.edc"
+#include "elm/inwin.edc"
+#include "elm/label.edc"
+#include "elm/layout.edc"
+#include "elm/list.edc"
+#include "elm/multibuttonentry.edc"
+#include "elm/naviframe.edc"
+#include "elm/notify.edc"
+#include "elm/panel.edc"
+#include "elm/panes.edc"
+#include "elm/photo.edc"
+#include "elm/player.edc"
+#include "elm/popup.edc"
+#include "elm/progress.edc"
+#include "elm/radio.edc"
+#include "elm/segment_control.edc"
+#include "elm/slider.edc"
+#include "elm/slideshow.edc"
+#include "elm/spinner.edc"
+#include "elm/thumb.edc"
+#include "elm/toolbar.edc"
+#include "elm/tooltip.edc"
+#include "elm/video.edc"
+#include "elm/win.edc"
+#include "edc/border.edc"
+#include "elm/border.edc"
+#include "edc/pointer.edc"
+#include "elm/pointer.edc"
+#include "edc/toolbar.edc"
+#include "edc/menu.edc"
+#include "elm/menu.edc"
+#include "elm/separator.edc"
+#include "edc/edgebindings.edc"
+#include "edc/start.edc"
+#include "edc/gadman.edc"
+#include "edc/pager.edc"
+#include "edc/winlist.edc"
+#include "edc/fileman.edc"
+#include "edc/syscon.edc"
+#include "edc/dialog.edc"
+#include "edc/conf.edc"
+#include "edc/transitions.edc"
+
+/*** WIDGETS ***/
+#include "edc/check.edc"
+#include "edc/radio.edc"
+#include "edc/button.edc"
+#include "edc/scrollframe.edc"
+#include "elm/scroller.edc"
+#include "elm/entry.edc"
+#include "elm/photocam.edc"
+#include "elm/map.edc"
+#include "edc/ilist.edc"
+#include "edc/entry.edc"
+#include "edc/preview.edc"
+#include "edc/deskpreview.edc"
+#include "edc/colorwell.edc"
+#include "edc/spectrum.edc"
+#include "edc/cslider.edc"
+#include "edc/slider.edc"
+#include "edc/frame.edc"
+#include "elm/frame.edc"
+#include "edc/label.edc"
+#include "edc/fontpreview.edc"
+#include "edc/textblock.edc"
+#include "edc/desklock.edc"
+#include "edc/about.edc"
+#include "edc/about-theme.edc"
+#include "edc/init.edc"
+#include "edc/engage.edc"
+
+//end of collection
+}

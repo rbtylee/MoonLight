@@ -1,0 +1,483 @@
+group { name: "e/widgets/menu/default/background";
+	images {
+		image: "base_bg.png" COMP;
+	}
+	parts {
+		part {
+			name: "base";
+			type: IMAGE;
+			mouse_events: 0;
+			description {
+				state: "default" 0.0;
+				image {
+					normal: "base_bg.png";
+					border: 2 2 2 2;
+				}
+				fill {
+					smooth: 0;
+				}
+			}
+		}
+		part {
+			name: "e.swallow.content";
+			type: SWALLOW;
+			description {
+				state: "default" 0.0;
+				rel1 {
+					to: "base"; 
+					relative: 0.0 0.0; 
+					offset: 3 2; 
+				}
+				rel2 { 
+					relative: 1.0 1.0; 
+					offset: -5 -5; 
+				}
+			} 
+		}
+	}
+}
+
+/* this is placed as a horizontal separator between menu items in the
+		* vertical menu item list. it has no functionality other than being
+		* a visual separator */
+group { name: "e/widgets/menu/default/separator";
+	images {
+		image: "menu_sep.png" COMP;
+	}
+	parts {
+		part { name: "separator";
+			mouse_events: 0;
+			description { state: "default" 0.0;
+				min: 16 2;
+				rel1.offset: 2 2;
+				rel2.offset: -3 -3;
+				image {
+					normal: "menu_sep.png";
+					border: 2 2 0 0;
+				}
+				fill.smooth: 0;
+			}
+		}
+	}
+}
+
+/* this is used for regular menu items. this is what swallows/holds the
+		* whole line of the menu item, icon, check/radio mark, label and submenu
+		* indicator, where applicable */
+group { name: "e/widgets/menu/default/item_bg";
+	/* this is idential to the regular menu item above, but used only for
+			* items that have a submenu. this is to allow for a possible different
+			* look for submenu holding items. here this is identical to to the
+			* normal menu item, thus we are making use of the alias directive that
+			* gives a group the ability to go by manu names */
+	alias: "e/widgets/menu/default/submenu_bg";
+	images {
+		image: "menuitem.png" COMP;
+	}
+	parts {
+		part { name: "bg";
+			mouse_events: 0;
+			description { state: "default" 0.0;
+				visible: 0;
+				color: 255 255 255 0;
+				rel1 {
+					relative: 0.0 0.0;
+					offset: -5 -3;
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					offset: 4 5;
+				}
+				image {
+					normal: "menuitem.png";
+					border: 4 4 4 4;
+				}
+				fill.smooth: 0;
+			}
+			description { state: "selected" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				color: 255 255 255 255;
+				rel1 {
+					relative: 0.0 0.0;
+					offset: -2 0;
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					offset: 1 0;
+				}
+			}
+		}
+		part { name: "e.swallow.content"; /* all item content will go here */
+			type: SWALLOW;
+			description { state: "default" 0.0;
+				align: 0.0 0.0;
+				rel1.offset: 2 1;
+				rel2.offset: -3 -2;
+			}
+		}
+		part { name: "events"; type: RECT;
+			 description { state: "default";
+					color: 0 0 0 0;
+			 }
+	}
+	}
+	programs {
+		program { name: "sel"; /* when the menu item is selected (hilighted)
+					* this program is run to give the whole item
+					* an overall selected look */
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			transition: LINEAR 0.2;
+			target: "bg";
+		}
+		program { name: "unsel"; /* when selection is removed from the menu
+				* item */
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 0.1;
+			target: "bg";
+		}
+	}
+}
+
+/* this group holds a menu icon. here we just use it to add padding around
+		* the icon. And to gray-out when disabled */
+group { name: "e/widgets/menu/default/icon";
+	parts {
+		part { name: "clip";
+			type: RECT;
+			description { state: "default" 0.0;
+				color: 255 255 255 255;
+			}
+			description { state: "disabled" 0.0;
+				color: 255 255 255 128;
+			}
+		}
+		part { name: "e.swallow.content"; /* icon is swallowed here */
+			type: SWALLOW;
+			clip_to: "clip";
+			description {
+				state: "default" 0.0;
+				rel1 {
+					relative: 0.0 0.0;
+					offset: 2 2;
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					offset: -3 -3;
+				}
+			}
+		}
+	}
+	programs {
+		program { name: "enable"; /* enable */
+			signal: "e,state,enable";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "clip";
+		}
+		program { name: "disable"; /* disable */
+			signal: "e,state,disable";
+			source: "e";
+			action: STATE_SET "disabled" 0.0;
+			target: "clip";
+		}
+	}
+}
+
+/* this is the actual text label for the menu item */
+group { name: "e/widgets/menu/default/label";
+	parts {
+		part { name: "e.text.label"; /* e sets the text of this */
+			type: TEXT;
+			effect: SOFT_SHADOW;
+			mouse_events: 0;
+			scale: 1;
+			description { state: "default" 0.0;
+				rel1 {
+					relative: 0.0 0.0;
+					offset: 1 -1;
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					offset: -10 1;
+				}
+				color: 0 0 0 255;
+				color3: 0 0 0 0;
+				color_class: "menu_item";
+				text {
+					font: "Sans";
+					size: 10;
+					min: 1 1;
+					align: 0.0 0.5;
+					text_class: "menu_item";
+				}
+			}
+			description { state: "selected" 0.0;
+				inherit: "default" 0.0;
+				color: 255 255 255 255;
+				color3: 0 0 0 64;
+				color_class: "menu_item";
+			}
+			description { state: "disabled" 0.0;
+				inherit: "default" 0.0;
+				color: 110 110 110 255;
+				color3: 0 0 0 0;
+			}
+		}
+	}
+	programs {
+		program { name: "sel"; /* when the menu item is actually selected */
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			transition: LINEAR 0.2;
+			target: "e.text.label";
+		}
+		program { name: "unsel"; /* on de-select */
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 0.3;
+			target: "e.text.label";
+		}
+		program { name: "enable"; /* enable */
+			signal: "e,state,enable";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 0.3;
+			target: "e.text.label";
+		}
+		program { name: "disable"; /* disable */
+			signal: "e,state,disable";
+			source: "e";
+			action: STATE_SET "disabled" 0.0;
+			//transition: LINEAR 0.3;
+			target: "e.text.label";
+		}
+	}
+}
+
+/* this is a small arrow on the right of the menu item to indicate that it
+		* has a submenu after it */
+group { name: "e/widgets/menu/default/submenu";
+	images {
+		image: "menu_arrow_normal.png" COMP;
+		image: "menu_arrow_sel.png" COMP;
+	}
+	parts {
+		part { name: "arrow";
+			mouse_events: 0;
+			description { state: "default" 0.0;
+				min: 9 12;
+				max: 9 12;
+				rel1 {
+					relative: 0.0 0.0;
+					offset: 0 1;
+				}
+				rel2 {
+					relative: 1.0 1.0;
+					offset: -3 -1;
+				}
+				image.normal: "menu_arrow_normal.png";
+			}
+			description { state: "selected" 0.0;
+				inherit: "default" 0.0;
+				image.normal: "menu_arrow_sel.png";
+			}
+		}
+	}
+	programs {
+		program { name: "sel";
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			target: "arrow";
+		}
+		program { name: "unsel";
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "arrow";
+		}
+	}
+}
+
+/* this is placed left of the icon in a menu item (if any icon) or left
+		* of the label if no icon is present. this is a checkbox to indicate if
+		* the menu item is enabled or disabled */
+group { name: "e/widgets/menu/default/check";
+	images {
+		image: "check_base.png" COMP;
+		image: "check_on.png" COMP;
+		image: "check_sel.png" COMP;
+	}
+	parts {
+		part { name: "base";
+			mouse_events: 0;
+			scale: 1;
+			description { state: "default" 0.0;
+				min: 18 19;
+				max: 18 19;
+				image.normal: "check_base.png";
+			}
+		}
+		part { name: "mark";
+			mouse_events: 0;
+			clip_to: "mark_hold";
+			description { state: "default" 0.0;
+				rel1.to: "mark_hold";
+				rel2.to: "mark_hold";
+				image.normal: "check_on.png";
+			}
+			description { state: "selected" 0.0;
+				inherit: "default" 0.0;
+				image.normal: "check_sel.png";
+			}
+		}
+		part { name: "mark_hold";
+			type: RECT;
+			mouse_events: 0;
+			description { state: "default" 0.0;
+				visible: 0;
+				color: 255 255 255 0;
+				rel1 {
+					to: "base";
+					offset: -5 -5;
+				}
+				rel2 {
+					to: "base";
+					offset: 4 4;
+				}
+			}
+			description { state: "on" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				color: 255 255 255 255;
+				rel1.offset: 0 0;
+				rel2.offset: -1 -1;
+			}
+		}
+	}
+	programs {
+		program { name: "sel"; /* on selection of the menu item */
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			target: "mark";
+		}
+		program { name: "unsel"; /* de-select */
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "mark";
+		}
+		program { name: "on"; /* if the checkmark is to be displayed */
+			signal: "e,state,on";
+			source: "e";
+			action: STATE_SET "on" 0.0;
+			transition: LINEAR 0.15;
+			target: "mark_hold";
+		}
+		program { name: "off"; /* check mark is not to be displayed */
+			signal: "e,state,off";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 0.2;
+			target: "mark_hold";
+		}
+	}
+}
+
+/* for a radio menu item - same as check, but only one of a group of radio
+		* menu item can be selected at any one time */
+group { name: "e/widgets/menu/default/radio";
+	images {
+		image: "radio_base.png" COMP;
+		image: "radio_on.png" COMP;
+		image: "radio_sel.png" COMP;
+	}
+	parts {
+		part { name: "base";
+			mouse_events: 0;
+			scale: 1;
+			description { state: "default" 0.0;
+				min: 19 19;
+				max: 19 19;
+				image.normal: "radio_base.png";
+			}
+			description { state: "selected" 0.0;
+				inherit: "default" 0.0;
+				image.normal: "menu_arrow_sel.png";
+			}
+		}
+		part { name: "mark";
+			mouse_events: 0;
+			clip_to: "mark_hold";
+			description { state: "default" 0.0;
+				rel1.to: "mark_hold";
+				rel2.to: "mark_hold";
+				image.normal: "radio_on.png";
+			}
+			description { state: "selected" 0.0;
+				inherit: "default" 0.0;
+				image.normal: "radio_sel.png";
+			}
+		}
+		part { name: "mark_hold";
+			type: RECT;
+			mouse_events: 0;
+			description { state: "default" 0.0;
+				visible: 0;
+				color: 255 255 255 0;
+				rel1 {
+					to: "base";
+					offset: -5 -5;
+				}
+				rel2 {
+					to: "base";
+					offset: 4 4;
+				}
+			}
+			description { state: "on" 0.0;
+				inherit: "default" 0.0;
+				visible: 1;
+				color: 255 255 255 255;
+				rel1.offset: 0 0;
+				rel2.offset: -1 -1;
+			}
+		}
+	}
+	programs {
+		program { name: "sel";
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			target: "mark";
+		}
+		program { name: "unsel";
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "mark";
+		}
+		program { name: "on";
+			signal: "e,state,on";
+			source: "e";
+			action: STATE_SET "on" 0.0;
+			transition: LINEAR 0.15;
+			target: "mark_hold";
+		}
+		program { name: "off";
+			signal: "e,state,off";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 0.2;
+			target: "mark_hold";
+		}
+	}
+}
+
