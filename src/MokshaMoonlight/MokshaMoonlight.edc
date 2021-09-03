@@ -1,19 +1,17 @@
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ *                   <MokshaMoonlight>                                 *
  *                                                                     *
- *              <Midnight Moonlight>                                   *
- *                                                                     *
- *      The E19 version of the OpenGEU Quarto di Luna Theme.           *
+ *      The Moksha version of the OpenGEU Quarto di Luna Theme.        *
  *        Updated by Alberto "Duma" Verdoja                            *
+ *        Modified by Štefan Uram and Robert Wiley                     *
+ *                                                                     *
  *      All the credits to Luca De Marini and Art Pulse!               *
  *                                                                     *
- *                                                                     *
- *              give me a suggest: a.verdoja@gmail.com                 *
- *             or search me (Duma) on forums.bodhilinux.com            *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 data {
-	item: "theme/name"    "Midnight Moonlight";
-	item: "theme/version" "beta";
+	item: "theme/name"    "MokshaMoonlight";
+	item: "theme/version" "rc";
 	item: "theme/author"  "Alberto 'Duma' Verdoja";
 	item: "gtk-theme"     "MokshaMoonlight-GTK";
   item: "icon-theme"    "MokshaMoonlight-Icons";
