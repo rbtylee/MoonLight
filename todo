@@ -7,3 +7,4 @@ test my build as deb file and as ninja build
 remove code for modules we lack
 Any unused Images?
 Should module edc code by separate from e_widget code?
+update image in readme
