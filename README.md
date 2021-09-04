@@ -50,7 +50,7 @@ sudo ninja -C build install
 ```
 ### Uninstalling
 
-The ninja build system does not properly support uninstalling components install by scripts. Therefore everything installed has to be manually uninstalled by the user.
+The ninja build system does not properly support uninstalling components install by scripts. Therefore everything installed has to be manually uninstalled by the user. If you install the theme using the meson defaults you can use the provided *uninstall-theme.sh* script to remove everything installed. Run this script as root if you wish to remove the files installed system wide, just note this will remove the files even they were installed by apt!
 
 # Reporting bugs
 
