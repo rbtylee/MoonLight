@@ -1,10 +1,26 @@
-#!/bin/sh
-echo "here"
-echo $2 $3 $4 
+#!/bin/bash
+
+# Copyright 2021 ylee@bodhilinux.com# License: GPL-3.0+
+#  This program is free software: you can redistribute it and/or modify it under
+#  the terms of the GNU General Public License as published by the Free Software
+#  Foundation, either version 3 of the License, or (at your option) any later
+#  version.
+#
+#  This package is distributed in the hope that it will be useful, but WITHOUT ANY
+#  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+#  PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License along with
+#  this program. If not, see <http://www.gnu.org/licenses/>.
+#
+#  On Debian systems, the complete text of the GNU General Public License version 3
+#  can be found in "/usr/share/common-licenses/GPL-3".
+#
+
 # TO DO test for proper number of arguments
-if [ $# -eq 0 ]
+if [ ! $# -eq 4 ]
   then
-    echo "ERROR: No arguments supplied"
+    echo "ERROR: Not enough arguments supplied"
     exit 1
 fi
 
@@ -13,10 +29,12 @@ is_user_root () { [ "${EUID:-$(id -u)}" -eq 0 ]; }
 edj_src="$MESON_BUILD_ROOT/src/MokshaMoonlight/MokshaMoonlight.edj"
 
 if is_user_root; then
-    edj_dst="$1/$2.edj"
-    elm_dst="$4/$2.edj"
+    edj_dst="$DESTDIR$1/$2.edj"
+    elm_dst="$DESTDIR$4/$2.edj"
+    mkdir -p "$DESTDIR$1"
+    mkdir -p "$DESTDIR$4"
 else
-  if [ -z ${HOME+x} ]; then 
+  if [ -z "${HOME+x}" ]; then
     echo "FATAL ERROR: Environmmental variable HOME is not set."
     exit 1
   fi
