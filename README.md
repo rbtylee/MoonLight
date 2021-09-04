@@ -16,7 +16,13 @@ To install and use the Moksha Theme you will need:
 * [EFL](https://www.enlightenment.org/download): only need the edje_cc bin, a part of efreet.
 * [Moksha](https://github.com/JeffHoogland/moksha)
 
-This package will install on e17 and current versions of enlightenment. It is not a proper e theme for versions of e>17 so this is not recommended.
+This package will install on e17 and current versions of enlightenment. It is not a proper e theme for versions of e>17 so this is not recommended. 
+
+### Fonts
+
+The Moksha Theme Moonlight uses a sans fontface. Be sure one is installed and fontconfig is properly set up. Bodhi by default uses:
+
+* fonts-dejavu-core
 
 ### Icons
 It is recommended you have the hicolor-icon-theme installed as it is the default fallback theme for FreeDesktop.org icon themes.
