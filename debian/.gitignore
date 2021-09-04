@@ -1,0 +1,10 @@
+.debhelper/
+bodhi-theme-moksha-moonlight/
+build/
+tmp/
+bodhi-theme-moksha-moonlight.postinst.debhelper
+bodhi-theme-moksha-moonlight.postrm.debhelper
+bodhi-theme-moksha-moonlight.substvars
+debhelper-build-stamp
+files
+
