@@ -1,15 +1,12 @@
 todo
 
-meson -Delm=false . build
-add gtk theme
+add git ignore for debian
+do i need to rm tmp et al in override_dh_auto_clean?
 
-option to install icons
-option to install gtk
-option to install edj
+test my build as deb file and as ninja build
 
-edj folder sanity check
-install elm option
+clarify depends (build vs using)
 
 clean up edc stuff
 remove code for modules we lack
-icons are they the same or have they been processed?
+
