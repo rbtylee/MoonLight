@@ -419,122 +419,122 @@
    }
 
 group { name: "elm/calendar/base/default";
-   images.image: "menu_arrow_normal.png" COMP;
-   images.image: "menu_arrow_l_normal.png" COMP;
-   images.image: "menu_arrow_sel.png" COMP;
-   images.image: "menu_arrow_l_sel.png" COMP;
-   images.image: "icon_border_remember.png" COMP;
-   images.image: "outline_glow.png" COMP;
-   images.image: "diagonal_stripes.png" COMP;
-   images.image: "separator_horiz.png" COMP;
-   
-   script {
-      public rtl;
-   }
-   styles {
-      CIT_STYLES
-   }
-   parts {
-      part { name: "bg"; type: SPACER;
-         description { state: "default" 0.0;
-            rel1.offset: 1 1;
-            rel2.offset: -2 -2;
-         }
-      }
-      part { name: "spinner-base1"; type: SPACER;
-         description { state: "default" 0.0;
-            min: 24 16;
-            max: 999999 16;
-            rel1.to: "bg";
-            rel2.to: "bg";
-            rel2.relative: 1.0 (1/8);
-            align: 0.5 0.0;
-         }
-      }
-      part { name: "table-base"; type: SPACER;
-         description { state: "default" 0.0;
-            min: 70 60;
-            rel1.to_x: "bg";
-            rel1.to_y: "spinner-base1";
-            rel1.offset: 3 0;
-            rel1.relative: 0.0 1.0;
-            rel2.to: "bg";
-            rel2.offset: -4 -4;
-         }
-      }
-      part { name: "header"; type: SPACER;
-         description { state: "default" 0.0;
-            rel1.to: "table-base";
-            rel2.to: "table-base";
-            rel2.relative: 1.0 (1/7);
-            align: 0.5 0.0;
-            min: 0 16;
-         }
-      }
-      part { name: "header_separator"; mouse_events:  0;
-         description { state: "default" 0.0;
-            fixed: 1 1;
-            rel1.to: "header";
-            rel1.relative: 0.0 1.0;
-            rel1.offset: 0 -2;
-            rel2.to: "header";
-            image.normal: "separator_horiz.png";
-            fill.smooth: 0;
-         }
-      }
-      part { name: "base"; type: SPACER;
-         description { state: "default" 0.0;
-            rel1.to_x: "table-base";
-            rel1.to_y: "header";
-            rel1.relative: 0.0 1.0;
-            rel1.offset: 3 0;
-            rel2.to: "table-base";
-            rel2.offset: -3 0;
-         }
-      }
+	images.image: "menu_arrow_normal.png" COMP;
+	images.image: "menu_arrow_l_normal.png" COMP;
+	images.image: "menu_arrow_sel.png" COMP;
+	images.image: "menu_arrow_l_sel.png" COMP;
+	images.image: "icon_border_remember.png" COMP;
+	images.image: "outline_glow.png" COMP;
+	images.image: "diagonal_stripes.png" COMP;
+	images.image: "separator_horiz.png" COMP;
+	
+	script {
+		public rtl;
+	}
+	styles {
+		CIT_STYLES
+	}
+	parts {
+		part { name: "bg"; type: SPACER;
+			description { state: "default" 0.0;
+				rel1.offset: 1 1;
+				rel2.offset: -2 -2;
+			}
+		}
+		part { name: "spinner-base1"; type: SPACER;
+			description { state: "default" 0.0;
+				min: 24 16;
+				max: 999999 16;
+				rel1.to: "bg";
+				rel2.to: "bg";
+				rel2.relative: 1.0 (1/8);
+				align: 0.5 0.0;
+			}
+		}
+		part { name: "table-base"; type: SPACER;
+			description { state: "default" 0.0;
+				min: 70 60;
+				rel1.to_x: "bg";
+				rel1.to_y: "spinner-base1";
+				rel1.offset: 3 0;
+				rel1.relative: 0.0 1.0;
+				rel2.to: "bg";
+				rel2.offset: -4 -4;
+			}
+		}
+		part { name: "header"; type: SPACER;
+			description { state: "default" 0.0;
+				rel1.to: "table-base";
+				rel2.to: "table-base";
+				rel2.relative: 1.0 (1/7);
+				align: 0.5 0.0;
+				min: 0 16;
+			}
+		}
+		part { name: "header_separator"; mouse_events:  0;
+			description { state: "default" 0.0;
+				fixed: 1 1;
+				rel1.to: "header";
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 0 -2;
+				rel2.to: "header";
+				image.normal: "separator_horiz.png";
+				fill.smooth: 0;
+			}
+		}
+		part { name: "base"; type: SPACER;
+			description { state: "default" 0.0;
+				rel1.to_x: "table-base";
+				rel1.to_y: "header";
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 3 0;
+				rel2.to: "table-base";
+				rel2.offset: -3 0;
+			}
+		}
 
-      CAL_SPIN(,,month_text, spinner-base1)
-      CH(0)   CH(1)   CH(2)   CH(3)   CH(4)   CH(5)   CH(6)
-      CIT(0)  CIT(1)  CIT(2)  CIT(3)  CIT(4)  CIT(5)  CIT(6)
-      CIT(7)  CIT(8)  CIT(9)  CIT(10) CIT(11) CIT(12) CIT(13)
-      CIT(14) CIT(15) CIT(16) CIT(17) CIT(18) CIT(19) CIT(20)
-      CIT(21) CIT(22) CIT(23) CIT(24) CIT(25) CIT(26) CIT(27)
-      CIT(28) CIT(29) CIT(30) CIT(31) CIT(32) CIT(33) CIT(34)
-      CIT(35) CIT(36) CIT(37) CIT(38) CIT(39) CIT(40) CIT(41)
-   }
+		CAL_SPIN(,,month_text, spinner-base1)
+		CH(0)   CH(1)   CH(2)   CH(3)   CH(4)   CH(5)   CH(6)
+		CIT(0)  CIT(1)  CIT(2)  CIT(3)  CIT(4)  CIT(5)  CIT(6)
+		CIT(7)  CIT(8)  CIT(9)  CIT(10) CIT(11) CIT(12) CIT(13)
+		CIT(14) CIT(15) CIT(16) CIT(17) CIT(18) CIT(19) CIT(20)
+		CIT(21) CIT(22) CIT(23) CIT(24) CIT(25) CIT(26) CIT(27)
+		CIT(28) CIT(29) CIT(30) CIT(31) CIT(32) CIT(33) CIT(34)
+		CIT(35) CIT(36) CIT(37) CIT(38) CIT(39) CIT(40) CIT(41)
+	}
 }
 
 group { name: "elm/calendar/base/double_spinners";
-   inherit: "elm/calendar/base/default";
-   parts {
-      part { name: "spinner-base1"; type: SPACER;
-         description { state: "default" 0.0;
-            min: 24 24;
-            max: 999999 24;
-            rel1.to: "bg";
-            rel1.offset: 6 6;
-            rel2.to: "bg";
-            rel2.relative: 0.5 1.0;
-            rel2.offset: -7 -7;
-            align: 0.0 0.0;
-         }
-      }
-      part { name: "spinner-base2"; type: SPACER;
-         description { state: "default" 0.0;
-            min: 24 24;
-            max: 999999 24;
-            rel1.to_x: "spinner-base1";
-            rel1.to_y: "bg";
-            rel1.relative: 1.0 0;
-            rel1.offset: 6 6;
-            rel2.to: "bg";
-            rel2.offset: -7 -7;
-            align: 0.0 0.0;
-         }
-      }
-      CAL_SPIN(,,month_text, spinner-base1)
-      CAL_SPIN(_year, year, year_text, spinner-base2)
-   }
+	inherit: "elm/calendar/base/default";
+	parts {
+		part { name: "spinner-base1"; type: SPACER;
+			description { state: "default" 0.0;
+				min: 24 24;
+				max: 999999 24;
+				rel1.to: "bg";
+				rel1.offset: 6 6;
+				rel2.to: "bg";
+				rel2.relative: 0.5 1.0;
+				rel2.offset: -7 -7;
+				align: 0.0 0.0;
+			}
+		}
+		part { name: "spinner-base2"; type: SPACER;
+			description { state: "default" 0.0;
+				min: 24 24;
+				max: 999999 24;
+				rel1.to_x: "spinner-base1";
+				rel1.to_y: "bg";
+				rel1.relative: 1.0 0;
+				rel1.offset: 6 6;
+				rel2.to: "bg";
+				rel2.offset: -7 -7;
+				align: 0.0 0.0;
+			}
+		}
+		CAL_SPIN(,,month_text, spinner-base1)
+		CAL_SPIN(_year, year, year_text, spinner-base2)
+	}
 }
 
 #undef CAL_SPIN

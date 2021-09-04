@@ -1,12 +1,11 @@
 group { name: "elm/ews/background/default";
-
-   parts {
-      part { name: "bg"; type: RECT;
-         description { state: "default" 0.0; 
-            color_class: "dialog_base";
-         }
-      }
-   }
+	parts {
+		part { name: "bg"; type: RECT;
+			description { state: "default" 0.0; 
+				color_class: "dialog_base";
+			}
+		}
+	}
 }
 
 group { name: "elm/ews/decoration/default";
