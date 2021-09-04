@@ -9,6 +9,7 @@ The Moksha theme is a continuation of the [OpenGEU](https://en.wikipedia.org/wik
 
 # Dependencies
 
+### Build
 * [meson](https://mesonbuild.com/): only needed it you use the meson build system.
 
 To install and use the Moksha Theme you will need:
@@ -16,6 +17,19 @@ To install and use the Moksha Theme you will need:
 * [Moksha](https://github.com/JeffHoogland/moksha)
 
 This package will install on e17 and current versions of enlightenment. It is not a proper e theme for versions of e>17 so this is not recommended.
+
+### Icons
+It is recommended you have the hicolor-icon-theme installed as it is the default fallback theme for FreeDesktop.org icon themes.
+
+Since the MoskhaMoonlight Icon theme *inherits* from the below icon sets, it is suggested you install one or more of them as well.
+
+* gnome-icon-theme
+* ubuntu-mono
+* breeze-icon-theme
+* oxygen-icon-theme
+### Application Theme
+
+* gtk2-engines-murrine
 
 # Installation
 
