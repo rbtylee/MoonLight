@@ -1,12 +1,9 @@
 todo
 
-add git ignore for debian
 do i need to rm tmp et al in override_dh_auto_clean?
 
 test my build as deb file and as ninja build
 
-clarify depends (build vs using)
-
-clean up edc stuff
 remove code for modules we lack
-
+Any unused Images?
+Should module edc code by separate from e_widget code?
