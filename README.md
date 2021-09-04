@@ -118,3 +118,5 @@ The GTK theme produced using the [Themix GUI designer](https://github.com/themix
 ###  Build System
 Meson Build system and file reorganization:
 * _*Robert Wiley*_
+
+For a little more detail, see also the [CREDITS FILE}(https://github.com/rbtylee/MoonLIght/blob/master/CREDITS).
