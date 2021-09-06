@@ -4,25 +4,21 @@ group { "e/widgets/button";
 	images.image: "button-prelight.png" COMP;
 	images.image: "button-insensitive.png" COMP;
 	parts {
-		part { "button_image";
-			mouse;
+		part { "button_image"; mouse;
 			desc { "default";
 				min: 54 26;
 				image.normal: "button-normal.png";
 				image.border: 10 10 10 10;
 			}
-			desc { state: "clicked" 0.0;
-				inherit;
+			desc { state: "clicked" 0.0; inherit;
 				image.border: 4 4 4 4;
 				image.normal: "button-pressed.png";
 			}
-			desc { state: "over" 0.0;
-				inherit;
+			desc { state: "over" 0.0; inherit;
 				image.border: 4 4 4 4;
 				image.normal: "button-prelight.png";
 			}
-			desc { state: "disabled" 0.0;
-				inherit;
+			desc { state: "disabled" 0.0; inherit;
 				image.border: 4 4 4 4;
 				image.normal: "button-insensitive.png";
 			}
@@ -39,8 +35,7 @@ group { "e/widgets/button";
 				rel2.to: "button_image";
 			}
 			desc {
-				state: "combo" 0.0;
-				inherit;
+				state: "combo" 0.0;	inherit;
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 0.0 0.5;
@@ -52,8 +47,7 @@ group { "e/widgets/button";
 				rel2.to: "button_image";
 			}
 			desc {
-				state: "icon" 0.0;
-				inherit;
+				state: "icon" 0.0; inherit;
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
 				rel1.relative: 0.0 0.0;
@@ -64,8 +58,7 @@ group { "e/widgets/button";
 				rel2.to: "button_image";
 			}
 		}
-		text { "e.text.label"; effect: SHADOW; nomouse;
-			scale;
+		text { "e.text.label"; effect: SHADOW; nomouse; scale;
 			desc { "default";
 				rel1.relative: 1.0  0.0;
 				rel1.offset:	2			3;
@@ -83,18 +76,15 @@ group { "e/widgets/button";
 				text.ellipsis: -1;
 				text.text_class: "button";
 			}
-			desc { state: "icon" 0.0;
-				inherit;
+			desc { state: "icon" 0.0; inherit;
 				hid;
 			}
-			desc { state: "combo" 0.0;
-				inherit;
+			desc { state: "combo" 0.0; inherit;
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 2 5;
 				rel1.to_x: "e.swallow.icon";
 			 }
-			desc { state: "disabled" 0.0;
-				inherit;
+			desc { state: "disabled" 0.0; inherit;
 				color: 201 181 156 255;
 				color3: 247 237 214 255;
 				color_class: "button_text_disabled";
@@ -105,8 +95,7 @@ group { "e/widgets/button";
 				color: 0 0 0 0;
 				hid;
 			}
-			desc { state: "disabled" 0.0;
-				inherit;
+			desc { state: "disabled" 0.0; inherit;
 				vis;
 			}
 		}
