@@ -8,16 +8,14 @@ styles {
 	}
 }
 group { "e/widgets/about/main";
-	images {
-		image: "about_bg.png" COMP;
-		image: "about_plants_middle.png" COMP;
-		image: "about_plants_top.png" COMP;
-		image: "about_plants_under.png" COMP;
-		image: "button-normal.png" COMP;
-		image: "button-pressed.png" COMP;
-		image: "entry.png" COMP;
-		image: "logo2.png" COMP;
-	}
+	images.image: "about_bg.png" COMP;
+	images.image: "about_plants_middle.png" COMP;
+	images.image: "about_plants_top.png" COMP;
+	images.image: "about_plants_under.png" COMP;
+	images.image: "button-normal.png" COMP;
+	images.image: "button-pressed.png" COMP;
+	images.image: "entry.png" COMP;
+	images.image: "logo2.png" COMP;
 	parts {
 		part { "background";
 			desc { "default";
