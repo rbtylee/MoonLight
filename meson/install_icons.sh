@@ -40,6 +40,7 @@ else
     XDG_DATA_HOME="$HOME/.local/share"
   fi
   icon_dst="$XDG_DATA_HOME/icons"
+  mkdir -p "$icon_dst"
 fi
 cp -r "$icon_src" "$icon_dst/$1"
 

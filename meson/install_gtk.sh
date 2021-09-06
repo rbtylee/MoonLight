@@ -36,6 +36,7 @@ else
     exit 1
   fi
   gtk_dst="$HOME/.themes"
+  mkdir -p "$gtk_dst"
 fi
 cp -r "$gtk_src" "$gtk_dst/$1"
 
