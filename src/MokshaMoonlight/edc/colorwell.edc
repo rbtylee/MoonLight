@@ -1,48 +1,36 @@
-group { name: "e/widgets/color_well";
-	alias:  "e/widgets/gradpreview";
+group { "e/widgets/color_well";
+	alias: "e/widgets/gradpreview";
 	images.image: "inset_sunk.png" COMP;
 	parts {
-		part { name:  "content_clip";
-			type:  RECT;
-			mouse_events:  0;
-			description { state:			"default" 0.0;
-				rel1.to:  "e.swallow.content";
-				rel2.to:  "e.swallow.content";
+		rect { "content_clip"; nomouse;
+			desc {"default"
+				rel1.to: "e.swallow.content";
+				rel2.to: "e.swallow.content";
 				color: 255 255 255 255;
 			}
-			description { state:			"disabled" 0.0;
-				inherit:  "default" 0.0;
+			desc { state: "disabled" 0.0; inherit;
 				color: 255 255 255 0;
 			}
 		}
-		part { name:  "e.swallow.content";
-			type:  SWALLOW;
-			clip_to:  "content_clip";
-			description { state:			"default" 0.0;
-				rel1.offset:	4  4;
-				rel2.offset:	-5  -5;
+		swallow { "e.swallow.content"; clip : "content_clip";
+			desc {"default"
+				rel1.offset:  4  4;
+				rel2.offset: -5  -5;
 			}
 		}
-		part { name:					"border";
-			mouse_events:  1;
-			description { state:			"default" 0.0;
-				rel1 {
-					to:  "e.swallow.content";
-					offset: -1 -1;
-				}
-				rel2 {
-					to:  "e.swallow.content";
-					offset: 0 0;
-				}
-				image {
-					normal: "inset_sunk.png";
-					border: 7 7 7 7;
-					middle: 0;
-				}
+		part { "border"; mouse;
+			desc {"default"
+				rel1.to: "e.swallow.content";
+				rel1.offset: -1 -1;
+				rel2.to: "e.swallow.content";
+				rel2.offset: 0 0;
+				image.normal: "inset_sunk.png";
+				image.border: 7 7 7 7;
+				image.middle: 0;
 				fill.smooth : 0;
 			}
 		}
-		 }
+	}
 	programs {
 		program { name: "send_click";
 			signal: "mouse,clicked,1";
