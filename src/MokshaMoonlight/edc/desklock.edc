@@ -91,11 +91,13 @@ group { "e/desklock/login_box";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 0 0;
 				rel2.to: "passwd_entry_clip";
-				color: 0 0 0 255; text.font: "Sans:style=Bold";
+				color: 0 0 0 255; 
+				text.font: "Sans:style=Bold";
 				text.size: 16;
 				text.align: 0.0 0.5;
 				text.min: 1 1;
 				text.text_class: "desklock_passwd";
+				text.ellipsis: -1;
 			}
 		}
 		rect { "cursor"; nomouse;
