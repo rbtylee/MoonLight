@@ -1,4 +1,4 @@
-group { name: "e/modules/clock/digital";
+group { "e/modules/clock/digital";
 	script {
 		public do_seconds, do_24h, tick_timer, horizontal;
 
@@ -74,96 +74,60 @@ group { name: "e/modules/clock/digital";
 			clock_cb(0);
 		}
 	}
-
 	parts {
-		part { name: "time-area";
-			type: RECT;
-			description { state: "default" 0.0;
-			color: 255 255 255 0;
-			}
-			description { state: "show-date" 0.0;
-				inherit: "default" 0.0;
-				rel2 {
-					relative: 1.0 0.0;
-					to: "e.text.today";
-				}
+		rect { "time-area";
+			desc { "default"; color: 255 255 255 0; }
+			desc { state: "show-date" 0.0; inherit;
+					rel2.relative: 1.0 0.0;
+					rel2.to: "e.text.today";
 			}
 		}
-		part { name: "time";
-			type: TEXT;
-			effect: SHADOW;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "time"; effect: SHADOW; scale;
+			desc { "default";
 				color: 0 0 0 255;
 				color3: 255 255 255 0;
 				rel1.to: "time-area";
 				rel2.to: "time-area";
-				text {
-					text_class: "clock";
-					size: 14;
-					fit: 1 1;
-					size_range: 9 72;
-					text: "--:--";
-					ellipsis: -1;
-					align: 0.5 0.5;
-				}
+				text.text_class: "clock";
+				text.size: 14;
+				text.fit: 1 1;
+				text.size_range: 9 72;
+				text.text: "--:--";
+				text.ellipsis: -1;
+				text.align: 0.5 0.5;
 			}
-			description { state: "horizontal" 0.0;
-				inherit: "default" 0.0;
-				text {
-					fit: 0 1;
-					min: 1 0;
-				}
+			desc { state: "horizontal" 0.0; inherit;
+				text.fit: 0 1;
+				text.min: 1 0;
 			}
-			description { state: "vertical" 0.0;
-				inherit: "default" 0.0;
-				text {
-					fit: 1 0;
-					min: 0 1;
-				}
+			desc { state: "vertical" 0.0; inherit;
+				text.fit: 1 0;
+				text.min: 0 1;
 			}
 		}
-		part { name: "e.text.today";
-			type: TEXT;
-			effect: SHADOW;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "e.text.today"; effect: SHADOW; scale;
+			desc { "default";
 				color: 0 0 0 255;
 				color3: 255 255 255 30;
 				align: 0.5 1.0;
-				min: 0 8;
-				max: 9999 30;
-				rel1 {
-					relative: 0.0 0.9;
-				}
-				rel2 {
-					relative: 1.0 1.0;
-					offset: -1 -1;
-				}
-				text {
-					text_class: "clock";
-					size: 11;
-					fit: 0 1;
-					min: 1 0;
-					size_range: 8 12;
-					align: 0.5 1.0;
-					ellipsis: -1;
-					text: "Tod, 12/30/2011";
-				}
-				visible: 0;
+				min: 0 8; max: 9999 30;
+				rel1.relative: 0.0 0.9;
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -1 -1;
+				text.text_class: "clock";
+				text.size: 11;
+				text.fit: 0 1;
+				text.min: 1 0;
+				text.size_range: 8 12;
+				text.align: 0.5 1.0;
+				text.ellipsis: -1;
+				text.text: "Tod, 12/30/2011";
+				hid;
 			}
-			description { state: "show-date" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { state: "show-date" 0.0; inherit; vis; }
 		}
-
-		part { name: "event";
-			type: RECT;
-			mouse_events: 1;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
+		rect { "event"; mouse;
+			desc { "default"; color: 0 0 0 0; }
 		}
 	}
 
@@ -193,8 +157,7 @@ group { name: "e/modules/clock/digital";
 				restart_clock();
 			}
 		}
-
-		program { name: "secon";
+		program { name:"secon";
 			signal: "e,state,seconds,on";
 			source: "e";
 			script {
@@ -253,27 +216,21 @@ group { name: "e/modules/clock/digital";
 	}
 }
 
-group { name: "e/modules/clock/calendar/dayname";
+group { "e/modules/clock/calendar/dayname";
 	parts {
-		part { name: "e.text.label"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "e.text.label"; nomouse; effect: SHADOW BOTTOM; scale;
+			desc { "default";
 				color: 0 0 0 255;
 				color3: 255 255 255 0;
-									rel1.offset: 13 3;
-					rel2.offset: -13 -3;
-				text { font: "Sans"; size: 10;
-					min: 1 1;
-					align: 0.5 0.5;
-					ellipsis: -1;
-					text_class: "module_small";
-				}
+				rel1.offset: 13 3;
+				rel2.offset: -13 -3;
+				text.font: "Sans"; text.size: 10;
+				text.min: 1 1;
+				text.align: 0.5 0.5;
+				text.ellipsis: -1;
+				text.text_class: "module_small";
 			}
-			description { state: "weekend" 0.0;
-				inherit: "default" 0.0;
-				text.font: "Sans:style=Bold";
-			}
+			desc { state: "weekend" 0.0; inherit; text.font: "Sans:style=Bold"; }
 		}
 	}
 	programs {
@@ -290,13 +247,13 @@ group { name: "e/modules/clock/calendar/dayname";
 	}
 }
 
-group { name: "e/modules/clock/calendar/day";
+group { "e/modules/clock/calendar/day";
 	images.image: "radio_base.png" COMP;
 	script {
 		public day_state = 0;
 		evalstate() {
 			new vv = get_int(day_state);
-			
+
 			if (vv & 2)
 				{
 					//set_state(PART:"e.text.label", "today", 0.0);
@@ -320,15 +277,11 @@ group { name: "e/modules/clock/calendar/day";
 		}
 	}
 	parts {
-		part { name: "clip"; type: RECT;
-				mouse_events: 0;
-				description { state: "default" 0.0;
-					color: 255 255 255 255;
-				}
-			}
-		part { name: "rect"; type: IMAGE; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		rect { "clip"; nomouse;
+				desc { "default"; color: 255 255 255 255; }
+    }
+		image { "rect"; nomouse; scale;
+			desc { "default";
 				rel1.offset: -3 -3;
 				rel1.to: "e.text.label";
 				rel2.offset: 2 1;
@@ -336,59 +289,43 @@ group { name: "e/modules/clock/calendar/day";
 				color: 255 255 255 255;
 				image.normal: "radio_base.png";
 				image.border: 8 8 8 8;
-				visible: 0;
+				hid;
 			}
-			description { state: "today" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { state: "today" 0.0; inherit; vis; }
 		}
-		part { name: "day"; type: RECT;
-				 mouse_events: 1;
-				 description { state: "default" 0.0;
-					color: 0 0 0 0;
-				 }
-				}
+		rect { "day"; mouse;
+				 desc { "default"; color: 0 0 0 0; }
+		}
 		program { name: "prev_clicked";
 				signal: "mouse,clicked,1*"; source: "day";
 				action: SIGNAL_EMIT "e,action,date,get" "";
 		}
-		part { name: "e.text.label"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			clip_to: "clip";
-			description { state: "default" 0.0;
-			// rel1.offset: 2 2;
-			//      rel2.offset: -3 -3;
+		text { "e.text.label"; nomouse; effect: SHADOW BOTTOM; scale;
+			clip: "clip";
+			desc { "default";
+				// rel1.offset: 2 2;
+				//  rel2.offset: -3 -3;
 				color: 0 0 0 255;
 				color3: 0 0 0 0;
-				text { font: "Sans"; size: 10;
-					min: 1 1;
-					ellipsis: -1;
-					align: 0.5 0.5;
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 1 1;
+				text.ellipsis: -1;
+				text.align: 0.5 0.5;
 			}
-			description { state: "today" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "today" 0.0; inherit; vis; }
+			desc { state: "weekend" 0.0; inherit;
+				text.font: "Sans:style=Bold";
 			}
-			description { state: "weekend" 0.0;
-				inherit: "default" 0.0;
-			text.font: "Sans:style=Bold";
-			}
-			description { state: "hidden" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "hidden" 0.0; inherit;
 				color: 100 100 100 255;
 				color3: 255 255 255 0;
 			}
-			description { state: "weeknumb" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "weeknumb" 0.0; inherit;
 				text.size: 7;
 				text.align: 0.8 0.2;
 				color_class: "calendar_weekend";
-			}  
+			}
 		}
-		
 	}
 	programs {
 		program {
@@ -407,7 +344,6 @@ group { name: "e/modules/clock/calendar/day";
 				evalstate();
 			}
 		}
-		
 		program {
 			signal: "e,state,today"; source: "e";
 			script {
@@ -424,7 +360,6 @@ group { name: "e/modules/clock/calendar/day";
 				evalstate();
 			}
 		}
-		
 		program {
 			signal: "e,state,hidden"; source: "e";
 			script {
@@ -445,23 +380,19 @@ group { name: "e/modules/clock/calendar/day";
 			signal: "e,state,week"; source: "e";
 			action: STATE_SET "weeknumb" 0.0;
 			target: "e.text.label";
-		}  
+		}
 	}
 }
 
-group { name: "e/modules/clock/calendar";
+group { "e/modules/clock/calendar";
 	images.image: "menu_arrow_l_normal.png" COMP;
 	images.image: "menu_arrow_normal.png" COMP;
 	images.image: "menu_arrow_l_sel.png" COMP;
 	images.image: "menu_arrow_sel.png" COMP;
-	//~ images.image: "img/scoll_bg.png" COMP;
 	images.image: "inset_sunk.png" COMP;
 	parts {
-		part { name: "e.text.month"; type: TEXT;
-			//effect: SHADOW BOTTOM;
-			mouse_events: 1;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "e.text.month"; mouse; scale;
+			desc { "default";
 				fixed: 0 1;
 				align: 0.0 0.0;
 				rel1.to_x: "prev";
@@ -470,18 +401,15 @@ group { name: "e/modules/clock/calendar";
 				rel2.relative: 1.0 0.0;
 				color: 0 0 0 255;
 				//color3: 0 0 0 128;
-				text { font: "Sans:style=Bold"; size: 12;
-					align: 0.0 0.5;
-					min: 0 1;
-					ellipsis: -1;
-					text_class: "module_normal";
-				}
+				text.font: "Sans:style=Bold"; text.size: 12;
+				text.align: 0.0 0.5;
+				text.min: 0 1;
+				text.ellipsis: -1;
+				text.text_class: "module_normal";
 			}
 		}
-		part { name: "e.text.year"; type: TEXT; mouse_events: 0;
-			//effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "e.text.year"; nomouse; scale;
+			desc { "default";
 				fixed: 0 1;
 				align: 1.0 0.0;
 				rel1.relative: 0.0 0.0;
@@ -489,33 +417,30 @@ group { name: "e/modules/clock/calendar";
 				rel2.relative: 0.0 0.0;
 				color: 0 0 0 255;
 				//color3: 0 0 0 128;
-				text { font: "Sans:style=Bold"; size: 12;
-					align: 1.0 0.5;
-					min: 0 1;
-					ellipsis: -1;
-					text_class: "module_normal";
-				}
+				text.font: "Sans:style=Bold"; text.size: 12;
+				text.align: 1.0 0.5;
+				text.min: 0 1;
+				text.ellipsis: -1;
+				text.text_class: "module_normal";
 			}
 		}
-		part { name: "previm"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "previm"; nomouse;
+			desc { "default";
 				min: 9 12;
 				max: 9 12;
 				rel1.to: "prev";
 				rel2.to: "prev";
 				image.normal: "menu_arrow_l_normal.png";
 			}
-			description { state: "pressed" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "pressed" 0.0; inherit;
 				image.normal: "menu_arrow_l_sel.png";
 			}
-			description { state: "over" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "over" 0.0; inherit;
 				image.normal: "menu_arrow_l_sel.png";
 			}
 		}
-		part { name: "prev"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "prev";
+			desc { "default";
 				align: 0.0 0.5;
 				color: 0 0 0 0;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
@@ -539,27 +464,23 @@ group { name: "e/modules/clock/calendar";
 				signal: "mouse,clicked,1*"; source: "prev";
 				action: SIGNAL_EMIT "e,action,prev" "";
 			}
-
 		}
-		part { name: "nextim"; mouse_events: 0;
-			description { state: "default" 0.0;
-				min: 9 12;
-				max: 9 12;
+		part { "nextim"; nomouse;
+			desc { "default";
+				min: 9 12; max: 9 12;
 				rel1.to: "next";
 				rel2.to: "next";
 				image.normal: "menu_arrow_normal.png";
 			}
-			description { state: "pressed" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "pressed" 0.0; inherit;
 				image.normal: "menu_arrow_sel.png";
 			}
-			description { state: "over" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "over" 0.0; inherit;
 				image.normal: "menu_arrow_sel.png";
 			}
 		}
-		part { name: "next"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "next";
+			desc { "default";
 				align: 1.0 0.5;
 				color: 0 0 0 0;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
@@ -583,50 +504,45 @@ group { name: "e/modules/clock/calendar";
 				signal: "mouse,clicked,1"; source: "next";
 				action: SIGNAL_EMIT "e,action,next" "";
 			}
-
 		}
-		//part { name: "sel";
-		//   description { state: "default" 0.0;
+		//part { "sel";
+		//   desc { "default";
 		//      image.normal: "img/separator_horiz.png";
 		//      rel1.relative: 0.0 1.0;
 		//      rel1.offset: 0 0;
-		//     rel1.to: "e.table.daynames";
+		//      rel1.to: "e.table.daynames";
 		//      rel2.offset: -1 1;
 		//      rel2.to: "e.table.daynames";
 		//      min: 0 2;
 		//      fill.smooth: 0;
 		//   }
 		//}
-		part {
-			name: "inset";
-			type: RECT;
-			description {
-			state: "default" 0.0;
-			rel1.to: "e.table.daynames";
-			rel1.relative: 0.0 0.0;
+		rect { "inset";
+			desc {"default";
+				rel1.to: "e.table.daynames";
+				rel1.relative: 0.0 0.0;
 				rel1.offset: -2 -2;
 				rel2.to_y: "e.table.days";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -3 -2;
-			color: 248 242 230 255;
+				color: 248 242 230 255;
 			}
 		}
-		part { name: "e.table.daynames"; type: TABLE;
-			description { state: "default" 0.0;
+		table { "e.table.daynames";
+			desc { "default";
 				fixed: 0 1;
 				align: 0.5 0.0;
 				rel1.to_y: "e.text.month";
-			rel1.relative: 0.0 1.0;
+				rel1.relative: 0.0 1.0;
 				rel1.offset: 2 4;
 				rel2.to_y: "e.text.month";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -11 0;
 				step: 7 1;
-				table { homogeneous: TABLE;
-					padding: 9 1;
-					align: 0.5 0.5;
-					min: 1 1;
-				}
+				table.homogeneous: TABLE;
+				table.padding: 9 1;
+				table.align: 0.5 0.5;
+				table.min: 1 1;
 			}
 			table {
 				items {
@@ -639,22 +555,21 @@ item { \
 	align: -1.0 -1.0; \
 }
 					D(0) D(1) D(2) D(3) D(4) D(5) D(6) D(7)
-#undef D                 
+#undef D
 				}
 			}
 		}
-		part { name: "e.table.days"; type: TABLE;
-			description { state: "default" 0.0;
+		table { "e.table.days";
+			desc { "default";
 				rel1.to_y: "e.table.daynames";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 4 -3;
 				rel2.offset: -11 0;
 				step: 7 5;
-				table { homogeneous: TABLE;
-					padding: 7 1;
-					align: 0.5 0.5;
-					min: 1 1;
-				}
+				table.homogeneous: TABLE;
+				table.padding: 7 1;
+				table.align: 0.5 0.5;
+				table.min: 1 1;
 			}
 			table {
 				items {
@@ -679,15 +594,15 @@ item { \
 		part {
 			name: "overlay";
 			type: IMAGE;
-		 mouse_events: 0;
-			description {
-				state: "default" 0.0;
+			nomouse;
+			desc {
+				"default";
 				rel1.to: "inset";
 				rel1.offset: -1 -1;
 				rel2.to: "inset";
 				rel2.offset: 2 0;
 				image.normal: "inset_sunk.png";
-								image.border: 10 10 10 10;
+				image.border: 10 10 10 10;
 			}
 		}
 	}
