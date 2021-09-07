@@ -8,3 +8,7 @@ remove code for modules we lack
 Any unused Images?
 Should module edc code by separate from e_widget code?
 update image in readme
+Modernize all edc code to make easier to read and edit and smaller file size.
+  see https://www.enlightenment.org/_legacy_embed/edcref.html
+  look over section on LazEDC closely
+  
