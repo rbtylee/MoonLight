@@ -1,7 +1,7 @@
-group { name: "moksha/preview";
+group { "moksha/preview";
 	images.image: "preview.png" COMP;
 	parts {
-		part { name: "bg";
+		part { "bg";
 				desc { "default";
 					image.normal: "preview.png";
 					image.scale_hint: STATIC;
