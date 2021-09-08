@@ -1,55 +1,38 @@
-group { name: "e/widgets/frame";
-	images {
-		image: "frame.png" COMP;
-	}
+group { "e/widgets/frame";
+	images.image: "frame.png" COMP;
 	parts {
-		part { name: "base";
-			nomouse;
+		part { "base"; nomouse;
 			desc { "default";
 				rel1.offset: 1 1;
 				rel2.offset: -2 -2;
-				image {
-					normal: "frame.png";
-					border: 8 8 8 8;
-				}
+				image.normal: "frame.png";
+				image.border: 8 8 8 8;
 				fill.smooth : 0;
 			}
 		}
-		part { name: "e.swallow.content";
-			type: SWALLOW;
+		swallow { "e.swallow.content";
 			desc { "default";
-				rel1 {
-					to_y: "e.text.label";
-					relative: 0.0 1.0;
-					offset: 8 2;
-				}
+				rel1.to_y: "e.text.label";
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 8 2;
 				rel2.offset: -9 -9;
 			}
 		}
-		part { name: "e.text.label";
-			type: TEXT;
-			mouse_events:	0;
-			scale;
+		text { "e.text.label"; nomouse; scale;
 			desc { "default";
 				align: 0.0 0.0;
 				fixed: 0 1;
-				rel1 {
-					relative: 0.0 0.0;
-					offset: 6 6;
-				}
-				rel2 {
-					relative: 1.0 0.0;
-					offset: -7 6;
-				}
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 6 6;
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -7 6;
 				color: 0 0 0 128;
-				text {
-					font: "Sans:style=Bold";
-					size: 10;
-					min: 1 1;
-					max: 1 1;
-					align: 0.0 0.0;
-					text_class: "frame";
-				}
+				text.font: "Sans:style=Bold";
+				text.size: 10;
+				text.min: 1 1;
+				text.max: 1 1;
+				text.align: 0.0 0.0;
+				text.text_class: "frame";
 			}
 		}
 	}
