@@ -19,7 +19,7 @@ set {															\
 			}													\
 		}
 
-group { name: "e/modules/mixer/main";
+group { "e/modules/mixer/main";
 	images {
 		SOUND_IMG("high")
 		SOUND_IMG("zero")
@@ -53,47 +53,37 @@ group { name: "e/modules/mixer/main";
 		}
 	}
 	parts {
-		part { name: "eventarea";
-			type: RECT;
-			mouse_events: 1;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
+		rect { "eventarea"; mouse;
+			desc { "default"; color: 0 0 0 0; }
 		}
 		CLIP_SWITCH("mixer","audio","audio","default","muted")
-		part { name: "audio_disable";
-			clip_to: "mixer_clip_default";
-			description { state: "default" 0.0;
+		part { "audio_disable";
+			clip: "mixer_clip_default";
+			desc { "default";
 				min: 16 16; max: 256 256;
-				aspect: 1 1; aspect_preference: BOTH;
+				aspect: 1 1;
+				aspect_preference: BOTH;
 				image.normal: "audio-volume-muted";
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 			}
 		}
-		part { name: "audio";
-			clip_to: "mixer_clip_muted";
-			type: IMAGE;
-			mouse_events: 0;
-			description { state: "default" 0.0;
-				min: 16 16;
-				max: 256 256;
+		image { "audio"; clip: "mixer_clip_muted"; nomouse;
+			desc { "default";
+				min: 16 16; max: 256 256;
 				aspect: 1 1;
 				aspect_preference: BOTH;
 				image.normal: "audio-volume-zero";
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 			}
-			description { state: "low" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "low" 0.0; inherit;
 				image.normal: "audio-volume-low";
 			}
-			description { state: "medium" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "medium" 0.0; inherit;
 				image.normal: "audio-volume-medium";
 			}
-			description { state: "high" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "high" 0.0; inherit;
 				image.normal: "audio-volume-high";
 			}
 		}
