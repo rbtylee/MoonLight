@@ -1,19 +1,15 @@
-group { name: "e/gadman/popup";
+group { "e/gadman/popup";
 	images.image: "dia_bg.png" COMP;
 	parts {
-		part { name: "base";
-			nomouse;
+		part { "base"; nomouse;
 			desc { "default";
-			color_class: "dialog_base";
-				image {
-					normal: "dia_bg.png";
-					border: 15 15 2 2;
-				}
+				color_class: "dialog_base";
+				image.normal: "dia_bg.png";
+				image.border: 15 15 2 2;
 				fill.smooth: 0;
 			}
 		}
-		part { name: "e.swallow.content";
-			type: SWALLOW;
+		swallow { "e.swallow.content";
 			desc { "default";
 				rel1.offset: 3 3;
 				rel2.offset: -4 -4;
@@ -21,4 +17,3 @@ group { name: "e/gadman/popup";
 		}
 	}
 }
-
