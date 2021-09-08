@@ -1,22 +1,17 @@
-group { name: "e/widgets/fontpreview";
+group { "e/widgets/fontpreview";
 	parts {
-		part { name: "e.fontpreview.text";
-			type: TEXT;
-			nomouse;
-			scale;
+		text { "e.fontpreview.text"; nomouse; scale;
 			desc { "default";
 				color: 0 0 0 255;
 				color_class: "entry_text";
 				rel1.offset: 6 6;
 				rel2.offset: -7 -7;
-				text {
-					text: "The quick brown fox jumped over YA MUM!";
-					font: "Sans";
-					size: 10;
-					min: 1 1;
-					align: 0.5 0.5;
-					text_class: "_e_font_preview";
-				}
+				text.text: "The quick brown fox jumped over the lazy dog.";
+				text.font: "Sans";
+				text.size: 10;
+				text.min: 1 1;
+				text.align: 0.5 0.5;
+				text.text_class: "_e_font_preview";
 			}
 		}
 	}
