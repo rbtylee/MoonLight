@@ -3,8 +3,8 @@ group { name: "e/widgets/label";
 		part { name: "e.text.label";
 			type: TEXT;
 			mouse_events:	0;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { "default";
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 				color: 0 0 0 255;
@@ -17,8 +17,8 @@ group { name: "e/widgets/label";
 					text_class: "label";
 				}
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "disabled" 0.0;
+				inherit;
 				color: 0 0 0 128;
 				color_class: "label_text_disabled";
 			}

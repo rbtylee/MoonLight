@@ -2,7 +2,7 @@ group { name: "moksha/preview";
 	images.image: "preview.png" COMP;
 	parts {
 		part { name: "bg";
-				description { state: "default" 0.0;
+				desc { "default";
 					image.normal: "preview.png";
 					image.scale_hint: STATIC;
 					fill.smooth: 0;
