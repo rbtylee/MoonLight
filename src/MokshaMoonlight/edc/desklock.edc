@@ -49,18 +49,18 @@ group { "e/desklock/login_box";
 				color: 255 255 255 255;
 			}
 			desc { state: "invalid" 0.0; inherit;
-				color: 255 128 128 255;	
+				color: 255 128 128 255;
 			}
 		}
 		rect { "passwd_entry_clip"; nomouse; clip: "pulse_clip";
 			desc { "default";
 				color: 255 255 255 255;
-				rel1.to: "passwd_border"; 
+				rel1.to: "passwd_border";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 3 2;
-				rel2.to: "passwd_border"; 
+				rel2.to: "passwd_border";
 				rel2.relative: 1.0 1.0;
-				rel2.offset: -6 -2; 
+				rel2.offset: -6 -2;
 			}
 		}
 		part { "passwd_border"; nomouse; clip: "error_clip";
@@ -91,7 +91,7 @@ group { "e/desklock/login_box";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 0 0;
 				rel2.to: "passwd_entry_clip";
-				color: 0 0 0 255; 
+				color: 0 0 0 255;
 				text.font: "Sans:style=Bold";
 				text.size: 16;
 				text.align: 0.0 0.5;
