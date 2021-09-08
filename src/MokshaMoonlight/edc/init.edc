@@ -1,32 +1,24 @@
-/*** INIT SPLASH ***/
-/* this first group is used for the primary screen (or only screen) so in
-		* a multi-monitor setup whichever is first (screen 0) will get this
-		* splash on it */
-group {
-	name: "e/init/splash";
-	/* images used */
-	images {
-		image: "wp_bg.png" COMP;
-		image: "wp_moon.png" COMP;
-		image: "wp_plants_under.png" COMP;
-		image: "wp_plants_middle.png" COMP;
-		image: "wp_plants_top.png" COMP;
-		image: "init_check1.png" COMP;
-		image: "init_check2.png" COMP;
-	}
+group { "e/init/splash";
+	images.image: "wp_bg.png" COMP;
+	images.image: "wp_moon.png" COMP;
+	images.image: "wp_plants_under.png" COMP;
+	images.image: "wp_plants_middle.png" COMP;
+	images.image: "wp_plants_top.png" COMP;
+	images.image: "init_check1.png" COMP;
+	images.image: "init_check2.png" COMP;
+
 	script {
 		public is_ready;
 		public do_end;
 	}
+
 	parts {
-		/* splash is fullscreen so we want a background of some sort. we have
-	* taken the default desktop wallpaper here as it should look nice */
-		part { name: "background";
+		part { "background";
 			desc { "default";
 				image.normal: "wp_bg.png";
 			}
 		}
-		part { name: "background_moon";
+		part { "background_moon";
 			desc { "default";
 				aspect: 1 1;
 				aspect_preference: HORIZONTAL;
@@ -37,203 +29,128 @@ group {
 				rel2.relative: 0.45 0.60;
 				color: 255 255 255 0;
 			}
-			desc { state: "done" 0.0;
-				inherit;
+			desc { state: "done" 0.0; inherit;
 				color: 255 255 255 255;
 			}
 		}
-		part { name: "background_plants_bottom";
+		part { "background_plants_bottom";
 			desc { "default";
 				image.normal: "wp_plants_under.png";
 				rel1.to: "background";
 				rel2.to: "background";
 			}
 		}
-		part { name: "background_plants_mid";
+		part { "background_plants_mid";
 			desc { "default";
 				image.normal: "wp_plants_middle.png";
 				rel1.to: "background";
 				rel2.to: "background";
 			}
 		}
-		part { name: "background_plants_top";
+		part { "background_plants_top";
 			desc { "default";
 				image.normal: "wp_plants_top.png";
 				rel1.to: "background";
 				rel2.to: "background";
 			}
 		}
-		part { name: "background_bottom";
-			type: RECT;
+		rect { "background_bottom";
 			desc { "default";
 				rel1.to: "background";
 				rel1.relative: 0.0 0.42;
 				color: 255 255 255 0;
 			}
 		}
-		part {
-			name: "e.text.version";
-			type: TEXT;
-			effect: SOFT_SHADOW;
-			desc {
-				"default";
+		text { "e.text.version"; effect: SOFT_SHADOW;
+			desc { "default";
 				align: 1.0 1.0;
-				rel1 {
-					relative: 1.0 1.0;
-					offset:	-2  -2;
-				}
-				rel2 {
-					relative: 1.0 1.0;
-					offset:	-2  -2;
-				}
+				rel1.relative: 1.0 1.0;
+				rel1.offset: -2  -2;
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -2  -2;
 				color: 255 255 255 255;
 				color3: 0 0 0 32;
-				text {
-					text: "0.17.0";
-					font: "Sans";
-					size: 8;
-					min:  1 1;
-					align: 0.0 0.0;
-					text_class: "init_version";
-				}
+				text.font: "Sans"; text.size: 8;
+				text.text: "0.17.0";
+				text.min: 1 1;
+				text.align: 0.0 0.0;
+				text.text_class: "init_version";
 			}
 		}
-		part {
-			name: "e.text.status";
-			type: TEXT;
-			effect: SOFT_SHADOW;
-			nomouse;
-			desc {
-				"default";
+		text { "e.text.status"; effect: SOFT_SHADOW; nomouse;
+			desc { "default";
 				align: 0.5 0.0;
-				rel1 {
-					to: "background_bottom";
-				}
-				rel2 {
-					to: "background_bottom";
-				}
+				rel1.to: "background_bottom";
+				rel2.to: "background_bottom";
 				color: 255 255 255 255;
 				color3: 0 0 0 32;
-				text {
-					text: "Starting Enlightenment. Please wait.";
-					font: "Sans:style=Bold";
-					size: 10;
-					min:  1 1;
-					align: 0.5 0.5;
-					text_class: "init_text";
-				}
+				text.text: "Starting Enlightenment. Please wait.";
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.min: 1 1;
+				text.align: 0.5 0.5;
+				text.text_class: "init_text";
 			}
 		}
-		part {
-			name: "e.text.disable_text";
-			type: TEXT;
-			effect: SOFT_SHADOW;
-			nomouse;
-			desc {
-				"default";
+		text { "e.text.disable_text"; effect: SOFT_SHADOW; nomouse;
+			desc { "default";
 				align: 0.0 0.0;
-				rel1 {
-					relative: 0.0 0.0;
-					offset:	8	8;
-				}
-				rel2 {
-					relative: 0.0 0.0;
-					offset:	8	8;
-				}
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 8 8;
+				rel2.relative: 0.0 0.0;
+				rel2.offset: 8 8;
 				color: 255 255 255 255;
 				color3: 0 0 0 32;
-				text {
-					text: "Disable this splash screen in future.";
-					font: "Sans";
-					size: 10;
-					min:	1 1;
-					align: 0.0 0.0;
-					text_class: "init_text";
-				}
+				text.text: "Disable this splash screen in future.";
+				text.font: "Sans"; text.size: 10;
+				text.min: 1 1;
+				text.align: 0.0 0.0;
+				text.text_class: "init_text";
 			}
 		}
-		part {
-			name: "disable_check";
-			nomouse;
-			desc {
-				"default";
-				min: 20 20;
-				max: 20 20;
+		part { "disable_check"; nomouse;
+			desc { "default";
+				min: 20 20; max: 20 20;
 				align: 0.0 0.5;
-				rel1 {
-					relative: 1.0 0.0;
-					offset:	0 0;
-					to: "e.text.disable_text";
-				}
-				rel2 {
-					relative: 1.0 1.0;
-					offset:	0  -1;
-					to: "e.text.disable_text";
-				}
-				image {
-					normal: "init_check1.png";
-				}
+				rel1.relative: 1.0 0.0;
+				rel1.offset: 0 0;
+				rel1.to: "e.text.disable_text";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: 0  -1;
+				rel2.to: "e.text.disable_text";
+				image.normal: "init_check1.png";
 			}
-			desc {
-				state: "active" 0.0;
-				inherit;
-				image {
-					normal: "init_check2.png";
-				}
+			desc { state: "active" 0.0; inherit;
+				image.normal: "init_check2.png";
 			}
 		}
-		part {
-			name: "enable_event";
-			type: RECT;
-			desc {
-				"default";
-				hid;
+		rect { "enable_event";
+			desc { "default"; hid;
 				color: 0 0 0 0;
-				rel1 {
-					to: "e.text.disable_text";
-					relative: 0.0 0.0;
-					offset:	-5 -5;
-				}
-				rel2 {
-					to: "disable_check";
-					relative: 1.0 1.0;
-					offset:	4 4;
-				}
+				rel1.to: "e.text.disable_text";
+				rel1.relative: 0.0 0.0;
+				rel1.offset: -5 -5;
+				rel2.to: "disable_check";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: 4 4;
 			}
-			desc {
-				state: "active" 0.0;
-				inherit;
-				vis;
-			}
+			desc { state: "active" 0.0; inherit; vis; }
 		}
-		part {
-			name: "disable_event";
-			type: RECT;
-			desc {
-				"default";
-				vis;
+		rect { "disable_event";type: RECT;
+			desc { "default"; vis;
 				color: 0 0 0 0;
-				rel1 {
-					to: "e.text.disable_text";
-					relative: 0.0 0.0;
-					offset:	-5 -5;
-				}
-				rel2 {
-					to: "disable_check";
-					relative: 1.0 1.0;
-					offset:	4 4;
-				}
+				rel1.to: "e.text.disable_text";
+				rel1.relative: 0.0 0.0;
+				rel1.offset: -5 -5;
+				rel2.to: "disable_check";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: 4 4;
 			}
-			desc {
-				state: "active" 0.0;
-				inherit;
-				hid;
-			}
+			desc { state: "active" 0.0; inherit; hid; }
 		}
 	}
+
 	programs {
-		program {
-			name: "init";
+		program { name: "init";
 			signal: "load";
 			source: "";
 			script {
@@ -241,8 +158,7 @@ group {
 				set_int(do_end, 0);
 			}
 		}
-		program {
-			name: "ready";
+		program { name: "ready";
 			script {
 				new val;
 
@@ -253,9 +169,7 @@ group {
 			set_int(is_ready, 1);
 			}
 		}
-		program {
-			name: "done1"; /* when e tells the splash screen it is done
-					* starting up, the init splash gets this signal */
+		program { name: "done1";
 			signal: "e,state,done";
 			source: "e";
 			script {
@@ -268,33 +182,25 @@ group {
 			set_int(do_end, 1);
 			}
 		}
-		program {
-			name: "done2";
+		program { name: "done2";
 			action: STATE_SET "done" 0.0;
 			transition: ACCELERATE 1.0;
 			target: "background_moon";
 			after: "done3";
 		}
-		program {
-			name: "done3"; /* at the end signal back to e we are done shutting
-					* down the splash ans all animations are done */
+		program { name: "done3";
 			action: SIGNAL_EMIT "e,state,done_ok" "e";
 		}
-		/* handle a mouse down (click) event on the disable splash check
-	* event area (covering both label and checkbox) */
-		program {
-			name: "disable_down"; /* name of program */
-			signal: "mouse,down,1"; /* signal that triggers it */
-			source: "disable_event"; /* source of the signal */
-			action: STATE_SET "active" 0.0; /* set state to active */
-			target: "disable_check"; /* these are the thngs to set to active */
+		program { name: "disable_down";
+			signal: "mouse,down,1";
+			source: "disable_event";
+			action: STATE_SET "active" 0.0;
+			target: "disable_check";
 			target: "disable_event";
 			target: "enable_event";
-			after: "disable_on"; /* and after that is done run the disable_on
-							* program to tell e about this */
+			after: "disable_on";
 		}
-		program {
-			name: "enable_down";
+		program { name: "enable_down";
 			signal: "mouse,down,1";
 			source: "enable_event";
 			action: STATE_SET "default" 0.0;
@@ -303,45 +209,37 @@ group {
 			target: "enable_event";
 			after: "disable_off";
 		}
-		/* when a user toggles the checkbox - these programs signal back to
-	* e to enable or disable the splash */
-		program {
-			name: "disable_on";
+		program { name: "disable_on";
 			action: SIGNAL_EMIT "e,action,init,disable" "e";
 		}
-		program {
-			name: "disable_off";
+		program { name: "disable_off";
 			action: SIGNAL_EMIT "e,action,init,enable" "e";
 		}
 	}
 }
-/* this group is used for other screens/xinerama zones etc. other than
-		* the primary as only the primary shows the full splash - this just
-		* shows the below image. it can animate etc. but not display status
-		* etc. */
-group {
-	name: "e/init/extra_screen";
+
+group { "e/init/extra_screen";
 	parts {
-		part { name: "background";
+		part { "background";
 			desc { "default";
 				image.normal: "wp_bg.png";
 			}
 		}
-		part { name: "background_plants_bottom";
+		part { "background_plants_bottom";
 			desc { "default";
 				image.normal: "wp_plants_under.png";
 				rel1.to: "background";
 				rel2.to: "background";
 			}
 		}
-		part { name: "background_plants_mid";
+		part { "background_plants_mid";
 			desc { "default";
 				image.normal: "wp_plants_middle.png";
 				rel1.to: "background";
 				rel2.to: "background";
 			}
 		}
-		part { name: "background_plants_top";
+		part { "background_plants_top";
 			desc { "default";
 				image.normal: "wp_plants_top.png";
 				rel1.to: "background";
