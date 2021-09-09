@@ -1,46 +1,40 @@
 group { name: "e/widgets/configure/main";
-	images {
-		image: "dia_bg.png" COMP;
-		image: "dia_topshad.png" COMP;
-		image: "dia_botshad.png" COMP;
-		image: "menu_sep.png" COMP;
-	}
+	images.image: "dia_bg.png" COMP;
+	images.image: "dia_topshad.png" COMP;
+	images.image: "dia_botshad.png" COMP;
+	images.image: "menu_sep.png" COMP;
 	parts {
-		part { name: "base";
-			mouse_events:  0;
-			description { state: "default" 0.0;
+		part { "base"; nomouse;
+			desc { "default";
 				color_class: "dialog_base";
 				image.normal: "dia_bg.png";
-				image.border: 15 15 1 1; 
+				image.border: 15 15 1 1;
 				fill.smooth: 0;
 			}
 		}
-		part { name: "shadow";
-			mouse_events:  0;
-			description { state: "default" 0.0;
+		part { "shadow"; nomouse;
+			desc { "default";
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -1 31;
 				image.normal: "dia_topshad.png";
 				color_class: "dialog_base";
-				image.border: 15 15 1 1; 
+				image.border: 15 15 1 1;
 				fill.smooth: 0;
 			}
 		}
-		part { name: "shadow2";
-			mouse_events:  0;
-			description { state: "default" 0.0;
+		part { "shadow2"; nomouse;
+			desc { "default";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 -4;
 				image.normal: "dia_botshad.png";
-				image.border: 15 15 1 1; 
+				image.border: 15 15 1 1;
 				fill.smooth: 0;
 				color_class: "dialog_base";
 			}
 		}
-		part { name: "separator"; mouse_events: 0;
-			 description { state: "default" 0.0;
-					min: 16 2;
-					max: 99999 2;
+		part { "separator"; nomouse;
+			 desc { "default";
+					min: 16 2; max: 99999 2;
 					rel1.relative: 0.0 1.0;
 					rel1.offset: 2 4;
 					rel1.to_y: "e.swallow.content";
@@ -52,8 +46,8 @@ group { name: "e/widgets/configure/main";
 					fixed: 0 1;
 			 }
 		}
-		part { name: "e.swallow.content"; type: SWALLOW;
-			 description { state: "default" 0.0;
+		swallow { "e.swallow.content";
+			 desc { "default";
 					rel1.offset: 4 4;
 					rel1.to_x: "base";
 					rel2.relative: 1.0 0.0;
@@ -61,8 +55,8 @@ group { name: "e/widgets/configure/main";
 					rel2.to_y: "e.swallow.button";
 			 }
 		}
-		part { name: "e.swallow.button"; type: SWALLOW;
-			 description { state: "default" 0.0;
+		swallow { "e.swallow.button";
+			 desc { "default";
 					align: 0.5 1.0;
 					rel1.relative: 0.5 1.0;
 					rel1.offset: 0 -5;
@@ -74,40 +68,33 @@ group { name: "e/widgets/configure/main";
 	}
 }
 
-group { name: "e/modules/conf/main";
-
- images.image: "spanner_inset.png" COMP;
- 
- min: 16 16;
- max: 144 144;
- parts {
-	 part { name: "base";
-			 description { state: "default" 0.0;
-					image.normal: "button-normal.png";
-					image.border: 8 8 8 8;
-			 }
-			 description { state: "over" 0.0;
-		 inherit: "default" 0.0;
-					image.normal: "button-prelight.png";
-			 }
-			 description { state: "clicked" 0.0;
-		 inherit: "default" 0.0;			 
-					image.normal: "button-pressed.png";
-			 }
+group { "e/modules/conf/main";
+	images.image: "spanner_inset.png" COMP;
+	min: 16 16; max: 144 144;
+	parts {
+		part { "base";
+			desc { "default";
+				image.normal: "button-normal.png";
+				image.border: 8 8 8 8;
+			}
+			desc { state: "over" 0.0; inherit;
+				image.normal: "button-prelight.png";
+			}
+			desc { state: "clicked" 0.0; inherit;
+				image.normal: "button-pressed.png";
+			}
 		}
-
-	part { name: "icon";
-		description { state: "default" 0.0;
-		image.normal: "spanner_inset.png";
-		max: 144 144;
-		rel1.offset: 2 2;
-		rel1.to: "base";
-		rel2.to: "base";
-					rel2.offset: -3 -3;
+		part { "icon";
+			desc { "default";
+				image.normal: "spanner_inset.png";
+				max: 144 144;
+				rel1.offset: 2 2;
+				rel1.to: "base";
+				rel2.to: "base";
+				rel2.offset: -3 -3;
+			}
 		}
-	}      
-
-		}      
+	}
 
  programs {
 	 OVER_P("base", "icon","default","over")
@@ -125,5 +112,5 @@ group { name: "e/modules/conf/main";
 			 signal: "mouse,clicked,1*"; source: "icon";
 			 action: SIGNAL_EMIT "e,action,conf" "";
 		}
-}
+	}
 }
