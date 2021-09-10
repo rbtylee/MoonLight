@@ -1,124 +1,16 @@
-/*  This file contains the code for the animated and the static background
- *    so users can opt for using more memory for animated background
- *    or keep the static one. */
-
-#define BACKGROUND_LIGHT																	\
-	images.image: "Midnight_light.jpg" COMP;								\
-	data.item: "style" "4";																	\
-	data.item: "noanimation" "1";														\
-	parts {																									\
-		part { "bg"; nomouse;																\
-			desc { "default";																		\
-				image.normal: "Midnight_light.jpg";							\
-				image.scale_hint: STATIC;												\
-			}																										\
-		}																											\
-	}
-
-#define BACKGROUND_ANIMATED																\
-	images.image: "wp_bg.png" COMP;												\
-	images.image: "wp_moon.png" COMP;											\
-	images.image: "wp_plants_under.png" COMP;							\
-	images.image: "wp_plants_middle.png" COMP;							\
-	images.image: "wp_plants_top.png" COMP;								\
-	images.image: "star01.png" COMP;												\
-	images.image: "star02.png" COMP;												\
-	images.image: "star03.png" COMP;												\
-	images.image: "star04.png" COMP;												\
-	images.image: "wp_slogan.png" COMP;										\
-	parts {																									\
-		part { "background";																	\
-			desc { "default";																		\
-				image.normal: "wp_bg.png";												\
-			}																										\
-		}																											\
-		part { "background_moon";															\
-			desc { "default";																		\
-				aspect: 1 1;																			\
-				aspect_preference: HORIZONTAL;										\
-				image.normal: "wp_moon.png";											\
-				rel1.to: "background";														\
-				rel2.to: "background";														\
-				rel1.relative: 0.0 0.0;													\
-				rel2.relative: 0.45 0.60;												\
-			}																										\
-		}																											\
-		#include "stars-parts.edc"														\
-		part { "background_plants_bottom";										\
-			desc { "default";																		\
-				image.normal: "wp_plants_under.png";							\
-				rel1.to: "background";														\
-				rel2.to: "background";														\
-			}																										\
-		}																											\
-		part { "background_plants_mid";												\
-			desc { "default";																		\
-				image.normal: "wp_plants_middle.png";						\
-				rel1.to: "background";														\
-				rel2.to: "background";														\
-			}																										\
-		}																											\
-		part { "background_plants_top";												\
-			desc { "default";																		\
-				image.normal: "wp_plants_top.png";								\
-				rel1.to: "background";														\
-				rel2.to: "background";														\
-			}																										\
-		}																											\
-		part { "background_slogan";														\
-			desc { "default";																		\
-				aspect: 1 1;																			\
-				aspect_preference: NONE;													\
-				image.normal: "wp_slogan.png";										\
-				rel1.to: "background_slogan_events";							\
-				rel2.to: "background_slogan_events";							\
-				color: 255 255 255 0;															\
-			}																										\
-			desc { state: "visible" 0.0; inherit;							\
-				color: 255 255 255 255;														\
-			}																										\
-		}																											\
-		rect { "background_slogan_events"; mouse;						\
-			desc { "default"; vis;															\
-				rel1.to: "background_moon";												\
-				rel2.to: "background_moon";												\
-				rel1.relative: 0.35 0.45;												\
-				rel2.relative: 0.65 0.52;												\
-				color: 255 255 255 0;															\
-			}																										\
-		}																											\
-	}																												\
-	programs {																							\
-		program { name: "init";															\
-			signal: "load";																			\
-			source: "";																					\
-			after: "star_start";																\
-		}																											\
-		#include "star-programs.edc"													\
-		program { "event_slogan_in";													\
-			signal: "mouse,in";																	\
-			source: "background_slogan_events";									\
-			action: STATE_SET "visible" 0.0;										\
-			transition: LINEAR 1.0;														\
-			target: "background_slogan";												\
-		}																											\
-		program { "event_slogan_out";													\
-			signal: "mouse,out";																\
-			source: "background_slogan_events";									\
-			action: STATE_SET "default" 0.0;										\
-			transition: LINEAR 1.0;														\
-			target: "background_slogan";												\
-		}																											\
-}
-
-////////////////////////////////////////////////
-/*** DEFAULT WALLPAPER ***/
-group { "e/desktop/background"; /* the name of the group */
+group { "e/desktop/background";
 	alias: "e/desklock/background";
-
-	/* CHOOSE YOUR BACKGROUND STYLE!! */
-	//BACKGROUND_ANIMATED
-	BACKGROUND_LIGHT
+	images.image: "Midnight_light.jpg" COMP;
+	data.item: "style" "4";
+	data.item: "noanimation" "1";
+	parts {
+		part { "bg"; nomouse;
+			desc { "default";
+				image.normal: "Midnight_light.jpg";
+				image.scale_hint: STATIC;
+			}
+		}
+	}
 }
 
 group { "e/desktop/background/scrollframe";
