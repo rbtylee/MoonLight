@@ -1,30 +1,23 @@
 group { name: "e/widgets/preview";
 	images.image: "inset_sunk.png" COMP;
 	parts {
-		part { name: "clip";
-			type: RECT;
-			mouse_events: 0;
-			description { state: "default" 0.0;
+		rect { name: "clip"; nomouse;
+			desc { "default";
 				rel1.to: "e.swallow.content";
 				rel2.to: "e.swallow.content";
 			}
 		}
-		part { name: "e.swallow.content";
-			clip_to: "clip";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { name: "e.swallow.content"; clip: "clip";
+			desc { "default";
 				rel1.offset: 1 1;
 				rel2.offset: -2 -2;
 			}
 		}
-		part { name:					"border";
-			mouse_events:  0;
-			description { state:			"default" 0.0;
-				image {
-					normal: "inset_sunk.png";
-					border: 7 7 7 7;
-					middle: 0;
-				}
+		part { name: "border"; nomouse;
+			desc { "default";
+				image.normal: "inset_sunk.png";
+				image.border: 7 7 7 7;
+				image.middle: 0;
 				fill.smooth : 0;
 			}
 		}
