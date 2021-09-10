@@ -1,290 +1,200 @@
-group { name: "e/widgets/winlist/main";
-	images {
-		image: "menuitem.png" COMP;
-	}
+group { "e/widgets/winlist/main";
+	images.image: "menuitem.png" COMP;
 	parts {
-		part { name: "base";
-			mouse_events:  0;
-			description { state: "default" 0.0;
-				image {
-					normal: "base_bg.png";
-					border: 2 2 2 2;
-				}
+		part { "base"; nomouse;
+			desc { "default";
+				image.normal: "base_bg.png";
+				image.border: 2 2 2 2;
 				fill.smooth: 0;
 			}
 		}
-		part { name: "title_back";
-			mouse_events:  0;
-			description { state: "default" 0.0;
+		part { "title_back"; nomouse;
+			desc { "default";
 				rel1.offset: 4 0;
 				rel2.offset: -5 -4;
 				rel2.to_y: "e.text.title";
-				image {
-					normal: "menuitem.png";
-					border: 7 7 2 7;
-				}
+				image.normal: "menuitem.png";
+				image.border: 7 7 2 7;
 				fill.smooth: 0;
 			}
 		}
-		part { name: "e.swallow.icon";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "e.swallow.icon";
+			desc { "default"; min: 32 32;
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 0.5 0.0;
-				min: 32 32;
 				fixed: 1 1;
-				rel1 {
-					relative: 0.0 1.0;
-					offset:	1			 6;
-					to_y: "title_back";
-				}
-				rel2 {
-					relative: 1.0 1.0;
-					offset:	-2			6;
-					to_y: "title_back";
-				}
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 1 6;
+				rel1.to_y: "title_back";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -2 6;
+				rel2.to_y: "title_back";
 			}
 		}
-		part { name: "separator";
-			mouse_events: 0;
-			description { state: "default" 0.0;
-				min: 16 2;
-				rel1 {
-					offset: 16 2;
-					relative: 0.0 1.0;
-					to_y: "e.text.label";
-				}
-				rel2 {
-					offset: -17 4;
-					relative: 1.0 1.0;
-					to_y: "e.text.label";
-				}
-				image {
-					normal: "menu_sep.png";
-					border: 2 2 0 0;
-				}
+		part { "separator"; nomouse;
+			desc { "default"; min: 16 2;
+				rel1.offset: 16 2;
+				rel1.relative: 0.0 1.0;
+				rel1.to_y: "e.text.label";
+				rel2.offset: -17 4;
+				rel2.relative: 1.0 1.0;
+				rel2.to_y: "e.text.label";
+				image.normal: "menu_sep.png";
+				image.border: 2 2 0 0;
 				fill.smooth: 0;
 			}
 		}
-		part { name: "e.swallow.list";
-			type: SWALLOW;
-			clip_to: "list_clip";
-			description { state: "default" 0.0;
-				rel1 {
-					relative: 0.0 1.0;
-					offset:  12	12;
-					to_y:  "e.text.label";
-				}
-				rel2.offset:  -13  -12;
+		swallow { "e.swallow.list"; clip: "list_clip";
+			desc { "default";
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 12	12;
+				rel1.to_y: "e.text.label";
+				rel2.offset: -13  -12;
 			}
 		}
-		part { name: "list_clip";
-			type: RECT;
-			description { state: "default" 0.0;
-				color: 255 255 255 255;
+		rect { "list_clip";
+			desc { "default"; color: 255 255 255 255;
 				rel1.to_y: "e.swallow.list";
 				rel2.to_y: "e.swallow.list";
 			}
 		}
-		part { name: "e.text.label";
-			type: TEXT;
-			effect: NONE;
-			mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "e.text.label"; effect: NONE; nomouse; scale;
+			desc { "default";
 				align: 0.5 0.5;
 				fixed: 0 1;
-				rel1 {
-					relative: 0.0 1.0;
-					offset:  16	16;
-					to_y: "e.swallow.icon";
-				}
-				rel2 {
-					relative: 1.0 1.0;
-					offset:	-17 16;
-					to_y: "e.swallow.icon";
-				}
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 16	16;
+				rel1.to_y: "e.swallow.icon";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -17 16;
+				rel2.to_y: "e.swallow.icon";
 				color: 0 0 0 255;
 				color_class: "winlist_label";
-				text {
-					text: "Title goes here";
-					font: "Sans:style=Bold";
-					size: 10;
-					min:  0 1;
-					align: 0.5 0.5;
-					text_class: "winlist_label";
-				}
+				text.text: "Title goes here";
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.min: 0 1;
+				text.align: 0.5 0.5;
+				text.text_class: "winlist_label";
 			}
 		}
-		part { name: "e.text.title";
-			type: TEXT;
-			mouse_events: 0;
-			effect: SOFT_SHADOW;
-			scale: 1;
-			description { state: "default" 0.0;
-				fixed: 1 1;
+		text { "e.text.title"; effect: SOFT_SHADOW; nomouse; scale;
+			desc { "default"; fixed: 1 1;
 				align: 0.5 0.0;
-				rel1 {
-					relative: 0.0 0.0;
-					offset: 0 0;
-				}
-				rel2 {
-					relative: 1.0 0.0;
-					offset: -1 0;
-				}
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 0 0;
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -1 0;
 				color: 224 224 224 255;
 				color3: 0 0 0 64;
-				text {
-					font: "Sans:style=Bold";
-					size: 10;
-					align: 0.5 0.0;
-					min: 1 1;
-				}
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.align: 0.5 0.0;
+				text.min: 1 1;
 			}
 		}
 	}
 }
 
-group {	name: "e/widgets/winlist/item";
-	images {
-		image: "menuitem.png" COMP;
-		image: "pager_window.png" COMP;
-		image: "pager_window_shaded.png" COMP;
-		image: "inv.png" COMP;
-	}
+group {	"e/widgets/winlist/item";
+	images.image: "menuitem.png" COMP;
+	images.image: "pager_window.png" COMP;
+	images.image: "pager_window_shaded.png" COMP;
+	images.image: "inv.png" COMP;
 	parts {
-		part { name: "bg";
-			mouse_events: 0;
-			description { state: "default" 0.0;
-				visible: 0;
-				color: 255 255 255 0;
+		part { "bg"; nomouse;
+			desc { "default"; color: 255 255 255 0; hid;
 				rel1.offset: -5 -3;
 				rel2.offset: 4 5;
-				image {
-					normal: "menuitem.png";
-					border: 8 8 5 9;
-				}
+				image.normal: "menuitem.png";
+				image.border: 8 8 5 9;
 				fill.smooth : 0;
 			}
-			description { state: "selected" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "selected" 0.0;
+				inherit;
+				vis;
 				color: 255 255 255 255;
 				rel1.offset: -2 0;
 				rel2.offset: 1 2;
 			}
 		}
-		part { name: "e.swallow.icon";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "e.swallow.icon";
+			desc { "default";
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 0.0 0.5;
-				rel1 {
-					relative: 0.0 0.0;
-					offset:	4  3;
-				}
-				rel2 {
-					relative: 0.0 1.0;
-					offset:	4	-1;
-					to_y: "e.text.label";
-				}
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 4 3;
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 4 -1;
+				rel2.to_y: "e.text.label";
 			}
 		}
-		part { name: "type";
-			description { state: "default" 0.0;
-				min: 23 24;
-				max: 23 24;
+		part { "type";
+			desc { "default";
+				min: 23 24; max: 23 24;
 				align: 1.0 0.5;
-				rel1 {
-					relative: 1.0 0.5;
-					offset:	-23  -12;
-				}
-				rel2 {
-					relative: 1.0 0.5;
-					offset:	-1  11;
-					to_y: "e.text.label";
-				}
+				rel1.relative: 1.0 0.5;
+				rel1.offset: -23 -12;
+				rel2.relative: 1.0 0.5;
+				rel2.offset: -1  11;
+				rel2.to_y: "e.text.label";
 				image.normal: "pager_window.png";
 			}
-			description { state: "iconified" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
-			description { state: "invisible" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "iconified" 0.0; inherit; hid; }
+			desc { state: "invisible" 0.0; inherit;
 				image.normal: "inv.png";
 			}
-			description { state: "shaded" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "shaded" 0.0; inherit;
 				image.normal: "pager_window_shaded.png";
 			}
 		}
-		part { name: "e.text.label";
-			type: TEXT;
-			effect: SOFT_SHADOW;
-			mouse_events: 0;
-			scale: 1;
-			description {
-				state: "default" 0.0;
-				rel1 {
-					relative: 1.0 0.0;
-					offset: 3 5;
-					to_x: "e.swallow.icon";
-				}
-				rel2 {
-					relative: 0.0 1.0;
-					offset: -4 -4;
-					to_x: "type";
-				}
+		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
+			desc { "default";
+				rel1.relative: 1.0 0.0;
+				rel1.offset: 3 5;
+				rel1.to_x: "e.swallow.icon";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: -4 -4;
+				rel2.to_x: "type";
 				color: 0 0 0 255;
 				color3: 0 0 0 0;
 				color_class: "winlist_item";
-				text {
-					font: "Sans";
-					size: 10;
-					min: 0 1;
-					align: 0.0 0.5;
-					text_class: "winlist_title";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 1;
+				text.align: 0.0 0.5;
+				text.text_class: "winlist_title";
 			}
-			description { state: "selected" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "selected" 0.0; inherit;
 				color: 255 255 255 255;
 				color3: 0 0 0 64;
 			}
 		}
-		part { name: "e.event.winlist.item";
-			type:	RECT;
-			mouse_events:  1;
-			description { state: "default" 0.0;
-				min:		12 12;
-				visible:  1;
-				color: 0 0 0 0;
+		rect { "e.event.winlist.item"; mouse;
+			desc { "default"; color: 0 0 0 0; min: 12 12; vis;
 				rel1.to: "bg";
 				rel2.to: "bg";
 			}
 		}
 	}
+
 	programs {
-		program { name:			"type1";
-			signal:  "e,state,iconified";
-			source:  "e";
-			action:  STATE_SET "iconified" 0.0;
-			target:  "type";
+		program { name: "type1";
+			signal: "e,state,iconified";
+			source: "e";
+			action: STATE_SET "iconified" 0.0;
+			target: "type";
 		}
-		program { name:			"type2";
-			signal:  "e,state,invisible";
-			source:  "e";
-			action:  STATE_SET "invisible" 0.0;
-			target:  "type";
+		program { name: "type2";
+			signal: "e,state,invisible";
+			source: "e";
+			action: STATE_SET "invisible" 0.0;
+			target: "type";
 		}
-		program { name:			"type3";
-			signal:  "e,state,shaded";
-			source:  "e";
-			action:  STATE_SET "shaded" 0.0;
-			target:  "type";
+		program { name: "type3";
+			signal: "e,state,shaded";
+			source: "e";
+			action: STATE_SET "shaded" 0.0;
+			target: "type";
 		}
 		program { name: "sel";
 			signal: "e,state,selected";
@@ -304,4 +214,3 @@ group {	name: "e/widgets/winlist/item";
 		}
 	}
 }
-
