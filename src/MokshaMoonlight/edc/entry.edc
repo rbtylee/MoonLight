@@ -1,37 +1,26 @@
 group { name: "e/widgets/entry/scrollframe";
-//		min: 12 12;
+//	min: 12 12;
 	images.image: "entry.png" COMP;
 	parts {
-		part { name: "base";
-			type: IMAGE;
+		image { name: "base";
 			desc { "default";
-				image {
-					normal: "entry.png";
-					border: 4 4 4 4;
-				}
+				image.normal: "entry.png";
+				image.border: 4 4 4 4;
 				fill.smooth : 0;
 			}
 		}
-		part { name: "clip";
-			type: RECT;
-			nomouse;
+		rect { name: "clip"; nomouse;
 			desc { "default";
 				color: 255 255 255 255;
-				rel1 {
-					to: "base"; 
-					relative: 0.0 0.0;
-					offset: 3 2; 
-				}
-				rel2 {
-					to: "base"; 
-					relative: 1.0 1.0;
-					offset: -6 -2; 
-				}
+				rel1.to: "base"; 
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 3 2; 
+				rel2.to: "base"; 
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -6 -2;
 			}
 		}
-		part { name: "e.swallow.content";
-			type: SWALLOW;
-			clip: "clip";
+		swallow { name: "e.swallow.content"; clip: "clip";
 			desc { "default";
 				rel1.to: "clip";
 				rel2.to: "clip"; 
@@ -42,37 +31,33 @@ group { name: "e/widgets/entry/scrollframe";
 
 group { name: "e/widgets/entry/text";
 		styles {
-		style { name: "entry_textblock_style";
-					base: "font=Sans font_size=10 color=#ffffffff text_class=entry color_classs=entry_text";
-		}
-		style { name: "entry_textblock_disabled_style";
-					base: "font=Sans font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 text_class=entry color_class=entry_text_disabled";
-		}
+			style { name: "entry_textblock_style";
+				base: "font=Sans font_size=10 color=#ffffffff text_class=entry color_classs=entry_text";
+			}
+			style { name: "entry_textblock_disabled_style";
+				base: "font=Sans font_size=10 color=#151515 style=shadow,bottom shadow_color=#ffffff19 text_class=entry color_class=entry_text_disabled";
+			}
 		}
  parts {
-		part { name: "e.text.text"; type: TEXTBLOCK;
-		scale;
-		entry_mode: EDITABLE;
-		select_mode: DEFAULT;
-		cursor_mode: BEFORE;
-		multiline: 0;
-		source: "e/widgets/entry/selection"; // selection under
-		source4: "e/widgets/entry/cursor"; // cursorover
-		desc { "default";
-					color_class: "entry_text";
-					align: 0.0 0.5;
-					text {
-					text: "";
-					style: "entry_textblock_style";
-					min: 1 1;
-					align: 0.0 0.5;
-					}
-		}
-		desc { state: "disabled" 0.0;
-					inherit;
-					text.style: "entry_textblock_disabled_style";
-					color_class: "entry_text_disabled";
-		}
+		textblock { name: "e.text.text";
+			entry_mode: EDITABLE;
+			select_mode: DEFAULT;
+			cursor_mode: BEFORE;
+			multiline: 0;
+			source: "e/widgets/entry/selection"; // selection under
+			source4: "e/widgets/entry/cursor"; // cursorover
+			desc { "default";
+				color_class: "entry_text";
+				align: 0.0 0.5;
+				text.text: "";
+				text.style: "entry_textblock_style";
+				text.min: 1 1;
+				text.align: 0.0 0.5;
+			}
+			desc { state: "disabled" 0.0; inherit;
+				text.style: "entry_textblock_disabled_style";
+				color_class: "entry_text_disabled";
+			}
 		}
  }
 	programs {
@@ -101,10 +86,10 @@ group { name: "e/widgets/entry/password";
  inherit: "e/widgets/entry/text";
  parts {
 		part { name: "e.text.text";
-		entry_mode: PASSWORD;
-		desc { "default";
-					text.repch: "*";
-		}
+			entry_mode: PASSWORD;
+			desc { "default";
+				text.repch: "*";
+			}
 		}
  }
 }
@@ -112,8 +97,7 @@ group { name: "e/widgets/entry/password";
 group { name: "e/widgets/entry/cursor";
 	min: 1 0;
 	parts {
-		part { name: "cursor";
-			type: RECT;
+		rect { name: "cursor";
 			desc { "default";
 				rel1.offset: 1 0;
 				rel2.offset: 0 -1;
@@ -177,8 +161,7 @@ group { name: "e/widgets/entry/cursor";
 group { name: "e/widgets/entry/selection";
 	data.item: "on_foreground" "0";
 	parts {
-		part { name: "selection";
-			type: RECT;
+		rect { name: "selection";
 			desc { "default";
 				rel1.offset: 2 0;
 				rel2.offset: 1 -1;
