@@ -1,477 +1,305 @@
-group { name: "e/widgets/scrollframe";
-	images {
-		image: "scrollbar_arrow_down.png" COMP;
-		image: "scrollbar_arrow_left.png" COMP;
-		image: "scrollbar_arrow_right.png" COMP;
-		image: "scrollbar_arrow_up.png" COMP;
-		image: "scrollbar-background.png" COMP;
-		image: "slider-horiz-active.png" COMP;
-		image: "slider-horiz.png" COMP;
-		image: "slider-vert-active.png" COMP;
-		image: "slider-vert.png" COMP;
-		image: "scrollbar-background.png" COMP;
-	}
+group { "e/widgets/scrollframe";
+	images.image: "scrollbar_arrow_down.png" COMP;
+	images.image: "scrollbar_arrow_left.png" COMP;
+	images.image: "scrollbar_arrow_right.png" COMP;
+	images.image: "scrollbar_arrow_up.png" COMP;
+	images.image: "scrollbar-background.png" COMP;
+	images.image: "slider-horiz-active.png" COMP;
+	images.image: "slider-horiz.png" COMP;
+	images.image: "slider-vert-active.png" COMP;
+	images.image: "slider-vert.png" COMP;
+	images.image: "scrollbar-background.png" COMP;
 	parts {
-		part { name: "bg";
-			type: RECT;
-			mouse_events: 1;
-			description { state: "default" 0.0;
+		rect { "bg"; mouse;
+			desc { "default";
 				rel1.offset: 1 1;
 				rel2.offset: -2 -2;
 				color: 255 255 255 255;
 				color_class: "scrollframe_base";
 			}
 		}
-		part { name: "clipper";
-			type: RECT;
-			mouse_events: 0;
-			description { state: "default" 0.0;
+		rect { "clipper"; nomouse;
+			desc { "default";
 				rel1.to: "bg";
 				rel2.to: "bg";
 			}
 		}
-		part { name: "e.swallow.content";
-			clip_to: "clipper";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "e.swallow.content"; clip: "clipper";
+			desc { "default";
 				rel1.offset: 1 1;
-				rel2 {
-					relative: 0.0  0.0;
-					offset:	-1	-1;
-					to_x: "sb_vbar";
-					to_y: "sb_hbar";
-				}
+				rel2.relative: 0.0  0.0;
+				rel2.offset: -1 -1;
+				rel2.to_x: "sb_vbar";
+				rel2.to_y: "sb_hbar";
 			}
 		}
-		part { name: "conf_over";
-			mouse_events:  0;
-			description { state: "default" 0.0;
-				rel1.offset: -1 -1;
-				rel2.offset: 0 0;
-				image {
-					normal: "inset_sunk.png";
-					border: 7 7 7 7;
-					middle: 0;
-				}
-				fill.smooth : 0;
+		part { "conf_over";nomouse;
+			desc { "default";
+					rel1.offset: -1 -1;
+					rel2.offset: 0 0;
+					image.normal: "inset_sunk.png";
+					image.border: 7 7 7 7;
+					image.middle: 0;
+					fill.smooth : 0;
 			}
 		}
-		part { name: "sb_vbar";
-			type: RECT;
-			mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		rect { "sb_vbar"; nomouse; scale;
+			desc { "default";
 				min: 16 16;
 				align: 1.0 0.0;
-				rel1 {
-					relative: 1.0 0.0;
-					offset:	-2 1;
-				}
-				rel2 {
-					relative: 1.0 0.0;
-					offset:	-2 -1;
-					to_y:			 "sb_hbar";
-				}
+				rel1.relative: 1.0 0.0;
+				rel1.offset: -2 1;
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -2 -1;
+				rel2.to_y: "sb_hbar";
 			}
-			description { state: "hidden" 0.0;
-				visible: 0;
-				max: 0 99999;
-				rel1 {
-					relative: 1.0 0.0;
-					offset:	-1 0;
-				}
-				rel2 {
-					relative: 1.0 0.0;
-					offset:	-1 -1;
-					to_y:			 "sb_hbar";
-				}
+			desc { state: "hidden" 0.0; max: 0 99999; hid;
+				rel1.relative: 1.0 0.0;
+				rel1.offset: -1 0;
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -1 -1;
+				rel2.to_y: "sb_hbar";
 			}
 		}
-		part { name: "sb_vbar_base";
-			type: RECT;
-			clip_to: "sb_vbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
+		rect { "sb_vbar_base"; clip: "sb_vbar"; mouse;
+			desc { "default";
 				color: 0 0 0 0;
-				rel1 {
-					relative: 0.0  1.0;
-					offset:	0			-2;
-					to:				"sb_vbar_a1";
-				}
-				rel2 {
-					relative: 1.0  0.0;
-					offset:	0			1;
-					to:				"sb_vbar_a2";
-				}
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 0 -2;
+				rel1.to: "sb_vbar_a1";
+				rel2.relative: 1.0  0.0;
+				rel2.offset: 0			1;
+				rel2.to: "sb_vbar_a2";
 			}
 		}
-		part { name: "sb_vbar_runner";
-			clip_to: "sb_vbar";
-			mouse_events: 0;
-			description { state: "default" 0.0;
-				max: 16 99999;
-				rel1.to:				"sb_vbar_base";
-				rel1.offset:	0 0;
-				rel2.to:				"sb_vbar_base";
-				image {
-					normal: "scrollbar-background.png";
-					border: 2 2 3 3;
-				}
+		part { "sb_vbar_runner"; clip: "sb_vbar"; nomouse;
+			desc { "default"; max: 16 99999;
+				rel1.to: "sb_vbar_base";
+				rel1.offset: 0 0;
+				rel2.to: "sb_vbar_base";
+				image.normal: "scrollbar-background.png";
+				image.border: 2 2 3 3;
 				fill.smooth: 0;
 			}
 		}
-		part { name: "sb_vbar_p1";
-			type: RECT;
-			clip_to: "sb_vbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
+		rect { "sb_vbar_p1"; clip: "sb_vbar"; mouse;
+			desc { "default";
 				color: 0 0 0 0;
-				rel1 {
-					relative: 0.0 1.0;
-					to:				"sb_vbar_a1";
-				}
-				rel2 {
-					relative: 1.0 0.0;
-					to:				"e.dragable.vbar";
-				}
+				rel1.relative: 0.0 1.0;
+				rel1.to: "sb_vbar_a1";
+				rel2.relative: 1.0 0.0;
+				rel2.to: "e.dragable.vbar";
 			}
 		}
-		part { name: "sb_vbar_p2";
-			type: RECT;
-			clip_to: "sb_vbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
+		rect { "sb_vbar_p2"; clip: "sb_vbar"; mouse;
+			desc { "default";
 				color: 0 0 0 0;
-				rel1 {
-					relative: 0.0 1.0;
-					to:				"e.dragable.vbar";
-				}
-				rel2 {
-					relative: 1.0 0.0;
-					to:				"sb_vbar_a2";
-				}
+				rel1.relative: 0.0 1.0;
+				rel1.to: "e.dragable.vbar";
+				rel2.relative: 1.0 0.0;
+				rel2.to: "sb_vbar_a2";
 			}
 		}
-		part { name: "e.dragable.vbar";
-			clip_to: "sb_vbar";
-			mouse_events: 1;
-			scale: 1;
-			dragable {
-				x: 0 0 0;
-				y: 1 1 0;
-				confine: "sb_vbar_base";
-			}
-			description { state: "default" 0.0;
-				min: 16 40;
-				max: 16 99999;
-				rel1 {
-					relative: 0.5  0.5;
-					offset:	0 0;
-					to: "sb_vbar_base";
-				}
-				rel2 {
-					relative: 0.5  0.5;
-					offset:	0 0;
-					to: "sb_vbar_base";
-				}
-				image {
-					normal: "slider-vert.png";
-					border: 0 0 10 10;
-				}
+		part { "e.dragable.vbar"; clip: "sb_vbar"; mouse; scale;
+			dragable.x: 0 0 0;
+			dragable.y: 1 1 0;
+			dragable.confine: "sb_vbar_base";
+			desc { "default";
+				min: 16 40; max: 16 99999;
+				rel1.relative: 0.5 0.5;
+				rel1.offset: 0 0;
+				rel1.to: "sb_vbar_base";
+				rel2.relative: 0.5 0.5;
+				rel2.offset: 0 0;
+				rel2.to: "sb_vbar_base";
+				image.normal: "slider-vert.png";
+				image.border: 0 0 10 10;
 				fill.smooth: 0;
 			}
-			description { state: "clicked" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "clicked" 0.0; inherit;
 				image.normal: "slider-vert-active.png";
 			}
 		}
-
-		part { name: "sb_vbar_a1";
-			type: RECT;
-			clip_to: "sb_vbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
-				min: 16 16;
+		rect { "sb_vbar_a1"; clip: "sb_vbar"; mouse;
+			desc { "default"; min: 16 16;
 				align: 0.5 0.0;
 				aspect: 1.0 1.0;
 				aspect_preference: HORIZONTAL;
 				color: 0 0 0 0;
-				rel1 { to: "sb_vbar";
-					relative: 0.0  0.0;
-					offset:	-1			0;
-				}
-				rel2 { to: "sb_vbar";
-					relative: 1.0  0.0;
-					offset:	-1	0;
-				}
+				rel1.to: "sb_vbar";
+				rel1.relative: 0.0  0.0;
+				rel1.offset: -1			0;
+				rel2.to: "sb_vbar";
+				rel2.relative: 1.0  0.0;
+				rel2.offset: -1	0;
 			}
 		}
-		part { name: "sb_vbar_a1_arrow";
-			mouse_events: 0;
-			clip_to: "sb_vbar";
-			description { state: "default" 0.0;
-				max:16 16;
+		part { "sb_vbar_a1_arrow"; nomouse; clip: "sb_vbar";
+			desc { "default"; max:16 16;
 				rel1.to: "sb_vbar_a1";
-				rel1.offset:	1 0;
+				rel1.offset: 1 0;
 				rel2.to: "sb_vbar_a1";
 				image.normal: "scrollbar_arrow_up.png";
 			}
-			description { state: "clicked" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "clicked" 0.0; inherit;
 				rel1.offset: 0 -1;
 				rel2.offset: -1 -2;
 			}
 		}
-
-		part { name: "sb_vbar_a2";
-			type: RECT;
-			clip_to: "sb_vbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
-				min: 16 16;
+		rect { "sb_vbar_a2"; clip: "sb_vbar"; mouse;
+			desc { "default"; min: 16 16;
 				align: 0.5 1.0;
 				aspect: 1.0 1.0;
 				aspect_preference: HORIZONTAL;
 				color: 0 0 0 0;
-				rel1 {
-					to: "sb_vbar";
-					relative: 0.0  1.0;
-					offset:	-1			0;
-				}
-				rel2 {
-					to: "sb_vbar";
-					relative: 1.0  1.0;
-					offset:	-1	0;
-				}
+				rel1.to: "sb_vbar";
+				rel1.relative: 0.0 1.0;
+				rel1.offset: -1			0;
+				rel2.to: "sb_vbar";
+				rel2.relative: 1.0  1.0;
+				rel2.offset: -1	0;
 			}
 		}
-		part { name: "sb_vbar_a2_arrow";
-			type: IMAGE;
-			mouse_events: 0;
-			clip_to: "sb_vbar";
-			description { state: "default" 0.0;
-				max: 16 16;
+		image { "sb_vbar_a2_arrow"; nomouse; clip: "sb_vbar";
+			desc { "default"; max: 16 16;
 				rel1.to: "sb_vbar_a2";
-				rel1.offset:	1 0;
+				rel1.offset: 1 0;
 				rel2.to: "sb_vbar_a2";
 				image.normal: "scrollbar_arrow_down.png";
 			}
-			description { state: "clicked" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "clicked" 0.0; inherit;
 				rel1.offset: 0 1;
 				rel2.offset: -1 0;
 			}
 		}
-
-		part { name: "sb_hbar";
-			type: RECT;
-			mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
-				min: 16 16;
+		rect { "sb_hbar"; nomouse; scale;
+			desc { "default"; min: 16 16;
 				align: 0.0 1.0;
-				rel1 {
-					relative: 0.0 1.0;
-					offset:	1 -2;
-				}
-				rel2 {
-					relative: 0.0 1.0;
-					offset:	-1 -2;
-					to_x: "sb_vbar";
-				}
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 1 -2;
+				rel2.relative: 0.0 1.0;
+				rel2.offset: -1 -2;
+				rel2.to_x: "sb_vbar";
 			}
-			description { state: "hidden" 0.0;
-				visible: 0;
-				rel1 {
-					relative: 0.0  1.0;
-					offset:	0 -1;
-				}
-				rel2 {
-					relative: 0.0 1.0;
-					offset:	-1 -1;
-					to_x: "sb_vbar";
-				}
+			desc { state: "hidden" 0.0; hid;
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 0 -1;
+				rel2.relative: 0.0 1.0;
+				rel2.offset: -1 -1;
+				rel2.to_x: "sb_vbar";
 			}
 		}
-		part { name: "sb_hbar_base";
-			type: RECT;
-			clip_to: "sb_hbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
+		rect { "sb_hbar_base"; clip: "sb_hbar"; mouse;
+			desc { "default";
 				color: 0 0 0 0;
-				rel1 {
-					relative: 1.0 0.0;
-					offset:	-2 0;
-					to: "sb_hbar_a1";
-				}
-				rel2 {
-					relative: 0.0 1.0;
-					offset:	1 0;
-					to: "sb_hbar_a2";
-				}
+				rel1.relative: 1.0 0.0;
+				rel1.offset: -2 0;
+				rel1.to: "sb_hbar_a1";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 1 0;
+				rel2.to: "sb_hbar_a2";
 			}
 		}
-		part { name: "sb_hbar_runner";
-			clip_to: "sb_hbar";
-			mouse_events: 0;
-			description { state: "default" 0.0;
-				max: 99999 16;
+		part { "sb_hbar_runner"; clip: "sb_hbar"; nomouse;
+			desc { "default"; max: 99999 16;
 				rel1.to: "sb_hbar_base";
 				rel1.offset: 0 0;
 				rel2.to: "sb_hbar_base";
-				image {
-					normal: "scrollbar-background.png";
-					border: 3 3 2 2;
-				}
+				image.normal: "scrollbar-background.png";
+				image.border: 3 3 2 2;
 				fill.smooth: 0;
 			}
 		}
-		part { name: "sb_hbar_p1";
-			type: RECT;
-			clip_to: "sb_hbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-				rel1 {
-					relative: 1.0 0.0;
-					to: "sb_hbar_a1";
-				}
-				rel2 {
-					relative: 0.0 1.0;
-					to: "e.dragable.hbar";
-				}
+		rect { "sb_hbar_p1"; clip: "sb_hbar"; mouse;
+			desc { "default"; color: 0 0 0 0;
+				rel1.relative: 1.0 0.0;
+				rel1.to: "sb_hbar_a1";
+				rel2.relative: 0.0 1.0;
+				rel2.to: "e.dragable.hbar";
 			}
 		}
-		part { name: "sb_hbar_p2";
-			type: RECT;
-			clip_to: "sb_hbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-				rel1 {
-					relative: 1.0 0.0;
-					to: "e.dragable.hbar";
-				}
-				rel2 {
-					relative: 0.0 1.0;
-					to: "sb_hbar_a2";
-				}
+		rect { "sb_hbar_p2"; clip: "sb_hbar"; mouse;
+			desc { "default"; color: 0 0 0 0;
+				rel1.relative: 1.0 0.0;
+				rel1.to: "e.dragable.hbar";
+				rel2.relative: 0.0 1.0;
+				rel2.to: "sb_hbar_a2";
 			}
 		}
-		part { name: "e.dragable.hbar";
-			clip_to: "sb_hbar";
-			mouse_events: 1;
-			scale: 1;
-			dragable {
-				x: 1 1 0;
-				y: 0 0 0;
-				confine: "sb_hbar_base";
-			}
-			description { state: "default" 0.0;
-				min: 40 16;
-				max: 99999 16;
-				rel1 {
-					relative: 0.5  0.5;
-					offset:	0 0;
-					to: "sb_hbar_base";
-				}
-				rel2 {
-					relative: 0.5  0.5;
-					offset:	0 0;
-					to: "sb_hbar_base";
-				}
-				image {
-					normal: "slider-horiz.png";
-					border: 10 10 0 0;
-				}
+		part { "e.dragable.hbar"; clip: "sb_hbar"; mouse; scale;
+			dragable.x: 1 1 0;
+			dragable.y: 0 0 0;
+			dragable.confine: "sb_hbar_base";
+			desc { "default"; min: 40 16; max: 99999 16;
+				rel1.relative: 0.5 0.5;
+				rel1.offset: 0 0;
+				rel1.to: "sb_hbar_base";
+				rel2.relative: 0.5 0.5;
+				rel2.offset: 0 0;
+				rel2.to: "sb_hbar_base";
+				image.normal: "slider-horiz.png";
+				image.border: 10 10 0 0;
 				fill.smooth: 0;
 			}
-			description { state: "clicked" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "clicked" 0.0; inherit;
 				image.normal: "slider-horiz-active.png";
 			}
 		}
 
-		part { name: "sb_hbar_a1";
-			type: RECT;
-			clip_to: "sb_hbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
-				min: 16 16;
+		rect { "sb_hbar_a1"; clip: "sb_hbar"; mouse;
+			desc { "default"; min: 16 16;
 				align: 0.0 0.5;
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				color: 0 0 0 0;
-				rel1 {
-					to: "sb_hbar";
-					relative: 0.0  0.0;
-					offset:	0 -1;
-				}
-				rel2 {
-					to: "sb_hbar";
-					relative: 0.0  1.0;
-					offset:	0 -1;
-				}
+				rel1.to: "sb_hbar";
+				rel1.relative: 0.0  0.0;
+				rel1.offset: 0 -1;
+				rel2.to: "sb_hbar";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 0 -1;
 			}
 		}
-		part { name: "sb_hbar_a1_arrow";
-			type: IMAGE;
-			mouse_events: 0;
-			clip_to: "sb_hbar";
-			description { state: "default" 0.0;
-				max: 16 16;
+		image { "sb_hbar_a1_arrow"; nomouse; clip: "sb_hbar";
+			desc { "default"; max: 16 16;
 				rel1.to: "sb_hbar_a1";
-				rel1.offset:	0 1;
+				rel1.offset: 0 1;
 				rel2.to: "sb_hbar_a1";
 				image.normal: "scrollbar_arrow_left.png";
 			}
-			description { state: "clicked" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "clicked" 0.0; inherit;
 				rel1.offset: -1 0;
 				rel2.offset: -2 -1;
 			}
 		}
-
-		part { name: "sb_hbar_a2";
-			type: RECT;
-			clip_to: "sb_hbar";
-			mouse_events: 1;
-			description { state: "default" 0.0;
-				min: 16 16;
+		rect { "sb_hbar_a2"; clip: "sb_hbar"; mouse;
+			desc { "default"; min: 16 16;
 				align: 1.0 0.5;
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				color: 0 0 0 0;
-				rel1 {
-					to: "sb_hbar";
-					relative: 1.0  0.0;
-					offset:	-1 -1;
-				}
-				rel2 {
-					to: "sb_hbar";
-					relative: 1.0  1.0;
-					offset:	-1	-1;
-				}
+				rel1.to: "sb_hbar";
+				rel1.relative: 1.0  0.0;
+				rel1.offset: -1 -1;
+				rel2.to: "sb_hbar";
+				rel2.relative: 1.0  1.0;
+				rel2.offset: -1 -1;
 			}
 		}
-		part { name: "sb_hbar_a2_arrow";
-			type: IMAGE;
-			mouse_events: 0;
-			clip_to: "sb_hbar";
-			description { state: "default" 0.0;
-				max: 16 16;
+		image { "sb_hbar_a2_arrow"; nomouse; clip: "sb_hbar";
+			desc { "default"; max: 16 16;
 				rel1.to: "sb_hbar_a2";
-				rel1.offset:	0 1;
+				rel1.offset: 0 1;
 				rel2.to: "sb_hbar_a2";
 				image.normal: "scrollbar_arrow_right.png";
 			}
-			description { state: "clicked" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "clicked" 0.0; inherit;
 				rel1.offset: 1 0;
 				rel2.offset: 0 -1;
 			}
 		}
 	}
+
 	programs {
 		program { name: "sb_vbar_show";
 			signal: "e,action,show,vbar";
