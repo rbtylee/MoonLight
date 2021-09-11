@@ -3,8 +3,7 @@
 group { "e/modules/conf_edgebindings/selection";
 	parts {
 		swallow { "e.swallow.background"; nomouse;
-			desc { "default";
-				min: 210 150;
+			desc { "default"; min: 210 150;
 				rel1.offset: 4 4;
 				rel2.relative: 0.5 1;
 				rel2.offset: -2 -5;
