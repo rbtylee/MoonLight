@@ -13,7 +13,7 @@ group { "e/widgets/cslider";
 				rel1.offset: 4 4;
 				rel2.offset: -5 -5;
 			}
-			desc { state: "vertical" 0.0; inherit; min: 20 50; }
+			desc { "vertical"; inherit; min: 20 50; }
 		}
 		part { "border"; nomouse;
 			desc { "default";
@@ -31,8 +31,7 @@ group { "e/widgets/cslider";
 			dragable.confine: "e.swallow.content";
 			dragable.x: 1 1 0;
 			dragable.y: -1 1 0;
-			desc { "default";
-				min: 1 24; max: 1 9999;
+			desc { "default"; min: 1 24; max: 1 9999;
 				fixed: 1 1;
 				rel1.to: "e.swallow.content";
 				rel1.relative: 0.5 0.0;
@@ -42,8 +41,7 @@ group { "e/widgets/cslider";
 				rel2.offset: 0 -1;
 				color: 255 255 255 150;
 			}
-			desc { state: "vertical" 0.0;
-				min: 24 1; max: 9999 1;
+			desc { "vertical"; min: 24 1; max: 9999 1;
 				fixed: 1 1;
 				rel1.to: "e.swallow.content";
 				rel1.relative: 0.0 0.5 ;
