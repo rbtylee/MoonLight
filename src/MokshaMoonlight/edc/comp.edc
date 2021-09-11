@@ -37,42 +37,29 @@ group { "e/comp/screen/overlay/default";
 			desc { "default"; }
 		}
 		part { "shadow"; nomouse; clip: "clip";
-			desc { "default";
+			desc { "default"; hid;
 				rel1.relative: -1.0 -1.0;
 				rel2.relative: 2.0 2.0;
 				image.normal: "screen_circular_shadow.png";
 				fill.smooth: 0;
 				color: 255 255 255 0;
-				hid;
 			}
-			desc { state: "visible" 0.0; inherit;
+			desc { "visible"; inherit; vis;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 1.0;
 				color: 255 255 255 255;
-				vis;
 			}
 		}
 		rect { "blanker"; nomouse;
-			desc { "default";
-				color: 0 0 0 0;
-				hid;
-			}
-			desc { state: "visible" 0.0; inherit;
-				color: 0 0 0 255;
-				vis;
-			}
+			desc { "default"; color: 0 0 0 0; hid; }
+			desc { "visible"; inherit; color: 0 0 0 255; vis; }
 		}
 		rect { "suspender"; nomouse;
-			desc { "default";
-				color: 0 0 0 0;
-				hid;
-			}
-			desc { state: "visible" 0.0; inherit;
-				color: 0 0 0 255;
-				vis;
-			}
+			desc { "default"; color: 0 0 0 0; hid; }
+			desc { "visible"; inherit; color: 0 0 0 255; vis; }
 		}
 	}
+
 	programs {
 		 program { name: "screensaver_post";
 				action: SIGNAL_EMIT "e,state,screensaver,active" "e";
@@ -216,18 +203,13 @@ group { "e/comp/frame/default";
 	images.image: "win_shadow.png" COMP;
 	parts {
 		rect { "clipper";
-			desc { "default";
-				rel1.relative: -1.0  -1.0;
+			desc { "default"; color: 255 255 255 0; hid;
+				rel1.relative: -1.0 -1.0;
 				rel1.offset: -9999 -9999;
-				rel2.relative: 2.0   2.0;
-				rel2.offset: 9999  9999;
-				color: 255 255 255 0;
-				hid;
+				rel2.relative: 2.0 2.0;
+				rel2.offset: 9999 9999;
 			}
-			desc { state: "visible" 0.0; inherit;
-				color: 255 255 255 255;
-				vis;
-			}
+			desc { "visible"; inherit; color: 255 255 255 255; vis; }
 		}
 		part { "shadow"; nomouse; clip: "clipper";
 			desc { "default";
@@ -241,35 +223,31 @@ group { "e/comp/frame/default";
 				fill.smooth: 1;
 				color: 0 0 0 150;
 			}
-			desc { state: "hidden" 0.0; inherit; hid; }
+			desc { "hidden"; inherit; hid; }
 		}
 		part { "glow"; nomouse; clip: "clipper";
-			desc { "default";
+			desc { "default"; hid;
 				image.normal: "win_shadow.png";
 				image.border: 10 10 13 14;
 				image.middle: 0;
 				rel1.to: "e.swallow.content";
-				rel1.offset: -4  -4;
+				rel1.offset: -4 -4;
 				rel2.to: "e.swallow.content";
 				rel2.offset: 3 3;
 				fill.smooth: 1;
 				color: TRANSPARENT;
 				color_class: "focus";
-				hid;
 			}
-			desc { state: "focused" 0.0; inherit;
-				color: VISIBLE;
-				vis;
-			}
+			desc { "focused"; inherit; color: VISIBLE; vis; }
 		}
 		spacer { "shower";
 			desc { "default";
 				rel1.relative: 0.05 0.05;
 				rel2.relative: 0.95 0.95;
 			}
-			desc { state: "visible" 0.0; inherit;
-				rel1.relative: 0.0  0.0;
-				rel2.relative: 1.0  1.0;
+			desc { "visible"; inherit;
+				rel1.relative: 0.0 0.0;
+				rel2.relative: 1.0 1.0;
 			}
 		}
 		rect { "focus-clipper"; clip: "clipper"; nomouse;
@@ -277,7 +255,7 @@ group { "e/comp/frame/default";
 				color_class: "comp_focus-out_color";
 				STAY_ON("clipper")
 			}
-			desc { state: "focused" 0.0; inherit;
+			desc { "focused"; inherit;
 				color_class: "";
 				color: 255 255 255 255;
 			}
@@ -372,18 +350,18 @@ group { "e/comp/frame/rotate";
 	inherit: "e/comp/frame/default";
 	parts {
 		part { "e.swallow.content";
-			desc { state: "default";
+			desc { "default";
 				map.on: 1;
 				map.rotation { z: 0; }
 			}
-			desc { state: "focus-out"; inherit;
+			desc { "focus-out"; inherit;
 				map.rotation.z: 180;
 			}
 		}
 		part { "shower";
-			desc { state: "default";
-				rel1.relative: 0.0  0.0;
-				rel2.relative: 1.0  1.0;
+			desc { "default";
+				rel1.relative: 0.0 0.0;
+				rel2.relative: 1.0 1.0;
 			}
 		}
 	}
@@ -419,12 +397,12 @@ group { "e/comp/frame/flip";
 	inherit: "e/comp/frame/rotate";
 	parts {
 		part { "e.swallow.content";
-			desc { state: "default";
+			desc { "default";
 				map.on: 1;
 				map.rotation { z: 0; y: 0; }
 				map.backface_cull: 1;
 			}
-			desc { state: "focus-out"; inherit;
+			desc { "focus-out"; inherit;
 				map.rotation { z: 0; y: 180; }
 			}
 		}
@@ -446,14 +424,8 @@ group { "e/comp/frame/flip/fast";
 group { "e/comp/frame/popup";
 	inherit: "e/comp/frame/default";
 	parts {
-		/*part { "shadow";
-				desc { "default";
-					image.normal: "square_shadow.png";
-					color: 0 0 0 60;
-				}
-		} */
 		part { "focus-clipper";
-			desc { state: "default"; color_class: ""; }
+			desc { "default"; color_class: ""; }
 		}
 	}
 }
@@ -489,14 +461,8 @@ group { "e/comp/frame/default/fast";
 group { "e/comp/frame/popup/fast";
 	inherit: "e/comp/frame/default/fast";
 	parts {
-	 /* part { "shadow";
-			desc { "default";
-			image.normal: "square_shadow.png";
-			color: 0 0 0 60;
-		}
-	}*/
 		part { "focus-clipper";
-			desc { state: "default"; color_class: ""; }
+			desc { "default"; color_class: ""; }
 		}
 	}
 }
@@ -522,12 +488,6 @@ group { "e/comp/frame/none";
 group { "e/comp/frame/still";
 	inherit: "e/comp/frame/default";
 	parts {
-		/* part { "shadow";
-				desc { "default";
-					image.normal: "square_shadow.png";
-					color: 0 0 0 60;
-				}
-	}*/
 		part { "shower";
 			desc { "default";
 				rel1.relative: 0.0 0.0;
@@ -540,12 +500,6 @@ group { "e/comp/frame/still";
 group { "e/comp/frame/still/fast";
 	inherit: "e/comp/frame/default/fast";
 	parts {
-		/* part { "shadow";
-				desc { "default";
-					image.normal: "square_shadow.png";
-					color: 0 0 0 60;
-				}
-	}*/
 		part { "shower";
 			desc { "default";
 				rel1.relative: 0.0 0.0;
@@ -608,66 +562,51 @@ group { "e/comp/frame/fullscreen";
 	data.item: "screen.bg" "fullscreen.bg";
 	parts {
 		rect { "clipper";
-			desc { "default";
-				rel1.relative: -1.0  -1.0;
+			desc { "default"; hid;
+				rel1.relative: -1.0 -1.0;
 				rel1.offset: -9999 -9999;
-				rel2.relative: 2.0   2.0;
-				rel2.offset: 9999  9999;
+				rel2.relative: 2.0 2.0;
+				rel2.offset: 9999 9999;
 				color: 255 255 255 0;
-				hid;
 			}
-			desc { state: "visible1" 0.0; inherit;
-				color: 255 255 255 255;
-				vis;
-			}
-			desc { state: "visible2" 0.0; inherit;
-				color: 255 255 255 255;
-				vis;
-			}
+			desc { "visible1"; inherit; color: 255 255 255 255; vis; }
+			desc { "visible2"; inherit; color: 255 255 255 255; vis; }
 		}
 		rect { "clipper_all";
 			desc { "default"; }
 		}
 		part { "scr_shadow"; nomouse; clip: "clipper_all";
-			desc { "default";
+			desc { "default"; hid;
 				rel1.relative: -1.0 -1.0;
 				rel2.relative: 2.0 2.0;
 				image.normal: "screen_circular_shadow.png";
 				fill.smooth: 0;
 				color: 255 255 255 0;
-				hid;
 			}
-			desc { state: "visible" 0.0; inherit;
+			desc { "visible"; inherit; vis;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 1.0;
 				color: 255 255 255 255;
-				vis;
 			}
 		}
 		rect { "scr_shade";
-			desc { "default";
-				color: 0 0 0 0;
-				hid;
-			}
-			desc { state: "visible" 0.0; inherit;
-				color: 0 0 0 255;
-				vis;
-			}
+			desc { "default"; color: 0 0 0 0; hid; }
+			desc { "visible"; inherit; color: 0 0 0 255; vis; }
 		}
 		spacer { name: "shower";
 			desc { "default";
 				rel1.relative: 0.5 0.5;
 				rel2.relative: 0.5 0.5;
 			}
-			desc { state: "visible1" 0.0; inherit;
+			desc { "visible1"; inherit;
 				rel1.relative: 0.1 0.49;
 				rel1.offset: 0 0;
 				rel2.relative: 0.9 0.51;
 				rel2.offset: -1 -1;
 			}
-			desc { state: "visible2" 0.0; inherit;
-				rel1.relative: 0.0  0.0;
-				rel2.relative: 1.0  1.0;
+			desc { "visible2"; inherit;
+				rel1.relative: 0.0 0.0;
+				rel2.relative: 1.0 1.0;
 			}
 		}
 		swallow { "e.swallow.content"; clip: "clipper";
@@ -677,20 +616,12 @@ group { "e/comp/frame/fullscreen";
 			}
 		}
 		rect { "fader";
-			desc { "default";
+			desc { "default"; color: 255 255 255 0; hid;
 				rel1.to: "e.swallow.content";
 				rel2.to: "e.swallow.content";
-				color: 255 255 255 0;
-				hid;
 			}
-			desc { state: "visible1" 0.0; inherit;
-				color: 255 255 255 255;
-				vis;
-			}
-			desc { state: "visible2" 0.0; inherit;
-				color: 255 255 255 0;
-				hid;
-			}
+			desc { "visible1"; inherit; color: 255 255 255 255; vis; }
+			desc { "visible2"; inherit; color: 255 255 255 0; hid; }
 		}
 	}
 	programs {
