@@ -11,8 +11,7 @@ group { "e/modules/start/main";
         map.smooth: 1;
         map.rotation.center: "base";
       }
-      description { state: "spin" 0.0;
-        inherit;
+      description { "spin"; inherit;
         map.rotation.z: 360;
       }
     }
