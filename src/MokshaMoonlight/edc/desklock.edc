@@ -3,8 +3,7 @@ group { "e/desklock/login_box";
 	images.image: "entry.png" COMP;
 	parts {
 		part { "logo"; nomouse;
-			desc { "default";
-				min: 64 64; max: 64 64;
+			desc { "default"; min: 64 64; max: 64 64;
 				image.normal: "logo.png";
 			}
 		}
@@ -19,8 +18,8 @@ group { "e/desklock/login_box";
 				rel2.to_y: "logo";
 				color: 224 224 224 255;
 				color3: 0 0 0 32;
-				text.text: "Enter Password"; text.font: "Sans:style=Bold";
-				text.size: 10;
+				text.text: "Enter Password";
+				text.font: "Sans:style=Bold"; text.size: 10;
 				text.align: 0.5 0.5;
 				text.min: 1 1;
 				text.text_class: "desklock_title";
@@ -31,9 +30,7 @@ group { "e/desklock/login_box";
 				rel1.to: "passwd_border";
 				rel2.to: "passwd_border";
 			}
-			desc { state: "pulse" 0.0; inherit;
-				color: 255 255 255 128;
-			}
+			desc { "pulse"; inherit; color: 255 255 255 128; }
 		}
 		rect { "error"; nomouse; clip: "error_clip";
 			desc { "default";
@@ -48,9 +45,7 @@ group { "e/desklock/login_box";
 				rel2.to: "passwd_border";
 				color: 255 255 255 255;
 			}
-			desc { state: "invalid" 0.0; inherit;
-				color: 255 128 128 255;
-			}
+			desc { "invalid"; inherit; color: 255 128 128 255; }
 		}
 		rect { "passwd_entry_clip"; nomouse; clip: "pulse_clip";
 			desc { "default";
@@ -76,12 +71,9 @@ group { "e/desklock/login_box";
 				image.border: 8 8 10 10;
 				fill.smooth: 0;
 			}
-			desc { state: "checking" 0.0; inherit;
-				color: 255 255 255 128;
-			}
+			desc { "checking"; inherit; color: 255 255 255 128; }
 		}
-		text { "e.text.password"; clip: "passwd_entry_clip";
-			scale;
+		text { "e.text.password"; clip: "passwd_entry_clip"; scale;
 			desc { "default";
 				fixed: 0 1;
 				align: 0.0 0.5;
@@ -92,8 +84,7 @@ group { "e/desklock/login_box";
 				rel2.offset: 0 0;
 				rel2.to: "passwd_entry_clip";
 				color: 0 0 0 255;
-				text.font: "Sans:style=Bold";
-				text.size: 16;
+				text.font: "Sans:style=Bold"; text.size: 16;
 				text.align: 0.0 0.5;
 				text.min: 1 1;
 				text.text_class: "desklock_passwd";
@@ -102,8 +93,7 @@ group { "e/desklock/login_box";
 		}
 		rect { "cursor"; nomouse;
 			clip: "passwd_entry_clip";
-			desc { "default";
-				min: 1 16; max: 1 16;
+			desc { "default"; min: 1 16; max: 1 16;
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.relative: 1.0 0.0;
@@ -116,6 +106,7 @@ group { "e/desklock/login_box";
 			}
 		}
 	}
+
 	programs {
 		program { name: "pulse.1";
 			signal: "e,state,checking";
