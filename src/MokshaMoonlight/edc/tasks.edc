@@ -20,7 +20,7 @@ group { "e/modules/tasks/item";
 			}
 		}
 		image { "button_image2"; nomouse;
-			desc { state:"default" 0.0;
+			desc { "default";
 				image.normal: "button-prelight.png";
 				image.border: 10 10 10 10;
 				color: 255 255 255 0;
@@ -32,7 +32,7 @@ group { "e/modules/tasks/item";
 			desc { "clicked"; inherit;
 				image.normal: "button-pressed.png";
 			}
-			desc { state:"focused" 0.0; inherit;
+			desc { "focused"; inherit;
 				color: 210 210 210 255;
 			}
 		}
@@ -64,23 +64,23 @@ group { "e/modules/tasks/item";
 				rel1.to: "icon_area";
 				rel2.to: "icon_area";
 			}
-			desc { state: "uw0" 0.0; inherit;
+			desc { "uw0"; inherit;
 				rel1.offset: -3 -2;
 				rel2.offset: -4 -3;
 			}
-			desc { state: "uw1" 0.0; inherit;
+			desc { "uw1"; inherit;
 				rel1.offset: 5 -2;
 				rel2.offset: 4 -3;
 			}
-			desc { state: "uw2" 0.0; inherit;
+			desc { "uw2"; inherit;
 				rel1.offset: -1 4;
 				rel2.offset: -2 3;
 			}
-			desc { state: "uw3" 0.0; inherit;
+			desc { "uw3"; inherit;
 				rel1.offset: -2 -1;
 				rel2.offset: -3 -2;
 			}
-			desc { state: "uw4" 0.0; inherit;
+			desc { "uw4"; inherit;
 				rel1.offset: -4 1;
 				rel2.offset: -5 0;
 			}
@@ -102,7 +102,7 @@ group { "e/modules/tasks/item";
 				rel2.to: "icon_area";
 				image.normal: "exclam.png";
 			}
-			desc { state: "visible" 0.0; inherit; vis;
+			desc { "visible"; inherit; vis;
 				color: 255 255 255 255;
 			}
 		}
@@ -115,10 +115,10 @@ group { "e/modules/tasks/item";
 				rel2.to: "icon_area";
 				image.normal: "exclam.png";
 			}
-			desc { state: "visible" 0.0; inherit; vis;
+			desc { "visible"; inherit; vis;
 				color: 255 255 255 255;
 			}
-			desc { state: "faded" 0.0;  inherit; vis;
+			desc { "faded";  inherit; vis;
 				rel1.relative: -1.0 -1.0;
 				rel2.relative: 2.0 2.0;
 				color: 255 255 255 0;
