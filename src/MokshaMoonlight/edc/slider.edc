@@ -12,7 +12,7 @@ group { "e/widgets/slider_vertical";
 			}
 			desc { state: "active" 0.0; inherit;
 				rel2.to_y: "label";
-				rel2.relative: 1.0  0.0;
+				rel2.relative: 1.0 0.0;
 				rel2.offset: -3 -1;
 			}
 		}
@@ -93,17 +93,15 @@ group { "e/widgets/slider_vertical";
 			}
 		}
 		rect { "e.dragable.slider"; mouse; scale;
-			dragable {
-				x: 0 0 0;
-				y: -1 1 0;
-				confine: "base";
-			}
+			dragable.x: 0 0 0;
+			dragable.y: -1 1 0;
+			dragable.confine: "base";
 			desc { "default"; min: 11 11;
 				fixed: 1 1;
 				rel1.relative: 0.5 0.5;
 				rel1.offset: 0 0;
 				rel1.to: "base";
-				rel2.relative: 0.5  0.5;
+				rel2.relative: 0.5 0.5;
 				rel2.offset: 0 0;
 				rel2.to: "base";
 				color: 0 0 0 0;
@@ -213,7 +211,7 @@ group { "e/widgets/slider_horizontal";
 			}
 			desc { state: "active" 0.0; inherit;
 				rel2.to_x: "label";
-				rel2.relative: 0.0  1.0;
+				rel2.relative: 0.0 1.0;
 				rel2.offset: -1 -3;
 			}
 		}
@@ -255,9 +253,9 @@ group { "e/widgets/slider_horizontal";
 			desc { state: "active" 0.0;
 				align: 1.0 0.5;
 				fixed: 1 0;
-				rel1.relative: 1.0  0.0;
+				rel1.relative: 1.0 0.0;
 				rel1.offset: -8 7;
-				rel2.relative: 1.0  1.0;
+				rel2.relative: 1.0 1.0;
 				rel2.offset: -8 -8;
 				color: 0 0 0 255;
 				color_class: "slider_text";
@@ -300,9 +298,9 @@ group { "e/widgets/slider_horizontal";
 			dragable.confine: "base";
 			desc { "default"; min: 11 11;
 				fixed: 1 1;
-				rel1.relative: 0.5  0.5;
+				rel1.relative: 0.5 0.5;
 				rel1.to: "base";
-				rel2.relative: 0.5  0.5;
+				rel2.relative: 0.5 0.5;
 				rel2.offset: 0 0;
 				rel2.to: "base";
 				color: 0 0 0 0;
