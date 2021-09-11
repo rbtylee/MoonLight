@@ -40,7 +40,7 @@ group { "e/modules/battery/main";
 			desc { "default";
 				color: 255 255 255 255;
 			}
-			desc { state: "faded" 0.0;
+			desc { "faded" 0.0;
 				color: 128 128 128 255;
 			}
 		}
@@ -48,7 +48,7 @@ group { "e/modules/battery/main";
 			desc { "default";
 				color: 255 255 255 0;
 			}
-			desc { state: "visible" 0.0;
+			desc { "visible";
 				color: 255 255 255 255;
 			}
 		}
@@ -56,10 +56,10 @@ group { "e/modules/battery/main";
 			desc { "default";
 				color: 255 255 255 255;
 			}
-			desc { state: "faded" 1.0;
+			desc { "faded" 1.0;
 				color: 255 255 255 255;
 			}
-			desc { state: "faded" 0.0;
+			desc { "faded" 0.0;
 				color: 255 255 255 64;
 			}
 		}
@@ -70,13 +70,12 @@ group { "e/modules/battery/main";
 			}
 		}
 		spacer { "pwr";
-			desc { "default";
+			desc { "default"; min: 5 5;
 				rel1.to: "bg";
 				rel1.relative: 0.40 0.40;
 				rel2.to: "bg";
 				rel2.relative: 0.60 0.60;
 				aspect: 1.0 1.0; aspect_preference: BOTH;
-				min: 5 5;
 				step: 5 5;
 			}
 		}
@@ -104,8 +103,7 @@ group { "e/modules/battery/main";
 				fill.smooth: 0;
 			}
 		}
-		part { "top";
-			clip: "pulse_clip";
+		part { "top"; clip: "pulse_clip";
 			desc { "default";
 				rel1.to: "base";
 				rel1.relative: (24/160) (16/160);
@@ -159,7 +157,7 @@ group { "e/modules/battery/main";
 			}
 		}
 		part { "pwr1"; clip: "pulse_clip";
-			desc { "default";
+			desc { "default"; hid;
 				rel1.to: "pwr";
 				rel1.relative: (2/5) 0.0;
 				rel1.offset: -5 -5;
@@ -169,15 +167,11 @@ group { "e/modules/battery/main";
 				image.normal: "glow_med_white.png"; color_class: "focus";
 				image.border: 5 5 5 5;
 				fill.smooth: 0;
-				hid;
 			}
-			desc { state: "visible" 0.0;
-				inherit;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
 		part { "pwr2"; clip: "pulse_clip";
-			desc { "default";
+			desc { "default"; hid;
 				rel1.to: "pwr";
 				rel1.relative: 0.0 (2/5);
 				rel1.offset: -5 -5;
@@ -187,16 +181,10 @@ group { "e/modules/battery/main";
 				image.normal: "glow_med_white.png"; color_class: "focus";
 				image.border: 5 5 5 5;
 				fill.smooth: 0;
-				hid;
 			}
-			desc { state: "visible" 0.0;
-				inherit;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		text { "e.text.reading"; effect: SOFT_SHADOW; nomouse;
-			scale;
-			clip: "info_clip";
+		text { "e.text.reading"; effect: SOFT_SHADOW; nomouse; scale; clip: "info_clip";
 			desc { "default";
 				align: 0.5 0.0;
 				rel1.to: "bg";
@@ -204,17 +192,13 @@ group { "e/modules/battery/main";
 				rel2.relative: 1.0 0.0;
 				rel2.to_x: "bg";
 				rel2.to_y: "pwr";
-				color: 255 255 255 255;
-				// color_class: "module_label";
-				text.font: "Sans"; text.size: 7;
-				// text.min: 1 1
+				color: 255 255 255 255; 
+				text.font: "Sans"; text.size: 7; 
 				text.fit: 1 0; text.ellipsis: -1;
 				text.text_class: "module_small";
 			}
 		}
-		text { "e.text.time"; effect: SOFT_SHADOW;
-			scale;
-			clip: "info_clip";
+		text { "e.text.time"; effect: SOFT_SHADOW; scale; clip: "info_clip";
 			desc { "default";
 				align: 0.5 1.0;
 				rel1.relative: 0.0 1.0;
@@ -223,9 +207,7 @@ group { "e/modules/battery/main";
 				rel2.offset: -1 -5;
 				rel2.to: "bg";
 				color: 255 255 255 255;
-				//color_class: "module_label";
 				text.font: "Sans"; text.size: 6;
-				// text.min: 0 1;
 				text.fit: 1 0; text.ellipsis: -1;
 				text.text_class: "module_small";
 			}
@@ -291,13 +273,11 @@ group { "e/modules/battery/popup";
 		swallow { "e.swallow.battery";
 			desc { "default";
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
-				min: 1 1;
-				max: 160 160;
+				min: 1 1; max: 160 160;
 				align: 0.0 0.5;
 			}
 		}
-		text { "e.text.title"; effect: SHADOW BOTTOM;
-			scale;
+		text { "e.text.title"; effect: SHADOW BOTTOM; scale;
 			desc { "default";
 				rel1.relative: 1.0 0.0;
 				rel1.to_x: "e.swallow.battery";
@@ -312,8 +292,7 @@ group { "e/modules/battery/popup";
 				text.text_class: "module_large";
 			}
 		}
-		text { "e.text.label"; effect: SHADOW BOTTOM;
-			scale;
+		text { "e.text.label"; effect: SHADOW BOTTOM; scale;
 			desc { "default";
 				rel1.relative: 1.0 0.5;
 				rel1.to_x: "e.swallow.battery";
