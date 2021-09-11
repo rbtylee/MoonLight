@@ -8,7 +8,7 @@ group { "e/widgets/color_well";
 				rel2.to: "e.swallow.content";
 				color: 255 255 255 255;
 			}
-			desc { state: "disabled" 0.0; inherit;
+			desc { "disabled"; inherit;
 				color: 255 255 255 0;
 			}
 		}
