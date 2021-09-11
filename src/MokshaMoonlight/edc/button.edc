@@ -10,62 +10,59 @@ group { "e/widgets/button";
 				image.normal: "button-normal.png";
 				image.border: 10 10 10 10;
 			}
-			desc { state: "clicked" 0.0; inherit;
+			desc { "clicked"; inherit;
 				image.border: 4 4 4 4;
 				image.normal: "button-pressed.png";
 			}
-			desc { state: "over" 0.0; inherit;
+			desc { "over"; inherit;
 				image.border: 4 4 4 4;
 				image.normal: "button-prelight.png";
 			}
-			desc { state: "disabled" 0.0; inherit;
+			desc { "disabled"; inherit;
 				image.border: 4 4 4 4;
 				image.normal: "button-insensitive.png";
 			}
 		}
 		swallow { "e.swallow.icon"; nomouse;
-			desc {
-				state: "default" 0.0;
+			desc { "default";
 				align: 0.0 0.5;
 				rel1.relative: 0.0 0.0;
-				rel1.offset:	3	3;
+				rel1.offset: 3	3;
 				rel1.to: "button_image";
 				rel2.relative: 0.0 1.0;
-				rel2.offset:	3  -4;
+				rel2.offset: 3  -4;
 				rel2.to: "button_image";
 			}
-			desc {
-				state: "combo" 0.0;	inherit;
+			desc { "combo"; inherit;
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 0.0 0.5;
 				rel1.relative: 0.0 0.0;
-				rel1.offset:	3  3;
+				rel1.offset: 3  3;
 				rel1.to: "button_image";
 				rel2.relative: 0.0 1.0;
-				rel2.offset:	3	-4;
+				rel2.offset: 3	-4;
 				rel2.to: "button_image";
 			}
-			desc {
-				state: "icon" 0.0; inherit;
+			desc { "icon"; inherit;
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
 				rel1.relative: 0.0 0.0;
-				rel1.offset:	3  3;
+				rel1.offset: 3  3;
 				rel1.to: "button_image";
 				rel2.relative: 1.0 1.0;
-				rel2.offset:	-4	-4;
+				rel2.offset: -4	-4;
 				rel2.to: "button_image";
 			}
 		}
 		text { "e.text.label"; effect: SHADOW; nomouse; scale;
 			desc { "default";
 				rel1.relative: 1.0  0.0;
-				rel1.offset:	2			3;
-				rel1.to_x:	"e.swallow.icon";
-				rel1.to_y:	"button_image"; 
+				rel1.offset: 2			3;
+				rel1.to_x: "e.swallow.icon";
+				rel1.to_y: "button_image"; 
 				rel2.relative: 1.0  1.0;
-				rel2.offset:	-4	-4;
+				rel2.offset: -4	-4;
 				rel2.to: "button_image";
 				color: 0 0 0 192;
 				color3: 255 255 255 128;
@@ -76,78 +73,64 @@ group { "e/widgets/button";
 				text.ellipsis: -1;
 				text.text_class: "button";
 			}
-			desc { state: "icon" 0.0; inherit;
-				hid;
-			}
-			desc { state: "combo" 0.0; inherit;
+			desc { "icon"; inherit; hid; }
+			desc { "combo"; inherit;
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 2 5;
 				rel1.to_x: "e.swallow.icon";
 			 }
-			desc { state: "disabled" 0.0; inherit;
+			desc { "disabled"; inherit;
 				color: 201 181 156 255;
 				color3: 247 237 214 255;
 				color_class: "button_text_disabled";
 			}
 		}
 		rect { "disabler";
-			desc { "default";
-				color: 0 0 0 0;
-				hid;
-			}
-			desc { state: "disabled" 0.0; inherit;
-				vis;
-			}
+			desc { "default"; color: 0 0 0 0; hid; }
+			desc { "disabled"; inherit; vis; }
 		}
 	}
 	programs {
 		OVER_P("button_image","button_image","default","over")
-		program {
-			name:	"button_click";
+		program { name: "button_click";
 			signal: "mouse,down,1";
 			source: "button_image";
 			action: STATE_SET "clicked" 0.0;
 			target: "button_image";
 		}
-		program {
-			name:	"button_unclick";
+		program { name: "button_unclick";
 			signal: "mouse,up,1";
 			source: "button_image";
 			action: STATE_SET "default" 0.0;
 			target: "button_image";
 		}
-		program {
-			name:	"button_unclick2";
+		program { name: "button_unclick2";
 			signal: "mouse,clicked,1";
 			source: "button_image";
 			action: SIGNAL_EMIT "e,action,click" "";
 		}
-		program {
-			name: "text_state";
+		program { name: "text_state";
 			signal: "e,state,text";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "e.swallow.icon";
 			target: "e.text.label";
 		}
-		program {
-			name: "icon_state";
+		program { name: "icon_state";
 			signal: "e,state,icon";
 			source: "e";
 			action: STATE_SET "icon" 0.0;
 			target: "e.swallow.icon";
 			target: "e.text.label";
 		}
-		program {
-			name: "combo_state";
+		program { name: "combo_state";
 			signal: "e,state,combo";
 			source: "e";
 			action: STATE_SET "combo" 0.0;
 			target: "e.swallow.icon";
 			target: "e.text.label";
 		}
-		program {
-			name: "disable";
+		program { name: "disable";
 			signal: "e,state,disabled";
 			source: "e";
 			action: STATE_SET "disabled" 0.0;
@@ -155,8 +138,7 @@ group { "e/widgets/button";
 			target: "e.text.label";
 			target: "disabler";
 		}
-		program {
-			name: "enable";
+		program { name: "enable";
 			signal: "e,state,enabled";
 			source: "e";
 			action: STATE_SET "default" 0.0;
