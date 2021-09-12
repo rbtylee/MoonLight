@@ -1,49 +1,39 @@
-group { name: "e/pointer/enlightenment/default/color";
-	images {
-		image: "pointer.png" COMP;
-	}
-
+group { "e/pointer/enlightenment/default/color";
+	images.image: "pointer.png" COMP;
 	parts {
-		part { name: "base";
-			mouse_events: 0;
-			description { state: "default" 0.0;
-				aspect: 0.71875 0.71875; /* force a specific aspect ratio so
-						* when it gets scaled it wont squash
-						* or stretch */
-				aspect_preference: BOTH; /* both axes control aspect - thus it
-						* will be WITHIN the bounds the axes
-						* of thre part describe */
-				image {
-					normal: "pointer.png";
-				}
-				rel1 {
-					relative: 0.0 0.0;
-					offset: -10 0;
-				}
+		part { "base";
+			nomouse;
+			desc { "default";
+				/* force a specific aspect ratio so when it gets scales properly */
+				aspect: 0.71875 0.71875;
+				/* both axes control aspect */
+				aspect_preference: BOTH;
+				image.normal: "pointer.png";
+				rel1.relative: 0.0 0.0;
+				rel1.offset: -10 0;
 			}
 		}
 	}
 }
 
-group { name: "e/pointer/enlightenment/resize_br/color";
+group { "e/pointer/enlightenment/resize_br/color";
 	inherit: "e/pointer/enlightenment/default/color";
 	images.image: "pager_window.png" COMP;
 	parts {
-		part { name: "box";
-			 insert_after: "base";
-			 description { state: "default" 0.0;
-					image.normal: "pager_window.png";
-					image.border: 7 7 7 7;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 0.7 0.7;
-			 }
-			 description { state: "p1" 0.0;
-					inherit: "default" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 1.0 1.0;
-			 }
+		part { "box"; after: "base";
+			desc { "default";
+				image.normal: "pager_window.png";
+				image.border: 7 7 7 7;
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 0.7 0.7;
+			}
+			desc { "p1"; inherit;
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 1.0 1.0;
+			}
 		}
-	 }
+	}
+
 	programs {
 		program { name: "box1";
 			signal: "load"; source: "";
@@ -61,273 +51,244 @@ group { name: "e/pointer/enlightenment/resize_br/color";
 	}
 }
 
-group { name: "e/pointer/enlightenment/resize_tr/color";
+group { "e/pointer/enlightenment/resize_tr/color";
 	inherit: "e/pointer/enlightenment/resize_br/color";
 	parts {
-		part { name: "box";
-			 description { state: "default" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 0.7 0.7;
-			 }
-			 description { state: "p1" 0.0;
-					rel1.relative: 0.3 0.0;
-					rel2.relative: 1.0 0.7;
-			 }
+		part { "box";
+			desc { "default";
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 0.7 0.7;
+			}
+			desc { "p1";
+				rel1.relative: 0.3 0.0;
+				rel2.relative: 1.0 0.7;
+			}
 		}
 	}
 }
 
-group { name: "e/pointer/enlightenment/resize_tl/color";
+group { "e/pointer/enlightenment/resize_tl/color";
 	inherit: "e/pointer/enlightenment/resize_br/color";
 	parts {
-		part { name: "box";
-			 description { state: "default" 0.0;
-					rel1.relative: 0.6 0.6;
-					rel2.relative: 1.0 1.0;
-			 }
-			 description { state: "p1" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 1.0 1.0;
-			 }
+		part { "box";
+			desc { "default";
+				rel1.relative: 0.6 0.6;
+				rel2.relative: 1.0 1.0;
+			}
+			desc { "p1";
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 1.0 1.0;
+			}
 		}
 	}
 }
 
-group { name: "e/pointer/enlightenment/resize_bl/color";
+group { "e/pointer/enlightenment/resize_bl/color";
 	inherit: "e/pointer/enlightenment/resize_br/color";
 	parts {
-		part { name: "box";
-			 description { state: "default" 0.0;
-					rel1.relative: 0.7 0.3;
-					rel2.relative: 1.0 0.7;
-			 }
-			 description { state: "p1" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 1.0 1.0;
-			 }
+		part { "box";
+			desc { "default";
+				rel1.relative: 0.7 0.3;
+				rel2.relative: 1.0 0.7;
+			}
+			desc { "p1";
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 1.0 1.0;
+			}
 		}
 	}
 }
 
-group { name: "e/pointer/enlightenment/resize_b/color";
+group { "e/pointer/enlightenment/resize_b/color";
 	inherit: "e/pointer/enlightenment/resize_br/color";
 	parts {
-		part { name: "box";
-			 description { state: "default" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 1.0 0.7;
-			 }
-			 description { state: "p1" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 1.0 1.0;
-			 }
+		part { "box";
+			desc { "default";
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 1.0 0.7;
+			}
+			desc { "p1";
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 1.0 1.0;
+			}
 		}
 	}
 }
 
-group { name: "e/pointer/enlightenment/resize_t/color";
+group { "e/pointer/enlightenment/resize_t/color";
 	inherit: "e/pointer/enlightenment/resize_br/color";
 	parts {
-		part { name: "box";
-			 description { state: "default" 0.0;
-					rel1.relative: 0.3 0.6;
-					rel2.relative: 1.0 1.0;
-			 }
-			 description { state: "p1" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 1.0 1.0;
-			 }
+		part { "box";
+			desc { "default";
+				rel1.relative: 0.3 0.6;
+				rel2.relative: 1.0 1.0;
+			}
+			desc { "p1";
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 1.0 1.0;
+			}
 		}
 	}
 }
 
-group { name: "e/pointer/enlightenment/resize_l/color";
+group { "e/pointer/enlightenment/resize_l/color";
 	inherit: "e/pointer/enlightenment/resize_br/color";
 	parts {
-		part { name: "box";
-			 description { state: "default" 0.0;
-					rel1.relative: 0.6 0.3;
-					rel2.relative: 1.0 1.0;
-			 }
-			 description { state: "p1" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 1.0 1.0;
-			 }
+		part { "box";
+			desc { "default";
+				rel1.relative: 0.6 0.3;
+				rel2.relative: 1.0 1.0;
+			}
+			desc { "p1";
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 1.0 1.0;
+			}
 		}
 	}
 }
 
-group { name: "e/pointer/enlightenment/resize_r/color";
+group { "e/pointer/enlightenment/resize_r/color";
 	inherit: "e/pointer/enlightenment/resize_br/color";
 	parts {
-		part { name: "box";
-			 description { state: "default" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 0.7 1.0;
-			 }
-			 description { state: "p1" 0.0;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 1.0 1.0;
-			 }
+		part { "box";
+			desc { "default";
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 0.7 1.0;
+			}
+			desc { "p1";
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 1.0 1.0;
+			}
 		}
 	}
 }
 
-group { name: "e/pointer/enlightenment/hand/color";
+group { "e/pointer/enlightenment/hand/color";
 	alias: "e/pointer/enlightenment/move/color";
 	inherit: "e/pointer/enlightenment/default/color";
 	images.image: "pager_window.png" COMP;
 	parts {
-		part { name: "box";
-			insert_after: "base";
-			description { state: "default" 0.0;
+		part { "box"; after: "base";
+			desc { "default";
 				image.normal: "pager_window.png";
 				image.border: 7 7 7 7;
 				rel1.relative: 0.5 0.5;
 				rel2.relative: 1.0 1.0;
 		}
-			description { state: "p1" 0.0;
-				inherit: "default" 0.0;
+			desc { "p1"; inherit;
 				rel1.relative: 0.5 0.2;
 				rel2.relative: 1.0 0.7;
 			}
-			description { state: "p2" 0.0;
-				inherit: "default" 0.0;
+			desc { "p2"; inherit;
 				rel1.relative: 0.0 0.5;
 				rel2.relative: 0.5 1.0;
 			}
-			description { state: "p3" 0.0;
-				inherit: "default" 0.0;
+			desc { "p3"; inherit;
 				rel1.relative: 0.2 0.2;
 				rel2.relative: 0.7 0.7;
 			}
-			description { state: "p4" 0.0;
-				inherit: "default" 0.0;
+			desc { "p4"; inherit;
 				rel1.relative: 0.3 0.5;
 				rel2.relative: 0.8 1.0;
 			}
 		}
 	}
+
 	 programs {
-			program { name: "box1";
-				signal: "load"; source: "";
-				action: STATE_SET "p1" 0.0;
-				transition: SINUSOIDAL 0.5;
-				target: "box";
-				after: "box2";
-			}
-			program { name: "box2";
-				action: STATE_SET "p2" 0.0;
-				transition: SINUSOIDAL 0.5;
-				target: "box";
-				after: "box3";
-			}
-			program { name: "box3";
-				action: STATE_SET "p3" 0.0;
-				transition: SINUSOIDAL 0.5;
-				target: "box";
-				after: "box4";
-			}
-			program { name: "box4";
-				action: STATE_SET "p4" 0.0;
-				transition: SINUSOIDAL 0.5;
-				target: "box";
-				after: "box5";
-			}
-			program { name: "box5";
-				action: STATE_SET "default" 0.0;
-				transition: SINUSOIDAL 0.5;
-				target: "box";
-				after: "box1";
-			}
+		program { name: "box1";
+			signal: "load"; source: "";
+			action: STATE_SET "p1" 0.0;
+			transition: SINUSOIDAL 0.5;
+			target: "box";
+			after: "box2";
+		}
+		program { name: "box2";
+			action: STATE_SET "p2" 0.0;
+			transition: SINUSOIDAL 0.5;
+			target: "box";
+			after: "box3";
+		}
+		program { name: "box3";
+			action: STATE_SET "p3" 0.0;
+			transition: SINUSOIDAL 0.5;
+			target: "box";
+			after: "box4";
+		}
+		program { name: "box4";
+			action: STATE_SET "p4" 0.0;
+			transition: SINUSOIDAL 0.5;
+			target: "box";
+			after: "box5";
+		}
+		program { name: "box5";
+			action: STATE_SET "default" 0.0;
+			transition: SINUSOIDAL 0.5;
+			target: "box";
+			after: "box1";
+		}
 	}
 }
 
-group { name: "e/pointer/enlightenment/rotate/color";
-		inherit: "e/pointer/enlightenment/default/color";
-		images.image: "pager_window.png" COMP;
-		parts {
-			part { name: "box";
-				insert_after: "base";
-				description { state: "default" 0.0;
-					image.normal: "pager_window.png";
-					image.border: 7 7 7 7;
-					rel1.relative: 0.3 0.3;
-					rel2.relative: 0.8 0.8;
-					map.on: 1;
-					map.smooth: 1;
-					map.rotation.center: "box";
-				}
-				description { state: "p1" 0.0;
-					inherit: "default" 0.0;
-					map.rotation.z: 30;
-				}
-				description { state: "p2" 0.0;
-					inherit: "default" 0.0;
-					map.rotation.z: -60;
-				 }
+group { "e/pointer/enlightenment/rotate/color";
+	inherit: "e/pointer/enlightenment/default/color";
+	images.image: "pager_window.png" COMP;
+	parts {
+		part { "box"; after: "base";
+			desc { "default";
+				image.normal: "pager_window.png";
+				image.border: 7 7 7 7;
+				rel1.relative: 0.3 0.3;
+				rel2.relative: 0.8 0.8;
+				map.on: 1;
+				map.smooth: 1;
+				map.rotation.center: "box";
 			}
+			desc { "p1"; inherit;
+				map.rotation.z: 30;
+			}
+			desc { "p2"; inherit;
+				map.rotation.z: -60;
+			 }
+		}
 	}
+
 	programs {
-			program { name: "box1";
-				signal: "load"; source: "";
-				action: STATE_SET "p1" 0.0;
-				transition: SINUSOIDAL 0.5;
-				target: "box";
-				after: "box2";
-			}
-			program { name: "box2";
-				action: STATE_SET "p2" 0.0;
-				transition: SINUSOIDAL 0.5;
-				target: "box";
-				after: "box3";
-			}
-			program { name: "box3";
-				action: STATE_SET "p1" 0.0;
-				transition: SINUSOIDAL 0.5;
-				target: "box";
-				after: "box2";
-			}
+		program { "box1";
+			signal: "load"; source: "";
+			action: STATE_SET "p1" 0.0;
+			transition: SINUSOIDAL 0.5;
+			target: "box";
+			after: "box2";
+		}
+		program { "box2";
+			action: STATE_SET "p2" 0.0;
+			transition: SINUSOIDAL 0.5;
+			target: "box";
+			after: "box3";
+		}
+		program { "box3";
+			action: STATE_SET "p1" 0.0;
+			transition: SINUSOIDAL 0.5;
+			target: "box";
+			after: "box2";
+		}
 	 }
 }
-/////////////////////////////////////////////////////////////////////////////
-/*** THE DEFAULT MOUSE CURSOR - MONOCHROME. REALLY BORING ***/
-/* This pointer is used if the Xserver does not support full ARGB color
-		* pointers. This can happen if X is old or the driver or libxcursor did
-		* not exist when ecore was compiled. since the cursor will be literally
-		* reduced down to black and white whith a single transparency mask,
-		* colors other than black and whigte will be lost (and be approximated
-		* with dithering) and any translucency other than completely opaque or
-		* completely transparent pixels will also be lost. it then makes sense
-		* to have a special black and white only image with no semi-transparency
-		* so when this is displayed it will look directly as intended by the
-		* artist */
-group { name: "e/pointer/enlightenment/default/mono";
-	images {
-		image: "pointer_mono.png" COMP; /* a simple mono cursor image */
-	}
+
+group { "e/pointer/enlightenment/default/mono";
+	images.image: "pointer_mono.png" COMP;
 	parts {
-		part { name: "e/pointer";
-			mouse_events:  0;
-			description {
-				state:  "default" 0.0;
-				image {
-					normal: "pointer_mono.png";
-				}
+		part { "e/pointer"; nomouse;
+			desc { "default";
+				image.normal: "pointer_mono.png";
 			}
 		}
-		part { name: "hotspot"; /* this cursor also has a hotspot */
-			type: SWALLOW;
-			description { state: "default" 0.0;
-				visible: 0;
-				rel1 {
-					relative: 0.0 0.0;
-					offset: 1 1;
-				}
-				rel2 {
-					relative: 0.0 0.0;
-					offset: 1 1;
-				}
+		swallow { "hotspot";
+			desc { "default"; hid;
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 1 1;
+				rel2.relative: 0.0 0.0;
+				rel2.offset: 1 1;
 			}
 		}
 	}
