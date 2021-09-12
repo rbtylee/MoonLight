@@ -5,7 +5,7 @@ group { "e/widgets/syscon/main";
 	images.image: "button-insensitive.png" COMP;
 	parts {
 		part { "base"; nomouse;
-			desc { state: "default" 0.0;
+			desc { "default";
 				color_class: "dialog_base";
 				image.normal: "dia_bg.png";
 				image.border: 15 15 2 2;
@@ -13,7 +13,7 @@ group { "e/widgets/syscon/main";
 			}
 		}
 		swallow { "e.swallow.main";
-			desc { state: "default" 0.0;
+			desc { "default";
 				fixed: 0 1;
 				align: 0.5 0.0;
 				rel1.offset: 12 12;
@@ -22,7 +22,7 @@ group { "e/widgets/syscon/main";
 			}
 		}
 		swallow { "e.swallow.secondary";
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.to: "e.swallow.main";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 12;
@@ -32,7 +32,7 @@ group { "e/widgets/syscon/main";
 			}
 		}
 		swallow { "e.swallow.extra";
-			desc { state: "default" 0.0;
+			desc { "default";
 				align: 0.5 0.0;
 				rel1.to: "e.swallow.secondary";
 				rel1.relative: 0.0 1.0;
@@ -42,7 +42,7 @@ group { "e/widgets/syscon/main";
 			}
 		}
 		part { "button_image"; mouse; scale;
-			desc { state: "default" 0.0;
+			desc { "default"; min: 64 26; max: 64 26;
 				fixed: 1 0;
 				align: 0.5 1.0;
 				rel1.offset: 0 12;
@@ -50,11 +50,10 @@ group { "e/widgets/syscon/main";
 				rel1.to_y: "e.swallow.extra";
 				rel2.offset: -1 -14;
 				rel2.relative: 0.5 1.0;
-				min: 64 26; max: 64 26;
 				image.normal: "button-normal.png";
 				image.border: 10 10 10 10;
 			}
-			desc { state: "clicked" 0.0; inherit;
+			desc { "clicked"; inherit;
 				image.border: 4 4 4 4;
 				image.normal: "button-pressed.png";
 			}
@@ -64,7 +63,7 @@ group { "e/widgets/syscon/main";
 			}
 		}
 		text { "e.text.label"; effect: SHADOW; nomouse; scale;
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.to: "button_image";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 3 3;
@@ -87,7 +86,7 @@ group { "e/widgets/syscon/main";
 			}
 		}
 		rect { "event"; ignore: ON_HOLD;
-			desc { state: "default" 0.0;
+			desc { "default";
 				color: 0 0 0 0;
 				STAY_ON("button_image")
 			}
@@ -122,12 +121,11 @@ group { "e/widgets/syscon/item/button";
 	images.image: "button-insensitive.png" COMP;
 	parts {
 		part { "button_image"; mouse;
-			desc { state: "default" 0.0;
-				min: 32 16;
+			desc { "default"; min: 32 16;
 				image.normal: "button-normal.png";
 				image.border: 10 10 4 10;
 			}
-			desc { state: "clicked" 0.0; inherit;
+			desc { "clicked"; inherit;
 				image.border: 4 4 4 4;
 				image.normal: "button-pressed.png";
 			}
@@ -137,7 +135,7 @@ group { "e/widgets/syscon/item/button";
 			}
 		}
 		text { "e.text.label"; effect: SHADOW; nomouse; scale;
-			desc { state: "default" 0.0;
+			desc { "default";
 				fixed: 0 1;
 				align: 0.5 1.0;
 				rel1.relative: 0.0  1.0;
@@ -161,7 +159,7 @@ group { "e/widgets/syscon/item/button";
 			}
 		}
 		part { "glow"; nomouse;
-			desc { state: "default" 0.0; hid;
+			desc { "default"; hid;
 				image.normal: "win_shadow.png";
 				image.border: 9 9 9 9;
 				image.middle: 0;
@@ -177,7 +175,7 @@ group { "e/widgets/syscon/item/button";
 			}
 		}
 		swallow { "e.swallow.icon"; nomouse;
-			desc { state: "default" 0.0;
+			desc { "default";
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
 				align: 0.5 0.5;
@@ -191,9 +189,7 @@ group { "e/widgets/syscon/item/button";
 			}
 		}
 		rect { "disabler";
-			desc { state: "default" 0.0; hid;
-				color: 0 0 0 0;
-			}
+			desc { "default"; color: 0 0 0 0; hid; }
 			desc { state: "disabled" 0.0; inherit; vis; }
 		}
 	}
@@ -283,13 +279,10 @@ group { "e/sys/logout";
 	}
 	parts {
 		rect { "base"; nomouse;
-			desc { state: "default" 0.0;
-				min: 250 250;
-				color: 245 237 220 255;
-			}
+			desc { "default"; min: 250 250; color: 245 237 220 255; }
 		}
 		part { "over"; nomouse;
-			desc { state: "default" 0.0;
+			desc { "default";
 				image.normal: "inset_sunk.png";
 				image.border: 5 5 5 5;
 				image.middle: 0;
@@ -297,9 +290,8 @@ group { "e/sys/logout";
 			}
 		}
 		part { "busy"; nomouse;
-			desc { state: "default" 0.0;
+			desc { "default";
 				FIXED_SIZE(128,18)
-				// aspect: 1.0 1.0;
 				align: 0.5 0.0;
 				aspect_preference: BOTH;
 				rel1.to_y: "logo";
@@ -347,19 +339,16 @@ group { "e/sys/logout";
 			}
 		}
 		part { "logo"; nomouse;
-			desc { state: "default" 0.0;
-				min: 128 128; max: 128 128;
+			desc { "default"; min: 128 128; max: 128 128;
 				rel1.offset: 10 10;
 				rel2.offset: -10 -10;
 				align: 0.5 0.0;
 				image.normal: "logo.png";
 			}
-			desc { state: "done" 0.0; inherit;
-				color: 255 255 255 0;
-			}
+			desc { state: "done" 0.0; inherit; color: 255 255 255 0; }
 		}
 		textblock { "e.textblock.message"; nomouse; scale;
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.offset: 8 8;
 				rel1.relative: 0.0 1.0;
 				rel1.to_y: "busy";
