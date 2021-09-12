@@ -7,23 +7,21 @@ group { "e/modules/bodhi-shutdown/button";
 	min: 16 16; max: 128 128;
 	parts{
 		image { "base"; scale;
-			description {
-				state: "default" 0.0;
+			desc { "default"; min: 16 16;
 				fixed: 1 1;
 				align: 0.5 0.5;
-				min: 16 16;
 				image.normal: "button-normal.png";
 				image.border: 6 6 6 6;
 			}
-			description { state: "clicked" 0.0; inherit;
+			desc { "clicked"; inherit;
 				image.normal: "button-pressed.png";
 			}
-			description { state: "over" 0.0; inherit;
+			desc { "over"; inherit;
 				image.normal: "button-prelight.png";
 			}
 		}
 		image { "icon"; nomouse;
-			description { "default";
+			desc { "default";
 				align: 0.5 0.5;
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
@@ -35,11 +33,10 @@ group { "e/modules/bodhi-shutdown/button";
 			}
 		}
 		rect { "event"; ignore: ON_HOLD;
-			description { "default";
-				color: 0 0 0 0;
+			desc { "default"; color: 0 0 0 0;
 				STAY_ON("base")
 			}
-			description { state: "disabled" 0.0; inherit; hid; }
+			desc { "disabled"; inherit; hid; }
 		}
 	}
 
