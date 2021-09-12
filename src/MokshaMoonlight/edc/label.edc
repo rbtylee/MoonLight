@@ -5,13 +5,13 @@ group { "e/widgets/label";
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 				color: 0 0 0 255;
-				color_class: "label_text"; text.font: "Sans";
-				text.size: 10;
+				color_class: "label_text";
+				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.0 0.5;
 				text.text_class: "label";
 			}
-			desc { state: "disabled" 0.0; inherit;
+			desc { "disabled"; inherit;
 				color: 0 0 0 128;
 				color_class: "label_text_disabled";
 			}
