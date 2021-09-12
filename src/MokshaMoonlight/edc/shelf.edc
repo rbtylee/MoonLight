@@ -3,19 +3,18 @@ group { "e/shelf/default/inset";
 	images.image: "shelf_inset.png" COMP;
 	parts {
 		image { "base";
-			desc { "default";
+			desc { "default"; color: 255 255 255 255;
 				rel1.offset: 1 1;
 				rel2.offset: -2 -2;
-				color: 255 255 255 255;
 				image.normal: "shelf_inset.png";
 				image.border: 7 7 7 7;
 			}
 		}
 		rect { "clip";
-			desc { "default";
+			desc { "default"; color: 255 255 255 255;
 				rel1.to: "base";
 				rel2.to: "base";
-				color: 255 255 255 255;
+
 			}
 		}
 		swallow { "e.swallow.content"; clip: "clip";
@@ -33,9 +32,7 @@ group { "e/shelf/default/plain";
 	alias: "e/shelf/alternate/plain";
 	parts {
 		rect { "clip";
-			desc { "default";
-				color: 255 255 255 255;
-			}
+			desc { "default"; color: 255 255 255 255; }
 		}
 		swallow { "e.swallow.content"; clip: "clip";
 			desc { "default";
@@ -64,9 +61,7 @@ group { "e/shelf/invisible/plain";
 	alias: "e/shelf/invisible/inset";
 	parts {
 		rect { "clip";
-			desc { "default";
-				color: 255 255 255 255;
-			}
+			desc { "default"; color: 255 255 255 255; }
 		}
 		swallow { "e.swallow.content"; clip: "clip";
 			desc { "default";
@@ -78,12 +73,12 @@ group { "e/shelf/invisible/plain";
 }
 
 #define BASE_ORIENT(POS, IMG) \
-desc { state: POS 0.0; inherit;		\
+desc { POS 0.0; inherit;						\
 	image.normal: IMG;								\
 }
 
 #define ORIENT(POS, OFF1, OFF2) \
-desc { state: POS 0.0; inherit;					\
+desc { POS 0.0; inherit;									\
 	rel1.relative: 0.01 0.01;							\
 	rel2.relative: 0.99 0.99;							\
 	rel1.offset: OFF1;											\
@@ -108,8 +103,7 @@ group { NAME; 																							\
 	images.image: IMAGE_BOTTOM COMP;													\
 	parts {																										\
 		part { "base"; nomouse;																\
-			desc { "default";																			\
-				color_class: "shelf_base";													\
+			desc { "default"; color_class: "shelf_base";					\
 				image.normal: IMAGE_BOTTOM;												\
 				image.border: 10 10 10 10;													\
 				fill.smooth: 0;																		\
@@ -167,12 +161,11 @@ group { NAME; 																							\
 	images.image: IMAGE_BOTTOM COMP;													\
 	parts {																										\
 		part { "base";	 																				\
-			desc { "default"; 																		\
-				color_class: "shelf_base"; 												\
+			desc { "default"; color_class: "shelf_base"; 				\
 				image.normal: IMAGE_BOTTOM;												\
 				image.border: 2 2 2 2;															\
 				fill.smooth: 0;																		\
-			} 																										\
+			}																											\
 			BASE_ORIENT("left", IMAGE_LEFT)												\
 			BASE_ORIENT("left_top", IMAGE_LEFT)										\
 			BASE_ORIENT("left_bottom", IMAGE_LEFT)								\
@@ -229,21 +222,20 @@ group { "e/shelf/alternate/base";
 	images.image: "shelf_bga_right.png" COMP;
 	parts {
 		part { "base"; nomouse;
-			desc { "default";
-				color_class: "shelf_base";
+			desc { "default"; color_class: "shelf_base";
 				image.normal: "shelf_bga.png";
 				image.border: 2 2 2 2;
 				fill.size.relative: 0 0;
 				fill.size.offset: 8 100;
 				fill.smooth: 0;
 			}
-			desc { state: "top" 0.0; inherit;
+			desc { "top"; inherit;
 				image.normal: "shelf_bga_top.png";
 			}
-			desc { state: "left" 0.0; inherit;
+			desc { "left"; inherit;
 				image.normal: "shelf_bga_left.png";
 			}
-			desc { state: "right" 0.0; inherit;
+			desc { "right"; inherit;
 				image.normal: "shelf_bga_right.png";
 			}
 		}
@@ -254,9 +246,9 @@ group { "e/shelf/alternate/base";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -3 -3;
 			}
-			desc { state: "top" 0.0; inherit; }
-			desc { state: "left" 0.0; inherit; }
-			desc { state: "right" 0.0; inherit; }
+			desc { "top"; inherit; }
+			desc { "left"; inherit; }
+			desc { "right"; inherit; }
 		}
 	}
 
@@ -375,8 +367,7 @@ group { "e/shelf/alternate/inset";
 			}
 		}
 		rect { "items_clip"; nomouse;
-			desc { "default";
-				color: 255 255 255 255;
+			desc { "default"; color: 255 255 255 255;
 				rel1.to: "background";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 3 4;
