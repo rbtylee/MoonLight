@@ -3,7 +3,7 @@ group { "e/modules/start/main";
   images.image: "logo.png" COMP;
   parts {
     part { "base";
-      description { "default";
+      desc { "default";
         aspect: 1.0 1.0;
         aspect_preference: BOTH;
         image.normal: "logo.png";
@@ -11,12 +11,12 @@ group { "e/modules/start/main";
         map.smooth: 1;
         map.rotation.center: "base";
       }
-      description { "spin"; inherit;
+      desc { "spin"; inherit;
         map.rotation.z: 360;
       }
     }
   }
- 
+
   programs {
     program {
        signal: "e,state,focused";
