@@ -1,23 +1,23 @@
-#define SOUND_IMG(VOLUME)										\
-set {															\
-			name: "audio-volume-"VOLUME;						\
-			image {												\
-				image: "audio-volume-"VOLUME"_24.png" COMP;	\
-				size: 0 0 24 24;								\
-			}													\
-			image {												\
-				image: "audio-volume-"VOLUME"_64.png" COMP;	\
-				size: 25 25 64 64;								\
-			}													\
-			image {												\
-				image: "audio-volume-"VOLUME"_128.png" COMP;	\
-				size: 65 65 128 128;							\
-			}													\
-			image {												\
-				image: "audio-volume-"VOLUME"_256.png" COMP;	\
-				size: 129 129 256 256;							\
-			}													\
-		}
+#define SOUND_IMG(VOLUME) \
+set {																							\
+	name: "audio-volume-"VOLUME;										\
+	image {																					\
+		image: "audio-volume-"VOLUME"_24.png" COMP;		\
+		size: 0 0 24 24;															\
+	}																								\
+	image {																					\
+		image: "audio-volume-"VOLUME"_64.png" COMP;		\
+		size: 25 25 64 64;														\
+	}																								\
+	image {																					\
+		image: "audio-volume-"VOLUME"_128.png" COMP;	\
+		size: 65 65 128 128;													\
+	}																								\
+	image {																					\
+		image: "audio-volume-"VOLUME"_256.png" COMP;	\
+		size: 129 129 256 256;												\
+	}																								\
+}
 
 group { "e/modules/mixer/main";
 	images {
@@ -57,10 +57,8 @@ group { "e/modules/mixer/main";
 			desc { "default"; color: 0 0 0 0; }
 		}
 		CLIP_SWITCH("mixer","audio","audio","default","muted")
-		part { "audio_disable";
-			clip: "mixer_clip_default";
-			desc { "default";
-				min: 16 16; max: 256 256;
+		part { "audio_disable"; clip: "mixer_clip_default";
+			desc { "default"; min: 16 16; max: 256 256;
 				aspect: 1 1;
 				aspect_preference: BOTH;
 				image.normal: "audio-volume-muted";
@@ -69,21 +67,20 @@ group { "e/modules/mixer/main";
 			}
 		}
 		image { "audio"; clip: "mixer_clip_muted"; nomouse;
-			desc { "default";
-				min: 16 16; max: 256 256;
+			desc { "default"; min: 16 16; max: 256 256;
 				aspect: 1 1;
 				aspect_preference: BOTH;
 				image.normal: "audio-volume-zero";
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 			}
-			desc { state: "low" 0.0; inherit;
+			desc { "low"; inherit;
 				image.normal: "audio-volume-low";
 			}
-			desc { state: "medium" 0.0; inherit;
+			desc { "medium"; inherit;
 				image.normal: "audio-volume-medium";
 			}
-			desc { state: "high" 0.0; inherit;
+			desc { "high"; inherit;
 				image.normal: "audio-volume-high";
 			}
 		}
