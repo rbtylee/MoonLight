@@ -16,7 +16,7 @@ group { "e/widgets/ilist";
 				image.border: 2 2 2 2;
 				fill.smooth: 0;
 			}
-			desc { state: "selected" 0.0; inherit; vis;
+			desc { "selected"; inherit; vis;
 				color: 255 255 255 255;
 			}
 		}
@@ -47,7 +47,7 @@ group { "e/widgets/ilist";
 				text.align: 0.0 0.5;
 				text.text_class: "ilist_item";
 			}
-			desc { state: "selected" 0.0; inherit;
+			desc { "selected"; inherit;
 				color: 255 255 255 255;
 				color3: 0 0 0 64;
 				color_class: "ilist_item_selected";
@@ -63,9 +63,7 @@ group { "e/widgets/ilist";
 			}
 		}
 		rect { "event";
-			desc { "default";
-				color: 0 0 0 0;
-			}
+			desc { "default"; color: 0 0 0 0; }
 		}
 	}
 	programs {
@@ -97,8 +95,7 @@ group { "e/widgets/ilist_odd";
 			}
 		}
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default";
-				min: 16 16;
+			desc { "default"; min: 16 16;
 				rel1.to_x: "e.swallow.icon";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 4 4;
@@ -111,7 +108,7 @@ group { "e/widgets/ilist_odd";
 				text.align: 0.0 0.5;
 				text.text_class: "ilist_item";
 			}
-			desc { state: "selected" 0.0; inherit;
+			desc { "selected"; inherit;
 				color: 255 255 255 255;
 				color_class: "ilist_item_selected";
 			}
@@ -132,14 +129,12 @@ group { "e/widgets/ilist_header";
 			}
 		}
 		part { "selected"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; color: 255 255 255 0; hid;
 				image.normal: "selected.png";
 				image.border: 2 2 2 2;
 				fill.smooth: 0;
 			}
-			desc { state: "selected" 0.0; inherit; vis;
-				color: 255 255 255 255;
+			desc { "selected"; inherit; color: 255 255 255 255; vis;
 			}
 		}
 		swallow { "e.swallow.icon";
@@ -154,8 +149,7 @@ group { "e/widgets/ilist_header";
 			}
 		}
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default";
-				min: 16 16;
+			desc { "default"; min: 16 16;
 				rel1.to_x: "e.swallow.icon";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 4 4;
@@ -169,17 +163,14 @@ group { "e/widgets/ilist_header";
 				text.align: 0.0 0.5;
 				text.text_class: "ilist_item";
 			}
-			desc { state: "selected" 0.0;
-				inherit;
+			desc { "selected"; inherit;
 				color: 224 224 224 255;
 				color3: 0 0 0 64;
 				color_class: "ilist_item";
 			}
 		}
 		rect { "event";
-			desc { "default";
-				color: 0 0 0 0;
-			}
+			desc { "default"; color: 0 0 0 0; }
 		}
 	}
 
@@ -214,14 +205,12 @@ group { "e/widgets/ilist_header_odd";
 			}
 		}
 		part { "selected"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; color: 255 255 255 0; hid;
 				image.normal: "selected.png";
 				image.border: 2 2 2 2;
 				fill.smooth: 0;
 			}
-			desc { state: "selected" 0.0; inherit; vis;
-				color: 255 255 255 255;
+			desc { "selected"; inherit; color: 255 255 255 255; vis;
 			}
 		}
 		swallow { "e.swallow.icon";
@@ -236,8 +225,7 @@ group { "e/widgets/ilist_header_odd";
 			}
 		}
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default";
-				min: 16 16;
+			desc { "default"; min: 16 16;
 				rel1.to_x: "e.swallow.icon";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 4 4;
@@ -251,16 +239,14 @@ group { "e/widgets/ilist_header_odd";
 				text.align: 0.0 0.5;
 				text.text_class: "ilist_item";
 			}
-			desc { state: "selected" 0.0; inherit;
+			desc { "selected"; inherit;
 				color: 224 224 224 255;
 				color3: 0 0 0 64;
 				color_class: "ilist_item";
 			}
 		}
 		rect { "event";
-			desc { "default";
-				color: 0 0 0 0;
-			}
+			desc { "default"; color: 0 0 0 0; }
 		}
 	}
 
