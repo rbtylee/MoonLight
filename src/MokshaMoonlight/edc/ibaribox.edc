@@ -1,10 +1,9 @@
 group { "e/modules/ibar/separator/default";
 	parts {
 		rect { "base";
-			desc { "default"; color: 0 0 0 20;
+			desc { "default"; color: 0 0 0 20; min: 1 0; max: 1 99999;
 				rel1.offset: 5 2;
 				rel2.offset: -6 -3;
-				min: 1 0; max: 1 99999;
 			}
 		}
 	}
@@ -34,14 +33,13 @@ group { "e/modules/ibar/menu";
 				rel1.offset: -9999 -9999;
 				rel2.offset: 9999 9999;
 			}
-			desc { "hidden"; color: 0 0 0 0; inherit: "default"; }
+			desc { "hidden"; color: 0 0 0 0; inherit; }
 		}
 		part { "base"; nomouse;
-			desc { "default";
+			desc { "default"; color: 255 255 255 255;
 				align: 0.5 0.0;
 				rel1.to: "sizer";
 				rel2.to: "sizer";
-				color: 255 255 255 255;
 				image.normal: "base_ibar.png";
 				image.border: 17 17 7 17;
 				fill.smooth: 0;
@@ -67,7 +65,6 @@ group { "e/modules/ibar/menu";
 			target: "sizer";
 			target: "clip";
 		}
-
 		program { signal: "e,action,show"; source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "sizer";
@@ -78,7 +75,6 @@ group { "e/modules/ibar/menu";
 		program { name: "show2";
 			action: SIGNAL_EMIT "e,action,show,done" "";
 		}
-
 		program { signal: "e,action,hide"; source: "e";
 			action: STATE_SET "hidden" 0.0;
 			target: "sizer";
@@ -144,9 +140,7 @@ group { "e/modules/ibar/menu/item";
 				text.align: 0.0 0.5;
 				text.text_class: "menu_item";
 			}
-			desc { "focus"; inherit: "default";
-				color_class: "menu_item_active";
-			}
+			desc { "focus"; inherit; color_class: "menu_item_active"; }
 		}
 		rect { "icon_clip";
 			desc { "default"; color: 255 255 255 255;
@@ -356,8 +350,7 @@ group { "e/modules/ibox/icon_overlay";
 	}
 	parts {
 		rect { "base"; nomouse;
-			desc { "default"; color: 255 255 255 0;
-			}
+			desc { "default"; color: 255 255 255 0; }
 		}
 		rect { "background"; nomouse;
 			desc { "default"; color: 255 255 255 0; hid;
@@ -555,12 +548,11 @@ group { "e/modules/ibox/drop";
 	alias: "e/modules/ibar/drop";
 	images.image: "inset_raised.png" COMP;
 	parts {
-		part { "bg"; nomouse;
-			desc { "default";
+		part { "bg"; nomouse; 
+			desc { "default"; color_class: "focus";
 				image.normal: "inset_raised.png";
 				image.border: 7 7 7 7;
 				image.middle: 0;
-				color_class: "focus";
 			}
 		}
 	}
