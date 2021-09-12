@@ -11,7 +11,7 @@ group { "e/widgets/textblock";
 	}
 	parts {
 		textblock {  "e.textblock.text"; nomouse; scale;
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.offset: 4 4;
 				rel2.offset: -5 -5;
 				text.style: "textblock_style";
