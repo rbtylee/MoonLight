@@ -2,12 +2,11 @@ group { "e/modules/notification/logo";
 	images.image: "exclam.png" COMP;
 	parts {
 		part { "base"; mouse; scale;
-			desc { "default";
+			desc { "default"; max: 48 48;
 				image.normal: "exclam.png";
-				max: 48 48;
 				aspect: 1.0 1.0;
 			}
-			desc { state: "higher" 0.0; inherit;
+			desc { "higher"; inherit;
 				rel1.relative: 0.2 0.1;
 				rel2.relative: 0.8 1.1;
 			}
@@ -102,32 +101,32 @@ group { name: "e/modules/notification/main";
 				rel2.relative: 1.0 1.0;
 			}
 		}
-		part { name: "base"; clip: "clip";
+		part { "base"; clip: "clip";
 			desc { "default";
 				image.normal: "button-prelight.png";
 				image.border: 12 12 12 12;
 			}
 		}
-		part { name: "bg";
+		part { "bg";
 			desc { "default";
 				image.normal: "button-prelight.png";
 				image.border: 12 12 12 12;
 				rel.to: "base";
 			}
 		}
-		rect { name: "titleclip";
+		rect { "titleclip";
 			desc { "default";
 				rel2.to_x: "e.event.close";
 				rel2.relative: 0.0 1.0;
 			}
 		}
-		rect { name: "bodyclip";
+		rect { "bodyclip";
 			desc { "default";
 				rel2.offset: -13 -13;
 				min: 250 140;
 			}
 		}
-		swallow { name: "notification.swallow.app_icon"; nomouse;
+		swallow { "notification.swallow.app_icon"; nomouse;
 			desc { "default";
 				align: 0.0 0.5;
 				aspect: 1.0 1.0;
@@ -141,7 +140,7 @@ group { name: "e/modules/notification/main";
 				fixed: 1 1;
 			}
 		}
-		textblock { name: "notification.textblock.message"; nomouse; clip: "bodyclip"; scale;
+		textblock { "notification.textblock.message"; nomouse; clip: "bodyclip"; scale;
 			desc { "default";
 				align: 0.0 0.0;
 				rel1.to_x: "notification.swallow.app_icon";
@@ -156,7 +155,7 @@ group { name: "e/modules/notification/main";
 				fixed: 1 1;
 			}
 		}
-		textblock { name: "message"; nomouse;
+		textblock { "message"; nomouse;
 			desc { "default";  hid;
 				align: 0.0 0.0;
 				max: 500 99999;
@@ -171,7 +170,7 @@ group { name: "e/modules/notification/main";
 				text.min: 0 1;
 			}
 		}
-		text { name: "notification.text.title"; nomouse; clip: "titleclip"; effect: GLOW; scale;
+		text { "notification.text.title"; nomouse; clip: "titleclip"; effect: GLOW; scale;
 			desc { "default";
 				rel1.to_x: "notification.swallow.app_icon";
 				rel1.relative: 1.0 0.0;
@@ -193,16 +192,16 @@ group { name: "e/modules/notification/main";
 				fixed: 0 1;
 			}
 		}
-		part { name: "close_SH";
+		part { "close_SH";
 			 desc { "default"; hid;
 				image.normal: "sym_close_light_selected.png";
 				STAY_ON("close")
 				FIXED_SIZE(15,15)
 				color_class: "focus";
 			}
-			desc { state: "selected" 0.0; inherit; vis; }
+			desc { "selected"; inherit; vis; }
 		}
-		part { name: "close";
+		part { "close";
 			desc { "default";
 				image.normal: "sym_close_light_normal.png";
 				rel1.to: "e.event.close";
@@ -210,21 +209,19 @@ group { name: "e/modules/notification/main";
 				FIXED_SIZE(15,15)
 			}
 		}
-		rect { name: "e.event.close"; scale;
-			desc { "default";
+		rect { "e.event.close"; scale;
+			desc { "default"; color: 0 0 0 0; min: 15 15;
 				rel1.relative: 1.0 0.0;
 				rel1.offset: -13 12;
 				rel2.to: "base";
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -13 12;
 				align: 1.0 0.0;
-				min: 15 15;
-				color: 0 0 0 0;
 				fixed: 1 1;
 			}
 		}
 	text { "action_1_spacer"; nomouse; scale;
-			desc { "default";
+			desc { "default"; min: 50 0;
 				rel.to: "base";
 				rel1.offset: 13 -23;
 				rel1.relative: 0.0 1.0;
@@ -233,7 +230,6 @@ group { name: "e/modules/notification/main";
 				color: 0 0 0 0;
 				color_class: "button_text";
 				align: 0.0 1.0;
-				min: 50 0;
 				text.min: 1 1;
 				text.ellipsis: -1;
 				text.align: 0.5 0.5;
@@ -253,15 +249,13 @@ group { name: "e/modules/notification/main";
 		}
 		alias: "e.text.action_1" "act1_btn:e.text.label";
 		text { "action_2_spacer";  nomouse; scale;
-			desc { "default";
+			desc { "default"; min: 50 0; color: 0 0 0 0;
 				rel.to: "base";
 				rel1.offset: 0 -23;
 				rel1.relative: 0.5 1.0;
 				rel2.offset: 0 -23;
 				rel2.relative: 0.5 1.0;
-				color: 0 0 0 0;
 				align: 0.5 1.0;
-				min: 50 0;
 				text.min: 1 1;
 				text.ellipsis: -1;
 				text.align: 0.5 0.5;
@@ -280,15 +274,13 @@ group { name: "e/modules/notification/main";
 		}
 		alias: "e.text.action_2" "act2_btn:e.text.label";
 		text { "action_3_spacer";  nomouse; scale;
-			desc { "default";
+			desc { "default"; min: 50 0; color: 0 0 0 0;
 				rel.to: "base";
 				rel1.offset: -14 -23;
 				rel1.relative: 1.0 1.0;
 				rel2.offset: -14 -23;
 				rel2.relative: 1.0 1.0;
-				color: 0 0 0 0;
 				align: 1.0 1.0;
-				min: 50 0;
 				text.min: 1 1;
 				text.ellipsis: -1;
 				text.align: 0.5 0.5;
@@ -373,14 +365,5 @@ group { name: "e/modules/notification/main";
 			target: "act3_btn";
 			target: "clip";
 		}
-		//      program {
-		//         signal: "notification,new"; source: "notification";
-		//      }
-		//      program {
-		//         signal: "notification,del"; source: "notification";
-		//      }
-		//      program {
-		//         signal: "notification,deleted"; source: "notification";
-		//      }
 	}
 }
