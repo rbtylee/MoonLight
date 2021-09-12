@@ -1,122 +1,71 @@
-/////////////////////////////////////////////////////////////////////////////
-/*** TOOLBAR */
-group { name: "e/widgets/toolbar";
-	images {
-		image: "button-insensitive.png" COMP;
-		image: "icon_left_arrow.png" COMP;
-		image: "icon_right_arrow.png" COMP;
-	}
+group { "e/widgets/toolbar";
+	images.image: "button-insensitive.png" COMP;
+	images.image: "icon_left_arrow.png" COMP;
+	images.image: "icon_right_arrow.png" COMP;
 	parts {
-		part { name: "base";
-			mouse_events: 1;
-			description { state: "default" 0.0;
-				rel1 {
-					relative: 0.0 0.0;
-					offset: 2 2;
-				}
+		part { "base"; mouse;
+			desc { "default";
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
-				image {
-					normal: "button-insensitive.png";
-					border: 4 4 4 4;
-				}
+				image.normal: "button-insensitive.png";
+				image.border: 4 4 4 4;
 				fill.smooth: 0;
 			}
 		}
-		part { name: "clipper";
-			type: RECT;
-			mouse_events: 0;
-			description {
-				state: "default" 0.0;
-				rel1 {
-					to: "base";
-					offset: 2 2;
-				}
-				rel2 {
-					to: "base";
-					offset: -3 -3;
-				}
+		rect { "clipper"; nomouse;
+			desc { "default";
+				rel1.to: "base";
+				rel1.offset: 2 2;
+				rel2.to: "base";
+				rel2.offset: -3 -3;
 			}
 		}
-		part { name: "e.swallow.content";
-			clip_to: "clipper";
-			type: SWALLOW;
-			description {
-				state: "default" 0.0;
+		swallow { "e.swallow.content"; clip: "clipper";
+			desc { "default";
 				rel1.to: "clipper";
 				rel2.to: "clipper";
 			}
 		}
-		part { name: "left_arrow";
-			mouse_events: 1;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "left_arrow"; mouse; scale;
+			desc { "default"; min: 32 32; max: 32 32;
 				image.normal: "icon_left_arrow.png";
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 0.0 0.5;
-				min: 32 32;
-				max: 32 32;
 			}
-			description { state: "hidden" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-				color: 255 255 255 0;
-			}
-			description { state: "clicked" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-				color: 255 255 255 255;
-			}
+			desc { "hidden"; inherit; color: 255 255 255 0; hid; }
+			desc { "clicked"; inherit; color: 255 255 255 255; hid; }
 		}
-		part { name: "right_arrow";
-			mouse_events: 1;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "right_arrow"; mouse; scale;
+			desc { "default"; min: 32 32; max: 32 32;
 				image.normal: "icon_right_arrow.png";
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 1.0 0.5;
-				min: 32 32;
-				max: 32 32;
 			}
-			description { state: "hidden" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-				color: 255 255 255 0;
-			}
-			description { state: "clicked" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-				color: 255 255 255 255;
-			}
+			desc { "hidden"; inherit; color: 255 255 255 0; hid; }
+			desc { "clicked"; inherit; color: 255 255 255 255; hid; }
 		}
-		part { name: "e.dragable.hbar";
-			mouse_events: 0;
-			dragable {
-				x: 1 1 0;
-				y: 0 0 0;
-				confine: "base";
-			}
-			description { state: "default" 0.0;
-				visible: 0;
+		part { "e.dragable.hbar"; nomouse;
+			dragable.x: 1 1 0;
+			dragable.y: 0 0 0;
+			dragable.confine: "base";
+			desc { "default"; hid;
 				rel1.to: "base";
 				rel2.to: "base";
 			}
 		}
-		part { name: "event";
-			type: RECT;
-			mouse_events: 1;
-			repeat_events: 1;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
+		rect { "event"; mouse; repeat;
+			desc { "default"; color: 0 0 0 0; }
 		}
 	}
+
 	programs {
 		program { name: "sb_hbar_show";
 			signal: "e,action,show,hbar";
 			source: "e";
-			action:  STATE_SET "default" 0.0;
+			action: STATE_SET "default" 0.0;
 			transition: LINEAR 0.5;
 			target: "left_arrow";
 			target: "right_arrow";
@@ -124,7 +73,7 @@ group { name: "e/widgets/toolbar";
 		program { name: "sb_hbar_hide";
 			signal: "e,action,hide,hbar";
 			source: "e";
-			action:  STATE_SET "hidden" 0.0;
+			action: STATE_SET "hidden" 0.0;
 			target: "left_arrow";
 			target: "right_arrow";
 			transition: LINEAR 0.5;
@@ -132,7 +81,6 @@ group { name: "e/widgets/toolbar";
 		program { name: "sb_left";
 			signal: "mouse,down,1";
 			source: "left_arrow";
-			//~ action:  DRAG_VAL_STEP -1.0 0.0;
 			action: SIGNAL_EMIT "e,action,prev" "e";
 			target: "e.dragable.hbar";
 			after: "arrow1_repeat";
@@ -161,7 +109,6 @@ group { name: "e/widgets/toolbar";
 		program { name: "sb_right";
 			signal: "mouse,down,1";
 			source: "right_arrow";
-			//~ action:  DRAG_VAL_STEP 8.0 0.0;
 			action: SIGNAL_EMIT "e,action,next" "e";
 			target: "e.dragable.hbar";
 			after: "arrow2_repeat";
@@ -190,134 +137,87 @@ group { name: "e/widgets/toolbar";
 	}
 }
 
-group { name: "e/widgets/toolbar/item";
-	images {
-		image: "toolbar_sel.png" COMP;
-	}
+group { "e/widgets/toolbar/item";
+	images.image: "toolbar_sel.png" COMP;
 	parts {
-		part { name: "label2";
-			type: TEXT;
-			mouse_events:  0;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "label2"; nomouse; scale;
+			desc { "default"; color: 0 0 0 255;
 				align: 0.5 1.0;
 				fixed: 0 1;
 				rel1.to: "e.text.label";
 				rel2.to: "e.text.label";
-				color: 0 0 0 255;
-				text {
-					font: "Sans";
-					text_source: "e.text.label";
-					size: 10;
-					min: 1 1;
-					align: 0.5 0.5;
-					text_class: "fileman_icon";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.text_source: "e.text.label";
+				text.min: 1 1;
+				text.align: 0.5 0.5;
+				text.text_class: "fileman_icon";
 			}
-			description { state: "selected" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+			desc { "selected"; inherit; hid; }
 		}
-		part { name: "bg";
-			mouse_events: 0;
-			description { state: "default" 0.0;
-				visible: 0;
-				color: 255 255 255 0;
-				image {
-					normal: "toolbar_sel.png";
-					border: 3 3 0 0;
-				}
+		part { "bg"; nomouse;
+			desc { "default"; color: 255 255 255 0; hid;
+				image.normal: "toolbar_sel.png";
+				image.border: 3 3 0 0;
 				fill.smooth: 0;
 			}
-			description { state: "selected" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-				color: 255 255 255 255;
-			}
+			desc { "selected"; inherit; vis; color: 255 255 255 255; }
 		}
-		part { name: "e.swallow.icon";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "e.swallow.icon";
+			desc { "default"; color: 0 0 0 0;
 				align: 0.5 0.5;
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
-				rel1 {
-					relative: 0.0 0.0;
-					offset: 2 2;
-				}
-				rel2 {
-					to_y: "e.text.label";
-					relative: 1.0 0.0;
-					offset: -3 -1;
-				}
-				color: 0 0 0 0;
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 2 2;
+				rel2.to_y: "e.text.label";
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -3 -1;
 			}
 		}
-		part { name: "e.text.label";
-			type: TEXT;
-			effect: SOFT_SHADOW;
-			mouse_events:  0;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
+			desc { "default"; color: 224 224 224 255; hid;
 				align: 0.5 1.0;
 				fixed: 0 1;
-				rel1 {
-					relative: 0.0 1.0;
-					offset:	0 -1;
-				}
-				rel2 {
-					relative: 1.0 1.0;
-					offset:	-1 -1;
-				}
-				visible: 0;
-				color: 224 224 224 255;
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 0 -1;
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -1 -1;
 				color3: 0 0 0 32;
-				text {
-					font: "Sans:style=Bold";
-					size: 10;
-					min: 1 1;
-					align: 0.5 0.5;
-					text_class: "fileman_icon";
-				}
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.min: 1 1;
+				text.align: 0.5 0.5;
+				text.text_class: "fileman_icon";
 			}
-			description { state: "selected" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "selected"; inherit; vis; }
 		}
-		part { name: "event";
-			type: RECT;
-			mouse_events: 1;
-			ignore_flags: ON_HOLD;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
+		rect { "event"; mouse; ignore: ON_HOLD;
+			desc { "default"; color: 0 0 0 0; }
 		}
 	}
+
 	programs {
 		program { name: "go_active";
-			signal:  "e,state,selected";
-			source:  "e";
-			action:  STATE_SET "selected" 0.0;
-			target:  "bg";
-			target:  "e.text.label";
-			target:  "label2";
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			target: "bg";
+			target: "e.text.label";
+			target: "label2";
 			transition: LINEAR 0.2;
 		}
 		program { name: "go_passive";
-			signal:  "e,state,unselected";
-			source:  "e";
-			action:  STATE_SET "default" 0.0;
-			target:  "bg";
-			target:  "e.text.label";
-			target:  "label2";
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "bg";
+			target: "e.text.label";
+			target: "label2";
 			transition: LINEAR 0.1;
 		}
 		program { name: "go";
-			signal:  "mouse,up,1";
-			source:  "event";
-			action:  SIGNAL_EMIT "e,action,click" "e";
+			signal: "mouse,up,1";
+			source: "event";
+			action: SIGNAL_EMIT "e,action,click" "e";
 		}
 	}
 }
