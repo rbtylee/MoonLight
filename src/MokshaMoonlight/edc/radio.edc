@@ -4,8 +4,7 @@ group { "e/widgets/radio";
 	images.image: "radio_sel.png" COMP;
 	parts {
 		part { "base"; nomouse; scale;
-			desc { "default";
-				min: 19 19; max: 19 19;
+			desc { "default"; min: 19 19; max: 19 19;
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.relative: 0.0 0.0;
@@ -21,12 +20,10 @@ group { "e/widgets/radio";
 				rel2.to: "mark_hold";
 				image.normal: "radio_on.png";
 			}
-			desc { state: "selected" 0.0; inherit;
+			desc { "selected"; inherit;
 				image.normal: "radio_sel.png";
 			}
-			desc { state: "disabled" 0.0; inherit;
-				color: 255 255 255 128;
-			}
+			desc { "disabled"; inherit; color: 255 255 255 128; }
 		}
 		rect { "mark_hold"; nomouse;
 			desc { "default"; hid;
@@ -36,15 +33,14 @@ group { "e/widgets/radio";
 				rel2.to: "base";
 				rel2.offset: 4 4;
 			}
-			desc { state: "on" 0.0; inherit; vis;
+			desc { "on"; inherit; vis;
 				color: 255 255 255 255;
 				rel1.offset: 0 0;
 				rel2.offset: -1 -1;
 			}
 		}
 		text { "e.text.label"; nomouse; scale;
-			desc { "default";
-				min: 16 16;
+			desc { "default"; min: 16 16;
 				rel1.to_x: "base";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 2 2;
@@ -57,16 +53,13 @@ group { "e/widgets/radio";
 				text.align: 0.0 0.5;
 				text.text_class: "radio_button";
 			}
-			desc { state: "disabled" 0.0; inherit;
-				color: 0 0 0 128;
+			desc { "disabled"; inherit; color: 0 0 0 128;
 				color_class: "radio_text_disabled";
 			}
 		}
 		rect { "event"; ignore: ON_HOLD;
-			desc { "default";
-				color: 0 0 0 0;
-			}
-			desc { state: "disabled" 0.0; inherit; hid; }
+			desc { "default"; color: 0 0 0 0; }
+			desc { "disabled"; inherit; hid; }
 		}
 	}
 
@@ -96,7 +89,7 @@ group { "e/widgets/radio";
 			action: STATE_SET "disabled" 0.0;
 			target: "mark";
 			target: "event";
-	target: "e.text.label";
+			target: "e.text.label";
 		}
 		program { name: "enable";
 			signal: "e,state,enabled";
@@ -104,19 +97,18 @@ group { "e/widgets/radio";
 			action: STATE_SET "default" 0.0;
 			target: "mark";
 			target: "event";
-	target: "e.text.label";
+			target: "e.text.label";
 		}
 	}
 }
 
-group { name: "e/widgets/radio_icon";
+group { "e/widgets/radio_icon";
 	images.image: "radio_base.png" COMP;
 	images.image: "radio_on.png" COMP;
 	images.image: "radio_sel.png" COMP;
 	parts {
-		part { name: "base"; nomouse; scale;
-			desc { "default";
-				min: 19 19; max: 19 19;
+		part { "base"; nomouse; scale;
+			desc { "default"; min: 19 19; max: 19 19;
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.relative: 0.0 0.0;
@@ -126,60 +118,52 @@ group { name: "e/widgets/radio_icon";
 				image.normal: "radio_base.png";
 			}
 		}
-		part { name: "mark"; nomouse; clip: "mark_hold";
+		part { "mark"; nomouse; clip: "mark_hold";
 			desc { "default";
 				rel1.to: "mark_hold";
 				rel2.to: "mark_hold";
 				image.normal: "radio_on.png";
 			}
-			desc { state: "selected" 0.0; inherit;
+			desc { "selected"; inherit;
 				image.normal: "radio_sel.png";
 			}
-			desc { state: "disabled" 0.0; inherit;
-				color: 255 255 255 128;
-			}
+			desc { "disabled"; inherit; color: 255 255 255 128; }
 		}
-		rect { name: "mark_hold"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+		rect { "mark_hold"; nomouse;
+			desc { "default"; color: 255 255 255 0; hid;
 				rel1.to: "base";
 				rel1.offset: -5 -5;
 				rel2.to: "base";
 				rel2.offset: 4 4;
 			}
-			desc { state: "on" 0.0; inherit; vis;
-				color: 255 255 255 255;
+			desc { "on"; inherit; color: 255 255 255 255; vis;
 				rel1.offset: 0 0;
 				rel2.offset: -1 -1;
 			}
 		}
-		swallow { name: "e.swallow.icon"; clip: "icon_clip";
-			desc { "default";
-				min: 19 19;
+		swallow { "e.swallow.icon"; clip: "icon_clip";
+			desc { "default"; min: 19 19;
 				rel1.to_x: "base";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 2 2;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -2 -2;
 			}
-			desc { state: "label_visible" 0.0; inherit; min: 19 19;
+			desc { "label_visible"; inherit; min: 19 19;
 				rel2.to_y: "e.text.label";
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -2 -2;
 			}
 		}
-		rect { name: "icon_clip"; nomouse;
-			desc { "default";
-				color: 255 255 255 255;
-			}
+		rect { "icon_clip"; nomouse;
+			desc { "default"; color: 255 255 255 255; }
 		}
-		rect { name: "label_clip"; nomouse;
+		rect { "label_clip"; nomouse;
 			desc { "default"; hid; }
-			desc { state: "label_visible" 0.0; vis; }
+			desc { "label_visible"; vis; }
 		}
-		text { name: "e.text.label"; nomouse; scale; clip: "label_clip";
-			desc { "default";
-				min: 19 19;
+		text { "e.text.label"; nomouse; scale; clip: "label_clip";
+			desc { "default"; min: 19 19;
 				rel1.to_x: "base";
 				rel1.relative: 1.0 0.5;
 				rel1.offset: 2 1;
@@ -187,22 +171,16 @@ group { name: "e/widgets/radio_icon";
 				rel2.offset: -2 -2;
 				color: 0 0 0 255;
 				color_class: "radio_text";
-				text.font: "Sans";
-				text.size: 10;
+				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.5 0.5;
 				text.text_class: "radio_button";
 			}
-			desc { state: "disabled" 0.0; inherit;
-				color: 0 0 0 128;
-				color_class: "radio_text_disabled";
-			}
+			desc { "disabled"; inherit; color: 0 0 0 128; color_class: "radio_text_disabled"; }
 		}
-		rect { name: "event"; ignore: ON_HOLD;
-			desc { "default";
-				color: 0 0 0 0;
-			}
-			desc { state: "disabled" 0.0; inherit; hid; }
+		rect { "event"; ignore: ON_HOLD;
+			desc { "default"; color: 0 0 0 0; }
+			desc { "disabled"; inherit; hid; }
 		}
 	}
 
