@@ -1,9 +1,7 @@
 group { "e/transpreview/0";
 	parts {
 		rect { "bg"; nomouse;
-			desc { "default";
-				color: 240 240 240 255;
-			}
+			desc { "default"; color: 240 240 240 255; }
 		}
 	}
 }
@@ -11,9 +9,7 @@ group { "e/transpreview/0";
 group { "e/transpreview/1";
 	parts {
 		rect { "bg"; nomouse;
-			desc { "default";
-				color: 30 30 30 255;
-			}
+			desc { "default"; color: 30 30 30 255; }
 		}
 	}
 }
@@ -27,12 +23,8 @@ group { "e/transitions/crossfade";
 			desc { "default"; }
 		}
 		rect { "bg_new_clip"; nomouse;
-			desc { "default";
-				color: 255 255 255 0;
-			}
-			desc { state: "done" 0.0; inherit	;
-				color: 255 255 255 255;
-			}
+			desc { "default"; color: 255 255 255 0; }
+			desc { "done"; inherit; color: 255 255 255 255; }
 		}
 	}
 
@@ -55,8 +47,7 @@ group { "e/transitions/vswipe";
 	images.image: "transition_vswipe.png" COMP;
 	parts {
 		swallow { "e.swallow.bg.old"; clip: "bg_prev_clip";
-			desc { "default";
-			}
+			desc { "default"; }
 		}
 		swallow { "e.swallow.bg.new"; clip: "bg_new_clip";
 			desc { "default"; }
@@ -66,7 +57,7 @@ group { "e/transitions/vswipe";
 				rel1.offset: 0 -32;
 				rel2.offset: -1 31;
 			}
-			desc { state: "done" 0.0; inherit	;
+			desc { "done"; inherit;
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 31;
 				rel2.relative: 1.0 1.0;
@@ -80,7 +71,7 @@ group { "e/transitions/vswipe";
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -1 -32;
 			}
-			desc { state: "done" 0.0;
+			desc { "done";
 				rel1.offset: 0 -32;
 				rel2.offset: -1 31;
 			}
