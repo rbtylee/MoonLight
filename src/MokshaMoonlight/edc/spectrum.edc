@@ -2,23 +2,22 @@ group { "e/widgets/spectrum";
 	images.image: "inset_sunk.png" COMP;
 	parts {
 		rect { "content_clip"; nomouse;
-			desc { "default";
-				rel1.to:  "e.swallow.content";
-				rel2.to:  "e.swallow.content";
-				color: 255 255 255 255;
+			desc { "default"; color: 255 255 255 255;
+				rel1.to: "e.swallow.content";
+				rel2.to: "e.swallow.content";
 			}
 		}
 		swallow { "e.swallow.content"; clip: "content_clip";
-			desc { state: "default" 0.0;
-				rel1.offset:	4  4;
-				rel2.offset:	-5  -5;
+			desc { "default";
+				rel1.offset: 4  4;
+				rel2.offset: -5  -5;
 			}
 		}
 		part { "border"; mouse;
-			desc { state: "default" 0.0;
-				rel1.to:  "e.swallow.content";
+			desc { "default";
+				rel1.to: "e.swallow.content";
 				rel1.offset: -1 -1;
-				rel2.to:  "e.swallow.content";
+				rel2.to: "e.swallow.content";
 				rel2.offset: 0 0;
 				image.normal:"inset_sunk.png";
 				image.border: 7 7 7 7;
@@ -30,8 +29,7 @@ group { "e/widgets/spectrum";
 			dragable.confine: "e.swallow.content";
 			dragable.x: 1 1 0;
 			dragable.y: 1 1 0;
-			desc { "default"; hid;
-				min: 1 1; max: 1 1;
+			desc { "default"; min: 1 1; max: 1 1; hid;
 				fixed: 1 1;
 				rel1.to: "e.swallow.content";
 				rel1.relative: 0.5 0.5;
@@ -42,21 +40,19 @@ group { "e/widgets/spectrum";
 			}
 		}
 		rect { "cursor_x";
-			desc { state: "default" 0.0;
+			desc { "default"; color: 255 255 255 150;
 				rel1.to_x: "e.dragable.cursor";
 				rel1.to_y: "e.swallow.content";
 				rel2.to_x: "e.dragable.cursor";
 				rel2.to_y: "e.swallow.content";
-				color: 255 255 255 150;
 			}
 		}
 		rect { "cursor_y";
-			desc { state: "default" 0.0;
+			desc { "default"; color: 255 255 255 150;
 				rel1.to_x: "e.swallow.content";
 				rel1.to_y: "e.dragable.cursor";
 				rel2.to_x: "e.swallow.content";
 				rel2.to_y: "e.dragable.cursor";
-				color: 255 255 255 150;
 			}
 		}
 	}
