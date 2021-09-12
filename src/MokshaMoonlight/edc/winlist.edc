@@ -109,10 +109,7 @@ group {	"e/widgets/winlist/item";
 				image.border: 8 8 5 9;
 				fill.smooth : 0;
 			}
-			desc { state: "selected" 0.0;
-				inherit;
-				vis;
-				color: 255 255 255 255;
+			desc { "selected"; inherit; color: 255 255 255 255;
 				rel1.offset: -2 0;
 				rel2.offset: 1 2;
 			}
@@ -130,8 +127,7 @@ group {	"e/widgets/winlist/item";
 			}
 		}
 		part { "type";
-			desc { "default";
-				min: 23 24; max: 23 24;
+			desc { "default"; min: 23 24; max: 23 24;
 				align: 1.0 0.5;
 				rel1.relative: 1.0 0.5;
 				rel1.offset: -23 -12;
@@ -140,11 +136,11 @@ group {	"e/widgets/winlist/item";
 				rel2.to_y: "e.text.label";
 				image.normal: "pager_window.png";
 			}
-			desc { state: "iconified" 0.0; inherit; hid; }
-			desc { state: "invisible" 0.0; inherit;
+			desc { "iconified"; inherit; hid; }
+			desc { "invisible"; inherit;
 				image.normal: "inv.png";
 			}
-			desc { state: "shaded" 0.0; inherit;
+			desc { "shaded"; inherit;
 				image.normal: "pager_window_shaded.png";
 			}
 		}
@@ -164,8 +160,7 @@ group {	"e/widgets/winlist/item";
 				text.align: 0.0 0.5;
 				text.text_class: "winlist_title";
 			}
-			desc { state: "selected" 0.0; inherit;
-				color: 255 255 255 255;
+			desc { "selected"; inherit; color: 255 255 255 255;
 				color3: 0 0 0 64;
 			}
 		}
