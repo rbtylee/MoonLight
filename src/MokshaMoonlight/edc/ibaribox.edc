@@ -404,7 +404,7 @@ group { "e/modules/ibox/icon_overlay";
 				color2: 255 255 255 0;
 				color3: 255 255 255 0;
 				color_class: "module_label";
-				text.font: "Harabara"; text.size: 10;
+				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.5 0.5;
 				text.text_class: "module_normal";
