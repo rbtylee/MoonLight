@@ -1,684 +1,405 @@
-group {
-	name: "e/modules/everything/list";
-	//~ images {
-	//~ image: "everything_bottom.png" COMP;
-	//~ }
+group { "e/modules/everything/list";
+	// images.image: "everything_bottom.png" COMP;
 	parts {
-	part {
-				name: "list_frame";
-				type: RECT;
-				desc {
-				"default";
-				hid;
-				}
-	}
-	part {
-				name: "base";
-				type: RECT;
-				desc {
-				"default";
-				rel1 {
-							relative: 0.0 1.0;
-							to_x: "list_frame";
-							to_y: "input_base";
-							offset: 0 0;
-				}
-				rel2 {
-							to_x: "list_frame";
-							to_y: "input_base";
-							//offset: 0 -14;
-				}
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				rel2 {
-							to: "list_frame";
-							//offset: -13 -14;
-				}
-				}
-	}
-	part { //The input ("search bar" base)
-				name: "input_base";
-				type: RECT;
-				desc {
-				"default";
-					rel1 {
-					to_x: "base";
-					offset: -1 0;
-					}
-					rel2 {
-							relative: 1.0 0.0;
-				to_x: "base";
-				offset: -1 1;
-					}
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
+		rect { "list_frame";
+			desc { "default"; hid; }
+		}
+		rect { "base";
+			desc { "default";
+				rel1.relative: 0.0 1.0;
+				rel1.to_x: "list_frame";
+				rel1.to_y: "input_base";
+				rel1.offset: 0 0;
+				rel2.to_x: "list_frame";
+				rel2.to_y: "input_base";
+				//rel2.offset: 0 -14;
+			}
+			desc {"visible"; inherit;
+				rel2.to: "list_frame";
+				//rel2.offset: -13 -14;
+			}
+		}
+		rect { "input_base";
+			desc { "default";
+				rel1.to_x: "base";
+				rel1.offset: -1 0;
+				rel2.relative: 1.0 0.0;
+				rel2.to_x: "base";
+				rel2.offset: -1 1;
+			}
+			desc {"visible"; inherit;
 				rel2.offset: -1 28;
-				}
-	}
-	part { //the background
-				name: "list_win_bg";
-				type: IMAGE;
-				desc {
-				"default";
+			}
+		}
+		image { "list_win_bg";
+			desc { "default";
 				rel1.to_x: "base";
 				rel1.to_y: "input_base";
 				rel2.to: "base";
 				/* rel2.offset: -1 -3; */
-		color_class: "dialog_base";
-			image.normal: "dia_bg.png";
-			image.border: 15 15 1 1; 
-			fill.smooth: 0;
-				}
-	}
-	part { //the bottom bar base
-				name: "bar_base";
-				type: RECT;
-				nomouse;
-				desc {
-				"default";
-				hid;
-				rel1 {
-							relative: 0.0 1.0;
-							to: "base";
-							offset: 8 -40;
-				}
-				rel2 {
-							relative: 1.0 1.0;
-							to: "base";
-							offset: -8 -10;
-				}
-				}
-	}
-	part { //the bottom bar clip
-				name: "bar_clip";
-				type: RECT;
-				nomouse;
-				desc {
-				"default";
-				rel1 {
-							to: "bar_base";
-							offset: 2 2;
-				}
-				rel2 {
-							to: "bar_base";
-							offset: -2 -2;
-				}
-				}
-				desc {
-				state: "faded" 0.0;
-				inherit;
-				color: 0 228 0 255;
-				}
-	}
-	part { //the bottom bar
-				name: "e.swallow.bar";
-				clip: "bar_clip";
-				type: SWALLOW;
-				desc {
-				"default";
+				color_class: "dialog_base";
+				image.normal: "dia_bg.png";
+				image.border: 15 15 1 1; 
+				fill.smooth: 0;
+			}
+		}
+		rect { "bar_base"; nomouse;
+			desc { "default"; hid;
+				rel1.relative: 0.0 1.0;
+				rel1.to: "base";
+				rel1.offset: 8 -40;
+				rel2.relative: 1.0 1.0;
+				rel2.to: "base";
+				rel2.offset: -8 -10;
+			}
+		}
+		rect { "bar_clip"; nomouse;
+			desc { "default";
+				rel1.to: "bar_base";
+				rel1.offset: 2 2;
+				rel2.to: "bar_base";
+				rel2.offset: -2 -2;
+			}
+			desc { "faded"; inherit; color: 0 228 0 255; }
+		}
+		swallow { "e.swallow.bar"; clip: "bar_clip";
+			desc { "default";
 				rel1.to: "bar_clip";
 				rel1.offset: -1 0;
 				rel2.to: "bar_clip";
 				rel2.offset: -1 -1;
-				}
-	}
-	part { //the search text
-				name: "e.text.label"; 
-				type: TEXT;
-				effect: SHADOW;
-				scale;
-				clip: "input_base";
-				desc {
-				"default";
-				fixed: 0 1;
+			}
+		}
+		text { "e.text.label"; effect: SHADOW; scale; clip: "input_base";
+			desc { "default"; color: 0 0 0 255;
 				align: 0.0 0.5;
-				rel1 {
-							offset: 15  8;
-							to: "input_base";
-				}
-				rel2 {
-							to: "input_base";
-							relative: 0.0 1.0;
-							offset: 10  -4;
-				}
-				color: 0 0 0 255;
+				rel1.offset: 15 8;
+				rel1.to: "input_base";
+				rel2.to: "input_base";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 10 -4;
 				color3: 255 255 255 0;
-				text {
-							font: "Sans";
-							size: 12;
-							align: 0.0 0.5;
-							min: 1 1;
-							ellipsis: -1;
-							text_class: "fileman_typebuf";
-				}
-				}
-	}
-	part { //the blinking entry cursor
-				name: "cursor"; 
-				/* type: RECT; */
-				nomouse;
-				desc {
-				"default";
-				min: 10 10;
-				max: 10 10;
+				text.font: "Sans"; text.size: 12;
+				text.align: 0.0 0.5;
+				text.min: 1 1;
+				text.ellipsis: -1;
+				text.text_class: "fileman_typebuf";
+				fixed: 0 1;
+			}
+		}
+		part {  "cursor"; nomouse;
+			desc { "default"; min: 10 10; max: 10 10; color: 20 20 20 250;
 				align: 0.0 0.5;
+				rel1.relative: 1.0 0.0;
+				rel1.offset: -2 -2;
+				rel1.to: "e.text.label";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -2 -1;
+				rel2.to: "e.text.label";
+				image.normal: "icon_right_arrow.png";
 				fixed: 1 1;
-				rel1 {
-							relative: 1.0  0.0;
-							offset: -2    -2;
-							to: "e.text.label";
-				}
-				rel2 {
-							relative: 1.0  1.0;
-							offset: -2    -1;
-							to: "e.text.label";
-				}
-				image {
-				normal: "icon_right_arrow.png";
-				}
-				color: 20 20 20 250;
-				}
-				desc {
-				state: "faded" 0.0;
-				inherit;
-				color: 20 20 20 100;
-				}
-	}
-	part { name: "list_clip";
-				type: RECT;
-				clip: "base";
-				desc {
-				"default";
-				color: 255 255 255 255;
+			}
+			desc { "faded"; inherit; color: 20 20 20 100; }
+		}
+		rect { name: "list_clip"; clip: "base";
+			desc { "default"; color: 255 255 255 255;
 				fixed: 1 1;
-				rel1 {
-							relative: 0.0 0.0;
-							offset: 5 0;
-							to: "base";
-				}
-				rel2 {
-							relative: 1.0 0.0;
-							offset: -2  0;
-							to_y: "bar_base";
-							to_x: "base";
-				}
-				}
-	}        
-	part { name: "e.swallow.list";
-				type: SWALLOW;
-				clip: "list_clip";
-				mouse;
-				desc {
-				"default";
-				min: 32 170;
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 5 0;
+				rel1.to: "base";
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -2 0;
+				rel2.to_y: "bar_base";
+				rel2.to_x: "base";
+			}
+		}        
+		swallow { name: "e.swallow.list"; clip: "list_clip"; mouse;
+			desc { "default"; min: 32 170;
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 0 3;
+				rel1.to: "list_clip";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -4 -1;
+				rel2.to: "list_clip";
 				fixed: 1 1;
-				rel1 {
-							relative: 0.0 0.0;
-							offset: 0 3;
-							to: "list_clip";
-				}
-				rel2 {
-							relative: 1.0 1.0;
-							offset: -4  -1;
-							to: "list_clip";
-				}
-				}
-				desc {
-				state: "default" 1.0;
-				inherit;
-				rel1 {
-							relative: -1.0 0.0;
-				}
-				rel2 {
-							relative: 0.0 1.0;
-				}
-				}
-	}
-	part { name: "e.swallow.list2";
-				type: SWALLOW;
-				clip: "list_clip";
-				mouse;
-				desc {
-				"default";
-				min: 32 170;
+			}
+			desc { "default" 1.0; inherit;
+				rel1.relative: -1.0 0.0;
+				rel2.relative: 0.0 1.0;
+			}
+		}
+		swallow { name: "e.swallow.list2"; clip: "list_clip"; mouse;
+			desc { "default"; min: 32 170;
+				rel1.relative: 1.0 0.0;
+				rel1.offset: 0 3;
+				rel1.to: "list_clip";
+				rel2.relative: 2.0 1.0;
+				rel2.offset: -4 -1;
+				rel2.to: "list_clip";
 				fixed: 1 1;
-				rel1 {
-							relative: 1.0 0.0;
-							offset: 0 3;
-							to: "list_clip";
-				}
-				rel2 {
-							relative: 2.0 1.0;
-							offset: -4  -1;
-							to: "list_clip";
-				}
-				}
-				desc {
-				state: "default" 1.0;
-				inherit;
-				rel1 {
-							relative: 0.0 0.0;
-				}
-				rel2 {
-							relative: 1.0 1.0;
-				}
-				}
-	}		
-	}
-	programs {
-	program {
-				name: "blink_off";
-				signal: "show";
-				source: "";
-				action: STATE_SET "faded" 0.0;
-				transition: SINUSOIDAL 0.6;
-				target: "cursor";
-				after: "blink_on";
-	}
-	program {
-				name: "blink_on";
-				action: STATE_SET "default" 0.0;
-				transition: SINUSOIDAL 0.35;
-				target: "cursor";
-				after: "blink_off";
-	}
-		program {
-				name: "show_list";
-				signal: "e,state,list_show";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				target: "base";
-	}
-	program {
-				name: "hide_list";
-				signal: "e,state,list_hide";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				transition: ACCELERATE 0.08;
-				target: "base";
-	}
-	program {
-				name: "show_entry";
-				signal: "e,state,entry_show";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				target: "input_base";
-	}
-	program {
-				name: "hide_entry";
-				signal: "e,state,entry_hide";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				transition: SINUSOIDAL 0.08;
-				target: "input_base";
-	}
-	program {
-				name: "update_list";
-				signal: "e,signal,update";
-				source: "e";
-				action: STATE_SET "faded" 0.0;
-				/* transition: SINUSOIDAL 0.5; */
-				target: "bar_clip";
-				after: "update_list2";
-	}
-	program {
-				name: "update_list2";
-				action: STATE_SET "default" 0.0;
-				/* transition: SINUSOIDAL 0.15; */
-				target: "bar_clip";
+			}
+			desc { "default" 1.0; inherit;
+				rel1.relative: 0.0 0.0;
+				rel2.relative: 1.0 1.0;
+			}
+		}
 	}
 
-	program {
-				name: "slide_left";
-				signal: "e,action,slide,left";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				target: "e.swallow.list";
-				target: "e.swallow.list2";
-				after: "slide_left2";
-	}
-	program {
-				name: "slide_left2";
-				action: STATE_SET "default" 1.0;
-				transition: ACCELERATE 0.15;
-				target: "e.swallow.list";
-				target: "e.swallow.list2";
-				after: "left_end";
-	}
-	program { name: "left_end";
-				action: SIGNAL_EMIT "e,action,slide,left,finished" "";
-	}
-	program {
-				name: "slide_right";
-				signal: "e,action,slide,right";
-				source: "e";
-				action: STATE_SET "default" 1.0;
-				target: "e.swallow.list";
-				target: "e.swallow.list2";
-				after: "slide_right2";
-	}
-	program {
-				name: "slide_right2";
-				action: STATE_SET "default" 0.0;
-				transition: ACCELERATE 0.15;
-				target: "e.swallow.list";
-				target: "e.swallow.list2";
-				after: "right_end";
-	}
-	program { name: "right_end";
-				action: SIGNAL_EMIT "e,action,slide,right,finished" "";
-	}
-	program {
-				name: "slide_default";
-				signal: "e,action,slide,default";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				target: "e.swallow.list";
-				target: "e.swallow.list2";
-	}
-	}
-	}
-	group {
-	name: "e/modules/everything/main";
-	//data.item: "argb" 1;
-	images {
-	image: "everything_top.png" COMP;
-	image: "dia_bg.png" COMP;
-	image: "button-insensitive.png" COMP;
-	}
-	parts {
-	/*************** top ***************/
-	part { //GROUP: List
-				name: "list";
-				source: "e/modules/everything/list";
-				type: GROUP;
-				desc {
-				"default";
-				vis;
-				min: 300 155;
-				rel1 {
-							to_y: "bar_bg";
-							offset: -1 0;
-							relative: 0.0 1.0;
-					}
-					rel2 {
-					offset: 0 -1;
-				}
-				}
-	}
-	
-	/** TOP TAB **/
-	part { //The Top Bar Background
-				name: "bar_bg";
-				nomouse;
-				desc {
-				"default";
-				min: 320 64;
-				fixed: 1 1;
-				align: 0.5 0.0;
-				rel2 {
-							relative: 1.0 0.0;
-				}
-				image {
-							normal: "everything_top.png";
-							border: 10 10 10 10;
-				}
-				color_class: "dialog_base";
-				color: 255 255 255 255;
-				}
-	} 
-	part { //The group clipper
-				name: "selector_frame";
-				type: RECT;
-				desc {
-				"default";
-				color: 255 255 255 255;
-				rel1 {
-							to: "bar_bg";
-							offset: 8 7;
-				}
-				rel2 {
-							offset: -10 0;
-							to: "bar_bg";
-				}
-				}
-	}
-	part { //GROUP: Subject Selector
-				name: "subject_selector";
-				type: GROUP;
-				source: "e/modules/everything/selector_item";
-				clip: "selector_frame";
-				desc {
-				"default";
-				/* hid; */
-				rel1 {
-							relative: 0.0 0.0;
-							offset: 0 2;
-							to: "selector_frame";
-				}
-				rel2 {
-							relative: 0.5 1.0;
-							offset: -1 -1;
-							to_y: "selector_frame";
-				}
-				}
-				desc {
-				state: "wide" 0;
-				inherit;
-				hid;
-				rel1 {
-							relative: -0.5 0.0;
-							offset: 0 2;
-				}
-				rel2 {
-							relative: 0.0 1.0;
-							offset: 0 -1;
-				}
-				}
-	}
-	part { //GROUP: Action Selector
-				name: "action_selector";
-				type: GROUP;
-				source: "e/modules/everything/selector_item";
-				clip: "selector_frame";
-				desc {
-				"default";
-				/* hid; */
-				rel1 {
-							relative: 0.5 0.0;
-							offset: 0 2;
-							to: "selector_frame";
-				}
-				rel2 {
-							relative: 1.0 1.0;
-							offset: -1 -1;
-							to: "selector_frame";
-				}
-				}
-				desc {
-				state: "wide" 0;
-				inherit;
-				rel1 {
-							relative: 0.0 0.0;
-							offset: 0 2;
-				}
-				rel2 {
-							relative: 0.5 1.0;
-							offset: -1 -1;
-				}
-				}
-	}
-	part { //GROUP: Object Selector
-				name: "object_selector";
-				type: GROUP;
-				source: "e/modules/everything/selector_item";
-				clip: "selector_frame";
-				desc {
-				"default";
-				hid;
-				rel1 {
-							relative: 1.0 0.0;
-							offset: 0 2;
-							to: "selector_frame";
-				}
-				rel2 {
-							relative: 1.5 1.0;
-							offset: -1 -1;
-							to: "selector_frame";
-				}
-				}
-				desc {
-				state: "wide" 0;
-				inherit;
-				vis;
-				rel1 {
-							relative: 0.5 0.0;
-							offset: 0 2;
-				}
-				rel2 {
-							relative: 1.0 1.0;
-							offset: -1 -1;
-				}
-				}
-	}
-	}
 	programs {
-	program {
-				name: "object_selector_hide";
-				signal: "e,state,object_selector_hide";
-				source: "e";
-				action: STATE_SET "default" 0.00;
-				transition: SINUSOIDAL 0.15;
-				target: "object_selector";
-				target: "subject_selector";
-				target: "action_selector";
+		program { name: "blink_off";
+			signal: "show";
+			source: "";
+			action: STATE_SET "faded" 0.0;
+			transition: SINUSOIDAL 0.6;
+			target: "cursor";
+			after: "blink_on";
+		}
+		program { name: "blink_on";
+			action: STATE_SET "default" 0.0;
+			transition: SINUSOIDAL 0.35;
+			target: "cursor";
+			after: "blink_off";
+		}
+		program { name: "show_list";
+			signal: "e,state,list_show";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			target: "base";
+		}
+		program { name: "hide_list";
+			signal: "e,state,list_hide";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: ACCELERATE 0.08;
+			target: "base";
+		}
+		program { name: "show_entry";
+			signal: "e,state,entry_show";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			target: "input_base";
+		}
+		program { name: "hide_entry";
+			signal: "e,state,entry_hide";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: SINUSOIDAL 0.08;
+			target: "input_base";
+		}
+		program { name: "update_list";
+			signal: "e,signal,update";
+			source: "e";
+			action: STATE_SET "faded" 0.0;
+			/* transition: SINUSOIDAL 0.5; */
+			target: "bar_clip";
+			after: "update_list2";
+		}
+		program { name: "update_list2";
+			action: STATE_SET "default" 0.0;
+			/* transition: SINUSOIDAL 0.15; */
+			target: "bar_clip";
+		}
+		program { name: "slide_left";
+			signal: "e,action,slide,left";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "e.swallow.list";
+			target: "e.swallow.list2";
+			after: "slide_left2";
+		}
+		program { name: "slide_left2";
+			action: STATE_SET "default" 1.0;
+			transition: ACCELERATE 0.15;
+			target: "e.swallow.list";
+			target: "e.swallow.list2";
+			after: "left_end";
+		}
+		program { name: "left_end";
+			action: SIGNAL_EMIT "e,action,slide,left,finished" "";
+		}
+		program { name: "slide_right";
+			signal: "e,action,slide,right";
+			source: "e";
+			action: STATE_SET "default" 1.0;
+			target: "e.swallow.list";
+			target: "e.swallow.list2";
+			after: "slide_right2";
+		}
+		program { name: "slide_right2";
+			action: STATE_SET "default" 0.0;
+			transition: ACCELERATE 0.15;
+			target: "e.swallow.list";
+			target: "e.swallow.list2";
+			after: "right_end";
+		}
+		program { name: "right_end";
+			action: SIGNAL_EMIT "e,action,slide,right,finished" "";
+		}
+		program { name: "slide_default";
+			signal: "e,action,slide,default";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "e.swallow.list";
+			target: "e.swallow.list2";
+		}
 	}
-	program {
-				name: "object_selector_show";
-				signal: "e,state,object_selector_show";
-				source: "e";
-				action: STATE_SET "wide" 0.00;
-				transition: SINUSOIDAL 0.2;
-				target: "object_selector";
-				target: "subject_selector";
-				target: "action_selector";
-	}
-	}
-	}
-	group {
-	images {
-image: "button-normal.png" COMP;
-image: "button-pressed.png" COMP;
-	}
-	name: "e/modules/everything/selector_item";
+}
+
+group { "e/modules/everything/main";
+	//data.item: "argb" 1;
+	images.image: "everything_top.png" COMP;
+	images.image: "dia_bg.png" COMP;
+	images.image: "button-insensitive.png" COMP;
 	parts {
-	part {
-				name: "clip";
-				type: RECT;
-				nomouse;
-				desc {
-				"default";
-				}
+		group { "list";
+			source: "e/modules/everything/list";
+			desc { "default"; min: 300 155; vis; 
+				rel1.to_y: "bar_bg";
+				rel1.offset: -1 0;
+				rel1.relative: 0.0 1.0;
+				rel2.offset: 0 -1;
+			}
+		}
+		part {  "bar_bg"; nomouse;
+			desc { "default"; color: 255 255 255 255; color_class: "dialog_base";
+				min: 320 64;
+				align: 0.5 0.0;
+				rel2.relative: 1.0 0.0;
+				image.normal: "everything_top.png";
+				image.border: 10 10 10 10;
+				fixed: 1 1;
+			}
+		} 
+		rect { "selector_frame";
+			desc { "default"; color: 255 255 255 255;
+				rel1.to: "bar_bg";
+				rel1.offset: 8 7;
+				rel2.offset: -10 0;
+				rel2.to: "bar_bg";
+			}
+		}
+		group { "subject_selector"; clip: "selector_frame";
+			source: "e/modules/everything/selector_item";
+			desc { "default"; /* hid; */
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 0 2;
+				rel1.to: "selector_frame";
+				rel2.relative: 0.5 1.0;
+				rel2.offset: -1 -1;
+				rel2.to_y: "selector_frame";
+			}
+			desc { "wide";; inherit; hid;
+				rel1.relative: -0.5 0.0;
+				rel1.offset: 0 2;
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 0 -1;
+			}
+		}
+		group { "action_selector"; clip: "selector_frame";
+			source: "e/modules/everything/selector_item";
+			desc { "default"; /* hid; */
+				rel1.relative: 0.5 0.0;
+				rel1.offset: 0 2;
+				rel1.to: "selector_frame";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -1 -1;
+				rel2.to: "selector_frame";
+			}
+			desc { "wide";; inherit;
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 0 2;
+				rel2.relative: 0.5 1.0;
+				rel2.offset: -1 -1;
+			}
+		}
+		group { "object_selector"; clip: "selector_frame";
+			source: "e/modules/everything/selector_item";
+			desc { "default"; hid;
+				rel1.relative: 1.0 0.0;
+				rel1.offset: 0 2;
+				rel1.to: "selector_frame";
+				rel2.relative: 1.5 1.0;
+				rel2.offset: -1 -1;
+				rel2.to: "selector_frame";
+			}
+			desc { "wide";; inherit; vis;
+				rel1.relative: 0.5 0.0;
+				rel1.offset: 0 2;
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -1 -1;
+			}
+		}
 	}
-	part {
-				name: "bg";
-				nomouse;
-				desc {
-				"default";
-				color: 255 255 255 0;
-				image {
-							normal: "button-pressed.png";
-							border: 12 12 12 12;
-				}
+
+	programs {
+		program { name: "object_selector_hide";
+			signal: "e,state,object_selector_hide";
+			source: "e";
+			action: STATE_SET "default" 0.00;
+			transition: SINUSOIDAL 0.15;
+			target: "object_selector";
+			target: "subject_selector";
+			target: "action_selector";
+		}
+		program { name: "object_selector_show";
+			signal: "e,state,object_selector_show";
+			source: "e";
+			action: STATE_SET "wide" 0.00;
+			transition: SINUSOIDAL 0.2;
+			target: "object_selector";
+			target: "subject_selector";
+			target: "action_selector";
+		}
+	}
+}
+
+group { "e/modules/everything/selector_item";
+	images.image: "button-normal.png" COMP;
+	images.image: "button-pressed.png" COMP;
+	parts {
+		rect { "clip"; nomouse;
+			desc { "default"; }
+		}
+		part { "bg"; nomouse;
+			desc { "default"; color: 255 255 255 0;
+				image.normal: "button-pressed.png";
+				image.border: 12 12 12 12;
 				fill.smooth: 1;
 				rel1.offset: 0 -1;
 				rel2.offset: 0 -1;
-				}
-				desc {
-						state: "selected" 0.0;
-						inherit;
-						color: 255 255 255 255;
-				}
-	}
-	part {
-				name: "inner_clip";
-				type: RECT;
-				clip: "clip";
-				nomouse;
-				desc {
-				"default";
-				rel1.offset: 6   2;
-				rel2.offset: -5   -5;
-				}
-	}
-	part {
-				name: "icon_clip";
-				type: RECT;
-				clip: "inner_clip";
-				nomouse;
-				desc {
-				"default";
-				color: 255 255 255 255;
-				}
-				desc {
-				state: "faded" 0.0;
-				color: 255 255 255 120;
-				}
-	}
-	part {
-				name: "e.swallow.icons";
-				type: SWALLOW;
-				clip: "icon_clip";
-				nomouse;
-				desc {
-				"default";
-				min: 50 44;
-				max: 50 44;
+			}
+			desc { "selected"; inherit; color: 255 255 255 255; }
+		}
+		rect { "inner_clip"; clip: "clip"; nomouse;
+			desc { "default";
+				rel1.offset: 6 2;
+				rel2.offset: -5 -5;
+			}
+		}
+		rect { "icon_clip"; clip: "inner_clip"; nomouse;
+			desc { "default"; color: 255 255 255 255; }
+			desc { "faded"; color: 255 255 255 120; }
+		}
+		swallow { "e.swallow.icons"; clip: "icon_clip"; nomouse;
+			desc { "default"; min: 50 44; max: 50 44;
 				aspect: 1.0 1.0;
 				align: 0.0 0.5;
 				aspect_preference: VERTICAL;
-				rel1 {
-							offset: 5   5;
-				}
-				rel2 {
-							offset: -1  -8;
-				}
-				}
-	}
-	part {
-				name: "e.swallow.thumb";
-				type: SWALLOW;
-				clip: "icon_clip";
-				nomouse;
-				desc {
-				"default";
-				min: 50 44;
-				max: 50 44;
+				rel1.offset: 5 5;
+				rel2.offset: -1 -8;
+			}
+		}
+		swallow { "e.swallow.thumb"; clip: "icon_clip"; nomouse;
+			desc { "default"; min: 50 44; max: 50 44;
 				aspect: 1.0 1.0;
 				align: 0.0 0.5;
 				aspect_preference: VERTICAL;
-				rel1 {
-							offset: 5   5;
-				}
-				rel2 {
-							offset: -1  -8;
-				}
-				}
-	}
-
-	part {
-				name: "e.text.label";
-				type: TEXT;
-				nomouse;
-				clip: "clip";
-				scale;
-				nomouse;
-				desc {
-				"default";
+				rel1.offset: 5 5;
+				rel2.offset: -1 -8;
+			}
+		}
+		text { "e.text.label"; nomouse; clip: "clip"; scale; nomouse;
+			desc { "default"; color: 24 24 24 255;
 				align: 0.0 1.0;
 				fixed: 0 1;
 				rel1.to: "e.swallow.icons";
@@ -686,1252 +407,740 @@ image: "button-pressed.png" COMP;
 				rel2.to: "clip";
 				rel1.offset: 2 3;
 				rel2.offset: -6 -2;
-				/* hid; */
-				color: 24 24 24 255;
-				text {
-							font: "Sans:style=Bold";
-							size: 12;
-							min: 0 1;
-							align: 0.5 1.0;
-							text_class: "fileman_typebuf";
-				}
-				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-				color: 0 0 0 255;
-				/* vis; */
-				}
-	}
-	part {
-				name: "e.text.plugin";
-				type: TEXT;
-				clip: "inner_clip";
-				effect: SOFT_SHADOW;
-				nomouse;
-				scale;
-				desc {
-				"default";
+				text.font: "Sans:style=Bold"; text.size: 12;
+				text.min: 0 1;
+				text.align: 0.5 1.0;
+				text.text_class: "fileman_typebuf";
+			}
+			desc { "selected"; inherit; color: 0 0 0 255; }
+		}
+		text { "e.text.plugin";effect: SOFT_SHADOW; nomouse; scale;
+			clip: "inner_clip"; 
+			desc { "default";
 				align: 0.0 0.0;
-				rel1 {
-							relative: 0 0.1;
-							offset: 6 0;
-							/* to_x: "e.swallow.icons"; */
-				}
+				rel1.relative: 0 0.1;
+				rel1.offset: 6 0;
+				/* rel1.to_x: "e.swallow.icons"; */
 				rel2.offset: -10 -12;
 				color: 0 0 0 255;
 				color3: 0 0 0 0;
-				text {
-							font: "Sans";
-							size: 12;
-							min: 0 1;
-							align: 0.5 0.0;
-							text_class: "fileman_icon";
-				}
-				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-
-				color: 0 0 0 255;
-				}
-	}
-	part {
-				name: "event";
-				type: RECT;
-				desc {
-				"default";
-				color: 0 0 0 0;
-				}
-	}
+				text.font: "Sans"; text.size: 12;
+				text.min: 0 1;
+				text.align: 0.5 0.0;
+				text.text_class: "fileman_icon";
+			}
+			desc { "selected"; inherit; color: 0 0 0 255; }
+		}
+		rect { "event";
+			desc { "default"; color: 0 0 0 0; }
+		}
 	}
 	programs {
-	program {
-				name: "sel";
-				signal: "e,state,selected";
-				source: "e";
-				action: STATE_SET "selected" 0.0;
-				transition: LINEAR 0.1;
-				/* target: "border";
-			* target: "border_bg"; */
-				target: "bg";
-				target: "e.text.label";
-				target: "e.text.plugin";
+		program { name: "sel";
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			transition: LINEAR 0.1;
+			target: "bg";
+			target: "e.text.label";
+			target: "e.text.plugin";
+		}
+		program { name: "unsel";
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 0.2;
+			target: "bg";
+			target: "e.text.label";
+			target: "e.text.plugin";
+		}
+		program { name: "update";
+			signal: "e,signal,update";
+			source: "e";
+			action: STATE_SET "faded" 0.0;
+			transition: DECELERATE 0.1;
+			target: "icon_clip";
+			after: "show_icon";
+		}
+		program { name: "show_icon";
+			action: STATE_SET "default" 0.0;
+			transition: ACCELERATE 0.3;
+			target: "icon_clip";
+		}
+		program { name: "thumb_show";
+			signal: "e,action,thumb,show";
+			source: "e";
+			action: STATE_SET "faded" 0.0;
+			/* transition: SINUSOIDAL 0.05; */
+			target: "icon_clip";
+			after: "thumb_show2";
+		}
+		program { name: "thumb_show2";
+			action: STATE_SET "default" 0.0;
+			transition: SINUSOIDAL 0.2;
+			target: "icon_clip";
+		}
 	}
-	program {
-				name: "unsel";
-				signal: "e,state,unselected";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				transition: LINEAR 0.2;
-				/* target: "border";
-			* target: "border_bg"; */
-				target: "bg";
-				target: "e.text.label";
-				target: "e.text.plugin";
-	}
-	program {
-				name: "update";
-				signal: "e,signal,update";
-				source: "e";
-				action: STATE_SET "faded" 0.0;
-				transition: DECELERATE 0.1;
-				target: "icon_clip";
-				after: "show_icon";
-	}
-	program {
-				name: "show_icon";
-				action: STATE_SET "default" 0.0;
-				transition: ACCELERATE 0.3;
-				target: "icon_clip";
-	}
-	program {
-				name: "thumb_show";
-				signal: "e,action,thumb,show";
-				source: "e";
-				action: STATE_SET "faded" 0.0;
-				/* transition: SINUSOIDAL 0.05; */
-				target: "icon_clip";
-				after: "thumb_show2";
-	}
-	program {
-				name: "thumb_show2";
-				action: STATE_SET "default" 0.0;
-				transition: SINUSOIDAL 0.2;
-				target: "icon_clip";
-	}
-	}
-	}
+}
 
-	group {
-	name: "e/modules/everything/tab_item";
+group { "e/modules/everything/tab_item";
 	min: 50 20;
 	parts {
-	part {
-				name: "clip";
-	type: RECT;
-				nomouse;
-				desc {
-				"default";
+		rect {"clip"; nomouse;
+			desc { "default";
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 0.9;
-				}
-	}
-	part {
-				name: "label2";
-				type: TEXT;
-				scale;
-				clip: "clip";
-				nomouse;
-				desc {
-				"default";
+			}
+		}
+		text { "label2"; scale; clip: "clip"; nomouse;
+			desc { "default"; color: 0 0 0 255;
 				align: 0.5 0.5;
 				fixed: 0 1;
 				rel1.to: "e.text.label";
 				rel2.to: "e.text.label";
-				color: 0 0 0 255;
-				text {
-							font: "Sans:style";
-							text_source: "e.text.label";
-							size: 12;
-							min: 0 1;
-							align: 0.5 0.5;
-				text_class: "fileman_icon";
+				text.font: "Sans:style"; text.size: 12;
+				text.text_source: "e.text.label";
+				text.min: 0 1;
+				text.align: 0.5 0.5;
+				text.text_class: "fileman_icon";
+			}
+			desc { "selected"; inherit; color: 10 10 10 0; hid; }
+		}
+		part { "bg"; nomouse;
+				desc { "default"; color: 255 255 255 0;
+					image.normal: "button-pressed.png";
+					image.border: 6 6 6 6;
+					fill.smooth: 1;
 				}
+				desc { "selected"; inherit; color: 255 255 255 255; }
+		}
+		text { "e.text.label"; nomouse; clip: "clip"; scale; nomouse;
+				desc { "default";color: 0 0 0 255; hid;
+					align: 0.5 0.5;
+					fixed: 0 1;
+					rel1.to: "clip";
+					rel2.to: "clip";
+					rel1.offset: 5 1;
+					rel2.offset: -6 -1;
+					text.font: "Sans:style=Bold"; text.size: 12;
+					text.min: 0 1;
+					text.align: 0.5 0.5;
+					text.text_class: "fileman_icon";
 				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-				color: 10 10 10 0;
-				hid;
-				}
-	}
-	part {
-				name: "bg";
-				nomouse;
-				desc {
-				"default";
-				color: 255 255 255 0;
-				image {
-							normal: "button-pressed.png";
-							border: 6 6 6 6;
-				}
-				fill.smooth: 1;
-				}
-				desc {
-						state: "selected" 0.0;
-						inherit;
-		color: 255 255 255 255;
-				}
-	}
-	part {
-				name: "e.text.label";
-				type: TEXT;
-				nomouse;
-				clip: "clip";
-				scale;
-				nomouse;
-				desc {
-				"default";
-				align: 0.5 0.5;
-				fixed: 0 1;
-				rel1.to: "clip";
-				rel2.to: "clip";
-				rel1.offset: 5 1;
-				rel2.offset: -6 -1;
-				hid;
-				color: 0 0 0 255;
-				text {
-							font: "Sans:style=Bold";
-							size: 12;
-							min: 0 1;
-							align: 0.5 0.5;
-							text_class: "fileman_icon";
-				}
-				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-				vis;
-				}
-	}
-	part {
-				name: "event";
-				type: RECT;
-				desc {
-				"default";
-				color: 0 0 0 0;
-				}
-	}
-	}
-	programs {
-	program {
-				name: "go_active";
-				signal: "e,state,selected";
-				source: "e";
-				action: STATE_SET "selected" 0.0;
-				target: "bg";
-				target: "e.text.label";
-				target: "label2";
-				transition: LINEAR 0.1;
-	}
-	program {
-				name: "go_passive";
-				signal: "e,state,unselected";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				target: "bg";
-				target: "e.text.label";
-				target: "label2";
-	}
-	}
+				desc { "selected"; inherit; vis; }
+		}
+		rect { "event";
+			desc { "default"; color: 0 0 0 0; }
+		}
 	}
 
-	group {
-	name: "e/modules/everything/tab_item/back";
+	programs {
+		program { name: "go_active";
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			target: "bg";
+			target: "e.text.label";
+			target: "label2";
+			transition: LINEAR 0.1;
+		}
+		program { name: "go_passive";
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "bg";
+			target: "e.text.label";
+			target: "label2";
+		}
+	}
+}
+
+group { "e/modules/everything/tab_item/back";
 	min: 50 20;
 	parts {
-	part {
-				name: "clip";
-	type: RECT;
-	nomouse;
-				desc {
-				"default";
+		rect { "clip"; nomouse;
+				desc { "default";
 				rel1.relative: 0.00 0.0;
 				rel2.relative: 1.0 0.9;
-				}
-	}
-	part {
-				name: "label2";
-				type: TEXT;
-				scale;
-				clip: "clip";
-				nomouse;
-				desc {
-				"default";
+			}
+}
+		text { "label2"; scale; clip: "clip"; nomouse;
+			desc { "default"; color: 255 255 255 255; color_class: "button_text";
 				align: 0.5 0.5;
 				fixed: 0 1;
 				rel1.to: "e.text.label";
-				rel2.to: "e.text.label";
-				color: 255 255 255 255;
-				color_class: "button_text";
-				text {
-							font: "Sans:style";
-							text_source: "e.text.label";
-							size: 12;
-							min: 0 1;
-							align: 0.5 0.5;
-							text_class: "fileman_icon";
-				}
-				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-				hid;
-				}
-	}
-	part {
-				name: "bg";
-				nomouse;
-				desc {
-				"default";
-				color: 255 255 255 0;
-				image {
-							normal: "button-pressed.png";
-							border: 6 6 6 6;
-				}
+				rel2.to: "e.text.label"; 
+				text.font: "Sans:style"; text.size: 12;
+				text.text_source: "e.text.label";
+				text.min: 0 1;
+				text.align: 0.5 0.5;
+				text.text_class: "fileman_icon";
+			}
+			desc { "selected"; inherit; hid; }
+		}
+		part { "bg"; nomouse;
+			desc { "default"; color: 255 255 255 0;
+				image.normal: "button-pressed.png";
+				image.border: 6 6 6 6;
 				fill.smooth: 1;
-				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-				color: 255 255 255 255;
-				}
-	}
-	part {
-				name: "e.text.label";
-				type: TEXT;
-				nomouse;
-				clip: "clip";
-				scale;
-				nomouse;
-				desc {
-				"default";
+			}
+			desc { "selected"; inherit; color: 255 255 255 255; }
+		}
+		text { "e.text.label"; nomouse; clip: "clip"; scale; nomouse;
+			desc { "default"; color: 255 255 255 255; color_class: "button_text"; hid;
 				align: 0.5 0.5;
 				fixed: 0 1;
 				rel1.to: "clip";
 				rel2.to: "clip";
 				rel1.offset: 5 3;
 				rel2.offset: -6 -1;
-				hid;
-				color: 255 255 255 255;
-				color_class: "button_text";
-				text {
-							font: "Sans:style=Bold";
-							size: 12;
-							min: 0 1;
-							align: 0.5 0.5;
-							text_class: "fileman_icon";
-				}
-				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-				vis;
-				}
+				text.font: "Sans:style=Bold"; text.size: 12;
+				text.min: 0 1;
+				text.align: 0.5 0.5;
+				text.text_class: "fileman_icon";
+			}
+			desc { "selected"; inherit; vis; }
+		}
+		rect { "event";
+			desc { "default"; color: 0 0 0 0; }
+		}
 	}
-	part {
-				name: "event";
-				type: RECT;
-				desc {
-				"default";
-				color: 0 0 0 0;
-				}
-	}
-	}
+
 	programs {
-	program {
-				name: "go_active";
-				signal: "e,state,selected";
-				source: "e";
-				action: STATE_SET "selected" 0.0;
-				target: "bg";
-				target: "e.text.label";
-				target: "label2";
-				transition: LINEAR 0.1;
+		program { name: "go_active";
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			target: "bg";
+			target: "e.text.label";
+			target: "label2";
+			transition: LINEAR 0.1;
+		}
+		program { name: "go_passive";
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "bg";
+			target: "e.text.label";
+			target: "label2";
+		}
+		program {
+			signal: "mouse,down,1"; source: "event";
+			action: SIGNAL_EMIT "e,state,selected" "e";
+		}
+		program {
+			signal: "mouse,up,1*"; source: "event";
+			action: SIGNAL_EMIT "e,state,unselected" "e";
+		}
 	}
-	program {
-				name: "go_passive";
-				signal: "e,state,unselected";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				target: "bg";
-				target: "e.text.label";
-				target: "label2";
-	}
-	program {
-	signal: "mouse,down,1"; source: "event";
-	action: SIGNAL_EMIT "e,state,selected" "e";
-	}
-	program {
-	signal: "mouse,up,1*"; source: "event";
-	action: SIGNAL_EMIT "e,state,unselected" "e";
-	}
-	}
-	}
+}
 
-	/////////////////////////////////////////////////////////////////////////////
-	/*** EVERYTHING THUMB VIEW ***/
-
-	group {
-	name: "e/modules/everything/thumbview/item/thumb";
-	images {
-	image: "menu_arrow_normal.png" COMP;
-	}
+group { "e/modules/everything/thumbview/item/thumb";
+	images.image: "menu_arrow_normal.png" COMP;
 	parts {
-	part {
-				name: "bg";
-				nomouse;
-				desc {
-				"default";
-				rel1 {
-							to: "base";
-							offset: -1 -3;
-				}
-				rel2 {
-							to: "base";
-							offset: 0 2;
-				}
+		part { "bg"; nomouse;
+			desc { "default"; color: 255 255 255 0;
+				rel1.to: "base";
+				rel1.offset: -1 -3;
+				rel2.to: "base";
+				rel2.offset: 0 2;
 				fill.smooth: 0;
-				image {
-							normal: "button-insensitive.png";
-							border: 5 5 5 5;
-				}
-				color: 255 255 255 0;
-				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-				color: 255 255 255 255;
-				}
-	}
-	
-	part {
-				name: "bg_mark";
-				nomouse;
-				desc {
-				"default";
-				hid;
+				image.normal: "button-insensitive.png";
+				image.border: 5 5 5 5;
+			}
+			desc { "selected"; inherit; color: 255 255 255 255; }
+		}
+		part { "bg_mark"; nomouse;
+			desc { "default"; color: 255 255 255 0; hid;
 				rel1.to: "bg";
 				rel2.to: "bg";
 				fill.smooth: 0;
-				image {
-							normal: "button-insensitive.png";
-							border: 5 5 5 5;
-				}
-				color: 255 255 255 0;
-				}
-				desc {
-				state: "marked" 0.0;
-				inherit;
-				vis;
-				color: 255 255 255 255;
-				}
-	}
-	part {
-				name: "base";
-				nomouse;
-				type: RECT;
-				desc {
-				"default";
-				rel1 {
-							relative: 0.0 0.0;
-							offset: 0   4;
-				}
-				rel2 {
-							relative: 1.0 1.0;
-							offset: -5  -5;
-				}
-				color: 255 255 255 255;
-				}
-	}
-	part {
-				name: "clip";
-				nomouse;
-				type: RECT;
-				/* clip: "base"; */
-				desc {
-				"default";
+				image.normal: "button-insensitive.png";
+				image.border: 5 5 5 5;
+			}
+			desc {"marked"; inherit; color: 255 255 255 255; vis; }
+		}
+		rect { "base"; nomouse;
+			desc { "default"; color: 255 255 255 255;
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 0 4;
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -5 -5;
+			}
+		}
+		rect { "clip"; nomouse;
+			/* clip: "base"; */
+			desc { "default"; color: 225 225 225 0;
 				rel1.to: "base";
 				rel2.to: "base";
-				color: 225 225 225 0;
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				color: 255 255 255 255;
-				}
-	}
-	part {
-				name: "e.swallow.icon";
-				clip: "clip";
-				type: SWALLOW;
-				nomouse;
-				desc {
-				"default";
-				rel1 {
-							to: "base";
-							relative: 0.0 0.0;
-							offset: 6   0;
-				}
-				rel2 {
-							to: "base";
-							relative: 1.0 1.0;
-							offset: -3  -18;
-				}
-				}
-	}
-	part {
-				name: "e.swallow.thumb";
-				clip: "clip";
-				type: SWALLOW;
-				nomouse;
-				desc {
-				"default";
+			}
+			desc {"visible"; inherit; color: 255 255 255 255; }
+		}
+		swallow { "e.swallow.icon"; clip: "clip"; nomouse;
+			desc { "default";
+				rel1.to: "base";
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 6 0;
+				rel2.to: "base";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -3 -18;
+			}
+		}
+		swallow { "e.swallow.thumb"; clip: "clip"; nomouse;
+			desc { "default";
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
-				rel1 {
-							to: "base";
-							offset: 6   6;
-				}
-				rel2 {
-							to: "base";
-							offset: -5  -20;
-				}
-				}
-	}
-	part {
-				name: "arrow";
-				nomouse;
-				desc {
-				"default";
-				min: 9 12;
-				max: 9 12;
-				/* aspect_preference: */
-				hid;
+				rel1.to: "base";
+				rel1.offset: 6 6;
+				rel2.to: "base";
+				rel2.offset: -5 -20;
+			}
+		}
+		part { "arrow"; nomouse;
+			desc { "default"; min: 9 12; max: 9 12; hid;
+				/* aspect_preference: */ 
 				align: 1.0 0.0;
-				rel1 {
-							to: "base";
-							relative: 1.0 0.0;
-							offset: -3 2;
-				}
-				rel2 {
-							to: "base";
-							relative: 1.0 0.0;
-							offset: -3 2;
-				}
-				image {
-							normal: "menu_arrow_normal.png";
-				}
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				vis;
-				}
-	}
-	part {
-				name: "e.text.label";
-				type: TEXT;
-				clip: "base";
-				nomouse;
-				scale;
-				desc {
-				"default";
-				rel1 {
-							offset: 2 -15;
-							relative: 0.0 1.0;
-				}
+				rel1.to: "base";
+				rel1.relative: 1.0 0.0;
+				rel1.offset: -3 2;
+				rel2.to: "base";
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -3 2;
+				image.normal: "menu_arrow_normal.png";
+			}
+			desc {"visible"; inherit; vis; }
+		}
+		text { "e.text.label"; clip: "base"; nomouse; scale;
+			desc { "default"; color: 0 0 0 255;
+				rel1.offset: 2 -15;
+				rel1.relative: 0.0 1.0;
 				rel2.offset: -2 -10;
-				color: 0 0 0 255;
-				text {
-							font: "Sans";
-							size: 10;
-							min: 0 1;
-							align: 0.5 0.0;
-							text_class: "fileman_icon";
-				}
-				}
-				desc {
-				state: "selected" 0.0;
-	inherit;
-				rel1 {
-							offset: 2 -15;
-							relative: 0.0 1.0;
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 1;
+				text.align: 0.5 0.0;
+				text.text_class: "fileman_icon";
+			}
+			desc { "selected"; inherit; color: 0 0 0 255;
+				rel1.offset: 2 -15;
+				rel1.relative: 0.0 1.0;
 				rel2.offset: -2 -10;
-				color: 0 0 0 255;
-				}
-	}
-	
-	part {
-				name: "over_clip";
-				type: RECT;
-				nomouse;
-				desc {
-				"default";
-				color: 255 255 255 255;
-				rel1 {
-							relative: 0.0 0.0;
-							offset: 0 0;
-				}
-				rel2 {
-							relative: 1.0 1.0;
-							offset: -1 -1;
-				}
-				hid;
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				color: 255 255 255 255;
-				vis;
-				}
-				desc {
-				state: "hidden" 0.0;
-				inherit;
-				rel1.relative: -0.5  -0.5;
-				rel2.relative: 1.5  1.5;
-				color: 255 255 255 0;
-				vis;
-				}
-				desc {
-				state: "huge" 0.0;
-				inherit;
-				color: 255 255 255 0;
+			}
+		}
+		rect { "over_clip"; nomouse;
+			desc { "default"; color: 255 255 255 255; hid;
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 0 0;
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -1 -1;
+			}
+			desc {"visible"; inherit; color: 255 255 255 255; vis; }
+			desc { "hidden"; inherit; color: 255 255 255 0; vis;
+				rel1.relative: -0.5 -0.5;
+				rel2.relative: 1.5 1.5;
+			}
+			desc { "huge"; inherit; color: 255 255 255 0; vis;
 				rel1.relative: -1.5 -1.5;
-				rel2.relative: 2.5  2.5;
-				vis;
-				}
-	}
-
-	part {
-				name: "over";
-				type: PROXY;
-				nomouse;
-				clip: "over_clip";
-				desc {
-				"default";
+				rel2.relative: 2.5 2.5;
+			}
+		}
+		proxy { "over"; nomouse; clip: "over_clip";
+			desc { "default"; hid;
 				source: "e.swallow.icon";
 				rel1.to: "over_clip";
 				rel2.to: "over_clip";
-				hid;
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				vis;
-				}
-	}
-	part {
-				name: "over2";
-				type: PROXY;
-				nomouse;
-				clip: "over_clip";
-				desc {
-				"default";
+			}
+			desc {"visible"; inherit; vis; }
+		}
+		proxy { "over2"; nomouse; clip: "over_clip";
+			desc { "default"; hid;
 				source: "e.swallow.thumb";
 				rel1.to: "over_clip";
 				rel2.to: "over_clip";
-				hid;
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				vis;
-				}
+			}
+			desc {"visible"; inherit; vis; }
+		}
+		rect { "event";
+			desc { "default"; color: 0 0 0 0; }
+		}
 	}
-	
-	part {
-				name: "event";
-				type: RECT;
-				desc {
-				"default";
-				color: 0 0 0 0;
-				}
-	}
-	}
+
 	programs {
-	program {
-				name: "sel";
-				signal: "e,state,selected";
-				source: "e";
-				action: STATE_SET "selected" 0.0;
-				target: "bg";
-				target: "e.text.label";
+		program { name: "sel";
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			target: "bg";
+			target: "e.text.label";
+		}
+		program { name: "unsel";
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: SINUSOIDAL 0.1;
+			target: "bg";
+			target: "e.text.label";
+		}
+		program { name: "mark";
+			signal: "e,state,marked";
+			source: "e";
+			action: STATE_SET "marked" 0.0;
+			target: "bg_mark";
+			transition: ACCELERATE 0.15;
+		}
+		program { name: "unmark";
+			signal: "e,state,unmarked";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 0.2;
+			target: "bg_mark";
+		}
+		program { name: "arrow_show";
+			signal: "e,state,browseable";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			target: "arrow";
+		}
+		program { name: "thumb_show_delayed";
+			signal: "e,action,thumb,show_delayed";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "clip";
+			after: "thumb_show2";
+		}
+		program { name: "thumb_show";
+			signal: "e,action,thumb,show";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			target: "clip";
+		}
+		program { name: "thumb_show2";
+			action: STATE_SET "visible" 0.0;
+			transition: DECELERATE 0.1;
+			target: "clip";
+		}
+		program { name: "go_big";
+			action: STATE_SET "visible" 0.0;
+			target: "over_clip";
+			target: "over";
+			target: "over2";
+			after: "go_big2";
+		}
+		program { name: "go_big2";
+			action: STATE_SET "huge" 0.0;
+			transition: DECELERATE 0.4;
+			target: "over_clip";
+			after: "go_big3";
+		}
+		program { name: "go_big3";
+			action: STATE_SET "default" 0.0;
+			transition: DECELERATE 0.2;
+			target: "over_clip";
+			target: "over";
+			target: "over2";
+		}
+		program { name: "action_go";
+			signal: "e,action,go";
+			source: "e";
+			action: ACTION_STOP;
+			target: "go_big";
+			target: "go_big2";
+			target: "go_big3";
+			after: "go_big";
+		}
 	}
-	program {
-				name: "unsel";
-				signal: "e,state,unselected";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				transition: SINUSOIDAL 0.1;
-				target: "bg";
-				target: "e.text.label";
-	}
-	program {
-				name: "mark";
-				signal: "e,state,marked";
-				source: "e";
-				action: STATE_SET "marked" 0.0;
-				target: "bg_mark";
-				transition: ACCELERATE 0.15;
-	}
-	program {
-				name: "unmark";
-				signal: "e,state,unmarked";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				transition: LINEAR 0.2;
-				target: "bg_mark";
-	}
-	program {
-				name: "arrow_show";
-				signal: "e,state,browseable";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				target: "arrow";
-	}
-	program {
-				name: "thumb_show_delayed";
-				signal: "e,action,thumb,show_delayed";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				target: "clip";
-				after: "thumb_show2";
-	}
-	program {
-				name: "thumb_show";
-				signal: "e,action,thumb,show";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				target: "clip";
-	}
-	program {
-				name: "thumb_show2";
-				action: STATE_SET "visible" 0.0;
-	transition: DECELERATE 0.1;
-				target: "clip";
-	}
-	program {
-				name: "go_big";
-				action: STATE_SET "visible" 0.0;
-				target: "over_clip";
-				target: "over";
-				target: "over2";
-				after: "go_big2";
-	}
+}
 
-	program {
-				name: "go_big2";
-				action: STATE_SET "huge" 0.0;
-				transition: DECELERATE 0.4;
-				target: "over_clip";
-				after: "go_big3";
-	}
-
-	program {
-				name: "go_big3";
-				action: STATE_SET "default" 0.0;
-				transition: DECELERATE 0.2;
-				target: "over_clip";
-				target: "over";
-				target: "over2";
-	}
-	program {
-				name: "action_go";
-				signal: "e,action,go";
-				source: "e";
-				action: ACTION_STOP;
-				target: "go_big";
-				target: "go_big2";
-				target: "go_big3";
-				after: "go_big";
-	}
-	}
-	}
-	group {
-	name: "e/modules/everything/thumbview/item/list";
-	images {
-	image: "menu_arrow_normal.png" COMP;
-	image: "selected.png" COMP;
-	}
+group { "e/modules/everything/thumbview/item/list";
+	images.image: "menu_arrow_normal.png" COMP;
+	images.image: "selected.png" COMP;
 	parts {
-	part {
-				name: "bg";
-				nomouse;
-				desc {
-				"default";
-				rel1 {
-							to: "base";
-							offset: -7 -1;
-				}
-				rel2 {
-							to: "base";
-							offset: 5 2;
-				}
-				image.normal: "selected.png";
-				color: 255 255 255 0;
-				hid;
-				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-				color: 255 255 255 255;
-				vis;
-				}
-	}
-	
-	
-	part {
-				name: "bg_mark";
-				type: RECT;
-				nomouse;
-				desc {
-				"default";
-				hid;
+		part { "bg"; nomouse;
+			desc { "default";  color: 255 255 255 0; hid;
+				rel1.to: "base";
+				rel1.offset: -7 -1;
+				rel2.to: "base";
+				rel2.offset: 5 2;
+				image.normal: "selected.png"; 
+			}
+			desc { "selected"; inherit; color: 255 255 255 255; vis; }
+		}
+		rect { "bg_mark"; nomouse;
+			desc { "default"; color: 255 255 255 0; hid;
 				rel1.to: "bg";
 				rel2.to: "bg";
-				color: 255 255 255 0;
-				}
-				desc {
-				state: "marked" 0.0;
-				inherit;
-				vis;
-				color: 255 0 0 255;
-				}
-	}
-	part {
-				name: "base";
-				nomouse;
-				type: RECT;
-				desc {
-				"default";
-				color: 255 255 255 255;
-				rel1 {
-							relative: 0.0 0.0;
-							offset: 0 0;
-				}
-				rel2 {
-							relative: 1.0 1.0;
-							offset: -5  0;
-				}
-				}
-	}
-	part {
-				name: "clip";
-				nomouse;
-				type: RECT;
-				clip: "base";
-				desc {
-				"default";
-				color: 225 225 225 0;
-				rel1 {
-							to: "base";
-							relative: 0.0 0.0;
-							offset: 2   2;
-				}
-				rel2 {
-							to: "base";
-							relative: 0.0 1.0;
-							offset: 40   -1;
-				}
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				color: 255 255 255 255;
-				}
-	}
-	part {
-				name: "e.swallow.icon";
-				clip: "clip";
-				type: SWALLOW;
-				nomouse;
-				desc {
-				"default";
+			}
+			desc {"marked"; inherit; color: 255 0 0 255; vis; }
+		}
+		rect { "base"; nomouse;
+				desc { "default"; color: 255 255 255 255;
+					rel1.relative: 0.0 0.0;
+					rel1.offset: 0 0;
+					rel2.relative: 1.0 1.0;
+					rel2.offset: -5 0;
+			}
+		}
+		rect { "clip"; nomouse;  clip: "base";
+			desc { "default"; color: 225 225 225 0;
+				rel1.to: "base";
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 2 2;
+				rel2.to: "base";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 40 -1;
+			}
+			desc {"visible"; inherit; color: 255 255 255 255; }
+		}
+		swallow { "e.swallow.icon"; clip: "clip"; nomouse;
+			desc { "default";
 				rel1.to: "clip";
 				rel2.to: "clip";
-				}
-	}
-	part {
-				name: "e.swallow.thumb";
-				clip: "clip";
-				type: SWALLOW;
-				nomouse;
-				desc {
-				"default";
+			}
+		}
+		swallow { "e.swallow.thumb"; clip: "clip"; nomouse;
+			desc { "default";
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				rel1.to: "clip";
 				rel2.to: "clip";
-				}
-	}
-	part {
-				name: "arrow";
-				nomouse;
-				desc {
-				"default";
+			}
+		}
+		part { "arrow"; nomouse;
+			desc { "default"; min: 9 12; max: 9 12; hid;
 				align: 0.0 0.5;
-						min: 9 12;
-						max: 9 12;
-						hid;
-				rel1 {
-							to: "base";
-							relative: 1.0 0.0;
-							offset: -21  6;
-				}
-				rel2 {
-							to: "base";
-							relative: 1.0 1.0;
-							offset: 1 -7;
-				}
-				image {
-							normal: "menu_arrow_normal.png";
-				}
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				vis;
-				rel1 {
-							to: "base";
-							relative: 1.0 0.0;
-							offset: -21  6;
-				}
-				}
-	}
-	part {
-				name: "e.text.label";
-				type: TEXT;
-				clip: "base";
-				nomouse;
-				scale;
-				desc {
-				"default";
-				color: 0 0 0 255;
-				rel1 {
-							to_x: "clip";
-							to_y: "base";
-							offset: 5 0;
-							relative: 1.0 0.0;
-				}
-				rel2 {
-							relative: 0.0 1.0;
-							offset: 4 -1;
-							to_x: "arrow";
-							to_y: "spacer";
-				}
-				text {
-							font: "Sans";
-							size: 11;
-							min: 0 1;
-							align: 0.0 0.0;
-							text_class: "fileman_icon";
-				}
-				}
-				desc {
-				state: "selected" 0.0;
-				inherit;
-				color: 0 0 0 255;
-				}
-	}
-	part {
-				name: "e.text.detail";
-				type: TEXT;
-				clip: "base";
-				nomouse;
-				scale;
-				desc {
-				"default";
-				vis;
-				color: 0 0 0 255;
-				rel1 {
-							to_x: "clip";
-							to_y: "base";
-							offset: 5 6;
-							relative: 1.0 0.5;
-				}
-				rel2 {
-							relative: 0.0 1.0;
-							offset: 4 -4;
-							to_y: "base";
-							to_x: "arrow";
-				}
-				text {
-							font: "Sans";
-							size: 9;
-							min: 0 1;
-							align: 0.0 0.0;
-							text_class: "fileman_icon";
-				}
-				}
-				desc {
-			state: "selected" 0.0;
-						inherit;
-						color: 0 0 0 255;
-				}
-	}
-	part {
-				name: "spacer";
-				type: RECT;
-				nomouse;
-				desc {
-				"default";
-	hid;
-	rel1.to: "base";
-	rel1.relative: 0.0 1.0;
-	rel2.to: "base";
-				}
-				desc {
-				state: "detail" 0.0;
-	inherit;
-	rel1.to: "e.text.detail";
-	rel2.to: "e.text.detail";
-				}
-	}
-	part {
-				name: "event";
-				type: RECT;
-				desc {
-				"default";
-				color: 0 0 0 0;
-				}
-	}
-	}
-	programs {
-	program {
-				name: "sel";
-				signal: "e,state,selected";
-				source: "e";
-				action: STATE_SET "selected" 0.0;
-				target: "bg";
-	target: "e.text.label";
-	target: "e.text.detail";
-				transition: ACCELERATE 0.0;
-	}
-	program {
-				name: "unsel";
-				signal: "e,state,unselected";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				transition: LINEAR 0.0;
-				target: "bg";
-	target: "e.text.label";
-	target: "e.text.detail";
-	}
-	program {
-				name: "mark";
-				signal: "e,state,marked";
-				source: "e";
-				action: STATE_SET "marked" 0.0;
-				target: "bg_mark";
-				transition: ACCELERATE 0.15;
-	}
-	program {
-				name: "unmark";
-				signal: "e,state,unmarked";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				transition: LINEAR 0.2;
-				target: "bg_mark";
-	}
-	program {
-				name: "arrow_show";
-				signal: "e,state,browseable";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				target: "arrow";
-	}
-	program {
-				name: "thumb_show_delayed";
-				signal: "e,action,thumb,show_delayed";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				target: "clip";
-				transition: DECELERATE 0.1;
-	}
-	program {
-				name: "thumb_show";
-				signal: "e,action,thumb,show";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				target: "clip";
-	}
-	program {
-				name: "detail_show";
-				signal: "e,state,detail,show";
-				source: "e";
-				action: STATE_SET "detail" 0.0;
-				/* transition: ACCELERATE 0.08; */
-				target: "spacer";
-	}
-	program {
-				name: "detail_hide";
-				signal: "e,state,detail,hide";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				target: "spacer";
-	}
-	}
+				rel1.to: "base";
+				rel1.relative: 1.0 0.0;
+				rel1.offset: -21 6;
+				rel2.to: "base";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: 1 -7;
+				image.normal: "menu_arrow_normal.png";
+			}
+			desc {"visible"; inherit; vis;
+				rel1.to: "base";
+				rel1.relative: 1.0 0.0;
+				rel1.offset: -21  6;
+			}
+		}
+		text { "e.text.label"; clip: "base"; nomouse; scale;
+			desc { "default"; color: 0 0 0 255;
+				rel1.to_x: "clip";
+				rel1.to_y: "base";
+				rel1.offset: 5 0;
+				rel1.relative: 1.0 0.0;
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 4 -1;
+				rel2.to_x: "arrow";
+				rel2.to_y: "spacer";
+				text.font: "Sans"; text.size: 11;
+				text.min: 0 1;
+				text.align: 0.0 0.0;
+				text.text_class: "fileman_icon";
+			}
+			desc { "selected"; inherit; color: 0 0 0 255; }
+		}
+		text { "e.text.detail"; clip: "base"; nomouse; scale;
+			desc { "default"; color: 0 0 0 255; vis;
+				rel1.to_x: "clip";
+				rel1.to_y: "base";
+				rel1.offset: 5 6;
+				rel1.relative: 1.0 0.5;
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 4 -4;
+				rel2.to_y: "base";
+				rel2.to_x: "arrow";
+				text.font: "Sans"; text.size: 9;
+				text.min: 0 1;
+				text.align: 0.0 0.0;
+				text.text_class: "fileman_icon";
+			}
+			desc { "selected"; inherit; color: 0 0 0 255; }
+		}
+		rect { "spacer"; nomouse;
+			desc { "default"; hid;
+				rel1.to: "base";
+				rel1.relative: 0.0 1.0;
+				rel2.to: "base";
+			}
+			desc { "detail"; inherit;
+				rel1.to: "e.text.detail";
+				rel2.to: "e.text.detail";
+			}
+		}
+		rect { "event";
+			desc { "default"; color: 0 0 0 0; }
+		}
 	}
 
-	group {
-	name: "e/modules/everything/thumbview/main/window";
-	parts {
-	part {
-				name: "clip";
-				type: RECT;
-				nomouse;
-				desc {
-				"default";
-				color: 255 255 255 0;
-				}
-			desc {
-				state: "visible" 0.0;
-				color: 255 255 255 255;
-				}
+	programs {
+		program { name: "sel";
+			signal: "e,state,selected";
+			source: "e";
+			action: STATE_SET "selected" 0.0;
+			target: "bg";
+			target: "e.text.label";
+			target: "e.text.detail";
+			transition: ACCELERATE 0.0;
 		}
-		part {
-				name: "e.swallow.list";
-				type: SWALLOW;
-        clip: "clip";
-				desc {
-				"default";
-				rel1 {
-							relative: 0.0 0.0;
-							offset: 6   1;
-				}
-				rel2 {
-							relative: 1.0 1.0;
-							offset: -3  -3;
-				}
-				}
+		program { name: "unsel";
+			signal: "e,state,unselected";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 0.0;
+			target: "bg";
+			target: "e.text.label";
+			target: "e.text.detail";
+		}
+		program { name: "mark";
+			signal: "e,state,marked";
+			source: "e";
+			action: STATE_SET "marked" 0.0;
+			target: "bg_mark";
+			transition: ACCELERATE 0.15;
+		}
+		program { name: "unmark";
+			signal: "e,state,unmarked";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			transition: LINEAR 0.2;
+			target: "bg_mark";
+		}
+		program { name: "arrow_show";
+			signal: "e,state,browseable";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			target: "arrow";
+		}
+		program { name: "thumb_show_delayed";
+			signal: "e,action,thumb,show_delayed";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			target: "clip";
+			transition: DECELERATE 0.1;
+		}
+		program { name: "thumb_show";
+			signal: "e,action,thumb,show";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			target: "clip";
+		}
+		program { name: "detail_show";
+			signal: "e,state,detail,show";
+			source: "e";
+			action: STATE_SET "detail" 0.0;
+			/* transition: ACCELERATE 0.08; */
+			target: "spacer";
+		}
+		program { name: "detail_hide";
+			signal: "e,state,detail,hide";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "spacer";
+		}
 	}
-	part {
-				name: "left_arrow";
-				nomouse;
-				scale;
-				desc {
-				"default";
-				hid;
+}
+
+group { "e/modules/everything/thumbview/main/window";
+	parts {
+		rect { "clip"; nomouse;
+			desc { "default"; color: 255 255 255 0; }
+			desc {"visible"; color: 255 255 255 255; }
+		}
+		swallow { "e.swallow.list"; clip: "clip";
+			desc { "default";
+				rel1.relative: 0.0 0.0;
+				rel1.offset: 6 1;
+				rel1.relative: 1.0 1.0;
+				rel1.offset: -3 -3;
+			}
+		}
+		part { "left_arrow"; nomouse; scale;
+			desc { "default"; min: 32 32; max: 32 32; color: 255 255 255 0; hid;
 				image.normal: "icon_left_arrow.png";
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 0.0 0.5;
-				min: 32 32;
-				max: 32 32;
-				color: 255 255 255 0;
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				vis;
-				color: 255 255 255 255;
-				}
-	}
-	part {
-				name: "right_arrow";
-				nomouse;
-				scale;
-				desc {
-				"default";
-				hid;
-				image.normal: "icon_right_arrow.png";
+			}
+			desc {"visible"; inherit; color: 255 255 255 255; vis; }
+		}
+		part { "right_arrow"; nomouse; scale;
+			desc { "default"; min: 32 32; max: 32 32; color: 255 255 255 0; hid;
+			image.normal: "icon_right_arrow.png";
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 1.0 0.5;
-				min: 32 32;
-				max: 32 32;
-				color: 255 255 255 0;
-				}
-				desc {
-				state: "visible" 0.0;
-				inherit;
-				vis;
-				color: 255 255 255 255;
-				}
+			}
+			desc {"visible"; inherit; color: 255 255 255 255; vis; }
+		}
+		rect { "event"; repeat;
+			desc { "default"; color: 0 0 0 0; }
+		}
 	}
-	part {
-				name: "event";
-				repeat_events: 1;
-				type: RECT;
-				desc {
-				"default";
-				color: 0 0 0 0;
-				}
-	}
-	}
+
 	programs {
-	program {
-				name: "go_into_show";
-				signal: "e,action,show,into";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				transition: LINEAR 0.5;
-				target: "right_arrow";
+		program { name: "go_into_show";
+			signal: "e,action,show,into";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			transition: LINEAR 0.5;
+			target: "right_arrow";
+		}
+		program { name: "go_into_hide";
+			signal: "e,action,hide,into";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "right_arrow";
+			transition: LINEAR 0.5;
+		}
+		program { name: "go_back_show";
+			signal: "e,action,show,back";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			transition: LINEAR 0.5;
+			target: "left_arrow";
+		}
+		program { name: "go_back_hide";
+			signal: "e,action,hide,back";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "left_arrow";
+			transition: LINEAR 0.5;
+		}
+		program { name: "hiding";
+			signal: "e,action,hide,list";
+			source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "clip";
+			transition: LINEAR 0.25;
+		}
+		program { name: "showing";
+			signal: "e,action,show,list";
+			source: "e";
+			action: STATE_SET "visible" 0.0;
+			target: "clip";
+			transition: LINEAR 0.15;
+		}
 	}
-	program {
-				name: "go_into_hide";
-				signal: "e,action,hide,into";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				target: "right_arrow";
-				transition: LINEAR 0.5;
-	}
-	program {
-				name: "go_back_show";
-				signal: "e,action,show,back";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				transition: LINEAR 0.5;
-				target: "left_arrow";
-	}
-	program {
-				name: "go_back_hide";
-				signal: "e,action,hide,back";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				target: "left_arrow";
-				transition: LINEAR 0.5;
-	}
-	program {
-				name: "hiding";
-				signal: "e,action,hide,list";
-				source: "e";
-				action: STATE_SET "default" 0.0;
-				target: "clip";
-				transition: LINEAR 0.25;
-	}
-	program {
-				name: "showing";
-				signal: "e,action,show,list";
-				source: "e";
-				action: STATE_SET "visible" 0.0;
-				target: "clip";
-				transition: LINEAR 0.15;
-	}
-	}
-	}
+}
 
-
-	group {
-	name: "e/modules/everything/textblock";
+group { "e/modules/everything/textblock";
 	styles {
-	style {
-				name: "everything_textblock_style";
-				base: "font=Sans font_size=10 align=left color=#000";
-				tag: "hilight" "+ font=Sans:style=Bold color=#0c0c0c";
-				tag: "b" "+ font=Sans:style=Bold font_size=9";
-				tag: "br" "\n";
-				tag: "/title" "- \n \n";
-	}
+		style {
+			name: "everything_textblock_style";
+			base: "font=Sans font_size=10 align=left color=#000";
+			tag: "hilight" "+ font=Sans:style=Bold color=#0c0c0c";
+			tag: "b" "+ font=Sans:style=Bold font_size=9";
+			tag: "br" "\n";
+			tag: "/title" "- \n \n";
+		}
 	}
 	parts {
-	part {
-				name: "e.textblock.text";
-				type: TEXTBLOCK;
-				nomouse;
-				scale;
-				desc {
-				"default";
+		textblock { "e.textblock.text"; nomouse; scale;
+			desc { "default";
 				rel1.offset: 4 4;
 				rel2.offset: -5 -5;
-				text {
-							style: "everything_textblock_style";
-							min: 1 1;
-				}
-				}
-	}
+				text.style: "everything_textblock_style";
+				text.min: 1 1;
+			}
+		}
 	}
 }
