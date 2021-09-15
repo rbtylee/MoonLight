@@ -53,6 +53,8 @@ color_classes {
 		CCLASS("ilist_item_selected", SEL_FG_COLOR 255, TRANSPARENT, TRANSPARENT)
 	//Modules
 		CCLASS("module_label", FG_COLOR 255, TRANSPARENT, TRANSPARENT)
+		CCLASS("mem_module_real", 6 101 244 128, TRANSPARENT, TRANSPARENT)
+		CCLASS("mem_module_swap", 255 0 0 128, TRANSPARENT, TRANSPARENT)
 	//Other
 		CCLASS("none", VISIBLE, VISIBLE, VISIBLE)
 		CCLASS("entry_text_selected", SEL_FG_COLOR 255, TRANSPARENT, TRANSPARENT)		
