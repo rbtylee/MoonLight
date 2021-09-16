@@ -8,7 +8,8 @@ group { "e/desklock/login_box";
 			}
 		}
 		text { "e.text.title"; effect: SOFT_SHADOW; scale;
-			desc { "default";
+			desc { "default"; color: "#E0E0E0FF";
+				color3: "#00000020";
 				fixed: 0 1;
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 8;
@@ -16,8 +17,6 @@ group { "e/desklock/login_box";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -1 8;
 				rel2.to_y: "logo";
-				color: 224 224 224 255;
-				color3: 0 0 0 32;
 				text.text: "Enter Password";
 				text.font: "Sans:style=Bold"; text.size: 10;
 				text.align: 0.5 0.5;
@@ -30,26 +29,23 @@ group { "e/desklock/login_box";
 				rel1.to: "passwd_border";
 				rel2.to: "passwd_border";
 			}
-			desc { "pulse"; inherit; color: 255 255 255 128; }
+			desc { "pulse"; inherit; color: "#FFFFFF80"; }
 		}
 		rect { "error"; nomouse; clip: "error_clip";
-			desc { "default";
+			desc { "default"; color: TRANSPARENT;
 				rel1.to: "passwd_border";
 				rel2.to: "passwd_border";
-				color: 255 255 255 0;
 			}
 		}
 		rect { "error_clip"; nomouse; clip: "pulse_clip";
-			desc { "default";
+			desc { "default";  color: VISIBLE;
 				rel1.to: "passwd_border";
 				rel2.to: "passwd_border";
-				color: 255 255 255 255;
 			}
 			desc { "invalid"; inherit; color: 255 128 128 255; }
 		}
 		rect { "passwd_entry_clip"; nomouse; clip: "pulse_clip";
-			desc { "default";
-				color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.to: "passwd_border";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 3 2;
@@ -71,10 +67,10 @@ group { "e/desklock/login_box";
 				image.border: 8 8 10 10;
 				fill.smooth: 0;
 			}
-			desc { "checking"; inherit; color: 255 255 255 128; }
+			desc { "checking"; inherit; color: "#FFFFFF80"; }
 		}
 		text { "e.text.password"; clip: "passwd_entry_clip"; scale;
-			desc { "default";
+			desc { "default"; color: "#000000";
 				fixed: 0 1;
 				align: 0.0 0.5;
 				rel1.relative: 0.0 0.0;
@@ -83,7 +79,6 @@ group { "e/desklock/login_box";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 0 0;
 				rel2.to: "passwd_entry_clip";
-				color: 0 0 0 255;
 				text.font: "Sans:style=Bold"; text.size: 16;
 				text.align: 0.0 0.5;
 				text.min: 1 1;
@@ -91,9 +86,8 @@ group { "e/desklock/login_box";
 				text.ellipsis: -1;
 			}
 		}
-		rect { "cursor"; nomouse;
-			clip: "passwd_entry_clip";
-			desc { "default"; min: 1 16; max: 1 16;
+		rect { "cursor"; nomouse; clip: "passwd_entry_clip";
+			desc { "default"; min: 1 16; max: 1 16; color: "#000000";
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.relative: 1.0 0.0;
@@ -102,7 +96,6 @@ group { "e/desklock/login_box";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: 1 1;
 				rel2.to: "e.text.password";
-				color: 0 0 0 255;
 			}
 		}
 	}
