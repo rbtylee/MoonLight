@@ -338,8 +338,7 @@ group { "modules/mem/main";
 				rel2.offset: -1 0;
 			}
 		}
-	text { "real_label"; mouse; scale; effect: SOFT_SHADOW;
-		//clip: "fade_clip";
+	text { "real_label"; mouse; scale;
 		desc { "default"; color: 255 255 255 0; hid;
 			color3: 0 0 0 0;
 			rel1.relative: 0.05 0.05;
@@ -353,13 +352,9 @@ group { "modules/mem/main";
 			text.align: 0 1;
 			text.text_class: "module_small";
 		}
-		desc { "visible"; inherit;color: 255 255 255 255; vis;
-			//color3: 0 0 0 42;
-			//color_class: "module_label";
-		}
+		desc { "visible"; inherit;color: 255 255 255 255; vis; }
 	}
 	text { "swap_label"; mouse; scale;
-		//clip: "fade_clip"; effect: SOFT_SHADOW;
 		desc { "default"; color: 255 255 255 0; hid;
 			color3: 0 0 0 0;
 			rel1.relative: 0.05 0.7;
@@ -373,10 +368,7 @@ group { "modules/mem/main";
 			text.align: 0 0;
 			text.text_class: "module_small";
 		}
-		desc { "visible"; inherit; color: 255 255 255 255; vis;
-			//color3: 0 0 0 42;
-			//color_class: "module_label";
-			}
+		desc { "visible"; inherit; color: 255 255 255 255; vis; }
 		}
 		rect { "over"; mouse;
 			desc { "default"; color: 0 0 0 0; }
@@ -385,30 +377,25 @@ group { "modules/mem/main";
 
 	programs {
 		program { name: "go_active";
-			 signal: "label_active";
-			//signal: "mouse,in";
+			signal: "label_active";
 			source: "*";
 			action: STATE_SET "visible" 0.0;
 			transition: SINUSOIDAL 0.5;
 			target: "real_label";
 			target: "swap_label";
-			//target: "essid_name";
 		}
 		program { name: "go_passive2";
-			//signal: "label_passive2";
 			source: "*";
 			action: ACTION_STOP;
 			target: "go_active";
 		}
 		program { name: "go_passive";
 			signal: "label_passive";
-			//signal: "mouse,out";
 			source: "";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 1.0;
 			target: "real_label";
 			target: "swap_label";
-			// target: "essid_name";
 		}
 	}
 }
