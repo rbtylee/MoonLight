@@ -19,21 +19,21 @@ image { NAME; nomouse; 								\
 		rel2.offset: OFFF2; 							\
 		rel2.to_y: "top-center";					\
 		hid;															\
-	} 																	\
+	}																		\
 }
 
 #define BORDER2(NAME,TO1,REL1,OFF1,TO2,REL2,OFF2) \
 rect { NAME;  nomouse;								\
 	desc{ "default"; 										\
 		min: 1 1; max: 1 9999; 						\
-		color: 126 131 136 255; 					\
+		color: "#7E8388"; 								\
 		rel1.to: TO1; 										\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
 		rel2.to: TO2; 										\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	} 																	\
+	}																		\
 }
 
 #define BORDER3(NAME, MIN, MAX, TO1, REL1, OFF1, TO2, REL2, OFF2, IMG1, RELF1, RELF2, OFFF2) \
@@ -57,7 +57,7 @@ image { NAME; nomouse; 								\
 		rel2.relative: RELF2; 						\
 		rel2.offset: OFFF2; 							\
 		hid;															\
-	} 																	\
+	}																		\
 }
 
 #define BORDER4(NAME, MIN, MAX, REL1, OFF1, REL2, OFF2, IMG1, RELF1, RELF2, OFFF2, OFFS1) \
@@ -70,7 +70,7 @@ image { NAME; nomouse; 								\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
 		image.normal: IMG1; 							\
-	} 																	\
+	}																		\
 	desc { state: "default" 0.1;				\
 		inherit: "default" 0.0;						\
 		min: MIN; max: MAX; 							\
@@ -85,7 +85,7 @@ image { NAME; nomouse; 								\
 	desc { "shaded";										\
 		inherit: "default" 0.0;						\
 		rel1.offset: OFFS1;								\
-	} 																	\
+	}																		\
 }
 
 #define SHADOW_PART(TO1, OFF1, TO2, OFF2) \
@@ -111,7 +111,7 @@ part { "shadow"; nomouse; 						\
 		rel2.to: TO2;											\
 		rel2.offset: OFF2;								\
 		fill.smooth: 0;										\
-		color: 0 0 0 150;									\
+		color: "#00000096";								\
 	}																		\
 	desc { state: "maximized" 0.0;			\
 		inherit: "default" 0.0;						\
@@ -141,7 +141,7 @@ swallow { NAME; mouse;								\
 		rel2.to_x: TO2; 									\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	} 																	\
+	}																		\
 	desc { state: "shaded" 0.0;					\
 		inherit: "default" 0.0;						\
 		hid;															\
@@ -159,7 +159,7 @@ rect { NAME; nomouse; 								\
 		rel2.to: TO2; 										\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	} 																	\
+	}																		\
 }
 
 #define E_SWALLOW_ICON(NAME, RELT)		\
@@ -169,10 +169,10 @@ swallow { NAME; 											\
 		aspect_preference: BOTH;					\
 		rel1.to: RELT; 										\
 		rel2.to: RELT; 										\
-	} 																	\
+	}																		\
 	desc { state: "urgent" 0.0;					\
 		inherit: "default" 0.0;						\
-		color: 255 255 255 0;							\
+		color: TRANSPARENT;								\
 	}																		\
 }
 
@@ -187,7 +187,7 @@ rect { NAME; 													\
 		rel2.to: TO2; 										\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	} 																	\
+	}																		\
 }
 
 #define E_EVENT_ICON(NAME, TO1, TO2) 	\
@@ -196,14 +196,14 @@ rect { NAME; mouse; 									\
 		align: 0.0 0.5;										\
 		aspect: 1.0 1.0;									\
 		aspect_preference: VERTICAL;			\
-		color: 255 255 255 0; 						\
+		color: TRANSPARENT; 						\
 		rel1.to: TO1; 										\
 		rel1.offset: 2 0;									\
 		rel1.relative: 0 0;								\
 		rel2.to: TO2; 										\
 		rel2.relative: 1 1;								\
 		vis;															\
-	} 																	\
+	}																		\
 }
 
 #define E_EVENT_ICON_LEFT(NAME, TO1, TO2)	\
@@ -212,7 +212,7 @@ rect { NAME; mouse; 									\
 		align: 0.0 0.5;										\
 		aspect: 1.0 1.0;									\
 		aspect_preference: VERTICAL;			\
-		color: 255 255 255 0; 						\
+		color: TRANSPARENT; 						\
 		rel1.to: TO1; 										\
 		rel1.offset: 5 3;									\
 		rel1.relative: 1 0;								\
@@ -226,37 +226,37 @@ rect { NAME; mouse; 									\
 rect { NAME; nomouse; 								\
 	desc { "default"; 									\
 		min: MIN; max: MAX; 							\
-		color: 255 255 255 255; 					\
+		color: VISIBLE;										\
 		rel1.to: TO; 											\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
 		rel2.to: TO; 											\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	} 																	\
+	}																		\
 	desc { state: "clicked" 0.0; 				\
 		inherit: "default" 0.0; 					\
-		color: 215 215 215 255;						\
-	} 																	\
+		color: "#D7D7D7";						\
+	}																		\
 }
 
 #define BUTTONS(NAME, CLIP, SIZE, TO, IMG) \
 image { NAME; mouse; clip: CLIP; 			\
 	desc { "default"; 									\
 		min: SIZE;  max: SIZE; 						\
-		color: 255 255 255 255;						\
+		color: VISIBLE;										\
 		rel1.to: TO; 											\
 		rel2.to: TO; 											\
 		image.normal: IMG; 								\
-	} 																	\
+	}																		\
 	desc { state: "clicked" 0.0; 				\
 		inherit: "default" 0.0; 					\
-		color: 215 215 215 255;						\
-	} 																	\
+		color: "#D7D7D7";									\
+	}																		\
 	desc { state: "default" 0.1; 				\
 		inherit: "default" 0.0; 					\
-		color: 255 255 255 192;						\
-	} 																	\
+		color: "#FFFFFFC0";								\
+	}																		\
 }
 
 #define RESIZE_TOP(NAME, MIN, MAX, TO1, REL1, OFF1, TO2, REL2, OFF2, COLOR) \
@@ -270,16 +270,16 @@ rect { NAME; nomouse; 								\
 		rel2.to: TO2; 										\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	} 																	\
+	}																		\
 }
 
 #define PART_EVENT_MAP(NAME, REPEAT, PART_NAME) \
 rect { NAME; repeat_events: REPEAT; 	\
 	desc { "default"; 									\
-		color: 0 0 0 0; 									\
+		color: "#00000000"; 									\
 		rel1.to: PART_NAME; 							\
 		rel2.to: PART_NAME; 							\
-	} 																	\
+	}																		\
 }
 
 #define BORDER_DEFAULT_PROGRAMS() \
@@ -552,11 +552,11 @@ group { "e/widgets/border/default/border";
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
 		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
-		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, 255 255 255 255)
+		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
 		text { 	"e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale;
 			clip: "title.area.clip";
-			desc { "default"; color: 255 255 255 255; hid;
-				color3: 255 255 255 255;
+			desc { "default"; color: VISIBLE; hid;
+				color3: VISIBLE;
 				color_class: "border_title";
 				rel1.to: "title.area.clip";
 				rel1.relative: 0.0 0.5;
@@ -597,8 +597,8 @@ group { "e/widgets/border/default/border";
 		PART_EVENT_MAP("e.event.minimize", 1, "button-min")
 		RESIZE_TOP("resize_t", 1 2, 9999 2, "top-left", 0.0 0.0, 0 0, "top-right", 0.0 0.0, -1 0, 255 0 0 0)
 		text { "text_alt"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title2_rect";
-			desc { "default"; color: 255 255 255 255; vis;
-				color3: 255 255 255 255;
+			desc { "default"; color: VISIBLE; vis;
+				color3: VISIBLE;
 				color_class: "border_title_active";
 				rel1.to: "e.text.title";
 				rel2.to: "e.text.title";
@@ -608,7 +608,7 @@ group { "e/widgets/border/default/border";
 				text.align: 0.5 0.5;
 				text.text_class: "title_bar_alt";
 			}
-			desc { "default" 0.1; inherit; color: 0 0 0 0; hid; }
+			desc { "default" 0.1; inherit; color: "#00000000"; hid; }
 		}
 		rect { "title2_rect"; nomouse;
 			desc {"default";
@@ -639,10 +639,10 @@ group { "e/widgets/border/left_controls/border";
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
 		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
-		TITLE_CLIP("title.area.clip", 1 20, "min-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, 255 255 255 255)
+		TITLE_CLIP("title.area.clip", 1 20, "min-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
 		text { 	"e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title.area.clip";
-			desc { "default"; color: 255 255 255 255; hid;
-				color3: 255 255 255 255;
+			desc { "default"; color: VISIBLE; hid;
+				color3: VISIBLE;
 				color_class: "border_title";
 				rel1.to: "title.area.clip";
 				rel1.relative: 0.0 0.5;
@@ -683,8 +683,8 @@ group { "e/widgets/border/left_controls/border";
 		PART_EVENT_MAP("e.event.minimize", 1, "button-min")
 		RESIZE_TOP("resize_t", 1 2, 9999 2, "top-left", 0.0 0.0, 0 0, "top-right", 0.0 0.0, -1 0, 255 0 0 0)
 		text { "text_alt"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title2_rect";
-			desc { "default"; color: 255 255 255 255; vis;
-				color3: 255 255 255 255;
+			desc { "default"; color: VISIBLE; vis;
+				color3: VISIBLE;
 				color_class: "border_title_active";
 				rel1.to: "e.text.title";
 				rel2.to: "e.text.title";
@@ -694,7 +694,7 @@ group { "e/widgets/border/left_controls/border";
 				text.align: 0.5 0.5;
 				text.text_class: "title_bar_alt";
 			}
-			desc { "default" 0.1; inherit; color: 0 0 0 0; hid; }
+			desc { "default" 0.1; inherit; color: "#00000000"; hid; }
 		}
 		rect { "title2_rect"; nomouse;
 			desc { "default";
@@ -724,11 +724,11 @@ group { "e/widgets/border/squared/border";
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
 		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
-		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, 255 255 255 255)
-		//TITLE_CLIP("title.area.clip", 1 20, "min-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, 255 255 255 255)
+		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
+		//TITLE_CLIP("title.area.clip", 1 20, "min-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
 		text { 	"e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title.area.clip";
-			desc { "default"; color: 255 255 255 255; hid;
-				color3: 255 255 255 255;
+			desc { "default"; color: VISIBLE; hid;
+				color3: VISIBLE;
 				color_class: "border_title";
 				rel1.to: "title.area.clip";
 				rel1.relative: 0.0 0.5;
@@ -769,8 +769,8 @@ group { "e/widgets/border/squared/border";
 		PART_EVENT_MAP("e.event.minimize", 1, "button-min")
 		RESIZE_TOP("resize_t", 1 2, 9999 2, "top-left", 0.0 0.0, 0 0, "top-right", 0.0 0.0, -1 0, 255 0 0 0)
 		text { "text_alt"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title2_rect";
-			desc {"default"; color: 255 255 255 255; vis;
-				color3: 255 255 255 255;
+			desc {"default"; color: VISIBLE; vis;
+				color3: VISIBLE;
 				color_class: "border_title_active";
 				rel1.to: "e.text.title";
 				rel2.to: "e.text.title";
@@ -780,7 +780,7 @@ group { "e/widgets/border/squared/border";
 				text.align: 0.5 0.5;
 				text.text_class: "title_bar_alt";
 			}
-			desc { "default" 0.1; inherit; color: 0 0 0 0; hid; }
+			desc { "default" 0.1; inherit; color: "#00000000"; hid; }
 		}
 		rect { "title2_rect"; nomouse;
 			desc { "default";
@@ -811,11 +811,11 @@ group { "e/widgets/border/noresize_dialog/border";
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
 		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
-		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, 255 255 255 255)
-		//TITLE_CLIP("title.area.clip", 1 20, "close-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, 255 255 255 255)
+		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
+		//TITLE_CLIP("title.area.clip", 1 20, "close-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
 		text { "e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title.area.clip";
-			desc { "default"; color: 255 255 255 255; hid;
-				color3: 255 255 255 255;
+			desc { "default"; color: VISIBLE; hid;
+				color3: VISIBLE;
 				color_class: "border_title";
 				rel1.to: "title.area.clip";
 				rel1.relative: 0.0 0.5;
@@ -841,8 +841,8 @@ group { "e/widgets/border/noresize_dialog/border";
 		BUTTONS("button-close", "close-clip", 15 15, "close-clip", "bd_button_close_unfocused.png")
 		PART_EVENT_MAP("e.event.close", 1, "button-close")
 		text { "text_alt"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title2_rect";
-			desc { "default"; color: 255 255 255 255; vis;
-				color3: 255 255 255 255;
+			desc { "default"; color: VISIBLE; vis;
+				color3: VISIBLE;
 				color_class: "border_title_active";
 				rel1.to: "e.text.title";
 				rel2.to: "e.text.title";
@@ -852,7 +852,7 @@ group { "e/widgets/border/noresize_dialog/border";
 				text.align: 0.5 0.5;
 				text.text_class: "title_bar_alt";
 			}
-			desc {  "default" 0.1; inherit; color: 0 0 0 0; hid; }
+			desc {  "default" 0.1; inherit; color: "#00000000"; hid; }
 		}
 		rect { "title2_rect"; nomouse;
 			desc { "default";
@@ -883,11 +883,11 @@ group { "e/widgets/border/dialog/border";
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
 		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
-		//TITLE_CLIP("title.area.clip", 1 20, "close-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, 255 255 255 255)
-		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, 255 255 255 255)
+		//TITLE_CLIP("title.area.clip", 1 20, "close-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
+		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
 		text { 	"e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse;	 scale; clip: "title.area.clip";
-			desc {"default"; color: 255 255 255 255; hid;
-				color3: 255 255 255 255;
+			desc {"default"; color: VISIBLE; hid;
+				color3: VISIBLE;
 				color_class: "border_title";
 				rel1.to: "title.area.clip";
 				rel1.relative: 0.0 0.5;
@@ -922,8 +922,8 @@ group { "e/widgets/border/dialog/border";
 		PART_EVENT_MAP("e.event.close", 1, "button-close")
 		RESIZE_TOP("resize_t", 1 2, 9999 2, "top-left", 0.0 0.0, 0 0, "top-right", 0.0 0.0, -1 0, 255 0 0 0)
 		text { "text_alt"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title2_rect";
-			desc { "default"; color: 255 255 255 255; vis;
-				color3: 255 255 255 255;
+			desc { "default"; color: VISIBLE; vis;
+				color3: VISIBLE;
 				color_class: "border_title_active";
 				rel1.to: "e.text.title";
 				rel2.to: "e.text.title";
@@ -933,7 +933,7 @@ group { "e/widgets/border/dialog/border";
 				text.align: 0.5 0.5;
 				text.text_class: "title_bar_alt";
 			}
-			desc { "default" 0.1; inherit; color: 0 0 0 0; hid; }
+			desc { "default" 0.1; inherit; color: "#00000000"; hid; }
 		}
 		rect { "title2_rect"; nomouse;
 			desc { "default";
@@ -965,33 +965,33 @@ group { "e/widgets/border/pixel/border";
 			}
 		}
 		rect { "top";
-			desc { "default"; color: 0 0 0 255; align: 0.0 0.0; max: 99999 1; }
-			desc { "focused"; inherit; color: 255 255 255 255; color_class: "focus"; }
+			desc { "default"; color: "#000000"; align: 0.0 0.0; max: 99999 1; }
+			desc { "focused"; inherit; color: VISIBLE; color_class: "focus"; }
 		}
 		rect { "bottom";
-			desc { "default"; color: 0 0 0 255; max: 99999 1;
+			desc { "default"; color: "#000000"; max: 99999 1;
 				align: 0.0 1.0;
 			}
-			desc { "focused"; inherit; color: 255 255 255 255; color_class: "focus"; }
+			desc { "focused"; inherit; color: VISIBLE; color_class: "focus"; }
 		}
 		rect { "left";
-			desc { "default"; color: 0 0 0 255; max: 1 99999;
+			desc { "default"; color: "#000000"; max: 1 99999;
 				align: 0.0 0.0;
 			}
-			desc { "focused"; inherit; color: 255 255 255 255; color_class: "focus"; }
+			desc { "focused"; inherit; color: VISIBLE; color_class: "focus"; }
 		}
 		rect { "right";
-			desc { "default"; color: 0 0 0 255; align: 1.0 0.0; max: 1 99999; }
-			desc { "focused"; inherit; color: 255 255 255 255; color_class: "focus"; }
+			desc { "default"; color: "#000000"; align: 1.0 0.0; max: 1 99999; }
+			desc { "focused"; inherit; color: VISIBLE; color_class: "focus"; }
 		}
 		rect { "e.event.resize.tl";
-			desc { "default"; color: 0 0 0 0; min: 32 4;
+			desc { "default"; color: "#00000000"; min: 32 4;
 				align: 0.0 0.0;
 				rel2.relative: 0.0 0.0;
 			}
 		}
 		rect { "e.event.resize.t";
-			desc { "default"; min: 0 4;	 color: 0 0 0 0;
+			desc { "default"; min: 0 4; color: "#00000000";
 				rel1.relative: 1.0 0.0;
 				rel1.to_x: "e.event.resize.tl";
 				rel2.relative: 0.0 0.0;
@@ -1000,14 +1000,14 @@ group { "e/widgets/border/pixel/border";
 			}
 		}
 		rect { "e.event.resize.tr";
-			desc { "default"; min: 32 4; color: 0 0 0 0;
+			desc { "default"; min: 32 4; color: "#00000000";
 				rel1.relative: 1.0 0.0;
 				rel2.relative: 1.0 0.0;
 				align: 1.0 0.0;
 			}
 		}
 		rect { "e.event.resize.bl";
-			desc { "default"; min: 32 5; color: 0 0 0 0;
+			desc { "default"; min: 32 5; color: "#00000000";
 				rel1.relative: 0.0 1.0;
 				rel2.relative: 0.0 1.0;
 				align: 0.0 1.0;
@@ -1015,7 +1015,7 @@ group { "e/widgets/border/pixel/border";
 			}
 		}
 		rect { "e.event.resize.b";
-			desc { "default"; min: 0 5; color: 0 0 0 0;
+			desc { "default"; min: 0 5; color: "#00000000";
 				rel1.relative: 1.0 1.0;
 				rel1.to_x: "e.event.resize.tl";
 				rel2.relative: 0.0 1.0;
@@ -1025,7 +1025,7 @@ group { "e/widgets/border/pixel/border";
 			}
 		}
 		rect { "e.event.resize.br";
-			desc { "default"; min: 32 5; color: 0 0 0 0;
+			desc { "default"; min: 32 5; color: "#00000000";
 				rel1.relative: 1.0 1.0;
 				rel2.relative: 1.0 1.0;
 				align: 1.0 1.0;
@@ -1065,7 +1065,7 @@ group { "e/widgets/border/default/move";
 			}
 		}
 		rect { "icon"; nomouse;
-			desc { "default"; color: 255 255 255 0; min: 0 0; max: 0 0;
+			desc { "default"; color: TRANSPARENT; min: 0 0; max: 0 0;
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.offset: 2 2;
@@ -1074,7 +1074,7 @@ group { "e/widgets/border/default/move";
 			}
 		}
 		text { "e.text.label"; scale;
-			desc { "default"; color: 0 0 0 255; color_class: "move_text";
+			desc { "default"; color: "#000000"; color_class: "move_text";
 				rel1.to_x: "icon";
 				rel1.offset: 2 4;
 				rel1.relative: 1.0 0.0;
@@ -1100,7 +1100,7 @@ group { "e/widgets/border/default/resize";
 			}
 		}
 		rect { "icon"; nomouse;
-			desc { "default"; color: 255 255 255 0; min: 0 0; max: 0 0;
+			desc { "default"; color: TRANSPARENT; min: 0 0; max: 0 0;
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.offset: 2 2;
@@ -1109,7 +1109,7 @@ group { "e/widgets/border/default/resize";
 			}
 		}
 		text { "e.text.label"; scale;
-			desc { "default"; color: 0 0 0 255; color_class: "resize_text";
+			desc { "default"; color: "#000000"; color_class: "resize_text";
 				rel1.to_x: "icon";
 				rel1.offset: 2 4;
 				rel1.relative: 1.0 0.0;
