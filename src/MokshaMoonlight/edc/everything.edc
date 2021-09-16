@@ -60,7 +60,7 @@ group { "e/modules/everything/list";
 				rel2.to: "bar_base";
 				rel2.offset: -2 -2;
 			}
-			desc { "faded"; inherit; color: 0 228 0 255; }
+			desc { "faded"; inherit; color: "#00E400"; }
 		}
 		swallow { "e.swallow.bar"; clip: "bar_clip";
 			desc { "default";
@@ -71,14 +71,14 @@ group { "e/modules/everything/list";
 			}
 		}
 		text { "e.text.label"; effect: SHADOW; scale; clip: "input_base";
-			desc { "default"; color: 0 0 0 255;
+			desc { "default"; color: "#000000";
 				align: 0.0 0.5;
 				rel1.offset: 15 8;
 				rel1.to: "input_base";
 				rel2.to: "input_base";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 10 -4;
-				color3: 255 255 255 0;
+				color3: TRANSPARENT;
 				text.font: "Sans"; text.size: 12;
 				text.align: 0.0 0.5;
 				text.min: 1 1;
@@ -88,7 +88,7 @@ group { "e/modules/everything/list";
 			}
 		}
 		part {  "cursor"; nomouse;
-			desc { "default"; min: 10 10; max: 10 10; color: 20 20 20 250;
+			desc { "default"; min: 10 10; max: 10 10; color: "#141414FA";
 				align: 0.0 0.5;
 				rel1.relative: 1.0 0.0;
 				rel1.offset: -2 -2;
@@ -99,10 +99,10 @@ group { "e/modules/everything/list";
 				image.normal: "icon_right_arrow.png";
 				fixed: 1 1;
 			}
-			desc { "faded"; inherit; color: 20 20 20 100; }
+			desc { "faded"; inherit; color: "#14141464"; }
 		}
 		rect { name: "list_clip"; clip: "base";
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				fixed: 1 1;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 5 0;
@@ -261,7 +261,7 @@ group { "e/modules/everything/main";
 			}
 		}
 		part {  "bar_bg"; nomouse;
-			desc { "default"; color: 255 255 255 255; color_class: "dialog_base";
+			desc { "default"; color: VISIBLE; color_class: "dialog_base";
 				min: 320 64;
 				align: 0.5 0.0;
 				rel2.relative: 1.0 0.0;
@@ -271,7 +271,7 @@ group { "e/modules/everything/main";
 			}
 		}
 		rect { "selector_frame";
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.to: "bar_bg";
 				rel1.offset: 8 7;
 				rel2.offset: -10 0;
@@ -364,14 +364,14 @@ group { "e/modules/everything/selector_item";
 			desc { "default"; }
 		}
 		part { "bg"; nomouse;
-			desc { "default"; color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT;
 				image.normal: "button-pressed.png";
 				image.border: 12 12 12 12;
 				fill.smooth: 1;
 				rel1.offset: 0 -1;
 				rel2.offset: 0 -1;
 			}
-			desc { "selected"; inherit; color: 255 255 255 255; }
+			desc { "selected"; inherit; color: VISIBLE; }
 		}
 		rect { "inner_clip"; clip: "clip"; nomouse;
 			desc { "default";
@@ -380,8 +380,8 @@ group { "e/modules/everything/selector_item";
 			}
 		}
 		rect { "icon_clip"; clip: "inner_clip"; nomouse;
-			desc { "default"; color: 255 255 255 255; }
-			desc { "faded"; color: 255 255 255 120; }
+			desc { "default"; color: VISIBLE; }
+			desc { "faded"; color: "#FFFFFF78"; }
 		}
 		swallow { "e.swallow.icons"; clip: "icon_clip"; nomouse;
 			desc { "default"; min: 50 44; max: 50 44;
@@ -402,7 +402,7 @@ group { "e/modules/everything/selector_item";
 			}
 		}
 		text { "e.text.label"; nomouse; clip: "clip"; scale; nomouse;
-			desc { "default"; color: 24 24 24 255;
+			desc { "default"; color: "#181818";
 				align: 0.0 1.0;
 				fixed: 0 1;
 				rel1.to: "e.swallow.icons";
@@ -415,7 +415,7 @@ group { "e/modules/everything/selector_item";
 				text.align: 0.5 1.0;
 				text.text_class: "fileman_typebuf";
 			}
-			desc { "selected"; inherit; color: 0 0 0 255; }
+			desc { "selected"; inherit; color: "#000000"; }
 		}
 		text { "e.text.plugin"; effect: SOFT_SHADOW; nomouse; scale;
 			clip: "inner_clip";
@@ -425,17 +425,17 @@ group { "e/modules/everything/selector_item";
 				rel1.offset: 6 0;
 				/* rel1.to_x: "e.swallow.icons"; */
 				rel2.offset: -10 -12;
-				color: 0 0 0 255;
-				color3: 0 0 0 0;
+				color: "#000000";
+				color3: "#00000000";
 				text.font: "Sans"; text.size: 12;
 				text.min: 0 1;
 				text.align: 0.5 0.0;
 				text.text_class: "fileman_icon";
 			}
-			desc { "selected"; inherit; color: 0 0 0 255; }
+			desc { "selected"; inherit; color: "#000000"; }
 		}
 		rect { "event";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 	programs {
@@ -496,7 +496,7 @@ group { "e/modules/everything/tab_item";
 			}
 		}
 		text { "label2"; scale; clip: "clip"; nomouse;
-			desc { "default"; color: 0 0 0 255;
+			desc { "default"; color: "#000000";
 				align: 0.5 0.5;
 				fixed: 0 1;
 				rel1.to: "e.text.label";
@@ -507,18 +507,18 @@ group { "e/modules/everything/tab_item";
 				text.align: 0.5 0.5;
 				text.text_class: "fileman_icon";
 			}
-			desc { "selected"; inherit; color: 10 10 10 0; hid; }
+			desc { "selected"; inherit; color: "#0A0A0A00"; hid; }
 		}
 		part { "bg"; nomouse;
-				desc { "default"; color: 255 255 255 0;
+				desc { "default"; color: TRANSPARENT;
 					image.normal: "button-pressed.png";
 					image.border: 6 6 6 6;
 					fill.smooth: 1;
 				}
-				desc { "selected"; inherit; color: 255 255 255 255; }
+				desc { "selected"; inherit; color: VISIBLE; }
 		}
 		text { "e.text.label"; nomouse; clip: "clip"; scale; nomouse;
-				desc { "default";color: 0 0 0 255; hid;
+				desc { "default"; color: "#000000"; hid;
 					align: 0.5 0.5;
 					fixed: 0 1;
 					rel1.to: "clip";
@@ -533,7 +533,7 @@ group { "e/modules/everything/tab_item";
 				desc { "selected"; inherit; vis; }
 		}
 		rect { "event";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
@@ -568,7 +568,7 @@ group { "e/modules/everything/tab_item/back";
 			}
 }
 		text { "label2"; scale; clip: "clip"; nomouse;
-			desc { "default"; color: 255 255 255 255; color_class: "button_text";
+			desc { "default"; color: VISIBLE; color_class: "button_text";
 				align: 0.5 0.5;
 				fixed: 0 1;
 				rel1.to: "e.text.label";
@@ -582,15 +582,15 @@ group { "e/modules/everything/tab_item/back";
 			desc { "selected"; inherit; hid; }
 		}
 		part { "bg"; nomouse;
-			desc { "default"; color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT;
 				image.normal: "button-pressed.png";
 				image.border: 6 6 6 6;
 				fill.smooth: 1;
 			}
-			desc { "selected"; inherit; color: 255 255 255 255; }
+			desc { "selected"; inherit; color: VISIBLE; }
 		}
 		text { "e.text.label"; nomouse; clip: "clip"; scale; nomouse;
-			desc { "default"; color: 255 255 255 255; color_class: "button_text"; hid;
+			desc { "default"; color: VISIBLE; color_class: "button_text"; hid;
 				align: 0.5 0.5;
 				fixed: 0 1;
 				rel1.to: "clip";
@@ -605,7 +605,7 @@ group { "e/modules/everything/tab_item/back";
 			desc { "selected"; inherit; vis; }
 		}
 		rect { "event";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
@@ -642,7 +642,7 @@ group { "e/modules/everything/thumbview/item/thumb";
 	images.image: "menu_arrow_normal.png" COMP;
 	parts {
 		part { "bg"; nomouse;
-			desc { "default"; color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT;
 				rel1.to: "base";
 				rel1.offset: -1 -3;
 				rel2.to: "base";
@@ -651,20 +651,20 @@ group { "e/modules/everything/thumbview/item/thumb";
 				image.normal: "button-insensitive.png";
 				image.border: 5 5 5 5;
 			}
-			desc { "selected"; inherit; color: 255 255 255 255; }
+			desc { "selected"; inherit; color: VISIBLE; }
 		}
 		part { "bg_mark"; nomouse;
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "bg";
 				rel2.to: "bg";
 				fill.smooth: 0;
 				image.normal: "button-insensitive.png";
 				image.border: 5 5 5 5;
 			}
-			desc { "marked"; inherit; color: 255 255 255 255; vis; }
+			desc { "marked"; inherit; color: VISIBLE; vis; }
 		}
 		rect { "base"; nomouse;
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 0 4;
 				rel2.relative: 1.0 1.0;
@@ -673,11 +673,11 @@ group { "e/modules/everything/thumbview/item/thumb";
 		}
 		rect { "clip"; nomouse;
 			/* clip: "base"; */
-			desc { "default"; color: 225 225 225 0;
+			desc { "default"; color: "#E1E1E100";
 				rel1.to: "base";
 				rel2.to: "base";
 			}
-			desc { "visible"; inherit; color: 255 255 255 255; }
+			desc { "visible"; inherit; color: VISIBLE; }
 		}
 		swallow { "e.swallow.icon"; clip: "clip"; nomouse;
 			desc { "default";
@@ -714,7 +714,7 @@ group { "e/modules/everything/thumbview/item/thumb";
 			desc { "visible"; inherit; vis; }
 		}
 		text { "e.text.label"; clip: "base"; nomouse; scale;
-			desc { "default"; color: 0 0 0 255;
+			desc { "default"; color: "#000000";
 				rel1.offset: 2 -15;
 				rel1.relative: 0.0 1.0;
 				rel2.offset: -2 -10;
@@ -723,25 +723,25 @@ group { "e/modules/everything/thumbview/item/thumb";
 				text.align: 0.5 0.0;
 				text.text_class: "fileman_icon";
 			}
-			desc { "selected"; inherit; color: 0 0 0 255;
+			desc { "selected"; inherit; color: "#000000";
 				rel1.offset: 2 -15;
 				rel1.relative: 0.0 1.0;
 				rel2.offset: -2 -10;
 			}
 		}
 		rect { "over_clip"; nomouse;
-			desc { "default"; color: 255 255 255 255; hid;
+			desc { "default"; color: VISIBLE; hid;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 0 0;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -1 -1;
 			}
-			desc { "visible"; inherit; color: 255 255 255 255; vis; }
-			desc { "hidden"; inherit; color: 255 255 255 0; vis;
+			desc { "visible"; inherit; color: VISIBLE; vis; }
+			desc { "hidden"; inherit; color: TRANSPARENT; vis;
 				rel1.relative: -0.5 -0.5;
 				rel2.relative: 1.5 1.5;
 			}
-			desc { "huge"; inherit; color: 255 255 255 0; vis;
+			desc { "huge"; inherit; color: TRANSPARENT; vis;
 				rel1.relative: -1.5 -1.5;
 				rel2.relative: 2.5 2.5;
 			}
@@ -763,7 +763,7 @@ group { "e/modules/everything/thumbview/item/thumb";
 			desc { "visible"; inherit; vis; }
 		}
 		rect { "event";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
@@ -858,24 +858,24 @@ group { "e/modules/everything/thumbview/item/list";
 	images.image: "selected.png" COMP;
 	parts {
 		part { "bg"; nomouse;
-			desc { "default";  color: 255 255 255 0; hid;
+			desc { "default";  color: TRANSPARENT; hid;
 				rel1.to: "base";
 				rel1.offset: -7 -1;
 				rel2.to: "base";
 				rel2.offset: 5 2;
 				image.normal: "selected.png";
 			}
-			desc { "selected"; inherit; color: 255 255 255 255; vis; }
+			desc { "selected"; inherit; color: VISIBLE; vis; }
 		}
 		rect { "bg_mark"; nomouse;
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "bg";
 				rel2.to: "bg";
 			}
-			desc { "marked"; inherit; color: 255 0 0 255; vis; }
+			desc { "marked"; inherit; color: "#FF0000"; vis; }
 		}
 		rect { "base"; nomouse;
-				desc { "default"; color: 255 255 255 255;
+				desc { "default"; color: VISIBLE;
 					rel1.relative: 0.0 0.0;
 					rel1.offset: 0 0;
 					rel2.relative: 1.0 1.0;
@@ -883,7 +883,7 @@ group { "e/modules/everything/thumbview/item/list";
 			}
 		}
 		rect { "clip"; nomouse;  clip: "base";
-			desc { "default"; color: 225 225 225 0;
+			desc { "default"; color: "#E1E1E100";
 				rel1.to: "base";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 2 2;
@@ -891,7 +891,7 @@ group { "e/modules/everything/thumbview/item/list";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 40 -1;
 			}
-			desc { "visible"; inherit; color: 255 255 255 255; }
+			desc { "visible"; inherit; color: VISIBLE; }
 		}
 		swallow { "e.swallow.icon"; clip: "clip"; nomouse;
 			desc { "default";
@@ -925,7 +925,7 @@ group { "e/modules/everything/thumbview/item/list";
 			}
 		}
 		text { "e.text.label"; clip: "base"; nomouse; scale;
-			desc { "default"; color: 0 0 0 255;
+			desc { "default"; color: "#000000";
 				rel1.to_x: "clip";
 				rel1.to_y: "base";
 				rel1.offset: 5 0;
@@ -939,10 +939,10 @@ group { "e/modules/everything/thumbview/item/list";
 				text.align: 0.0 0.0;
 				text.text_class: "fileman_icon";
 			}
-			desc { "selected"; inherit; color: 0 0 0 255; }
+			desc { "selected"; inherit; color: "#000000"; }
 		}
 		text { "e.text.detail"; clip: "base"; nomouse; scale;
-			desc { "default"; color: 0 0 0 255; vis;
+			desc { "default"; color: "#000000"; vis;
 				rel1.to_x: "clip";
 				rel1.to_y: "base";
 				rel1.offset: 5 6;
@@ -956,7 +956,7 @@ group { "e/modules/everything/thumbview/item/list";
 				text.align: 0.0 0.0;
 				text.text_class: "fileman_icon";
 			}
-			desc { "selected"; inherit; color: 0 0 0 255; }
+			desc { "selected"; inherit; color: "#000000"; }
 		}
 		rect { "spacer"; nomouse;
 			desc { "default"; hid;
@@ -970,7 +970,7 @@ group { "e/modules/everything/thumbview/item/list";
 			}
 		}
 		rect { "event";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
@@ -1045,8 +1045,8 @@ group { "e/modules/everything/thumbview/item/list";
 group { "e/modules/everything/thumbview/main/window";
 	parts {
 		rect { "clip"; nomouse;
-			desc { "default"; color: 255 255 255 0; }
-			desc { "visible"; color: 255 255 255 255; }
+			desc { "default"; color: TRANSPARENT; }
+			desc { "visible"; color: VISIBLE; }
 		}
 		swallow { "e.swallow.list"; clip: "clip";
 			desc { "default";
@@ -1057,25 +1057,25 @@ group { "e/modules/everything/thumbview/main/window";
 			}
 		}
 		part { "left_arrow"; nomouse; scale;
-			desc { "default"; min: 32 32; max: 32 32; color: 255 255 255 0; hid;
+			desc { "default"; min: 32 32; max: 32 32; color: TRANSPARENT; hid;
 				image.normal: "icon_left_arrow.png";
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 0.0 0.5;
 			}
-			desc { "visible"; inherit; color: 255 255 255 255; vis; }
+			desc { "visible"; inherit; color: VISIBLE; vis; }
 		}
 		part { "right_arrow"; nomouse; scale;
-			desc { "default"; min: 32 32; max: 32 32; color: 255 255 255 0; hid;
+			desc { "default"; min: 32 32; max: 32 32; color: TRANSPARENT; hid;
 				image.normal: "icon_right_arrow.png";
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
 				align: 1.0 0.5;
 			}
-			desc { "visible"; inherit; color: 255 255 255 255; vis; }
+			desc { "visible"; inherit; color: VISIBLE; vis; }
 		}
 		rect { "event"; repeat;
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
