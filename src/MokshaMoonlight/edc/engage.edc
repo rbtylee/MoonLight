@@ -25,7 +25,7 @@ group { NAME;												\
 	parts {														\
 		rect {  "separator"; nomouse;	\
 			desc { "default";							\
-				color: 255 255 255 150;			\
+				color: "#FFFFFF96";					\
 				max: MAX;										\
 				align: ALIGN;								\
 				rel1.offset: OFF1;					\
