@@ -17,9 +17,7 @@ group { name: "e/theme/about";
 	max: 640 640;
 	parts {
 		rect { "base"; nomouse;
-			desc { "default";
-				color: 0 0 0 255;
-			}
+			desc { "default"; color: "#000000"; }
 		}
 		part { "background";
 			desc { "default";
@@ -48,14 +46,14 @@ group { name: "e/theme/about";
 			}
 		}
 		part { "logo";
-			desc { "default";
+			desc { "default"; min: 128 128; max: 128 128;
 				image.normal: "logo2.png";
 				align: 0.5 0.2;
-				min: 128 128; max: 128 128;
+
 			}
 		}
 		part { "about_bg"; nomouse;
-			desc { "default";
+			desc { "default"; color: "#FFFFFFC8";
 				rel1.to_y: "logo";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 8 0;
@@ -64,7 +62,7 @@ group { name: "e/theme/about";
 				rel2.relative: 1.0 0.0;
 				image.normal: "entry.png";
 				image.border: 7 7 7 7;
-				color: 255 255 255 200;
+
 			}
 		}
 		textblock { "about"; nomouse; scale;
@@ -82,14 +80,13 @@ group { name: "e/theme/about";
 			}
 		}
 		part { "button_image"; 	mouse; scale;
-			desc { "default";
+			desc { "default"; min: 64 26; max: 64 26;
 				fixed: 1 1;
 				align: 0.5 1.0;
 				rel1.relative: 0.5 0.98;
 				rel1.offset: 0 -1;
 				rel2.relative: 0.5 0.98;
 				rel2.offset: 0 -1;
-				min: 64 26; max: 64 26;
 				image.normal: "button-normal.png";
 				image.border: 10 10 10 10;
 			}
@@ -99,19 +96,17 @@ group { name: "e/theme/about";
 			}
 		}
 		text { "e.text.label"; nomouse; effect: SHADOW; scale;
-			desc { "default";
+			desc { "default"; color: "#000000C0";
 				rel1.to: "button_image";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 3 3;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -4 -4;
 				rel2.to: "button_image";
-				color: 0 0 0 192;
-				color3: 255 255 255 128;
+				color3: "#FFFFFF80";
 				color_class: "button_text";
 				text.text: "Close";
-				text.font: "Sans";
-				text.size: 10;
+				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.5 0.5;
 				text.text_class: "button";
