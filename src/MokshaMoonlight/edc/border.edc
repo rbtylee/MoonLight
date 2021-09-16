@@ -933,7 +933,7 @@ group { "e/widgets/border/dialog/border";
 				text.align: 0.5 0.5;
 				text.text_class: "title_bar_alt";
 			}
-			desc { "default" 0.1; inherit; color: 0 0 0 0; visible: 0; }
+			desc { "default" 0.1; inherit; color: 0 0 0 0; hid; }
 		}
 		rect { "title2_rect"; nomouse;
 			desc { "default";
