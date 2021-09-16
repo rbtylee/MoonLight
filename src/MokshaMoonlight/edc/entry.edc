@@ -154,8 +154,8 @@ group { name: "e/widgets/entry/cursor";
 group { name: "e/widgets/entry/selection";
 	data.item: "on_foreground" "0";
 	parts {
-		rect { name: "selection"; color_class: "focus";
-			desc { "default";
+		rect { name: "selection";
+			desc { "default"; color_class: "focus";
 				rel1.offset: 2 0;
 				rel2.offset: 1 -1;
 			}
