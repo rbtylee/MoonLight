@@ -22,7 +22,7 @@ group { "e/widgets/deskpreview/desk";
 			}
 		}
 		rect { "e.event.menu";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 }
