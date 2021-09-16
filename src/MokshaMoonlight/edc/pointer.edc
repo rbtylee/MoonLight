@@ -243,12 +243,8 @@ group { "e/pointer/enlightenment/rotate/color";
 				map.smooth: 1;
 				map.rotation.center: "box";
 			}
-			desc { "p1"; inherit;
-				map.rotation.z: 30;
-			}
-			desc { "p2"; inherit;
-				map.rotation.z: -60;
-			 }
+			desc { "p1"; inherit; map.rotation.z: 30; }
+			desc { "p2"; inherit; map.rotation.z: -60; }
 		}
 	}
 
