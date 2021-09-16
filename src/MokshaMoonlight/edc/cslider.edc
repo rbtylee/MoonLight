@@ -2,10 +2,9 @@ group { "e/widgets/cslider";
 	images.image: "inset_sunk.png" COMP;
 	parts {
 		rect { "content_clip"; nomouse;
-			desc { "default";
+			desc { "default"; color: VISIBLE;
 				rel1.to:  "e.swallow.content";
 				rel2.to:  "e.swallow.content";
-				color: 255 255 255 255;
 			}
 		}
 		swallow { "e.swallow.content"; clip: "content_clip";
@@ -31,7 +30,7 @@ group { "e/widgets/cslider";
 			dragable.confine: "e.swallow.content";
 			dragable.x: 1 1 0;
 			dragable.y: -1 1 0;
-			desc { "default"; min: 1 24; max: 1 9999;
+			desc { "default"; min: 1 24; max: 1 9999; color: "#FFFFFF96";
 				fixed: 1 1;
 				rel1.to: "e.swallow.content";
 				rel1.relative: 0.5 0.0;
@@ -39,9 +38,8 @@ group { "e/widgets/cslider";
 				rel2.to: "e.swallow.content";
 				rel2.relative: 0.5 1.0;
 				rel2.offset: 0 -1;
-				color: 255 255 255 150;
 			}
-			desc { "vertical"; min: 24 1; max: 9999 1;
+			desc { "vertical"; min: 24 1; max: 9999 1; color: "#FFFFFF96";
 				fixed: 1 1;
 				rel1.to: "e.swallow.content";
 				rel1.relative: 0.0 0.5 ;
@@ -49,7 +47,6 @@ group { "e/widgets/cslider";
 				rel2.to: "e.swallow.content";
 				rel2.relative: 1.0 0.5;
 				rel2.offset: -1 0;
-				color: 255 255 255 150;
 			}
 		}
 	}
