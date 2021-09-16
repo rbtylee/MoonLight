@@ -4,8 +4,7 @@ group { "e/widgets/check";
 	images.image: "check_sel.png" COMP;
 	parts {
 		part { "base"; nomouse; scale;
-			desc { "default";
-				min: 18 19; max: 18 19;
+			desc { "default"; min: 18 19; max: 18 19;
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.relative: 0.0  0.0;
@@ -24,46 +23,37 @@ group { "e/widgets/check";
 			desc { "selected"; inherit;
 				image.normal: "check_sel.png";
 			}
-			desc { "disabled"; inherit;
-				color: 255 255 255 128;
-			}
+			desc { "disabled"; inherit; color: "#FFFFFF80"; }
 		}
 		rect { "mark_hold"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "base";
 				rel1.offset: -5 -5;
 				rel2.to: "base";
 				rel2.offset: 4 4;
 			}
-			desc { "on"; inherit; vis;
-				color: 255 255 255 255;
+			desc { "on"; inherit; color: VISIBLE; vis;
 				rel1.offset: 0 0;
 				rel2.offset: -1 -1;
 			}
 		}
 		text { "e.text.label"; nomouse; scale;
-			desc { "default";
-				min: 18 19;
+			desc { "default"; min: 18 19; color: "#000000";
 				rel1.to_x: "base";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 2 2;
 				rel2.relative: 1.0  1.0;
 				rel2.offset: -2 -2;
-				color: 0 0 0 255;
 				color_class: "check_text";
 				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.0 0.5;
 				text.text_class: "check_button";
 			}
-			desc { "disabled"; inherit;
-				color: 0	0	0 128;
-				color_class: "check_text_disabled";
-			}
+			desc { "disabled"; inherit; color: "#00000080"; color_class: "check_text_disabled"; }
 		}
 		rect { "event"; ignore: ON_HOLD;
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 			desc { "disabled"; inherit; hid; }
 		}
 	}
@@ -111,8 +101,7 @@ group { "e/widgets/check_icon";
 	images.image: "check_sel.png" COMP;
 	parts {
 		part { "base"; nomouse; scale;
-			desc { "default";
-				min: 18 19; max: 18 19;
+			desc { "default"; min: 18 19; max: 18 19;
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.relative: 0.0  0.0;
@@ -131,27 +120,22 @@ group { "e/widgets/check_icon";
 			desc { "selected"; inherit;
 				image.normal: "check_sel.png";
 			}
-			desc { "disabled"; inherit;
-				color: 255 255 255 128;
-			}
+			desc { "disabled"; inherit; color: "#FFFFFF80"; }
 		}
 		rect { "mark_hold"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "base";
 				rel1.offset: -5 -5;
 				rel2.to: "base";
 				rel2.offset: 4 4;
 			}
-			desc { "on"; inherit; vis;
-				color: 255 255 255 255;
+			desc { "on"; inherit; color: VISIBLE; vis;
 				rel1.offset: 0 0;
 				rel2.offset: -1 -1;
 			}
 		}
 		swallow { "e.swallow.icon"; clip: "icon_clip";
-			desc { "default";
-				min: 18 19;
+			desc { "default"; min: 18 19;
 				rel1.to_x: "base";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 2 2;
@@ -165,33 +149,29 @@ group { "e/widgets/check_icon";
 			}
 		}
 		rect { "icon_clip"; nomouse;
-			desc { "default"; color: 255 255 255 255; }
+			desc { "default"; color: VISIBLE; }
 		}
 		rect { "label_clip"; nomouse;
 			desc { "default"; hid; }
 			desc { "label_visible"; vis; }
 		}
 		text { "e.text.label"; nomouse; scale; clip: "label_clip";
-			desc { "default"; min: 18 19;
+			desc { "default"; min: 18 19; color: "#000000";
 				rel1.to_x: "base";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 2 2;
 				rel2.relative: 1.0  1.0;
 				rel2.offset: -2 -2;
-				color: 0 0 0 255;
 				color_class: "check_text";
 				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.5 0.5;
 				text.text_class: "check_button";
 			}
-			desc { "disabled"; inherit;
-				color: 0 0 0 128;
-				color_class: "check_text_disabled";
-			}
+			desc { "disabled"; inherit; color: "#00000080"; color_class: "check_text_disabled"; }
 		}
 		rect { "event"; ignore: ON_HOLD;
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 			desc { "disabled"; inherit; hid; }
 		}
 	}
