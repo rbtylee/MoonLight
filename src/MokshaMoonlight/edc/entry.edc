@@ -10,12 +10,11 @@ group { name: "e/widgets/entry/scrollframe";
 			}
 		}
 		rect { name: "clip"; nomouse;
-			desc { "default";
-				color: 255 255 255 255;
-				rel1.to: "base"; 
+			desc { "default"; color: VISIBLE;
+				rel1.to: "base";
 				rel1.relative: 0.0 0.0;
-				rel1.offset: 3 2; 
-				rel2.to: "base"; 
+				rel1.offset: 3 2;
+				rel2.to: "base";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -6 -2;
 			}
@@ -23,7 +22,7 @@ group { name: "e/widgets/entry/scrollframe";
 		swallow { name: "e.swallow.content"; clip: "clip";
 			desc { "default";
 				rel1.to: "clip";
-				rel2.to: "clip"; 
+				rel2.to: "clip";
 			}
 		}
 	}
@@ -46,17 +45,15 @@ group { name: "e/widgets/entry/text";
 			multiline: 0;
 			source: "e/widgets/entry/selection"; // selection under
 			source4: "e/widgets/entry/cursor"; // cursorover
-			desc { "default";
-				color_class: "entry_text";
+			desc { "default"; color_class: "entry_text";
 				align: 0.0 0.5;
 				text.text: "";
 				text.style: "entry_textblock_style";
 				text.min: 1 1;
 				text.align: 0.0 0.5;
 			}
-			desc { "disabled"; inherit;
+			desc { "disabled"; inherit; color_class: "entry_text_disabled";
 				text.style: "entry_textblock_disabled_style";
-				color_class: "entry_text_disabled";
 			}
 		}
  }
@@ -98,11 +95,11 @@ group { name: "e/widgets/entry/cursor";
 	min: 1 0;
 	parts {
 		rect { name: "cursor";
-			desc { "default"; color: 0 0 0 0;
+			desc { "default"; color: "#00000000";
 				rel1.offset: 1 0;
 				rel2.offset: 0 -1;
 			}
-			desc { "visible"; inherit; color: 0 0 0 255; }
+			desc { "visible"; inherit; color: "#000000"; }
 		}
 	}
 	programs {
@@ -157,11 +154,10 @@ group { name: "e/widgets/entry/cursor";
 group { name: "e/widgets/entry/selection";
 	data.item: "on_foreground" "0";
 	parts {
-		rect { name: "selection";
+		rect { name: "selection"; color_class: "focus";
 			desc { "default";
 				rel1.offset: 2 0;
 				rel2.offset: 1 -1;
-				color_class: "focus";
 			}
 		}
 	}
