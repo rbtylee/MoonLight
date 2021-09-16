@@ -16,44 +16,31 @@
 
 //NAVIGATION
 group { name: "modules/efm_navigation/main";
-	images {
-		image: "icon_left_arrow.png" COMP;
-		image: "icon_right_arrow.png" COMP;
-		image: "icon_up_arrow.png" COMP;
-		image: "refresh.png" COMP;
-		image: "favorites.png" COMP;
-		image: "button-prelight.png" COMP;
-		image: "button-normal.png" COMP;
-		image: "button-pressed.png" COMP;
-	}
+	images.image: "icon_left_arrow.png" COMP;
+	images.image: "icon_right_arrow.png" COMP;
+	images.image: "icon_up_arrow.png" COMP;
+	images.image: "refresh.png" COMP;
+	images.image: "favorites.png" COMP;
+	images.image: "button-prelight.png" COMP;
+	images.image: "button-normal.png" COMP;
+	images.image: "button-pressed.png" COMP;
 	parts {
-		part {
-			name: "base";
-			type: RECT;
-			mouse;
-			desc {
-				"default";
-				color: 0 0 0 0;
-			}
+		rect { name: "base"; mouse;
+			desc { "default"; color: "#00000000"; }
 		}
-		part {
-			name: "begin";
-			type: RECT;
-			nomouse;
-			desc {
-				"default";
+		rect { name: "begin"; nomouse;
+			desc { "default";
 				max: 1 1;
 				align: 0.0 0.0;
-				color: 0 0 0 0;
+				color: "#00000000";
 			}
 		}
 
 #define NAV_BUTTON(NAME, ICON, REL_TO, OFF_X) \
-		part {         \
+		image {         \
 			name: NAME"_bg";     \
 			mouse;     \
-			repeat_events: 1;      \
-			type: IMAGE;       \
+			repeat;      \
 			desc {     \
 				"default";   \
 				min: 12 12;       \
@@ -85,10 +72,9 @@ group { name: "modules/efm_navigation/main";
 				image.normal: "button-pressed.png"; \
 			}         \
 		}          \
-		part {         \
+		image {         \
 			name: NAME"_img";      \
 			nomouse;     \
-			type: IMAGE;       \
 			desc {     \
 				"default";   \
 				min: 22 22;       \
@@ -109,11 +95,10 @@ group { name: "modules/efm_navigation/main";
 				color: 255 255 255 150; \
 			}           \
 		}          \
-		part {         \
+		rect {         \
 			name: NAME"_event_eater";    \
-			type: RECT;        \
 			mouse;     \
-			repeat_events: 0;      \
+			norepeat;      \
 			desc {     \
 				"default";   \
 				hid;       \
@@ -134,12 +119,9 @@ NAV_BUTTON("up",         "icon_up_arrow",    "forward_bg", 10);
 NAV_BUTTON("refresh",    "refresh",          "up_bg", 1);
 NAV_BUTTON("favorites",  "favorites",        "refresh_bg", 1);
 
-		part { name: "e.swallow.pathbar";
-			type: SWALLOW;
-			desc {
-				"default";
+		swallow { name: "e.swallow.pathbar";
+			desc { "default";
 				align: 0.0 0.5;
-
 					/* rel1.to_x: "favorites_base"; */
 				rel1.to_x: "favorites_bg";
 				rel1.relative: 1.0 0.0;
@@ -199,16 +181,11 @@ NAV_BUTTON_PROG("favorites");
 }
 
 group {	name: "modules/efm_navigation/pathbar_scrollframe";
-	images {
-		image: "icon_left_arrow.png" COMP;
-		image: "icon_right_arrow.png" COMP;
-	}
+	images.image: "icon_left_arrow.png" COMP;
+	images.image: "icon_right_arrow.png" COMP;
 	parts {
-		part { name: "base";
-		type: RECT;
-		mouse;
-			desc {
-			"default";
+		rect { name: "base"; mouse;
+			desc { "default"; color: "#00000000";
 				rel1 {
 					to_x: "left_arrow";
 					relative: 1.0 0.0;
@@ -218,66 +195,41 @@ group {	name: "modules/efm_navigation/pathbar_scrollframe";
 					to_x: "right_arrow";
 					relative: 0.0 1.0;
 				}
-			color: 0 0 0 0;
 			}
 		}
-		part {
-		name: "clipper";
-		type: RECT;
-		nomouse;
-			desc {
-			"default";
+		rect { name: "clipper"; nomouse;
+			desc { "default";
 			rel1.to: "base";
 			rel2.to: "base";
 			}
 		}
-		part { name: "e.swallow.content";
-		type: SWALLOW;
-		clip: "clipper";
-			desc {
-			"default";
-			rel1.to: "clipper";
-			rel2.to: "clipper";
+		swallow { name: "e.swallow.content"; clip: "clipper";
+			desc { "default";
+				rel1.to: "clipper";
+				rel2.to: "clipper";
 			}
 		}
-		part { name: "left_arrow";
-		type: IMAGE;
-		mouse;
-		scale;
-		desc {
-			"default";
+		image { name: "left_arrow"; mouse; scale;
+			desc { "default"; min: 16 16; max: 18 20;
 				/* aspect: 1.0 1.0;
-	* aspect_preference: VERTICAL; */
-			align: 0.0 0.5;
-			min: 16 16;
-			max: 18 20;
-			image.normal: "icon_left_arrow.png";
+				* aspect_preference: VERTICAL; */
+				align: 0.0 0.5;
+				image.normal: "icon_left_arrow.png";
+			}
+			desc { state: "over" 0.0; inherit;
+				image.normal: "icon_left_arrow.png";
+			}
 		}
-		desc {
-			state: "over" 0.0;
-			inherit;
-			image.normal: "icon_left_arrow.png";
-		}
-		}
-		part { name: "right_arrow";
-			type: IMAGE;
-			mouse;
-			scale;
-			desc {
-				"default";
+		image { name: "right_arrow"; mouse; scale;
+			desc { "default"; min: 16 16; max: 18 20;
 				align: 1.0 0.5;
-				min: 16 16;
-				max: 18 20;
 				image.normal: "icon_right_arrow.png";
 			}
-			desc {
-				state: "over" 0.0;
-				inherit;
+			desc { state: "over" 0.0; inherit;
 				image.normal: "icon_right_arrow.png";
 			}
 		}
-		part { name: "e.dragable.hbar";
-			nomouse;
+		part { name: "e.dragable.hbar"; nomouse;
 			dragable {
 				x: 1 1 0;
 				y: 0 0 0;
@@ -290,20 +242,14 @@ group {	name: "modules/efm_navigation/pathbar_scrollframe";
 				rel2.to: "base";
 			}
 		}
-		part { name: "event";
-			type: RECT;
-			mouse;
-			repeat_events: 1;
-			desc {
-				"default";
-				color: 0 0 0 0;
-			}
+		rect { name: "event"; mouse; repeat;
+			desc { "default"; color: "#00000000"; }
 		}
 	}
-	programs {
- OVER("right_arrow", "right_arrow")
- OVER("left_arrow", "left_arrow")
 
+	programs {
+		OVER("right_arrow", "right_arrow")
+		OVER("left_arrow", "left_arrow")
 		program { name: "sb_left";
 			signal: "mouse,down,1";
 			source: "left_arrow";
@@ -320,43 +266,27 @@ group {	name: "modules/efm_navigation/pathbar_scrollframe";
 }
 
 group { name: "modules/efm_navigation/pathbar_button";
-	images {
-		image: "button-normal.png" COMP;
-		image: "button-pressed.png" COMP;
-		image: "button-prelight.png" COMP;
-	}
-
+	images.image: "button-normal.png" COMP;
+	images.image: "button-pressed.png" COMP;
+	images.image: "button-prelight.png" COMP;
 	parts {
-		part {name: "bg";
-		type: IMAGE;
-		nomouse;
-		desc {
-			"default";
-			min: 28 28;
+		image{ name: "bg"; nomouse;
+		desc { "default"; min: 28 28;
 			image {
 				normal: "button-normal.png";
 				border: 9 9 9 9;
 			}
 		}
-		desc {
-			state: "over" 0.0;
-			inherit;
+		desc { state: "over" 0.0; inherit;
 			image.normal: "button-prelight.png";
 		}
-		desc {
-			state: "selected" 0.0;
-			inherit;
+		desc { state: "selected" 0.0; inherit;
 			image.normal: "button-pressed.png";
 		}
 	}
 //Label3 part is used to set the size of the button on pathbar, in fact it has the min option set to 1 1
-		part { name: "label3";
-		type: TEXT;
-		nomouse;
-		scale;
-		desc {
-				max: 200 32;
-				"default";
+		text { name: "label3"; nomouse; scale;
+		desc { "default"; max: 200 32;
 				rel1.to: "e.text.label";
 				rel2.to: "e.text.label";
 				hid;
@@ -368,16 +298,11 @@ group { name: "modules/efm_navigation/pathbar_button";
 				}
 			}
 		}
-		part { name: "label2";
-			type: TEXT;
-			nomouse;
-			scale;
-			desc {
-				"default";
-				max: 200 32;
+		text { name: "label2"; nomouse; scale;
+			desc { "default"; max: 200 32;
 				rel1.to: "e.text.label";
 				rel2.to: "e.text.label";
-				color: 0 0 0 255;
+				color: "#000000";
 				text {
 					font: "Sans";
 					text_source: "e.text.label";
@@ -387,23 +312,12 @@ group { name: "modules/efm_navigation/pathbar_button";
 					elipsis: 0.0;
 				}
 			}
-			desc {
-				state: "selected" 0.0;
-				inherit;
-				hid;
-			}
+			desc { state: "selected" 0.0; inherit; hid; }
 		}
-		part { name: "e.text.label";
-			type: TEXT;
-			nomouse;
-			scale;
-			desc {
-				"default";
-				max: 200 32;
+		text { name: "e.text.label"; nomouse; scale;
+			desc { "default"; max: 200 32; color: "#000000"; hid;
 				rel1.offset: 7 0;
 				rel2.offset: -8 -1;
-				hid;
-				color: 0 0 0 255;
 				text {
 					font: "Sans:style=Bold";
 					size: 11;
@@ -419,13 +333,10 @@ group { name: "modules/efm_navigation/pathbar_button";
 				vis;
 			}
 		}
-		part { name: "event";
-			type: RECT;
-			mouse;
-			ignore_flags: ON_HOLD;
+		rect { name: "event"; mouse; ignore: ON_HOLD;
 			desc {
 				"default";
-				color: 0 0 0 0;
+				color: "#00000000";
 			}
 		}
 	}
