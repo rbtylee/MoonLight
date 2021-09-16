@@ -2,8 +2,7 @@ group { "e/gadman/popup";
 	images.image: "dia_bg.png" COMP;
 	parts {
 		part { "base"; nomouse;
-			desc { "default";
-				color_class: "dialog_base";
+			desc { "default"; color_class: "dialog_base";
 				image.normal: "dia_bg.png";
 				image.border: 15 15 2 2;
 				fill.smooth: 0;
