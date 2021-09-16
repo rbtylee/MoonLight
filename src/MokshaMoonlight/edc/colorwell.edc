@@ -3,23 +3,20 @@ group { "e/widgets/color_well";
 	images.image: "inset_sunk.png" COMP;
 	parts {
 		rect { "content_clip"; nomouse;
-			desc {"default"
+			desc {"default"; color: VISIBLE;
 				rel1.to: "e.swallow.content";
 				rel2.to: "e.swallow.content";
-				color: 255 255 255 255;
 			}
-			desc { "disabled"; inherit;
-				color: 255 255 255 0;
-			}
+			desc { "disabled"; inherit; color: TRANSPARENT; }
 		}
 		swallow { "e.swallow.content"; clip : "content_clip";
-			desc {"default"
+			desc {"default";
 				rel1.offset:  4  4;
 				rel2.offset: -5  -5;
 			}
 		}
 		part { "border"; mouse;
-			desc {"default"
+			desc {"default";
 				rel1.to: "e.swallow.content";
 				rel1.offset: -1 -1;
 				rel2.to: "e.swallow.content";
