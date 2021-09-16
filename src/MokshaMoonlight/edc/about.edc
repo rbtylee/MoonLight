@@ -52,7 +52,7 @@ group { "e/widgets/about/main";
 				rel1.offset: 7 -1;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -8 -1;
-				color: 255 255 255 0;
+				color: TRANSPARENT;
 			}
 		}
 		part { "about_bg"; nomouse;
@@ -63,7 +63,7 @@ group { "e/widgets/about/main";
 				rel2.offset: 6 6;
 				image.normal: "entry.png";
 				image.border: 7 7 7 7;
-				color: 255 255 255 200;
+				color: "#FFFFFFC8";
 			}
 		}
 		part { "authors_bg"; nomouse;
@@ -74,7 +74,7 @@ group { "e/widgets/about/main";
 				rel2.offset: 6 6;
 				image.normal: "entry.png";
 				image.border: 7 7 7 7;
-				color: 255 255 255 200;
+				color: "#FFFFFFC8";
 			}
 		}
 		textblock { "e.textblock.about"; nomouse;
@@ -113,7 +113,7 @@ group { "e/widgets/about/main";
 				rel1.offset: 6 6;
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -7 6;
-				color: 255 255 255 255;
+				color: VISIBLE;
 				color3: 0 0 0 32;
 				color_class: "about_title";
 				text.text: "Enlightenment";
@@ -133,7 +133,7 @@ group { "e/widgets/about/main";
 				rel2.to: "e.text.title";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -7 2;
-				color: 255 255 255 255;
+				color: VISIBLE;
 				color3: 0 0 0 32;
 				color_class: "about_version";
 				text.text: "0.17.0.000";
@@ -179,12 +179,12 @@ group { "e/widgets/about/main";
 			desc { "default";
 				rel1.to: "button_image";
 				rel1.relative: 0.0 0.0;
-				rel1.offset:	3 3;
+				rel1.offset: 3 3;
 				rel2.relative: 1.0  1.0;
-				rel2.offset:	-4 -4;
+				rel2.offset: -4 -4;
 				rel2.to: "button_image";
-				color: 0 0 0 192;
-				color3: 255 255 255 128;
+				color: "#000000C0";
+				color3: "#FFFFFF80";
 				color_class: "button_text";
 				text.text: "Close";
 				text.font: "Sans"; text.size: 10;
