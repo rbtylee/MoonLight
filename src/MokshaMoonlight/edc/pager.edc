@@ -5,7 +5,7 @@ group { "e/modules/pager/popup";
 	images.image: "bd_top.png" COMP;
 	parts {
 		text { "e.text.label"; nomouse; scale;
-			desc { "default"; color: 0 0 0 255;
+			desc { "default"; color: "#000000";
 				fixed: 1 1;
 				align: 0.5 0.0;
 				rel1.relative: 0.0 0.0;
@@ -46,7 +46,7 @@ group { "e/modules/pager/desk";
 			}
 		}
 		part { "base";
-			desc { "default"; color: 255 255 255 255; vis;
+			desc { "default"; color: VISIBLE; vis;
 				rel1.to: "zoom";
 				rel1.offset: -1 -1;
 				rel2.to: "zoom";
@@ -55,10 +55,10 @@ group { "e/modules/pager/desk";
 				image.border: 5 5 5 5;
 				fill.smooth: 0;
 			}
-			desc { "active"; inherit; color: 255 255 255 0; hid; }
+			desc { "active"; inherit; color: TRANSPARENT; hid; }
 		}
 		part { "base2";
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "zoom";
 				rel1.offset: -11 -11;
 				rel2.to: "zoom";
@@ -67,19 +67,19 @@ group { "e/modules/pager/desk";
 				image.border: 5 5 5 5;
 				fill.smooth: 0;
 			}
-			desc { "active"; inherit; color: 255 255 255 255; vis;
+			desc { "active"; inherit; color: VISIBLE; vis;
 				rel1.offset: -1 -1;
 				rel2.offset: 0 0;
 			}
 		}
 		rect { "clip"; nomouse;
-			desc { "default"; color: 255 255 255 128;
+			desc { "default"; color: "#FFFFFF80";
 				rel1.to: "base";
 				rel1.offset: 4 4;
 				rel2.to: "base";
 				rel2.offset: -5 -5;
 			}
-			desc { "active"; inherit; color: 255 255 255 255; }
+			desc { "active"; inherit; color: VISIBLE; }
 		}
 		swallow { "e.swallow.content"; clip: "clip";
 			desc { "default";
@@ -88,17 +88,17 @@ group { "e/modules/pager/desk";
 			}
 		}
 		text { "e.text.label"; nomouse; scale;
-			desc { "default";	 color: 0 0 0 0; color_class: "module_label";
+			desc { "default";	 color: "#00000000"; color_class: "module_label";
 				rel1.to: "clip";
 				rel2.to: "clip";
 				text.font: "Sans:style=Bold"; text.size: 8;
 				text.align: 0.5 0.5;
 				text.text_class: "module_small";
 			}
-			desc { "active"; inherit; color: 0 0 0 128; }
+			desc { "active"; inherit; color: "#00000080"; }
 		}
 		rect { "over3"; nomouse;
-			desc { "default"; vis; color: 255 255 255 0; }
+			desc { "default"; color: TRANSPARENT;  vis; }
 		}
 	}
 
@@ -170,7 +170,7 @@ group { "e/modules/pager/window";
 	images.image: "exclam.png" COMP;
 	parts {
 		rect { "icon_area";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 		rect { "icon_area2";
 			desc { "default"; hid; }
@@ -220,21 +220,21 @@ group { "e/modules/pager/window";
 			}
 		}
 		part { "urgent"; nomouse;
-			desc { "default"; hid; color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT; hid;
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
 				image.normal: "exclam.png";
 			}
-			desc { "visible"; color: 255 255 255 255; inherit; vis; }
+			desc { "visible"; color: VISIBLE; inherit; vis; }
 		}
 		part { "urgent2"; nomouse;
-			desc { "default"; hid; color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT; hid;
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
 				image.normal: "exclam.png";
 			}
-			desc { "visible"; inherit; color: 255 255 255 255; vis; }
-			desc { "faded"; inherit; color: 255 255 255 0; vis;
+			desc { "visible"; inherit; color: VISIBLE; vis; }
+			desc { "faded"; inherit; color: TRANSPARENT; vis;
 				rel1.relative: -1.0 -1.0;
 				rel2.relative: 2.0 2.0;
 			}
