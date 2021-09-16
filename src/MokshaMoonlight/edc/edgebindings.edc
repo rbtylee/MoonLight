@@ -10,88 +10,80 @@ group { "e/modules/conf_edgebindings/selection";
 			}
 		}
 		rect { "e.edge.top_left";
-			desc { "default";
+			desc { "default"; color: "#888D9296";
 				rel1.to: "e.swallow.background";
 				rel2.relative: 0 0;
 				rel2.offset: 20 20;
-				rel2.to: "e.swallow.background";
-				color: 136 141 146 150;
+				rel2.to: "e.swallow.background"; 
 			}
 		}
 		rect { "e.edge.top";
-			desc { "default";
+			desc { "default"; color: "#BACADA96";
 				rel1.offset: 20 0;
 				rel1.to: "e.swallow.background";
 				rel2.relative: 1 0;
 				rel2.offset: -20 15;
-				rel2.to: "e.swallow.background";
-				color: 186 202 218 150;
+				rel2.to: "e.swallow.background"; 
 			}
 		}
 		rect { "e.edge.top_right";
-			desc { "default";
+			desc { "default"; color: "#888D9296";
 				rel1.relative: 1 0;
 				rel1.offset: -20 0;
 				rel1.to: "e.swallow.background";
 				rel2.relative: 1 0;
 				rel2.offset: 0 20;
-				rel2.to: "e.swallow.background";
-				color: 136 141 146 150;
+				rel2.to: "e.swallow.background"; 
 			}
 		}
 		rect { "e.edge.right";
-			desc { "default";
+			desc { "default"; color: "#BACADA96";
 				rel1.relative: 1 0;
 				rel1.offset: -15 20;
 				rel1.to: "e.swallow.background";
 				rel2.relative: 1 1;
 				rel2.offset: 0 -20;
 				rel2.to: "e.swallow.background";
-				color: 186 202 218 150;
 			}
 		}
 		rect { "e.edge.bottom_right";
-			desc { "default";
+			desc { "default"; color: "#888D9296";
 				rel1.relative: 1 1;
 				rel1.offset: -20 -20;
 				rel1.to: "e.swallow.background";
 				rel2.relative: 1 1;
 				rel2.offset: 0 0;
-				rel2.to: "e.swallow.background";
-				color: 136 141 146 150;
+				rel2.to: "e.swallow.background"; 
 			}
 		}
 		rect { "e.edge.bottom";
-			desc { "default";
+			desc { "default"; color: "#BACADA96";
 				rel1.relative: 0 1;
 				rel1.offset: 20 -15;
 				rel1.to: "e.swallow.background";
 				rel2.relative: 1 1;
 				rel2.offset: -20 0;
-				rel2.to: "e.swallow.background";
-				color: 186 202 218 150;
+				rel2.to: "e.swallow.background"; 
 			}
 		}
 		rect { "e.edge.bottom_left";
-			desc { "default";
+			desc { "default"; color: "#888D9296";
 				rel1.relative: 0 1;
 				rel1.offset: 0 -20;
 				rel1.to: "e.swallow.background";
 				rel2.relative: 0 1;
 				rel2.offset: 20 0;
-				rel2.to: "e.swallow.background";
-				color: 136 141 146 150;
+				rel2.to: "e.swallow.background"; 
 			}
 		}
 		rect { "e.edge.left";
-			desc { "default";
+			desc { "default"; color: "#BACADA96";
 				rel1.relative: 0 0;
 				rel1.offset: 0 20;
 				rel1.to: "e.swallow.background";
 				rel2.relative: 0 1;
 				rel2.offset: 15 -20;
-				rel2.to: "e.swallow.background";
-				color: 186 202 218 150;
+				rel2.to: "e.swallow.background"; 
 			}
 		}
 		box { "e.box";
@@ -131,7 +123,9 @@ group { "e/modules/conf_edgebindings/selection";
 			}
 		}
 		text { "e.text.selection"; effect: GLOW; nomouse;
-			desc { "default";
+			desc { "default"; color: "#000000";
+				color2: "#FFFFFF64";
+				color3: "#FFFFFFC8";
 				align: 0.5 0.5;
 				rel1.relative: 1 1;
 				rel1.offset: 5 5;
@@ -139,9 +133,6 @@ group { "e/modules/conf_edgebindings/selection";
 				rel2.relative: 0 0;
 				rel2.offset: -5 -5;
 				rel2.to: "e.edge.bottom_right";
-				color: 0 0 0 255;
-				color2: 255 255 255 100;
-				color3: 255 255 255 200;
 				text.font: "Sans:style=Bold"; text.size: 11;
 				text.align: 0.5 0.5;
 				text.fit: 1 1;
