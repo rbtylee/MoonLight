@@ -5,30 +5,27 @@ group { "e/widgets/dialog/main";
 	images.image: "menu_sep.png" COMP;
 	parts {
 		part { "base"; nomouse;
-			desc { "default";
-				color_class: "dialog_base";
+			desc { "default"; color_class: "dialog_base";
 				image.normal: "dia_bg.png";
 				image.border: 15 15 1 1;
 				fill.smooth: 0;
 			}
 		}
 		part { "shadow"; nomouse;
-			desc { "default";
+			desc { "default"; color_class: "dialog_base";
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -1 31;
 				image.normal: "dia_topshad.png";
 				image.border: 15 15 1 1;
-				color_class: "dialog_base";
 				fill.smooth: 0;
 			}
 		}
 		part { "shadow2"; nomouse;
-			desc { "default";
+			desc { "default"; color_class: "dialog_base";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 -4;
 				image.normal: "dia_botshad.png";
 				image.border: 15 15 1 1;
-				color_class: "dialog_base";
 				fill.smooth: 0;
 			}
 		}
