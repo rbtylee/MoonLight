@@ -1,7 +1,7 @@
 group { "e/modules/ibar/separator/default";
 	parts {
 		rect { "base";
-			desc { "default"; color: 0 0 0 20; min: 1 0; max: 1 99999;
+			desc { "default"; color: "#00000014"; min: 1 0; max: 1 99999;
 				rel1.offset: 5 2;
 				rel2.offset: -6 -3;
 			}
@@ -33,10 +33,10 @@ group { "e/modules/ibar/menu";
 				rel1.offset: -9999 -9999;
 				rel2.offset: 9999 9999;
 			}
-			desc { "hidden"; color: 0 0 0 0; inherit; }
+			desc { "hidden"; color: "#00000000"; inherit; }
 		}
 		part { "base"; nomouse;
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				align: 0.5 0.0;
 				rel1.to: "sizer";
 				rel2.to: "sizer";
@@ -109,7 +109,7 @@ group { "e/modules/ibar/menu/item";
 			desc { "focus"; inherit; vis; }
 		}
 		part { "icon_shadow"; nomouse; clip: "icon_clip";
-			desc { "default"; color: 0 0 0 255;
+			desc { "default"; color: "#000000";
 				image.normal: "win_glow.png";
 				image.border: 9 9 9 9;
 				image.middle: 0;
@@ -125,13 +125,13 @@ group { "e/modules/ibar/menu/item";
 				}
 			}
 		text { "e.text.title"; nomouse; effect: SHADOW TOP; scale;
-			desc { "default"; min: 128 0;
+			desc { "default"; min: 128 0; color: VISIBLE;
 				rel1.to_x: "icon";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 6 0;
 				rel2.offset: -7 -3;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+
+				color3: VISIBLE;
 				align: 0.0 0.0;
 				color_class: "menu_item";
 				text.font: "Sans"; text.size: 10;
@@ -143,13 +143,13 @@ group { "e/modules/ibar/menu/item";
 			desc { "focus"; inherit; color_class: "menu_item_active"; }
 		}
 		rect { "icon_clip";
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.offset: -9999 -9999;
 				rel2.offset: 9999 9999;
 			}
 		}
 		rect { "event";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
@@ -177,7 +177,7 @@ group { "e/modules/ibox/icon";
 	images.image: "led_tiny.png" COMP;
 	parts {
 		rect { "item_clip"; nomouse;
-			desc { "default"; color: 255 255 255 255; }
+			desc { "default"; color: VISIBLE; }
 		}
 		swallow { "e.swallow.content"; clip: "item_clip";
 			desc { "default";
@@ -222,20 +222,20 @@ group { "e/modules/ibox/icon";
 			}
 		}
 		part { "urgent";
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "urgent_area";
 				rel2.to: "urgent_area";
 				image.normal: "exclam.png";
 			}
-			desc { "visible"; inherit; color: 255 255 255 255; vis;
+			desc { "visible"; inherit; color: VISIBLE; vis;
 			}
-			desc { "hidden"; inherit; color: 255 255 255 0; vis;
+			desc { "hidden"; inherit; color: TRANSPARENT; vis;
 				rel1.relative: -0.5 -0.5;
 				rel2.relative: 1.5 1.5;
 			}
 		}
 		rect { "over"; norepeat;
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
@@ -350,24 +350,24 @@ group { "e/modules/ibox/icon_overlay";
 	}
 	parts {
 		rect { "base"; nomouse;
-			desc { "default"; color: 255 255 255 0; }
+			desc { "default"; color: TRANSPARENT; }
 		}
 		rect { "background"; nomouse;
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "base";
 				rel2.to: "base";
 			}
-			desc { "visible"; color: 255 255 255 255; vis;
+			desc { "visible"; color: VISIBLE; vis;
 				rel1.to: "base";
 				rel2.to: "base";
 			}
-			desc { "hidden"; color: 255 255 255 0; vis;
+			desc { "hidden"; color: TRANSPARENT; vis;
 				rel1.relative: -0.5 -0.5;
 				rel1.to: "base";
 				rel2.relative: 1.5 1.5;
 				rel2.to: "base";
 			}
-			desc { "huge"; color: 255 255 255 0; vis;
+			desc { "huge"; color: TRANSPARENT; vis;
 				rel1.relative: -2.0 -2.0;
 				rel1.to: "base";
 				rel2.relative: 3.0 3.0;
@@ -381,13 +381,13 @@ group { "e/modules/ibox/icon_overlay";
 			}
 		}
 		part { "urgent";
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "base";
 				rel2.to: "base";
 				image.normal: "exclam.png";
 			}
-			desc { "visible"; inherit; color: 255 255 255 255; vis; }
-			desc { "hidden"; inherit; color: 255 255 255 0; vis;
+			desc { "visible"; inherit; color: VISIBLE; vis; }
+			desc { "hidden"; inherit; color: TRANSPARENT; vis;
 				rel1.relative: -0.5 -0.5;
 				rel1.to: "base";
 				rel2.relative: 1.5 1.5;
@@ -395,28 +395,26 @@ group { "e/modules/ibox/icon_overlay";
 			}
 		}
 		text { "e.text.label"; effect: GLOW; nomouse; scale;
-			desc { "default";
+			desc { "default"; color: "#00000000";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 -1;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -1 -1;
-				color: 0 0 0 0;
-				color2: 255 255 255 0;
-				color3: 255 255 255 0;
+				color2: TRANSPARENT;
+				color3: TRANSPARENT;
 				color_class: "module_label";
 				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.5 0.5;
 				text.text_class: "module_normal";
 			}
-			desc { "visible"; inherit;
+			desc { "visible"; inherit; color: "#000000";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 0  0;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -1 -1;
-				color: 0 0 0 255;
-				color2: 255 255 255 100;
-				color3: 255 255 255 200;
+				color2: "#FFFFFF64";
+				color3: "#FFFFFFC8";
 			}
 		}
 	}
@@ -577,7 +575,7 @@ group { "e/modules/ibox/drop";
 				fixed: 1 1;
 			}
 			desc { "active"; inherit; vis; }
-			desc { "hidden"; inherit; color: 255 255 255 0; min: 1 1;
+			desc { "hidden"; inherit; color: TRANSPARENT; min: 1 1;
 				rel1.offset: 11 11;
 				rel2.offset: 11 11;
 			}
@@ -594,7 +592,7 @@ group { "e/modules/ibox/drop";
 				fixed: 1 1;
 			}
 			desc { "active"; inherit; vis; }
-			desc { "hidden"; inherit; color: 255 255 255 0; min: 1 1;
+			desc { "hidden"; inherit; color: TRANSPARENT; min: 1 1;
 				rel1.offset: -12 11;
 				rel2.offset: -12 11;
 			}
@@ -611,7 +609,7 @@ group { "e/modules/ibox/drop";
 				fixed: 1 1;
 			}
 			desc { "active"; inherit; vis; }
-			desc { "hidden"; inherit; min: 1 1; color: 255 255 255 0;
+			desc { "hidden"; inherit; min: 1 1; color: TRANSPARENT;
 				rel1.offset: -12 -12;
 				rel2.offset: -12 -12;
 			}
@@ -628,7 +626,7 @@ group { "e/modules/ibox/drop";
 				fixed: 1 1;
 			}
 			desc { "active"; inherit; vis; }
-			desc { "hidden"; inherit; min: 1 1; color: 255 255 255 0;
+			desc { "hidden"; inherit; min: 1 1; color: TRANSPARENT;
 				rel1.offset: 11 -12;
 				rel2.offset: 11 -12;
 			}
