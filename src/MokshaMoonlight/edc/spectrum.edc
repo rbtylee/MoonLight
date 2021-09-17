@@ -2,7 +2,7 @@ group { "e/widgets/spectrum";
 	images.image: "inset_sunk.png" COMP;
 	parts {
 		rect { "content_clip"; nomouse;
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.to: "e.swallow.content";
 				rel2.to: "e.swallow.content";
 			}
@@ -40,7 +40,7 @@ group { "e/widgets/spectrum";
 			}
 		}
 		rect { "cursor_x";
-			desc { "default"; color: 255 255 255 150;
+			desc { "default"; color: "#FFFFFF96";
 				rel1.to_x: "e.dragable.cursor";
 				rel1.to_y: "e.swallow.content";
 				rel2.to_x: "e.dragable.cursor";
@@ -48,7 +48,7 @@ group { "e/widgets/spectrum";
 			}
 		}
 		rect { "cursor_y";
-			desc { "default"; color: 255 255 255 150;
+			desc { "default"; color: "#FFFFFF96";
 				rel1.to_x: "e.swallow.content";
 				rel1.to_y: "e.dragable.cursor";
 				rel2.to_x: "e.swallow.content";
