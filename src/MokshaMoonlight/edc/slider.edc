@@ -5,7 +5,7 @@ group { "e/widgets/slider_vertical";
 	images.image: "entry.png" COMP;
 	parts {
 		rect { "base"; mouse;
-			desc { "default"; min: 22 0; color: 0 0 0 0;
+			desc { "default"; min: 22 0; color: "#00000000";
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 			}
@@ -25,7 +25,7 @@ group { "e/widgets/slider_vertical";
 			}
 		}
 		rect { "label_base"; clip: "clip";
-			desc { "default"; color: 255 255 255 255; hid;
+			desc { "default"; color: VISIBLE; hid;
 				rel1.to: "label";
 				rel1.offset: 1 1;
 				rel2.to: "label";
@@ -48,7 +48,7 @@ group { "e/widgets/slider_vertical";
 		}
 		text { "e.text.label"; nomouse; clip: "clip"; scale;
 			desc { "default"; hid; }
-			desc { "active"; color: 0 0 0 255; color_class: "slider_text";
+			desc { "active"; color: "#000000FF"; color_class: "slider_text";
 				align: 0.5 1.0;
 				fixed: 1 1;
 				rel1.relative: 0.0 1.0;
@@ -64,13 +64,13 @@ group { "e/widgets/slider_vertical";
 			}
 		}
 		rect { "sld_p1"; mouse;
-			desc { "default"; color: 0 0 0 0;
+			desc { "default"; color: "#00000000";
 				rel2.relative: 1.0 0.0;
 				rel2.to: "e.dragable.slider";
 			}
 		}
 		rect { "sld_p2"; mouse;
-			desc { "default"; color: 0 0 0 0;
+			desc { "default"; color: "#00000000";
 				rel1.relative: 0.0 1.0;
 				rel1.to: "e.dragable.slider";
 			}
@@ -90,7 +90,7 @@ group { "e/widgets/slider_vertical";
 			dragable.x: 0 0 0;
 			dragable.y: -1 1 0;
 			dragable.confine: "base";
-			desc { "default"; min: 11 11;	 color: 0 0 0 0;
+			desc { "default"; min: 11 11;	 color: "#00000000";
 				fixed: 1 1;
 				rel1.relative: 0.5 0.5;
 				rel1.offset: 0 0;
@@ -114,11 +114,11 @@ group { "e/widgets/slider_vertical";
 			}
 		}
 		rect { "clip";
-			desc { "default"; color: 255 255 255 255; }
-			desc { "disabled"; inherit; color: 255 255 255 128; }
+			desc { "default"; color: VISIBLE; }
+			desc { "disabled"; inherit; color: "#FFFFFF80"; }
 		}
 		rect { "event"; mouse;
-			desc { "default"; color: 0 0 0 0; hid; }
+			desc { "default"; color: "#00000000"; hid; }
 			desc { "disabled"; inherit; vis; }
 		}
 	}
@@ -190,7 +190,7 @@ group { "e/widgets/slider_horizontal";
 	images.image: "entry.png" COMP;
 	parts {
 		rect { "base"; mouse;
-			desc { "default"; min: 0 22; color: 0 0 0 0;
+			desc { "default"; min: 0 22; color: "#00000000";
 				rel1.offset: 15 2;
 				rel2.offset: -3 -3;
 			}
@@ -211,7 +211,7 @@ group { "e/widgets/slider_horizontal";
 		}
 		rect { "label_base"; clip: "clip";
 			desc { "default"; hid;
-				color: 255 255 255 255;
+				color: VISIBLE;
 				rel1.to: "label";
 				rel1.offset: 1 1;
 				rel2.to: "label";
@@ -234,7 +234,7 @@ group { "e/widgets/slider_horizontal";
 		}
 		text { "e.text.label"; nomouse; clip: "clip"; scale;
 			desc { "default"; hid; }
-			desc { "active"; color: 0 0 0 255; color_class: "slider_text";
+			desc { "active"; color: "#000000FF"; color_class: "slider_text";
 				align: 1.0 0.5;
 				fixed: 1 0;
 				rel1.relative: 1.0 0.0;
@@ -250,13 +250,13 @@ group { "e/widgets/slider_horizontal";
 			}
 		}
 		rect { "sld_p1"; mouse;
-			desc { "default"; color: 0 0 0 0;
+			desc { "default"; color: "#00000000";
 				rel2.relative: 0.0 1.0;
 				rel2.to: "e.dragable.slider";
 			}
 		}
 		rect { "sld_p2"; mouse;
-			desc { "default"; color: 0 0 0 0;
+			desc { "default"; color: "#00000000";
 				rel1.relative: 1.0 0.0;
 				rel1.to: "e.dragable.slider";
 			}
@@ -275,7 +275,7 @@ group { "e/widgets/slider_horizontal";
 			dragable.x: 1 1 0;
 			dragable.y: 0 0 0;
 			dragable.confine: "base";
-			desc { "default"; min: 11 11;	 color: 0 0 0 0;
+			desc { "default"; min: 11 11; color: "#00000000";
 				fixed: 1 1;
 				rel1.relative: 0.5 0.5;
 				rel1.to: "base";
@@ -299,10 +299,10 @@ group { "e/widgets/slider_horizontal";
 		}
 		rect { "clip";
 			desc { "default"; }
-			desc { "disabled"; inherit; color: 255 255 255 128; }
+			desc { "disabled"; inherit; color: "#FFFFFF80"; }
 		}
 		rect { "event"; mouse;
-			desc { "default"; color: 0 0 0 0; hid; }
+			desc { "default"; color: "#00000000"; hid; }
 			desc { "disabled"; inherit; vis; }
 		}
 	}
