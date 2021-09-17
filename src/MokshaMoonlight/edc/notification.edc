@@ -12,13 +12,11 @@ group { "e/modules/notification/logo";
 			}
 		}
 		text{ "e.text.counter"; nomouse; scale; effect: OUTLINE_SOFT_SHADOW;
-			desc { "default"; vis;
+			desc { "default"; color: VISIBLE; vis; color_class: "module_label";
+				color3: "#00000020";
 				rel1.to: "base";
 				rel2.to: "base";
 				rel2.offset: 0 1;
-				color: 255 255 255 255;
-				color3: 0 0 0 32;
-				color_class: "module_label";
 				text.text: "";
 				text.font: "Sans:style=Bold"; text.size: 9;
 				text.min: 1 1;
@@ -87,7 +85,7 @@ group { name: "e/modules/notification/main";
 			tag:  "i" "+ font=Sans:style=Oblique text_class=module_italic";
 			tag:  "u" "+ underline=on underline_color=#3399ffff";
 			tag:  "img" ""; // images not supported
-			tag:  "a" ""; // links not supported
+			tag:  "a" "";   // links not supported
 		}
 	}
 	parts {
@@ -121,13 +119,12 @@ group { name: "e/modules/notification/main";
 			}
 		}
 		rect { "bodyclip";
-			desc { "default";
+			desc { "default";min: 250 140;
 				rel2.offset: -13 -13;
-				min: 250 140;
 			}
 		}
 		swallow { "notification.swallow.app_icon"; nomouse;
-			desc { "default";
+			desc { "default"; min: 24 24;
 				align: 0.0 0.5;
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
@@ -136,7 +133,6 @@ group { name: "e/modules/notification/main";
 				rel1.offset: 12 12;
 				rel2.offset: 12 -13;
 				rel2.relative: 0.0 1.0;
-				min: 24 24;
 				fixed: 1 1;
 			}
 		}
@@ -156,9 +152,8 @@ group { name: "e/modules/notification/main";
 			}
 		}
 		textblock { "message"; nomouse;
-			desc { "default";  hid;
+			desc { "default"; max: 500 99999; hid;
 				align: 0.0 0.0;
-				max: 500 99999;
 				rel1.to_x: "notification.swallow.app_icon";
 				rel1.to_y: "notification.text.title";
 				// rel2.to: "base";
@@ -171,18 +166,16 @@ group { name: "e/modules/notification/main";
 			}
 		}
 		text { "notification.text.title"; nomouse; clip: "titleclip"; effect: GLOW; scale;
-			desc { "default";
+			desc { "default"; color: VISIBLE; color_class: "notification_title"; 
+				color2: "#00000020";
+				color3: "#FFFFFF18";
 				rel1.to_x: "notification.swallow.app_icon";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 4 12;
 				rel2.relative: 0.0 0.0;
 				rel2.to_x: "e.event.close";
 				rel2.offset: -5 12;
-				color: 255 255 255 255;
-				color2: 0 0 0 32;
-				color3: 255 255 255 24;
 				align: 0.0 0.0;
-				color_class: "notification_title";
 				text.font: "Sans:style=Bold";  text.size: 10;
 				text.text: "title goes here blah blah";
 				text.min: 0 1;
@@ -193,11 +186,10 @@ group { name: "e/modules/notification/main";
 			}
 		}
 		part { "close_SH";
-			 desc { "default"; hid;
+			 desc { "default"; color_class: "focus"; hid;
 				image.normal: "sym_close_light_selected.png";
 				STAY_ON("close")
 				FIXED_SIZE(15,15)
-				color_class: "focus";
 			}
 			desc { "selected"; inherit; vis; }
 		}
@@ -210,7 +202,7 @@ group { name: "e/modules/notification/main";
 			}
 		}
 		rect { "e.event.close"; scale;
-			desc { "default"; color: 0 0 0 0; min: 15 15;
+			desc { "default"; min: 15 15; color: "#00000000";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: -13 12;
 				rel2.to: "base";
@@ -221,14 +213,12 @@ group { name: "e/modules/notification/main";
 			}
 		}
 	text { "action_1_spacer"; nomouse; scale;
-			desc { "default"; min: 50 0;
+			desc { "default"; min: 50 0; color: "#00000000"; color_class: "button_text";
 				rel.to: "base";
 				rel1.offset: 13 -23;
 				rel1.relative: 0.0 1.0;
 				rel2.offset: 13 -23;
 				rel2.relative: 0.0 1.0;
-				color: 0 0 0 0;
-				color_class: "button_text";
 				align: 0.0 1.0;
 				text.min: 1 1;
 				text.ellipsis: -1;
@@ -239,17 +229,16 @@ group { name: "e/modules/notification/main";
 			}
 		}
 		group { "act1_btn"; source: "e/widgets/button";
-			desc { "default"; hid;
+			desc { "default"; min: SOURCE; hid;
 				rel1.to: "action_1_spacer";
 				rel2.to: "action_1_spacer";
-				min: SOURCE;
 				fixed: 1 1;
 			}
 			desc { "show"; inherit: "default"; vis; }
 		}
 		alias: "e.text.action_1" "act1_btn:e.text.label";
 		text { "action_2_spacer";  nomouse; scale;
-			desc { "default"; min: 50 0; color: 0 0 0 0;
+			desc { "default"; min: 50 0; color: "#00000000";
 				rel.to: "base";
 				rel1.offset: 0 -23;
 				rel1.relative: 0.5 1.0;
@@ -274,7 +263,7 @@ group { name: "e/modules/notification/main";
 		}
 		alias: "e.text.action_2" "act2_btn:e.text.label";
 		text { "action_3_spacer";  nomouse; scale;
-			desc { "default"; min: 50 0; color: 0 0 0 0;
+			desc { "default"; min: 50 0; color: "#00000000";
 				rel.to: "base";
 				rel1.offset: -14 -23;
 				rel1.relative: 1.0 1.0;
