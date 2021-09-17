@@ -42,7 +42,7 @@ group { "e/desklock/login_box";
 				rel1.to: "passwd_border";
 				rel2.to: "passwd_border";
 			}
-			desc { "invalid"; inherit; color: 255 128 128 255; }
+			desc { "invalid"; inherit; color: "#FF8080"; }
 		}
 		rect { "passwd_entry_clip"; nomouse; clip: "pulse_clip";
 			desc { "default"; color: VISIBLE;
