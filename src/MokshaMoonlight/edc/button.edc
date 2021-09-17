@@ -57,11 +57,11 @@ group { "e/widgets/button";
 		}
 		text { "e.text.label"; effect: SHADOW; nomouse; scale;
 			desc { "default"; color: "#000000C0"; color_class: "button_text";
-				color3: 255 255 255 128;		
+				color3: "#FFFFFF80";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 2 3;
 				rel1.to_x: "e.swallow.icon";
-				rel1.to_y: "button_image"; 
+				rel1.to_y: "button_image";
 				rel2.relative: 1.0  1.0;
 				rel2.offset: -4	-4;
 				rel2.to: "button_image";
@@ -77,9 +77,8 @@ group { "e/widgets/button";
 				rel1.offset: 2 5;
 				rel1.to_x: "e.swallow.icon";
 			 }
-			desc { "disabled"; inherit; color: "#C9B59C";
+			desc { "disabled"; inherit; color: "#C9B59C"; color_class: "button_text_disabled";
 				color3: "#F7EDD6";
-				color_class: "button_text_disabled";
 			}
 		}
 		rect { "disabler";
