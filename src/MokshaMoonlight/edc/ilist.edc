@@ -4,21 +4,15 @@ group { "e/widgets/ilist";
 	images.image: "selected.png" COMP;
 	parts {
 		rect { "base"; nomouse;
-			desc { "default";
-				color: 255 255 255 255;
-				color_class: "ilist_item_base";
-			}
+			desc { "default"; color: VISIBLE; color_class: "ilist_item_base"; }
 		}
 		part { "selected"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT; hid;
 				image.normal: "selected.png";
 				image.border: 2 2 2 2;
 				fill.smooth: 0;
 			}
-			desc { "selected"; inherit; vis;
-				color: 255 255 255 255;
-			}
+			desc { "selected"; inherit; color: VISIBLE; vis; }
 		}
 		swallow { "e.swallow.icon";
 			desc { "default";
@@ -32,25 +26,20 @@ group { "e/widgets/ilist";
 			}
 		}
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default";
-				min: 16 16;
+			desc { "default"; min: 16 16; color: VISIBLE; color_class: "ilist_item";
+				color3: "#00000000";
 				rel1.to_x: "e.swallow.icon";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 4 4;
 				rel2.relative: 1.0  1.0;
 				rel2.offset: -5 -5;
-				color: 255 255 255 255;
-				color3: 0 0 0 0;
-				color_class: "ilist_item";
 				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.0 0.5;
 				text.text_class: "ilist_item";
 			}
-			desc { "selected"; inherit;
-				color: 255 255 255 255;
-				color3: 0 0 0 64;
-				color_class: "ilist_item_selected";
+			desc { "selected"; inherit; color: VISIBLE; color_class: "ilist_item_selected";
+				color3: "#00000040";
 			}
 		}
 		swallow { "e.swallow.end"; nomouse;
@@ -63,7 +52,7 @@ group { "e/widgets/ilist";
 			}
 		}
 		rect { "event";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 	programs {
@@ -89,52 +78,40 @@ group { "e/widgets/ilist_odd";
 	inherit: "e/widgets/ilist";
 	parts {
 		rect { "base"; nomouse;
-			desc { "default";
-				color: 255 255 255 255;
-				color_class: "ilist_item_odd_base";
-			}
+			desc { "default"; color: VISIBLE; color_class: "ilist_item_odd_base"; }
 		}
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default"; min: 16 16;
+			desc { "default"; min: 16 16; color: VISIBLE; color_class: "ilist_item_odd";
 				rel1.to_x: "e.swallow.icon";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 4 4;
 				rel2.relative: 1.0  1.0;
 				rel2.offset: -5 -5;
-				color: 255 255 255 255;
-				color_class: "ilist_item_odd";
 				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.0 0.5;
 				text.text_class: "ilist_item";
 			}
-			desc { "selected"; inherit;
-				color: 255 255 255 255;
-				color_class: "ilist_item_selected";
-			}
+			desc { "selected"; inherit; color: VISIBLE; color_class: "ilist_item_selected"; }
 		}
-}
+	}
 }
 
 group { "e/widgets/ilist_header";
 	data.item: "stacking" "above";
 	data.item: "selectraise" "on";
 	images.image: "selected.png" COMP;
-
 	parts {
 		rect { "base"; nomouse;
-			desc { "default";
-				color: 255 255 255 255;
-				color_class: "ilist_item_header_base";
-			}
+			desc { "default"; color: VISIBLE; color_class: "ilist_item_header_base"; }
 		}
 		part { "selected"; nomouse;
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				image.normal: "selected.png";
 				image.border: 2 2 2 2;
 				fill.smooth: 0;
 			}
-			desc { "selected"; inherit; color: 255 255 255 255; vis;
+			desc { "selected"; inherit; color: VISIBLE; vis;
 			}
 		}
 		swallow { "e.swallow.icon";
@@ -149,28 +126,24 @@ group { "e/widgets/ilist_header";
 			}
 		}
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default"; min: 16 16;
+			desc { "default"; min: 16 16; color: "#E0E0E0"; color_class: "ilist_item";
+				color3: "#00000020";
 				rel1.to_x: "e.swallow.icon";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 4 4;
 				rel2.relative: 1.0  1.0;
 				rel2.offset: -5 -5;
-				color: 224 224 224 255;
-				color3: 0 0 0 32;
-				color_class: "ilist_item";
 				text.font: "Sans:style=Bold"; text.size: 16;
 				text.min: 1 1;
 				text.align: 0.0 0.5;
 				text.text_class: "ilist_item";
 			}
-			desc { "selected"; inherit;
-				color: 224 224 224 255;
-				color3: 0 0 0 64;
-				color_class: "ilist_item";
+			desc { "selected"; inherit; color: "#E0E0E0"; color_class: "ilist_item";
+				color3: "#00000040";
 			}
 		}
 		rect { "event";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
@@ -199,18 +172,15 @@ group { "e/widgets/ilist_header_odd";
 	images.image: "selected.png" COMP;
 	parts {
 		rect { "base"; nomouse;
-			desc { "default";
-				color: 255 255 255 255;
-				color_class: "ilist_item_header_odd_base";
-			}
+			desc { "default"; color: VISIBLE; color_class: "ilist_item_header_odd_base"; }
 		}
 		part { "selected"; nomouse;
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				image.normal: "selected.png";
 				image.border: 2 2 2 2;
 				fill.smooth: 0;
 			}
-			desc { "selected"; inherit; color: 255 255 255 255; vis;
+			desc { "selected"; inherit; color: VISIBLE; vis;
 			}
 		}
 		swallow { "e.swallow.icon";
@@ -225,28 +195,24 @@ group { "e/widgets/ilist_header_odd";
 			}
 		}
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default"; min: 16 16;
+			desc { "default"; min: 16 16; color: "#E0E0E0"; color_class: "ilist_item";
+				color3: "#00000020";
 				rel1.to_x: "e.swallow.icon";
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 4 4;
 				rel2.relative: 1.0  1.0;
 				rel2.offset: -5 -5;
-				color: 224 224 224 255;
-				color3: 0 0 0 32;
-				color_class: "ilist_item";
 				text.font: "Sans:style=Bold"; text.size: 16;
 				text.min: 1 1;
 				text.align: 0.0 0.5;
 				text.text_class: "ilist_item";
 			}
-			desc { "selected"; inherit;
-				color: 224 224 224 255;
-				color3: 0 0 0 64;
-				color_class: "ilist_item";
+			desc { "selected"; inherit; color: "#E0E0E0"; color_class: "ilist_item";
+				color3: "#00000040";
 			}
 		}
 		rect { "event";
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
