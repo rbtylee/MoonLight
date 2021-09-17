@@ -15,7 +15,7 @@ group { "e/widgets/textblock";
 				rel1.offset: 4 4;
 				rel2.offset: -5 -5;
 				text.style: "textblock_style";
-				text.min:	 1 1;
+				text.min: 1 1;
 			}
 		}
 	}
