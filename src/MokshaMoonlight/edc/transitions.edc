@@ -1,7 +1,7 @@
 group { "e/transpreview/0";
 	parts {
 		rect { "bg"; nomouse;
-			desc { "default"; color: 240 240 240 255; }
+			desc { "default"; color: "#F0F0F0"; }
 		}
 	}
 }
@@ -9,7 +9,7 @@ group { "e/transpreview/0";
 group { "e/transpreview/1";
 	parts {
 		rect { "bg"; nomouse;
-			desc { "default"; color: 30 30 30 255; }
+			desc { "default"; color: "#1E1E1E"; }
 		}
 	}
 }
@@ -23,8 +23,8 @@ group { "e/transitions/crossfade";
 			desc { "default"; }
 		}
 		rect { "bg_new_clip"; nomouse;
-			desc { "default"; color: 255 255 255 0; }
-			desc { "done"; inherit; color: 255 255 255 255; }
+			desc { "default"; color: TRANSPARENT; }
+			desc { "done"; inherit; color: VISIBLE; }
 		}
 	}
 
