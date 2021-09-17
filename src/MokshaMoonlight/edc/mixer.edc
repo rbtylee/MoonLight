@@ -54,7 +54,7 @@ group { "e/modules/mixer/main";
 	}
 	parts {
 		rect { "eventarea"; mouse;
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 		CLIP_SWITCH("mixer","audio","audio","default","muted")
 		part { "audio_disable"; clip: "mixer_clip_default";
