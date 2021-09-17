@@ -54,13 +54,13 @@ group { "e/widgets/winlist/main";
 			}
 		}
 		rect { "list_clip";
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.to_y: "e.swallow.list";
 				rel2.to_y: "e.swallow.list";
 			}
 		}
 		text { "e.text.label"; effect: NONE; nomouse; scale;
-			desc { "default";
+			desc { "default"; color: "#000000FF";  color_class: "winlist_label";
 				align: 0.5 0.5;
 				fixed: 0 1;
 				rel1.relative: 0.0 1.0;
@@ -69,8 +69,6 @@ group { "e/widgets/winlist/main";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -17 16;
 				rel2.to_y: "e.swallow.icon";
-				color: 0 0 0 255;
-				color_class: "winlist_label";
 				text.text: "Title goes here";
 				text.font: "Sans:style=Bold"; text.size: 10;
 				text.min: 0 1;
@@ -79,14 +77,13 @@ group { "e/widgets/winlist/main";
 			}
 		}
 		text { "e.text.title"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default"; fixed: 1 1;
+			desc { "default"; fixed: 1 1; color: "#E0E0E0";
+				color3: "#00000040";
 				align: 0.5 0.0;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 0 0;
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -1 0;
-				color: 224 224 224 255;
-				color3: 0 0 0 64;
 				text.font: "Sans:style=Bold"; text.size: 10;
 				text.align: 0.5 0.0;
 				text.min: 1 1;
@@ -102,14 +99,14 @@ group {	"e/widgets/winlist/item";
 	images.image: "inv.png" COMP;
 	parts {
 		part { "bg"; nomouse;
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.offset: -5 -3;
 				rel2.offset: 4 5;
 				image.normal: "menuitem.png";
 				image.border: 8 8 5 9;
 				fill.smooth : 0;
 			}
-			desc { "selected"; inherit; color: 255 255 255 255;
+			desc { "selected"; inherit; color: VISIBLE;
 				rel1.offset: -2 0;
 				rel2.offset: 1 2;
 			}
@@ -145,27 +142,25 @@ group {	"e/widgets/winlist/item";
 			}
 		}
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default";
+			desc { "default"; color: "#000000FF"; color_class: "winlist_item";
+				color3: "#00000000";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 3 5;
 				rel1.to_x: "e.swallow.icon";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: -4 -4;
 				rel2.to_x: "type";
-				color: 0 0 0 255;
-				color3: 0 0 0 0;
-				color_class: "winlist_item";
 				text.font: "Sans"; text.size: 10;
 				text.min: 0 1;
 				text.align: 0.0 0.5;
 				text.text_class: "winlist_title";
 			}
-			desc { "selected"; inherit; color: 255 255 255 255;
-				color3: 0 0 0 64;
+			desc { "selected"; inherit; color: VISIBLE;
+				color3: "#00000040";
 			}
 		}
 		rect { "e.event.winlist.item"; mouse;
-			desc { "default"; color: 0 0 0 0; min: 12 12; vis;
+			desc { "default"; color: "#00000000"; min: 12 12; vis;
 				rel1.to: "bg";
 				rel2.to: "bg";
 			}
