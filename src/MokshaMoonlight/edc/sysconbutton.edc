@@ -33,7 +33,7 @@ group { "e/modules/bodhi-shutdown/button";
 			}
 		}
 		rect { "event"; ignore: ON_HOLD;
-			desc { "default"; color: 0 0 0 0;
+			desc { "default"; color: "#00000000";
 				STAY_ON("base")
 			}
 			desc { "disabled"; inherit; hid; }
