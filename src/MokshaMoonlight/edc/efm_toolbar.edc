@@ -48,7 +48,7 @@ group { name: "modules/efm_navigation/main";
 				aspect: 1.0 1.0;      \
 				aspect_preference: VERTICAL;  \
 				align: 0.0 0.5;     \
-				color: 255 255 255 0; \
+				color: "#FFFFFF00"; \
 				rel1 {       \
 					to_x: REL_TO;      \
 					relative: 1.0 0.0;   \
@@ -62,13 +62,13 @@ group { name: "modules/efm_navigation/main";
 			desc {     \
 				state: "over" 0.0;      \
 				inherit;   \
-				color: 255 255 255 255;   \
+				color: "#FFFFFF";   \
 				image.normal: "button-prelight.png";  \
 			}         \
 			desc {     \
 				state: "selected" 0.0;      \
 				inherit;   \
-				color: 255 255 255 255;   \
+				color: "#FFFFFF";   \
 				image.normal: "button-pressed.png"; \
 			}         \
 		}          \
@@ -92,7 +92,7 @@ group { name: "modules/efm_navigation/main";
 			desc {     \
 				state: "disabled" 0.0;  \
 				inherit; \
-				color: 255 255 255 150; \
+				color: "#FFFFFF96"; \
 			}           \
 		}          \
 		rect {         \
@@ -102,7 +102,7 @@ group { name: "modules/efm_navigation/main";
 			desc {     \
 				"default";   \
 				hid;       \
-				color: 255 255 255 0;   \
+				color: "#FFFFFF00";   \
 				rel1.to: NAME"_bg";     \
 				rel2.to: NAME"_bg";     \
 			}         \
@@ -127,7 +127,7 @@ NAV_BUTTON("favorites",  "favorites",        "refresh_bg", 1);
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 10 0;
 				rel2.offset: -40 -1;
-				color: 200 0 0 200;
+				color: "#C80000C8";
 			}
 		}
 	}
