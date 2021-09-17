@@ -20,10 +20,9 @@ group { "e/modules/tasks/item";
 			}
 		}
 		image { "button_image2"; nomouse;
-			desc { "default";
+			desc { "default"; color: TRANSPARENT;
 				image.normal: "button-prelight.png";
 				image.border: 10 10 10 10;
-				color: 255 255 255 0;
 				rel1.relative: 0.0 0.0;
 				rel1.to: "button_image";
 				rel2.relative: 1.0 1.0;
@@ -32,9 +31,7 @@ group { "e/modules/tasks/item";
 			desc { "clicked"; inherit;
 				image.normal: "button-pressed.png";
 			}
-			desc { "focused"; inherit;
-				color: 210 210 210 255;
-			}
+			desc { "focused"; inherit; color: "#D2D2D2"; }
 		}
 		spacer { "icon_area"; nomouse;
 			desc { "default";
@@ -50,14 +47,11 @@ group { "e/modules/tasks/item";
 			}
 		}
 		rect { "icon_clip"; nomouse;
-			desc { "default";
-				color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.to: "icon_area";
 				rel2.to: "icon_area";
 			}
-			desc { "iconified"; inherit;
-				color: 255 255 255 150;
-			}
+			desc { "iconified"; inherit; color: "#FFFFFF96"; }
 		}
 		spacer { "icon_area2";
 			desc { "default";
@@ -94,38 +88,32 @@ group { "e/modules/tasks/item";
 			}
 		}
 		part { "urgent"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; hid; color: TRANSPARENT;
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
 				rel1.to: "icon_area";
 				rel2.to: "icon_area";
 				image.normal: "exclam.png";
 			}
-			desc { "visible"; inherit; vis;
-				color: 255 255 255 255;
-			}
+			desc { "visible"; inherit; color: VISIBLE; vis; }
 		}
 		part { "urgent2"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; hid; color: TRANSPARENT;
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
 				rel1.to: "icon_area";
 				rel2.to: "icon_area";
 				image.normal: "exclam.png";
 			}
-			desc { "visible"; inherit; vis;
-				color: 255 255 255 255;
-			}
-			desc { "faded";  inherit; vis;
+			desc { "visible"; inherit; vis; color: VISIBLE; }
+			desc { "faded";  inherit; color: TRANSPARENT; vis;
 				rel1.relative: -1.0 -1.0;
 				rel2.relative: 2.0 2.0;
-				color: 255 255 255 0;
 			}
 		}
 		text { "e.text.label"; effect: SHADOW; nomouse; scale;
-			desc { "default";
+			desc { "default"; color: VISIBLE; color_class: "button_text";
+				color3: VISIBLE;
 				rel1.relative: 1.0  0.0;
 				rel1.offset: 2    3;
 				rel1.to_x: "icon_area";
@@ -133,9 +121,6 @@ group { "e/modules/tasks/item";
 				rel2.relative: 1.0  1.0;
 				rel2.offset: -4   -4;
 				rel2.to: "button_image";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "button_text";
 				text.font: "Sans"; text.size: 11;
 				text.min: 0 1;
 				text.align: 0.0 0.5;
@@ -143,10 +128,8 @@ group { "e/modules/tasks/item";
 			}
 			desc { "clicked";inherit; }
 			desc { "focused"; inherit; }
-			desc {"iconified"; inherit;
-				color: 109 114 91 255;
-				color3: 255 255 255 255;
-				color_class: "button_text_disable"; 
+			desc {"iconified"; inherit; color: "#6D725B"; color_class: "button_text_disable";
+				color3: VISIBLE;
 			}
 		}
 	}
