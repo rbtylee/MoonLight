@@ -23,42 +23,36 @@ group { "e/widgets/radio";
 			desc { "selected"; inherit;
 				image.normal: "radio_sel.png";
 			}
-			desc { "disabled"; inherit; color: 255 255 255 128; }
+			desc { "disabled"; inherit; color: "#FFFFFF80"; }
 		}
 		rect { "mark_hold"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "base";
 				rel1.offset: -5 -5;
 				rel2.to: "base";
 				rel2.offset: 4 4;
 			}
-			desc { "on"; inherit; vis;
-				color: 255 255 255 255;
+			desc { "on"; inherit; color: VISIBLE; vis;
 				rel1.offset: 0 0;
 				rel2.offset: -1 -1;
 			}
 		}
 		text { "e.text.label"; nomouse; scale;
-			desc { "default"; min: 16 16;
+			desc { "default"; min: 16 16; color: "#000000"; color_class: "radio_text";
 				rel1.to_x: "base";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 2 2;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -2 -2;
-				color: 0 0 0 255;
-				color_class: "radio_text";
 				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.0 0.5;
 				text.text_class: "radio_button";
 			}
-			desc { "disabled"; inherit; color: 0 0 0 128;
-				color_class: "radio_text_disabled";
-			}
+			desc { "disabled"; inherit; color: "#00000080"; color_class: "radio_text_disabled"; }
 		}
 		rect { "event"; ignore: ON_HOLD;
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 			desc { "disabled"; inherit; hid; }
 		}
 	}
@@ -127,16 +121,16 @@ group { "e/widgets/radio_icon";
 			desc { "selected"; inherit;
 				image.normal: "radio_sel.png";
 			}
-			desc { "disabled"; inherit; color: 255 255 255 128; }
+			desc { "disabled"; inherit; color: "#FFFFFF80"; }
 		}
 		rect { "mark_hold"; nomouse;
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "base";
 				rel1.offset: -5 -5;
 				rel2.to: "base";
 				rel2.offset: 4 4;
 			}
-			desc { "on"; inherit; color: 255 255 255 255; vis;
+			desc { "on"; inherit; color: VISIBLE; vis;
 				rel1.offset: 0 0;
 				rel2.offset: -1 -1;
 			}
@@ -156,30 +150,28 @@ group { "e/widgets/radio_icon";
 			}
 		}
 		rect { "icon_clip"; nomouse;
-			desc { "default"; color: 255 255 255 255; }
+			desc { "default"; color: VISIBLE; }
 		}
 		rect { "label_clip"; nomouse;
 			desc { "default"; hid; }
 			desc { "label_visible"; vis; }
 		}
 		text { "e.text.label"; nomouse; scale; clip: "label_clip";
-			desc { "default"; min: 19 19;
+			desc { "default"; min: 19 19; color: "#000000";color_class: "radio_text";
 				rel1.to_x: "base";
 				rel1.relative: 1.0 0.5;
 				rel1.offset: 2 1;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -2 -2;
-				color: 0 0 0 255;
-				color_class: "radio_text";
 				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.5 0.5;
 				text.text_class: "radio_button";
 			}
-			desc { "disabled"; inherit; color: 0 0 0 128; color_class: "radio_text_disabled"; }
+			desc { "disabled"; inherit; color: "#00000080"; color_class: "radio_text_disabled"; }
 		}
 		rect { "event"; ignore: ON_HOLD;
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 			desc { "disabled"; inherit; hid; }
 		}
 	}
