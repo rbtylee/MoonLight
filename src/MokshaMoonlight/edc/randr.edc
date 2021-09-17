@@ -110,7 +110,7 @@ group { "e/conf/randr/main/frame";
 				rel1.to: "e.swallow.preview";
 				rel2.to: "e.swallow.preview";
 			}
-			desc { "off"; inherit; color: 255 255 255 16; }
+			desc { "off"; inherit; color: "#FFFFFF10"; }
 		}
 		box { "e.box.clone"; clip: "clone_clip";
 			desc { "default";
@@ -137,7 +137,7 @@ group { "e/conf/randr/main/frame";
 				rel1.to: "e.swallow.preview";
 				rel2.to: "e.swallow.preview";
 			}
-			desc { "active"; inherit; color: 51 153 255 128; vis; }
+			desc { "active"; inherit; color: "#3399FF80"; vis; }
 		}
 		part { "hole"; nomouse;
 			desc { "default"; min: 4 4; max: 4 4;
@@ -163,7 +163,7 @@ group { "e/conf/randr/main/frame";
 				image.normal: "led_tiny_green.png";
 				fixed: 1 1;
 			}
-			desc { "pulse"; inherit; color: 255 255 255 128; }
+			desc { "pulse"; inherit; color: "#FFFFFF80"; }
 			desc { "off"; inherit; hid; }
 		}
 		textblock { "e.text.name"; nomouse; scale;
@@ -250,7 +250,7 @@ group { "e/conf/randr/main/frame";
 				image.normal: "mini_white_glow_arrow_2.png";
 				FIXED_SIZE(10, 10)
 			}
-			desc { "pulse"; inherit; color: 255 255 255 0;
+			desc { "pulse"; inherit; color: TRANSPARENT;
 				rel1.relative: -1.0 -1.0;
 				rel2.relative: -1.0 -1.0;
 			}
@@ -265,13 +265,13 @@ group { "e/conf/randr/main/frame";
 				image.normal: "mini_white_glow_arrow_0.png";
 				FIXED_SIZE(10, 10)
 			}
-			desc { "pulse"; color: 255 255 255 0; inherit;
+			desc { "pulse"; color: TRANSPARENT; inherit;
 				rel1.relative: 2.0 2.0;
 				rel2.relative: 2.0 2.0;
 			}
 		}
 		rect { "rotc";
-			desc { "default"; max: 1 1; color: 0 0 0 0;
+			desc { "default"; max: 1 1; color: "#00000000";
 				rel1.offset: 16 16;
 				rel2.offset: -17 -17;
 				align: 0.9 0.1;
@@ -290,7 +290,7 @@ group { "e/conf/randr/main/frame";
 				map.smooth: 1;
 				map.rotation.center: "rotc";
 			}
-			desc { "pulse"; inherit; color: 255 255 255 0;
+			desc { "pulse"; inherit; color: TRANSPARENT;
 				map.rotation.z: -60;
 			}
 		}
@@ -307,7 +307,7 @@ group { "e/conf/randr/main/frame";
 				map.smooth: 1;
 				map.rotation.center: "rotc";
 			}
-			desc { "pulse"; inherit; color: 255 255 255 0;
+			desc { "pulse"; inherit; color: TRANSPARENT;
 				map.rotation.z: 60;
 			}
 		}
@@ -361,12 +361,12 @@ group { "e/conf/randr/main/frame";
 			}
 		}
 		rect { "e.event.arrow.show";
-			desc { "default"; color: 0 0 0 0; max: 21 21;
+			desc { "default"; color: "#00000000"; max: 21 21;
 				align: 0.0 0.0;
 			}
 		}
 		rect { "e.event.rotate";
-			desc { "default"; color: 0 0 0 0; max: 21 21;
+			desc { "default"; color: "#00000000"; max: 21 21;
 				align: 1.0 0.0;
 			}
 			desc { "disabled"; inherit; hid; }
@@ -377,7 +377,7 @@ group { "e/conf/randr/main/frame";
 			}
 		}
 		rect { "e.event.indicator";
-			desc { "default"; color: 0 0 0 0;
+			desc { "default"; color: "#00000000";
 				align: 0.0 1.0;
 				rel2.to_y: "pwrhint2";
 				rel2.to_x: "pwrhint2";
@@ -387,7 +387,7 @@ group { "e/conf/randr/main/frame";
 			desc { "disabled"; inherit; hid; }
 		}
 		rect { "e.event.resize";
-			desc { "default"; max: 21 21; color: 0 0 0 0;
+			desc { "default"; max: 21 21; color: "#00000000";
 				align: 1.0 1.0;
 			}
 		}
