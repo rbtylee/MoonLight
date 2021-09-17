@@ -3,7 +3,7 @@ group { "e/shelf/default/inset";
 	images.image: "shelf_inset.png" COMP;
 	parts {
 		image { "base";
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.offset: 1 1;
 				rel2.offset: -2 -2;
 				image.normal: "shelf_inset.png";
@@ -11,7 +11,7 @@ group { "e/shelf/default/inset";
 			}
 		}
 		rect { "clip";
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.to: "base";
 				rel2.to: "base";
 
@@ -32,7 +32,7 @@ group { "e/shelf/default/plain";
 	alias: "e/shelf/alternate/plain";
 	parts {
 		rect { "clip";
-			desc { "default"; color: 255 255 255 255; }
+			desc { "default"; color: VISIBLE; }
 		}
 		swallow { "e.swallow.content"; clip: "clip";
 			desc { "default";
@@ -61,7 +61,7 @@ group { "e/shelf/invisible/plain";
 	alias: "e/shelf/invisible/inset";
 	parts {
 		rect { "clip";
-			desc { "default"; color: 255 255 255 255; }
+			desc { "default"; color: VISIBLE; }
 		}
 		swallow { "e.swallow.content"; clip: "clip";
 			desc { "default";
@@ -79,14 +79,14 @@ desc { POS 0.0; inherit;						\
 
 #define ORIENT(POS, OFF1, OFF2) \
 desc { POS 0.0; inherit;									\
-	rel1.relative: 0.01 0.01;							\
-	rel2.relative: 0.99 0.99;							\
+	rel1.relative: 0.01 0.01;								\
+	rel2.relative: 0.99 0.99;								\
 	rel1.offset: OFF1;											\
 	rel2.offset: OFF2;											\
 }
 
 #define ORIENT_PROGRAM(POS) \
-program { name: POS; 										\
+program { name: POS; 											\
 	signal: "e,state,orientation,"POS;			\
 	source: "e"; 														\
 	action: STATE_SET POS 0.0;							\
@@ -97,16 +97,16 @@ program { name: POS; 										\
 //Shelf has rounded border, panel doesn't
 #define SHELF(NAME, IMAGE_TOP, IMAGE_LEFT, IMAGE_RIGHT, IMAGE_BOTTOM) \
 group { NAME; 																							\
-	images.image: IMAGE_TOP COMP;														\
+	images.image: IMAGE_TOP COMP;															\
 	images.image: IMAGE_LEFT COMP;														\
-	images.image: IMAGE_RIGHT COMP;													\
+	images.image: IMAGE_RIGHT COMP;														\
 	images.image: IMAGE_BOTTOM COMP;													\
 	parts {																										\
-		part { "base"; nomouse;																\
+		part { "base"; nomouse;																	\
 			desc { "default"; color_class: "shelf_base";					\
-				image.normal: IMAGE_BOTTOM;												\
+				image.normal: IMAGE_BOTTOM;													\
 				image.border: 10 10 10 10;													\
-				fill.smooth: 0;																		\
+				fill.smooth: 0;																			\
 			}																											\
 			BASE_ORIENT("left", IMAGE_LEFT)												\
 			BASE_ORIENT("left_top", IMAGE_LEFT)										\
@@ -155,16 +155,16 @@ group { NAME; 																							\
 #define PANEL(NAME, IMAGE_TOP, IMAGE_LEFT, IMAGE_RIGHT, IMAGE_BOTTOM) \
 group { NAME; 																							\
 	data.item: "hidden_state_size" RADCONF_SHELF_HID_SIZE;		\
-	images.image: IMAGE_TOP COMP;														\
+	images.image: IMAGE_TOP COMP;															\
 	images.image: IMAGE_LEFT COMP;														\
-	images.image: IMAGE_RIGHT COMP;													\
+	images.image: IMAGE_RIGHT COMP;														\
 	images.image: IMAGE_BOTTOM COMP;													\
 	parts {																										\
 		part { "base";	 																				\
-			desc { "default"; color_class: "shelf_base"; 				\
-				image.normal: IMAGE_BOTTOM;												\
+			desc { "default"; color_class: "shelf_base"; 					\
+				image.normal: IMAGE_BOTTOM;													\
 				image.border: 2 2 2 2;															\
-				fill.smooth: 0;																		\
+				fill.smooth: 0;																			\
 			}																											\
 			BASE_ORIENT("left", IMAGE_LEFT)												\
 			BASE_ORIENT("left_top", IMAGE_LEFT)										\
@@ -344,7 +344,7 @@ group { "e/shelf/alternate/plain";
 	parts {
 		rect { "clip";
 			desc { "default";
-				color: 255 255 255 255;
+				color: VISIBLE;
 			}
 		}
 		swallow { "e.swallow.content"; clip: "clip";
@@ -367,7 +367,7 @@ group { "e/shelf/alternate/inset";
 			}
 		}
 		rect { "items_clip"; nomouse;
-			desc { "default"; color: 255 255 255 255;
+			desc { "default"; color: VISIBLE;
 				rel1.to: "background";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 3 4;
