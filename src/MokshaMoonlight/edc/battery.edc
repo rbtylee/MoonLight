@@ -37,31 +37,17 @@ group { "e/modules/battery/main";
 	}
 	parts {
 		rect { "fade_clip";
-			desc { "default";
-				color: 255 255 255 255;
-			}
-			desc { "faded" 0.0;
-				color: 128 128 128 255;
-			}
+			desc { "default"; color: "#FFFFFF"; }
+			desc { "faded" 0.0; color: "#808080"; }
 		}
 		rect { "info_clip"; clip: "fade_clip";
-			desc { "default";
-				color: 255 255 255 0;
-			}
-			desc { "visible";
-				color: 255 255 255 255;
-			}
+			desc { "default"; color: "#FFFFFF00"; }
+			desc { "visible"; color: "#FFFFFF"; }
 		}
 		rect { "pulse_clip"; clip: "fade_clip";
-			desc { "default";
-				color: 255 255 255 255;
-			}
-			desc { "faded" 1.0;
-				color: 255 255 255 255;
-			}
-			desc { "faded" 0.0;
-				color: 255 255 255 64;
-			}
+			desc { "default"; color: "#FFFFFF"; }
+			desc { "faded" 1.0; color: "#FFFFFF"; }
+			desc { "faded" 0.0; color: "#FFFFFF40"; }
 		}
 		spacer { "fill_region";
 			desc { "default";
@@ -122,14 +108,13 @@ group { "e/modules/battery/main";
 			}
 		}
 		part { "fill"; nomouse; clip: "pulse_clip";
-			desc { "default";
+			desc { "default"; color: "#FFFFFF"; color_class: "focus";
 				rel1.to: "fill_region";
 				rel1.offset: -5 -5;
 				rel2.to: "fill_region";
 				rel2.offset: 4 4;
 				image.normal: "glow_med_white.png";
 				image.border: 10 10 10 10;
-				color: 255 255 255 255; color_class: "focus";
 			}
 		}
 		part { "top-shine"; clip: "pulse_clip";
@@ -157,65 +142,61 @@ group { "e/modules/battery/main";
 			}
 		}
 		part { "pwr1"; clip: "pulse_clip";
-			desc { "default"; hid;
+			desc { "default"; color_class: "focus"; hid;
 				rel1.to: "pwr";
 				rel1.relative: (2/5) 0.0;
 				rel1.offset: -5 -5;
 				rel2.to: "pwr";
 				rel2.relative: (3/5) 1.0;
 				rel2.offset: 4 4;
-				image.normal: "glow_med_white.png"; color_class: "focus";
+				image.normal: "glow_med_white.png";
 				image.border: 5 5 5 5;
 				fill.smooth: 0;
 			}
 			desc { "visible"; inherit; vis; }
 		}
 		part { "pwr2"; clip: "pulse_clip";
-			desc { "default"; hid;
+			desc { "default"; color_class: "focus"; hid;
 				rel1.to: "pwr";
 				rel1.relative: 0.0 (2/5);
 				rel1.offset: -5 -5;
 				rel2.to: "pwr";
 				rel2.relative: 1.0 (3/5);
 				rel2.offset: 4 4;
-				image.normal: "glow_med_white.png"; color_class: "focus";
+				image.normal: "glow_med_white.png";
 				image.border: 5 5 5 5;
 				fill.smooth: 0;
 			}
 			desc { "visible"; inherit; vis; }
 		}
 		text { "e.text.reading"; effect: SOFT_SHADOW; nomouse; scale; clip: "info_clip";
-			desc { "default";
+			desc { "default"; color: "#FFFFFF"; 
 				align: 0.5 0.0;
 				rel1.to: "bg";
 				rel1.offset: 0 2;
 				rel2.relative: 1.0 0.0;
 				rel2.to_x: "bg";
 				rel2.to_y: "pwr";
-				color: 255 255 255 255; 
 				text.font: "Sans"; text.size: 7; 
 				text.fit: 1 0; text.ellipsis: -1;
 				text.text_class: "module_small";
 			}
 		}
 		text { "e.text.time"; effect: SOFT_SHADOW; scale; clip: "info_clip";
-			desc { "default";
+			desc { "default"; color: "#FFFFFF";
 				align: 0.5 1.0;
 				rel1.relative: 0.0 1.0;
 				rel1.to_x: "bg";
 				rel1.to_y: "pwr";
 				rel2.offset: -1 -5;
 				rel2.to: "bg";
-				color: 255 255 255 255;
 				text.font: "Sans"; text.size: 6;
 				text.fit: 1 0; text.ellipsis: -1;
 				text.text_class: "module_small";
 			}
 		}
 		rect { "over";
-			desc { "default";
-				color: 0 0 0 0;
-			}
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 	programs {
@@ -271,20 +252,17 @@ group { "e/modules/battery/popup";
 	min: 240 60;
 	parts {
 		swallow { "e.swallow.battery";
-			desc { "default";
+			desc { "default"; min: 1 1; max: 160 160;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
-				min: 1 1; max: 160 160;
 				align: 0.0 0.5;
 			}
 		}
 		text { "e.text.title"; effect: SHADOW BOTTOM; scale;
-			desc { "default";
+			desc { "default"; color: "#FFFFFF"; color_class: "module_label";
+				color3: "#FFFFFF";
 				rel1.relative: 1.0 0.0;
 				rel1.to_x: "e.swallow.battery";
 				rel2.relative: 1.0 0.5;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "module_label";
 				text.font: "Sans:style=Bold"; text.size: 12;
 				text.text: "Your battery is low!";
 				text.min: 1 1;
@@ -293,12 +271,10 @@ group { "e/modules/battery/popup";
 			}
 		}
 		text { "e.text.label"; effect: SHADOW BOTTOM; scale;
-			desc { "default";
+			desc { "default"; color: "#FFFFFF"; color_class: "module_label";
+				color3: "#FFFFFF";
 				rel1.relative: 1.0 0.5;
 				rel1.to_x: "e.swallow.battery";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "module_label";
 				text.font: "Sans"; text.size: 12;
 				text.text: "AC power is recommended.";
 				text.min: 1 1;
