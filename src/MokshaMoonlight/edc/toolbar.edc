@@ -34,8 +34,8 @@ group { "e/widgets/toolbar";
 				aspect_preference: VERTICAL;
 				align: 0.0 0.5;
 			}
-			desc { "hidden"; inherit; color: 255 255 255 0; hid; }
-			desc { "clicked"; inherit; color: 255 255 255 255; hid; }
+			desc { "hidden"; inherit; color: TRANSPARENT; hid; }
+			desc { "clicked"; inherit; color: VISIBLE; hid; }
 		}
 		part { "right_arrow"; mouse; scale;
 			desc { "default"; min: 32 32; max: 32 32;
@@ -44,8 +44,8 @@ group { "e/widgets/toolbar";
 				aspect_preference: VERTICAL;
 				align: 1.0 0.5;
 			}
-			desc { "hidden"; inherit; color: 255 255 255 0; hid; }
-			desc { "clicked"; inherit; color: 255 255 255 255; hid; }
+			desc { "hidden"; inherit; color: TRANSPARENT; hid; }
+			desc { "clicked"; inherit; color: VISIBLE; hid; }
 		}
 		part { "e.dragable.hbar"; nomouse;
 			dragable.x: 1 1 0;
@@ -57,7 +57,7 @@ group { "e/widgets/toolbar";
 			}
 		}
 		rect { "event"; mouse; repeat;
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
@@ -141,7 +141,7 @@ group { "e/widgets/toolbar/item";
 	images.image: "toolbar_sel.png" COMP;
 	parts {
 		text { "label2"; nomouse; scale;
-			desc { "default"; color: 0 0 0 255;
+			desc { "default"; color: "#000000FF";
 				align: 0.5 1.0;
 				fixed: 0 1;
 				rel1.to: "e.text.label";
@@ -155,15 +155,15 @@ group { "e/widgets/toolbar/item";
 			desc { "selected"; inherit; hid; }
 		}
 		part { "bg"; nomouse;
-			desc { "default"; color: 255 255 255 0; hid;
+			desc { "default"; color: TRANSPARENT; hid;
 				image.normal: "toolbar_sel.png";
 				image.border: 3 3 0 0;
 				fill.smooth: 0;
 			}
-			desc { "selected"; inherit; vis; color: 255 255 255 255; }
+			desc { "selected"; inherit; vis; color: VISIBLE; }
 		}
 		swallow { "e.swallow.icon";
-			desc { "default"; color: 0 0 0 0;
+			desc { "default"; color: "#00000000";
 				align: 0.5 0.5;
 				aspect: 1.0 1.0;
 				aspect_preference: VERTICAL;
@@ -175,14 +175,14 @@ group { "e/widgets/toolbar/item";
 			}
 		}
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default"; color: 224 224 224 255; hid;
+			desc { "default"; color: "#E0E0E0"; hid;
+				color3: "#00000020";
 				align: 0.5 1.0;
 				fixed: 0 1;
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 -1;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -1 -1;
-				color3: 0 0 0 32;
 				text.font: "Sans:style=Bold"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.5 0.5;
@@ -191,7 +191,7 @@ group { "e/widgets/toolbar/item";
 			desc { "selected"; inherit; vis; }
 		}
 		rect { "event"; mouse; ignore: ON_HOLD;
-			desc { "default"; color: 0 0 0 0; }
+			desc { "default"; color: "#00000000"; }
 		}
 	}
 
