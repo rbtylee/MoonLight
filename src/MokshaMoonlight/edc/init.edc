@@ -19,7 +19,7 @@ group { "e/init/splash";
 			}
 		}
 		part { "background_moon";
-			desc { "default";
+			desc { "default"; color: TRANSPARENT;
 				aspect: 1 1;
 				aspect_preference: HORIZONTAL;
 				image.normal: "wp_moon.png";
@@ -27,9 +27,8 @@ group { "e/init/splash";
 				rel2.to: "background";
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 0.45 0.60;
-				color: 255 255 255 0;
 			}
-			desc { "done"; inherit; color: 255 255 255 255; }
+			desc { "done"; inherit; color: VISIBLE; }
 		}
 		part { "background_plants_bottom";
 			desc { "default";
@@ -53,21 +52,18 @@ group { "e/init/splash";
 			}
 		}
 		rect { "background_bottom";
-			desc { "default";
+			desc { "default"; color: TRANSPARENT;
 				rel1.to: "background";
 				rel1.relative: 0.0 0.42;
-				color: 255 255 255 0;
 			}
 		}
 		text { "e.text.version"; effect: SOFT_SHADOW;
-			desc { "default";
+			desc { "default"; color: VISIBLE; color3: "#00000020";
 				align: 1.0 1.0;
 				rel1.relative: 1.0 1.0;
 				rel1.offset: -2  -2;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -2  -2;
-				color: 255 255 255 255;
-				color3: 0 0 0 32;
 				text.font: "Sans"; text.size: 8;
 				text.text: "0.17.0";
 				text.min: 1 1;
@@ -76,12 +72,10 @@ group { "e/init/splash";
 			}
 		}
 		text { "e.text.status"; effect: SOFT_SHADOW; nomouse;
-			desc { "default";
+			desc { "default"; color: VISIBLE; color3: "#00000020";
 				align: 0.5 0.0;
 				rel1.to: "background_bottom";
 				rel2.to: "background_bottom";
-				color: 255 255 255 255;
-				color3: 0 0 0 32;
 				text.text: "Starting Enlightenment. Please wait.";
 				text.font: "Sans:style=Bold"; text.size: 10;
 				text.min: 1 1;
@@ -91,14 +85,12 @@ group { "e/init/splash";
 			}
 		}
 		text { "e.text.disable_text"; effect: SOFT_SHADOW; nomouse;
-			desc { "default";
+			desc { "default"; color: VISIBLE; color3: "#00000020";
 				align: 0.0 0.0;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 8 8;
 				rel2.relative: 0.0 0.0;
 				rel2.offset: 8 8;
-				color: 255 255 255 255;
-				color3: 0 0 0 32;
 				text.text: "Disable this splash screen in future.";
 				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
@@ -107,8 +99,7 @@ group { "e/init/splash";
 			}
 		}
 		part { "disable_check"; nomouse;
-			desc { "default";
-				min: 20 20; max: 20 20;
+			desc { "default"; min: 20 20; max: 20 20;
 				align: 0.0 0.5;
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 0 0;
@@ -123,8 +114,7 @@ group { "e/init/splash";
 			}
 		}
 		rect { "enable_event";
-			desc { "default"; hid;
-				color: 0 0 0 0;
+			desc { "default"; color: "#00000000"; hid;
 				rel1.to: "e.text.disable_text";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: -5 -5;
@@ -135,8 +125,7 @@ group { "e/init/splash";
 			desc { "active"; inherit; vis; }
 		}
 		rect { "disable_event";type: RECT;
-			desc { "default"; vis;
-				color: 0 0 0 0;
+			desc { "default"; color: "#00000000"; vis;
 				rel1.to: "e.text.disable_text";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: -5 -5;
@@ -163,9 +152,9 @@ group { "e/init/splash";
 
 				val = get_int(do_end);
 				if (val == 1)
-			run_program(PROGRAM:"done2");
+					run_program(PROGRAM:"done2");
 				else
-			set_int(is_ready, 1);
+					set_int(is_ready, 1);
 			}
 		}
 		program { name: "done1";
@@ -176,9 +165,9 @@ group { "e/init/splash";
 
 				val = get_int(is_ready);
 				if (val == 1)
-			run_program(PROGRAM:"done2");
+					run_program(PROGRAM:"done2");
 				else
-			set_int(do_end, 1);
+					set_int(do_end, 1);
 			}
 		}
 		program { name: "done2";
