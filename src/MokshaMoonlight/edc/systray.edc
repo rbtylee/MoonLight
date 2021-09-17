@@ -7,8 +7,8 @@ group { "e/modules/systray/main";
 	data.item: "plain" "212 222 232";
 	parts {
 		rect { "base";
-			desc { "default"; color: 0 0 0 0; }
-			desc { "disabled"; inherit; color: 255 0 0 128; }
+			desc { "default"; color: "#00000000"; }
+			desc { "disabled"; inherit; color: "#FF000080"; }
 		}
 	 rect { "e.size"; nomouse;
 			desc { "default";
