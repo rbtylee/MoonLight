@@ -40,8 +40,7 @@ group { "e/widgets/menu/default/item_bg";
 	images.image: "menuitem.png" COMP;
 	parts {
 		part { "bg"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: -5 -3;
 				rel2.relative: 1.0 1.0;
@@ -50,8 +49,7 @@ group { "e/widgets/menu/default/item_bg";
 				image.border: 4 4 4 4;
 				fill.smooth: 0;
 			}
-			desc { "selected"; inherit; vis;
-				color: 255 255 255 255;
+			desc { "selected"; inherit; color: VISIBLE; vis;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: -2 0;
 				rel2.relative: 1.0 1.0;
@@ -66,8 +64,8 @@ group { "e/widgets/menu/default/item_bg";
 			}
 		}
 		rect { "events";
-      desc { "default"; color: 0 0 0 0; }
-    }
+			desc { "default"; color: "#00000000"; }
+		}
 	}
 
 	programs {
@@ -91,8 +89,8 @@ group { "e/widgets/menu/default/item_bg";
 group { "e/widgets/menu/default/icon";
 	parts {
 		rect { "clip";
-			desc { "default"; color: 255 255 255 255; }
-			desc { "disabled"; color: 255 255 255 128; }
+			desc { "default"; color: VISIBLE; }
+			desc { "disabled"; color: "#FFFFFF80"; }
 		}
 		swallow { "e.swallow.content"; clip: "clip";
 			desc { "default";
@@ -123,27 +121,22 @@ group { "e/widgets/menu/default/icon";
 group { "e/widgets/menu/default/label";
 	parts {
 		text { "e.text.label"; effect: SOFT_SHADOW; nomouse; scale;
-			desc { "default";
+			desc { "default"; color: "#000000"; color_class: "menu_item";
+				color3: "#00000000";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 1 -1;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -10 1;
-				color: 0 0 0 255;
-				color3: 0 0 0 0;
-				color_class: "menu_item";
 				text.font: "Sans"; text.size: 10;
 				text.min: 1 1;
 				text.align: 0.0 0.5;
 				text.text_class: "menu_item";
 			}
-			desc { "selected"; inherit;
-				color: 255 255 255 255;
-				color3: 0 0 0 64;
-				color_class: "menu_item";
+			desc { "selected"; inherit; color: VISIBLE; color_class: "menu_item";
+				color3: "#00000040";
 			}
-			desc { "disabled"; inherit;
-				color: 110 110 110 255;
-				color3: 0 0 0 0;
+			desc { "disabled"; inherit; color: "#6E6E6E";
+				color3: "#00000000";
 			}
 		}
 	}
@@ -185,8 +178,7 @@ group { "e/widgets/menu/default/submenu";
 	images.image: "menu_arrow_sel.png" COMP;
 	parts {
 		part { "arrow"; nomouse;
-			desc { "default";
-				min: 9 12; max: 9 12;
+			desc { "default"; min: 9 12; max: 9 12;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 0 1;
 				rel2.relative: 1.0 1.0;
@@ -220,8 +212,7 @@ group { "e/widgets/menu/default/check";
 	images.image: "check_sel.png" COMP;
 	parts {
 		part { "base"; nomouse; scale;
-			desc { "default";
-				min: 18 19; max: 18 19;
+			desc { "default"; min: 18 19; max: 18 19;
 				image.normal: "check_base.png";
 			}
 		}
@@ -236,15 +227,13 @@ group { "e/widgets/menu/default/check";
 			}
 		}
 		rect { "mark_hold"; nomouse;
-			desc { "default"; hid;
-				color: 255 255 255 0;
+			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "base";
 				rel1.offset: -5 -5;
 				rel2.to: "base";
 				rel2.offset: 4 4;
 			}
-			desc { "on"; inherit; vis;
-				color: 255 255 255 255;
+			desc { "on"; inherit; color: VISIBLE; vis;
 				rel1.offset: 0 0;
 				rel2.offset: -1 -1;
 			}
@@ -287,8 +276,7 @@ group { "e/widgets/menu/default/radio";
 	images.image: "radio_sel.png" COMP;
 	parts {
 		part { "base"; nomouse; scale;
-			desc { "default";
-				min: 19 19; max: 19 19;
+			desc { "default"; min: 19 19; max: 19 19;
 				image.normal: "radio_base.png";
 			}
 			desc { "selected"; inherit;
@@ -307,14 +295,14 @@ group { "e/widgets/menu/default/radio";
 		}
 		rect { "mark_hold"; nomouse;
 			desc { "default"; hid;
-				color: 255 255 255 0;
+				color: TRANSPARENT;
 				rel1.to: "base";
 				rel1.offset: -5 -5;
 				rel2.to: "base";
 				rel2.offset: 4 4;
 			}
 			desc { "on"; inherit; vis;
-				color: 255 255 255 255;
+				color: VISIBLE;
 				rel1.offset: 0 0;
 				rel2.offset: -1 -1;
 			}
