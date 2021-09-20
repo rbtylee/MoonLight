@@ -10,7 +10,11 @@ The Moksha theme is a continuation of the [OpenGEU](https://en.wikipedia.org/wik
 # Dependencies
 
 ### Build
-* [meson](https://mesonbuild.com/): only needed it you use the meson build system.
+The below are only needed if you use the meson/ninja build system:
+
+* [meson](https://mesonbuild.com/)
+* pkg-config
+* The development files for Moksha/e17 and for EFL.
 
 To install and use the Moksha Theme you will need:
 * [EFL](https://www.enlightenment.org/download): only need the edje_cc bin, a part of efreet.
