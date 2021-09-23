@@ -424,17 +424,17 @@ group { "e/conf/randr/main/frame";
 				set_int(refresh_open, 1 - shown);
 			}
 		}
-		program { name: "refresh_show";
+		program { "refresh_show";
 			action: STATE_SET "expanded" 0.0;
 			transition: BOUNCE 1.0 0.5 4;
 			target: "e.swallow.refresh";
 		}
-		program { name: "refresh_hide";
+		program { "refresh_hide";
 			action: STATE_SET "default" 0.0;
 			transition: ACCELERATE 0.5;
 			target: "e.swallow.refresh";
 		}
-		program { name: "rrpulse1";
+		program { "rrpulse1";
 			signal: "show"; source: "";
 			action: STATE_SET "pulse" 0.0;
 			transition: DECELERATE 1.0;
@@ -444,7 +444,7 @@ group { "e/conf/randr/main/frame";
 			target: "rot2";
 			after: "rrpulse2";
 		}
-		program { name: "rrpulse2";
+		program { "rrpulse2";
 			action: STATE_SET "default" 0.0;
 			target: "rsz1";
 			target: "rsz2";
@@ -452,14 +452,14 @@ group { "e/conf/randr/main/frame";
 			target: "rot2";
 			after: "rrpulse1";
 		}
-		program { name: "pulse1";
+		program { "pulse1";
 			signal: "show"; source: "";
 			action: STATE_SET "pulse" 0.0;
 			transition: SINUSOIDAL 0.3;
 			target: "led";
 			after: "pulse2";
 		}
-		program { name: "pulse2";
+		program { "pulse2";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.3;
 			target: "led";
@@ -481,7 +481,7 @@ group { "e/conf/randr/main/frame";
 			target: "pulse2";
 			after: "off";
 		}
-		program { name: "off";
+		program { "off";
 			signal: "e,state,disabled"; source: "e";
 			action: STATE_SET "off" 0.0;
 			target: "led";
@@ -499,7 +499,7 @@ group { "e/conf/randr/main/frame";
 			action: STATE_SET "default" 0.0;
 			target: "drop_zone";
 		}
-		program { name: "rotate_off";
+		program { "rotate_off";
 			signal: "e,state,rotate_disabled"; source: "e";
 			action: STATE_SET "disabled" 0.0;
 			target: "e.event.rotate";

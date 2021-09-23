@@ -138,7 +138,7 @@ group { "e/init/splash";
 	}
 
 	programs {
-		program { name: "init";
+		program { "init";
 			signal: "load";
 			source: "";
 			script {
@@ -146,7 +146,7 @@ group { "e/init/splash";
 				set_int(do_end, 0);
 			}
 		}
-		program { name: "ready";
+		program { "ready";
 			script {
 				new val;
 
@@ -157,7 +157,7 @@ group { "e/init/splash";
 					set_int(is_ready, 1);
 			}
 		}
-		program { name: "done1";
+		program { "done1";
 			signal: "e,state,done";
 			source: "e";
 			script {
@@ -170,16 +170,16 @@ group { "e/init/splash";
 					set_int(do_end, 1);
 			}
 		}
-		program { name: "done2";
+		program { "done2";
 			action: STATE_SET "done" 0.0;
 			transition: ACCELERATE 1.0;
 			target: "background_moon";
 			after: "done3";
 		}
-		program { name: "done3";
+		program { "done3";
 			action: SIGNAL_EMIT "e,state,done_ok" "e";
 		}
-		program { name: "disable_down";
+		program { "disable_down";
 			signal: "mouse,down,1";
 			source: "disable_event";
 			action: STATE_SET "active" 0.0;
@@ -188,7 +188,7 @@ group { "e/init/splash";
 			target: "enable_event";
 			after: "disable_on";
 		}
-		program { name: "enable_down";
+		program { "enable_down";
 			signal: "mouse,down,1";
 			source: "enable_event";
 			action: STATE_SET "default" 0.0;
@@ -197,10 +197,10 @@ group { "e/init/splash";
 			target: "enable_event";
 			after: "disable_off";
 		}
-		program { name: "disable_on";
+		program { "disable_on";
 			action: SIGNAL_EMIT "e,action,init,disable" "e";
 		}
-		program { name: "disable_off";
+		program { "disable_off";
 			action: SIGNAL_EMIT "e,action,init,enable" "e";
 		}
 	}

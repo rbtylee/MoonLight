@@ -62,7 +62,7 @@ group { "e/widgets/toolbar";
 	}
 
 	programs {
-		program { name: "sb_hbar_show";
+		program { "sb_hbar_show";
 			signal: "e,action,show,hbar";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -70,7 +70,7 @@ group { "e/widgets/toolbar";
 			target: "left_arrow";
 			target: "right_arrow";
 		}
-		program { name: "sb_hbar_hide";
+		program { "sb_hbar_hide";
 			signal: "e,action,hide,hbar";
 			source: "e";
 			action: STATE_SET "hidden" 0.0;
@@ -78,14 +78,14 @@ group { "e/widgets/toolbar";
 			target: "right_arrow";
 			transition: LINEAR 0.5;
 		}
-		program { name: "sb_left";
+		program { "sb_left";
 			signal: "mouse,down,1";
 			source: "left_arrow";
 			action: SIGNAL_EMIT "e,action,prev" "e";
 			target: "e.dragable.hbar";
 			after: "arrow1_repeat";
 		}
-		program { name: "arrow1_repeat";
+		program { "arrow1_repeat";
 			action: SIGNAL_EMIT "e,action,prev" "e";
 			in: 0.3 0.0;
 			after: "arrow1_repeat";
@@ -106,14 +106,14 @@ group { "e/widgets/toolbar";
 			target: "left_arrow";
 		}
 		
-		program { name: "sb_right";
+		program { "sb_right";
 			signal: "mouse,down,1";
 			source: "right_arrow";
 			action: SIGNAL_EMIT "e,action,next" "e";
 			target: "e.dragable.hbar";
 			after: "arrow2_repeat";
 		}
-		program { name: "arrow2_repeat";
+		program { "arrow2_repeat";
 			action: SIGNAL_EMIT "e,action,next" "e";
 			in: 0.3 0.0;
 			after: "arrow2_repeat";
@@ -196,7 +196,7 @@ group { "e/widgets/toolbar/item";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
@@ -205,7 +205,7 @@ group { "e/widgets/toolbar/item";
 			target: "label2";
 			transition: LINEAR 0.2;
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -214,7 +214,7 @@ group { "e/widgets/toolbar/item";
 			target: "label2";
 			transition: LINEAR 0.1;
 		}
-		program { name: "go";
+		program { "go";
 			signal: "mouse,up,1";
 			source: "event";
 			action: SIGNAL_EMIT "e,action,click" "e";

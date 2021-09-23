@@ -1,4 +1,4 @@
-group { name: "e/theme/about";
+group { "e/theme/about";
 	images.image: "about_bg.png" COMP;
 	images.image: "about_plants_middle.png" COMP;
 	images.image: "about_plants_top.png" COMP;
@@ -8,7 +8,7 @@ group { name: "e/theme/about";
 	images.image: "entry.png" COMP;
 	images.image: "logo2.png" COMP;
 	styles {
-		style { name: "theme_about_style";
+		style { "theme_about_style";
 			base: "font=Sans:style=Bold font_size=10 align=center color=#ffffff style=soft_shadow shadow_color=#00000020 wrap=word";
 			tag: "br" "\n";
 		}
@@ -114,19 +114,19 @@ group { name: "e/theme/about";
 		}
 	}
 	programs {
-		program { name: "button_click";
+		program { "button_click";
 			signal: "mouse,down,1";
 			source: "button_image";
 			action: STATE_SET "clicked" 0.0;
 			target: "button_image";
 		}
-		program { name: "button_unclick";
+		program { "button_unclick";
 			signal: "mouse,up,1";
 			source: "button_image";
 			action: STATE_SET "default" 0.0;
 			target: "button_image";
 		}
-		program { name: "button_unclick2";
+		program { "button_unclick2";
 			signal: "mouse,clicked,1";
 			source: "button_image";
 			action: SIGNAL_EMIT "e,action,close" "";

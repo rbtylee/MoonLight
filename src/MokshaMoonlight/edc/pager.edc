@@ -103,7 +103,7 @@ group { "e/modules/pager/desk";
 	}
 
 	programs {
-		program { name: "on";
+		program { "on";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "active" 0.0;
@@ -112,7 +112,7 @@ group { "e/modules/pager/desk";
 			target: "base2";
 			target: "clip";
 		}
-		program { name: "off";
+		program { "off";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -121,7 +121,7 @@ group { "e/modules/pager/desk";
 			target: "base2";
 			target: "clip";
 		}
-		program { name: "drg";
+		program { "drg";
 			signal: "e,action,drag,in";
 			source: "e";
 			action: STATE_SET "active" 0.0;
@@ -129,13 +129,13 @@ group { "e/modules/pager/desk";
 			target: "zoom";
 			after: "drg2";
 		}
-		program { name: "drg2";
+		program { "drg2";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.2;
 			target: "zoom";
 			after: "drg";
 		}
-		program { name: "ndrg";
+		program { "ndrg";
 			signal: "e,action,drag,out";
 			source: "e";
 			action: ACTION_STOP;
@@ -143,18 +143,18 @@ group { "e/modules/pager/desk";
 			target: "drg2";
 			after: "ndrg2";
 		}
-		program { name: "ndrg2";
+		program { "ndrg2";
 			action: STATE_SET "default" 0.0;
 			target: "zoom";
 		}
-		program { name: "name_show";
+		program { "name_show";
 			signal: "mouse,in";
 			source: "over3";
 			action: STATE_SET "active" 0.0;
 			transition: SINUSOIDAL 0.1;
 			target: "e.text.label";
 		}
-		program { name: "name_hide";
+		program { "name_hide";
 			signal: "mouse,out";
 			source: "over3";
 			action: STATE_SET "default" 0.0;
@@ -242,19 +242,19 @@ group { "e/modules/pager/window";
 	}
 
 	programs {
-		program { name: "focus_in";
+		program { "focus_in";
 			signal: "e,state,focused";
 			source: "e";
 			action: STATE_SET "focused" 0.0;
 			target: "base";
 		}
-		program { name: "focus_out";
+		program { "focus_out";
 			signal: "e,state,unfocused";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "base";
 		}
-		program { name: "urgent";
+		program { "urgent";
 			signal: "e,state,urgent";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
@@ -263,18 +263,18 @@ group { "e/modules/pager/window";
 			target: "urgent2";
 			after: "urgent2";
 		}
-		program { name: "urgent2";
+		program { "urgent2";
 			action: STATE_SET "faded" 0.0;
 			transition: LINEAR 0.5;
 			target: "urgent2";
 			after: "urgent3";
 		}
-		program { name: "urgent3";
+		program { "urgent3";
 			action: STATE_SET "visible" 0.0;
 			target: "urgent2";
 			after: "urgent2";
 		}
-		program { name: "urgentw0";
+		program { "urgentw0";
 			signal: "e,state,urgent";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -282,31 +282,31 @@ group { "e/modules/pager/window";
 			target: "icon_area2";
 			after: "urgentw1";
 		}
-		program { name: "urgentw1";
+		program { "urgentw1";
 			action: STATE_SET "uw1" 0.0;
 			transition: DECELERATE 0.1;
 			target: "icon_area2";
 			after: "urgentw2";
 		}
-		program { name: "urgentw2";
+		program { "urgentw2";
 			action: STATE_SET "uw2" 0.0;
 			target: "icon_area2";
 			transition: DECELERATE 0.1;
 			after: "urgentw3";
 		}
-		program { name: "urgentw3";
+		program { "urgentw3";
 			action: STATE_SET "uw3" 0.0;
 			transition: DECELERATE 0.1;
 			target: "icon_area2";
 			after: "urgentw4";
 		}
-		program { name: "urgentw4";
+		program { "urgentw4";
 			action: STATE_SET "uw4" 0.0;
 			transition: DECELERATE 0.1;
 			target: "icon_area2";
 			after: "urgentw0";
 		}
-		program { name: "not_urgent";
+		program { "not_urgent";
 			signal: "e,state,not_urgent";
 			source: "e";
 			action: ACTION_STOP;
@@ -320,7 +320,7 @@ group { "e/modules/pager/window";
 			target: "urgent3";
 			after: "not_urgent2";
 		}
-		program { name: "not_urgent2";
+		program { "not_urgent2";
 			action: STATE_SET "default" 0.0;
 			target: "urgent";
 			target: "urgent2";

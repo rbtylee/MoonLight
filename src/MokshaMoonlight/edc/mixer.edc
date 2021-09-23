@@ -86,29 +86,29 @@ group { "e/modules/mixer/main";
 		}
 	}
 	programs {
-		program { name: "mute";
+		program { "mute";
 			action: STATE_SET "default" 0.0;
 			target: "mixer_clip_default";
 			target: "mixer_clip_muted";
 		}
-		program { name: "on";
+		program { "on";
 			action: STATE_SET "muted" 0.0;
 			target: "mixer_clip_default";
 			target: "mixer_clip_muted";
 		}
-		program { name: "none";
+		program { "none";
 			action: STATE_SET "default" 0.0;
 			target: "audio";
 		}
-		program { name: "low";
+		program { "low";
 			action: STATE_SET "low" 0.0;
 			target: "audio";
 		}
-		program { name: "medium";
+		program { "medium";
 			action: STATE_SET "medium" 0.0;
 			target: "audio";
 		}
-		program { name: "high";
+		program { "high";
 			action: STATE_SET "high" 0.0;
 			target: "audio";
 		}

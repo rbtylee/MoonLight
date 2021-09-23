@@ -59,88 +59,88 @@ group { "e/comp/screen/overlay/default";
 	}
 
 	programs {
-		 program { name: "screensaver_post";
+		 program { "screensaver_post";
 				action: SIGNAL_EMIT "e,state,screensaver,active" "e";
 			}
-			program { name: "screensaver_on";
+			program { "screensaver_on";
 				signal: "e,state,screensaver,on"; source: "e";
 				action: STATE_SET "visible" 0.0;
 				transition: ACCELERATE 3.0 CURRENT;
 				target: "blanker";
 				after: "screensaver_post";
 			}
-			program { name: "screensaver_on2";
+			program { "screensaver_on2";
 				signal: "e,state,screensaver,on"; source: "e";
 				action: STATE_SET "visible" 0.0;
 				transition: DECELERATE 1.5 CURRENT;
 				target: "shadow";
 			}
-			program { name: "screensaver_off";
+			program { "screensaver_off";
 				signal: "e,state,screensaver,off"; source: "e";
 				action: STATE_SET "default" 0.0;
 				transition: ACCELERATE 0.5 CURRENT;
 				target: "blanker";
 			}
-			program { name: "screensaver_off2";
+			program { "screensaver_off2";
 				signal: "e,state,screensaver,off"; source: "e";
 				action: STATE_SET "default" 0.0;
 				transition: ACCELERATE 0.25 CURRENT;
 				target: "shadow";
 			}
-			program { name: "suspend";
+			program { "suspend";
 				signal: "e,state,sys,suspend"; source: "e";
 				action: STATE_SET "visible" 0.0;
 				transition: ACCELERATE 0.5 CURRENT;
 				target: "suspender";
 				after: "suspend_done";
 			}
-			program { name: "suspend_done";
+			program { "suspend_done";
 				action: SIGNAL_EMIT "e,state,sys,suspend,done" "e";
 			}
-			program { name: "hibernate";
+			program { "hibernate";
 				signal: "e,state,sys,hibernate"; source: "e";
 				action: STATE_SET "visible" 0.0;
 				transition: ACCELERATE 0.5 CURRENT;
 				target: "suspender";
 				after: "hibernate_done";
 			}
-			program { name: "hibernate_done";
+			program { "hibernate_done";
 				action: SIGNAL_EMIT "e,state,sys,hibernate,done" "e";
 			}
-			program { name: "resume";
+			program { "resume";
 				signal: "e,state,sys,resume"; source: "e";
 				action: STATE_SET "default" 0.0;
 				transition: DECELERATE 1.0 CURRENT;
 				target: "suspender";
 			}
-			program { name: "reboot";
+			program { "reboot";
 				signal: "e,state,sys,reboot"; source: "e";
 				action: STATE_SET "visible" 0.0;
 				transition: ACCELERATE 0.5 CURRENT;
 				target: "suspender";
 				after: "reboot_done";
 			}
-			program { name: "reboot_done";
+			program { "reboot_done";
 				action: SIGNAL_EMIT "e,state,sys,reboot,done" "e";
 			}
-			program { name: "halt";
+			program { "halt";
 				signal: "e,state,sys,halt"; source: "e";
 				action: STATE_SET "visible" 0.0;
 				transition: ACCELERATE 0.5 CURRENT;
 				target: "suspender";
 				after: "halt_done";
 			}
-			program { name: "halt_done";
+			program { "halt_done";
 				action: SIGNAL_EMIT "e,state,sys,halt,done" "e";
 			}
-			program { name: "logout";
+			program { "logout";
 				signal: "e,state,sys,logout"; source: "e";
 				action: STATE_SET "visible" 0.0;
 				transition: ACCELERATE 0.5 CURRENT;
 				target: "suspender";
 				after: "logout_done";
 			}
-			program { name: "logout_done";
+			program { "logout_done";
 				action: SIGNAL_EMIT "e,state,sys,logout,done" "e";
 			}
 	}
@@ -149,47 +149,47 @@ group { "e/comp/screen/overlay/default";
 group { "e/comp/screen/overlay/noeffects";
 	inherit: "e/comp/screen/overlay/default";
 	programs {
-			program { name: "screensaver_on";
+			program { "screensaver_on";
 				transition: ACCELERATE 0 CURRENT;
 			}
-			program { name: "screensaver_on2";
+			program { "screensaver_on2";
 				transition: DECELERATE 0 CURRENT;
 			}
-			program { name: "screensaver_off";
+			program { "screensaver_off";
 				transition: ACCELERATE 0 CURRENT;
 			}
-			program { name: "screensaver_off2";
+			program { "screensaver_off2";
 				transition: ACCELERATE 0 CURRENT;
 			}
-			program { name: "suspend";
+			program { "suspend";
 				signal: "e,state,sys,suspend"; source: "e";
 				action: SIGNAL_EMIT "e,state,sys,suspend,done" "e";
 				after: "action_done";
 			}
-			program { name: "action_done";
+			program { "action_done";
 				action: STATE_SET "visible" 0.0;
 				transition: ACCELERATE 0 CURRENT;
 				target: "suspender";
 			}
-			program { name: "hibernate";
+			program { "hibernate";
 				signal: "e,state,sys,hibernate"; source: "e";
 				action: SIGNAL_EMIT "e,state,sys,hibernate,done" "e";
 				after: "action_done";
 			}
-			program { name: "resume";
+			program { "resume";
 				transition: DECELERATE 1 CURRENT;
 			}
-			program { name: "reboot";
+			program { "reboot";
 				signal: "e,state,sys,reboot"; source: "e";
 				action: SIGNAL_EMIT "e,state,sys,reboot,done" "e";
 				after: "action_done";
 			}
-			program { name: "halt";
+			program { "halt";
 				signal: "e,state,sys,halt"; source: "e";
 				action: SIGNAL_EMIT "e,state,sys,halt,done" "e";
 				after: "action_done";
 			}
-			program { name: "logout";
+			program { "logout";
 				signal: "e,state,sys,logout"; source: "e";
 				action: SIGNAL_EMIT "e,state,sys,logout,done" "e";
 				after: "action_done";
@@ -268,7 +268,7 @@ group { "e/comp/frame/default";
 			action: STATE_SET "hidden" 0.0;
 			target: "shadow";
 		}
-		program { name: "visible_on";
+		program { "visible_on";
 			signal: "e,state,visible"; source: "e";
 			action: STATE_SET "visible" 0.0;
 			transition: DECELERATE 0.15;
@@ -276,10 +276,10 @@ group { "e/comp/frame/default";
 			target: "shower";
 			after: "show2";
 		}
-		program { name: "show2";
+		program { "show2";
 			action: SIGNAL_EMIT "e,action,show,done" "e";
 		}
-		program { name: "visible_off";
+		program { "visible_off";
 			signal: "e,state,hidden"; source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: DECELERATE 0.30;
@@ -287,10 +287,10 @@ group { "e/comp/frame/default";
 			target: "shower";
 			after: "hide2";
 		}
-		program { name: "hide2";
+		program { "hide2";
 			action: SIGNAL_EMIT "e,action,hide,done" "e";
 		}
-		program { name: "focus_on";
+		program { "focus_on";
 			signal: "e,state,focused"; source: "e";
 			action: STATE_SET "focused" 0.0;
 			transition: SINUSOIDAL 0.1;
@@ -298,31 +298,31 @@ group { "e/comp/frame/default";
 			target: "focus-clipper";
 			after: "focus2";
 		}
-		program { name: "focus2";
+		program { "focus2";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.4;
 			target: "glow";
 		}
-		program { name: "focus_off";
+		program { "focus_off";
 			signal: "e,state,unfocused"; source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.1;
 			target: "focus-clipper";
 			after: "focus_off2";
 		}
-		program { name: "focus_off2";
+		program { "focus_off2";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.4;
 			target: "glow";
 		}
-		program { name: "urgent1";
+		program { "urgent1";
 			signal: "e,state,urgent"; source: "e";
 			action: STATE_SET "focused" 0.0;
 			transition: SINUSOIDAL 0.3;
 			target: "glow";
 			after: "urgent2";
 		}
-		program { name: "urgent2";
+		program { "urgent2";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.3;
 			target: "glow";
@@ -357,13 +357,13 @@ group { "e/comp/frame/rotate";
 		}
 	}
 	programs {
-		program { name: "focus3";
+		program { "focus3";
 			signal: "e,state,focused"; source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "e.swallow.content";
 			transition: LINEAR 0.3;
 		}
-		program { name: "focus_off3";
+		program { "focus_off3";
 			signal: "e,state,unfocused"; source: "e";
 			action: STATE_SET "focus-out" 0.0;
 			target: "e.swallow.content";
@@ -375,10 +375,10 @@ group { "e/comp/frame/rotate";
 group { "e/comp/frame/rotate/fast";
 	inherit: "e/comp/frame/rotate";
 	programs {
-		program { name: "focus3";
+		program { "focus3";
 			transition: LINEAR 0;
 		}
-		program { name: "focus_off3";
+		program { "focus_off3";
 			transition: LINEAR 0;
 		}
 	}
@@ -403,10 +403,10 @@ group { "e/comp/frame/flip";
 group { "e/comp/frame/flip/fast";
 	inherit: "e/comp/frame/flip";
 	programs {
-		program { name: "focus3";
+		program { "focus3";
 			transition: LINEAR 0;
 		}
-		program { name: "focus_off3";
+		program { "focus_off3";
 			transition: LINEAR 0;
 		}
 	}
@@ -424,13 +424,13 @@ group { "e/comp/frame/popup";
 group { "e/comp/frame/default/fast";
 	inherit: "e/comp/frame/default";
 	programs {
-		program { name: "visible_on";
+		program { "visible_on";
 			transition: DECELERATE 0;
 		}
-		program { name: "visible_off";
+		program { "visible_off";
 			transition: DECELERATE 0;
 		}
-		program { name: "focus_on";
+		program { "focus_on";
 			signal: "e,state,focus,on"; source: "e";
 			action: STATE_SET "focused" 0.0;
 			transition: SINUSOIDAL 0.1;
@@ -438,12 +438,12 @@ group { "e/comp/frame/default/fast";
 			target: "focus-clipper";
 			after: "focus2";
 		}
-		program { name: "focus2";
+		program { "focus2";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.1;
 			target: "glow";
 		}
-		program { name: "focus_off";
+		program { "focus_off";
 			transition: SINUSOIDAL 0;
 		}
 	}
@@ -582,7 +582,7 @@ group { "e/comp/frame/fullscreen";
 			desc { "default"; color: "#00000000"; hid; }
 			desc { "visible"; inherit; color: "#000000"; vis; }
 		}
-		spacer { name: "shower";
+		spacer { "shower";
 			desc { "default";
 				rel1.relative: 0.5 0.5;
 				rel2.relative: 0.5 0.5;
@@ -615,14 +615,14 @@ group { "e/comp/frame/fullscreen";
 	}
 
 	programs {
-		program { name: "visible_on";
+		program { "visible_on";
 			signal: "e,state,visible"; source: "e";
 			action: STATE_SET "visible" 0.0;
 			transition: DECELERATE 0.25;
 			target: "scr_shadow";
 			target: "scr_shade";
 		}
-		program { name: "visible_on2";
+		program { "visible_on2";
 			signal: "e,state,visible"; source: "e";
 			action: STATE_SET "visible1" 0.0;
 			transition: DECELERATE 0.05;
@@ -631,7 +631,7 @@ group { "e/comp/frame/fullscreen";
 			target: "fader";
 			after: "show2";
 		}
-		program { name: "show2";
+		program { "show2";
 			action: STATE_SET "visible2" 0.0;
 			transition: DECELERATE 0.20;
 			target: "clipper";
@@ -639,7 +639,7 @@ group { "e/comp/frame/fullscreen";
 			target: "fader";
 			after: "show3";
 		}
-		program { name: "show3";
+		program { "show3";
 			action: SIGNAL_EMIT "e,action,show,done" "e";
 		}
 		program {
@@ -654,14 +654,14 @@ group { "e/comp/frame/fullscreen";
 			target: "visible_on";
 			target: "visible_on2";
 		}
-		program { name: "visible_off";
+		program { "visible_off";
 			signal: "e,state,hidden"; source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: DECELERATE 0.25;
 			target: "scr_shadow";
 			target: "scr_shade";
 		}
-		program { name: "visible_off2";
+		program { "visible_off2";
 			signal: "e,state,hidden"; source: "e";
 			action: STATE_SET "visible1" 0.0;
 			transition: DECELERATE 0.2;
@@ -670,7 +670,7 @@ group { "e/comp/frame/fullscreen";
 			target: "fader";
 			after: "hide2";
 		}
-		program { name: "hide2";
+		program { "hide2";
 			action: STATE_SET "default" 0.0;
 			transition: DECELERATE 0.05;
 			target: "clipper";
@@ -678,7 +678,7 @@ group { "e/comp/frame/fullscreen";
 			target: "fader";
 			after: "hide3";
 		}
-		program { name: "hide3";
+		program { "hide3";
 			action: SIGNAL_EMIT "e,action,hide,done" "e";
 		}
 	}
@@ -687,11 +687,11 @@ group { "e/comp/frame/fullscreen";
 group { "e/comp/frame/fullscreen/fast";
 	inherit: "e/comp/frame/fullscreen";
 	programs {
-		program { name: "visible_on"; transition: DECELERATE 0; }
-		program { name: "visible_on2"; transition: DECELERATE 0; }
-		program { name: "show2"; transition: DECELERATE 0; }
-		program { name: "visible_off"; transition: DECELERATE 0; }
-		program { name: "visible_off2"; transition: DECELERATE 0; }
-		program { name: "hide2"; transition: DECELERATE 0; }
+		program { "visible_on"; transition: DECELERATE 0; }
+		program { "visible_on2"; transition: DECELERATE 0; }
+		program { "show2"; transition: DECELERATE 0; }
+		program { "visible_off"; transition: DECELERATE 0; }
+		program { "visible_off2"; transition: DECELERATE 0; }
+		program { "hide2"; transition: DECELERATE 0; }
 	}
 }

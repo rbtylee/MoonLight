@@ -69,14 +69,14 @@ group { "e/widgets/menu/default/item_bg";
 	}
 
 	programs {
-		program { name: "sel";
+		program { "sel";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			transition: LINEAR 0.2;
 			target: "bg";
 		}
-		program { name: "unsel";
+		program { "unsel";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -103,13 +103,13 @@ group { "e/widgets/menu/default/icon";
 	}
 
 	programs {
-		program { name: "enable"; /* enable */
+		program { "enable"; /* enable */
 			signal: "e,state,enable";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "clip";
 		}
-		program { name: "disable"; /* disable */
+		program { "disable"; /* disable */
 			signal: "e,state,disable";
 			source: "e";
 			action: STATE_SET "disabled" 0.0;
@@ -142,28 +142,28 @@ group { "e/widgets/menu/default/label";
 	}
 
 	programs {
-		program { name: "sel";
+		program { "sel";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			transition: LINEAR 0.2;
 			target: "e.text.label";
 		}
-		program { name: "unsel";
+		program { "unsel";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: LINEAR 0.3;
 			target: "e.text.label";
 		}
-		program { name: "enable";
+		program { "enable";
 			signal: "e,state,enable";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: LINEAR 0.3;
 			target: "e.text.label";
 		}
-		program { name: "disable";
+		program { "disable";
 			signal: "e,state,disable";
 			source: "e";
 			action: STATE_SET "disabled" 0.0;
@@ -191,13 +191,13 @@ group { "e/widgets/menu/default/submenu";
 		}
 	}
 	programs {
-		program { name: "sel";
+		program { "sel";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "arrow";
 		}
-		program { name: "unsel";
+		program { "unsel";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -241,26 +241,26 @@ group { "e/widgets/menu/default/check";
 	}
 
 	programs {
-		program { name: "sel";
+		program { "sel";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "mark";
 		}
-		program { name: "unsel"; /* de-select */
+		program { "unsel"; /* de-select */
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "mark";
 		}
-		program { name: "on";
+		program { "on";
 			signal: "e,state,on";
 			source: "e";
 			action: STATE_SET "on" 0.0;
 			transition: LINEAR 0.15;
 			target: "mark_hold";
 		}
-		program { name: "off";
+		program { "off";
 			signal: "e,state,off";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -309,26 +309,26 @@ group { "e/widgets/menu/default/radio";
 		}
 	}
 	programs {
-		program { name: "sel";
+		program { "sel";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "mark";
 		}
-		program { name: "unsel";
+		program { "unsel";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "mark";
 		}
-		program { name: "on";
+		program { "on";
 			signal: "e,state,on";
 			source: "e";
 			action: STATE_SET "on" 0.0;
 			transition: LINEAR 0.15;
 			target: "mark_hold";
 		}
-		program { name: "off";
+		program { "off";
 			signal: "e,state,off";
 			source: "e";
 			action: STATE_SET "default" 0.0;

@@ -1,4 +1,4 @@
-group { name: "e/widgets/configure/main";
+group { "e/widgets/configure/main";
 	images.image: "dia_bg.png" COMP;
 	images.image: "dia_topshad.png" COMP;
 	images.image: "dia_botshad.png" COMP;

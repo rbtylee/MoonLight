@@ -41,14 +41,14 @@ group { "e/modules/notification/logo";
 				target: "base";
 			}
 		program
-			{ name: "normal";
+			{ "normal";
 				action: STATE_SET "default" 0.0;
 				target: "base";
 				after: "big";
 				transition: DECELERATE 0.3;
 			}
 		program
-			{ name: "big";
+			{ "big";
 				action: STATE_SET "higher" 0.0;
 				target: "base";
 				after: "normal";
@@ -57,13 +57,13 @@ group { "e/modules/notification/logo";
 		}
 } 
 
-group { name: "e/modules/notification/main";
+group { "e/modules/notification/main";
 	images.image: "button-prelight.png" COMP;
 	images.image: "sym_close_light_normal.png" COMP;
 	images.image: "sym_close_light_selected.png" COMP;
 	data.item: "app_icon_max" "48 48";
 	styles {   
-		style { name: "notification_style_nowrap";
+		style { "notification_style_nowrap";
 			base: "font=Sans font_size=10 align=left color=#000a wrap=none text_class=notification_body";
 			tag:  "subject"  "+ text_class=module_large style=glow color=#3399ffff glow_color=#3399ff18 align=left glow2_color=#3399ff12";
 			tag:  "body"  "+ text_class=module_normal";
@@ -75,7 +75,7 @@ group { name: "e/modules/notification/main";
 			tag:  "img" ""; // images not supported
 			tag:  "a" ""; // links not supported
 		}
-		style { name: "notification_style";
+		style { "notification_style";
 			base: "font=Sans font_size=10 align=left color=#000a wrap=word text_class=notification_body";
 			tag:  "subject"  "+ text_class=module_large style=glow color=#3399ffff glow_color=#3399ff18 align=left glow2_color=#3399ff12";
 			tag:  "body"  "+ text_class=module_normal";

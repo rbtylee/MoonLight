@@ -1,19 +1,19 @@
-group { name: "e/widgets/preview";
+group { "e/widgets/preview";
 	images.image: "inset_sunk.png" COMP;
 	parts {
-		rect { name: "clip"; nomouse;
+		rect { "clip"; nomouse;
 			desc { "default";
 				rel1.to: "e.swallow.content";
 				rel2.to: "e.swallow.content";
 			}
 		}
-		swallow { name: "e.swallow.content"; clip: "clip";
+		swallow { "e.swallow.content"; clip: "clip";
 			desc { "default";
 				rel1.offset: 1 1;
 				rel2.offset: -2 -2;
 			}
 		}
-		part { name: "border"; nomouse;
+		part { "border"; nomouse;
 			desc { "default";
 				image.normal: "inset_sunk.png";
 				image.border: 7 7 7 7;

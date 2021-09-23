@@ -26,7 +26,7 @@ group { "e/widgets/cslider";
 				fill.smooth : 0;
 			}
 		}
-		rect { name: "e.dragable.cursor"; clip: "content_clip";
+		rect { "e.dragable.cursor"; clip: "content_clip";
 			dragable.confine: "e.swallow.content";
 			dragable.x: 1 1 0;
 			dragable.y: -1 1 0;
@@ -52,7 +52,7 @@ group { "e/widgets/cslider";
 	}
 
 	programs {
-		program { name: "go_vertical";
+		program { "go_vertical";
 			signal: "e,state,direction,v";
 			source: "e";
 			action: STATE_SET "vertical" 0.0;

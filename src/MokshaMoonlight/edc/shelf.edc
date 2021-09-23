@@ -86,7 +86,7 @@ desc { POS 0.0; inherit;									\
 }
 
 #define ORIENT_PROGRAM(POS) \
-program { name: POS; 											\
+program { POS; 											\
 	signal: "e,state,orientation,"POS;			\
 	source: "e"; 														\
 	action: STATE_SET POS 0.0;							\
@@ -101,7 +101,7 @@ group { NAME; 																							\
 	images.image: IMAGE_LEFT COMP;														\
 	images.image: IMAGE_RIGHT COMP;														\
 	images.image: IMAGE_BOTTOM COMP;													\
-	parts {																										\
+	parts 																									\
 		part { "base"; nomouse;																	\
 			desc { "default"; color_class: "shelf_base";					\
 				image.normal: IMAGE_BOTTOM;													\
@@ -121,7 +121,7 @@ group { NAME; 																							\
 			BASE_ORIENT("bottom_left", IMAGE_BOTTOM)							\
 			BASE_ORIENT("bottom_right", IMAGE_BOTTOM)							\
 		} 																											\
-		swallow { name: "e.swallow.content";										\
+		swallow { "e.swallow.content";										\
 			desc { "default"; }																		\
 			ORIENT("left", 1 1, 0 0)															\
 			ORIENT("left_top", 1 0, 0 0)													\
@@ -137,7 +137,7 @@ group { NAME; 																							\
 			ORIENT("bottom_right", 1 0, 0 -1)											\
 		}																												\
 	}																													\
-	programs {																								\
+	programs 																							\
 		ORIENT_PROGRAM("left")																	\
 		ORIENT_PROGRAM("left_top")															\
 		ORIENT_PROGRAM("left_bottom")														\
@@ -159,7 +159,7 @@ group { NAME; 																							\
 	images.image: IMAGE_LEFT COMP;														\
 	images.image: IMAGE_RIGHT COMP;														\
 	images.image: IMAGE_BOTTOM COMP;													\
-	parts {																										\
+	parts 																									\
 		part { "base";	 																				\
 			desc { "default"; color_class: "shelf_base"; 					\
 				image.normal: IMAGE_BOTTOM;													\
@@ -253,84 +253,84 @@ group { "e/shelf/alternate/base";
 	}
 
 	programs {
-		program { name: "orient1";
+		program { "orient1";
 			signal: "e,state,orientation,bottom";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient2";
+		program { "orient2";
 			signal: "e,state,orientation,bottom_left";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient3";
+		program { "orient3";
 			signal: "e,state,orientation,bottom_right";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient4";
+		program { "orient4";
 			signal: "e,state,orientation,top";
 			source: "e";
 			action: STATE_SET "top" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient5";
+		program { "orient5";
 			signal: "e,state,orientation,top_left";
 			source: "e";
 			action: STATE_SET "top" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient6";
+		program { "orient6";
 			signal: "e,state,orientation,top_right";
 			source: "e";
 			action: STATE_SET "top" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient7";
+		program { "orient7";
 			signal: "e,state,orientation,left";
 			source: "e";
 			action: STATE_SET "left" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient8";
+		program { "orient8";
 			signal: "e,state,orientation,left_top";
 			source: "e";
 			action: STATE_SET "left" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient9";
+		program { "orient9";
 			signal: "e,state,orientation,left_bottom";
 			source: "e";
 			action: STATE_SET "left" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient10";
+		program { "orient10";
 			signal: "e,state,orientation,right";
 			source: "e";
 			action: STATE_SET "right" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient11";
+		program { "orient11";
 			signal: "e,state,orientation,right_top";
 			source: "e";
 			action: STATE_SET "right" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient12";
+		program { "orient12";
 			signal: "e,state,orientation,right_bottom";
 			source: "e";
 			action: STATE_SET "right" 0.0;

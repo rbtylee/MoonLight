@@ -58,26 +58,26 @@ group { "e/widgets/check";
 		}
 	}
 	programs {
-		program { name: "on";
+		program { "on";
 			signal: "e,state,checked";
 			source: "e";
 			action: STATE_SET "on" 0.0;
 			transition: LINEAR 0.15;
 			target: "mark_hold";
 		}
-		program { name: "off";
+		program { "off";
 			signal: "e,state,unchecked";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: LINEAR 0.2;
 			target: "mark_hold";
 		}
-		program { name: "click";
+		program { "click";
 			signal: "mouse,up,1";
 			source: "event";
 			action: SIGNAL_EMIT "e,action,toggle" "";
 		}
-		program { name: "disable";
+		program { "disable";
 			signal: "e,state,disabled";
 			source: "e";
 			action: STATE_SET "disabled" 0.0;
@@ -85,7 +85,7 @@ group { "e/widgets/check";
 			target: "event";
 	target: "e.text.label";
 		}
-		program { name: "enable";
+		program { "enable";
 			signal: "e,state,enabled";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -176,33 +176,33 @@ group { "e/widgets/check_icon";
 		}
 	}
 	programs {
-		program { name: "on";
+		program { "on";
 			signal: "e,state,checked";
 			source: "e";
 			action: STATE_SET "on" 0.0;
 			transition: LINEAR 0.15;
 			target: "mark_hold";
 		}
-		program { name: "off";
+		program { "off";
 			signal: "e,state,unchecked";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: LINEAR 0.2;
 			target: "mark_hold";
 		}
-		program { name: "click";
+		program { "click";
 			signal: "mouse,up,1";
 			source: "event";
 			action: SIGNAL_EMIT "e,action,toggle" "";
 		}
-		program { name: "label_on";
+		program { "label_on";
 			signal: "e,state,labeled";
 			source: "e";
 			action: STATE_SET "label_visible" 0.0;
 			target: "e.swallow.icon";
 			target: "label_clip";
 		}
-		program { name: "disable";
+		program { "disable";
 			signal: "e,state,disabled";
 			source: "e";
 			action: STATE_SET "disabled" 0.0;
@@ -210,7 +210,7 @@ group { "e/widgets/check_icon";
 			target: "event";
 	target: "e.text.label";
 		}
-		program { name: "enable";
+		program { "enable";
 			signal: "e,state,enabled";
 			source: "e";
 			action: STATE_SET "default" 0.0;

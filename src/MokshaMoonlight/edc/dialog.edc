@@ -79,11 +79,10 @@ group { "e/widgets/dialog/main";
 
 group { "e/widgets/dialog/text";
 	styles {
-		style { 
-			name: "dialog_style";
+		style { "dialog_style";
 			base: "font=Sans font_size=10 text_class=tb_plain align=center color=#000000e6 wrap=word";
-			tag:  "br" "\n";
-			tag:  "hilight" "+ font=Sans:style=Bold text_class=tb_light";
+			tag: "br" "\n";
+			tag: "hilight" "+ font=Sans:style=Bold text_class=tb_light";
 		}
 	}
 	parts {

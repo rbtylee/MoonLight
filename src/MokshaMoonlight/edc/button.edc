@@ -88,45 +88,45 @@ group { "e/widgets/button";
 	}
 	programs {
 		OVER_P("button_image","button_image","default","over")
-		program { name: "button_click";
+		program { "button_click";
 			signal: "mouse,down,1";
 			source: "button_image";
 			action: STATE_SET "clicked" 0.0;
 			target: "button_image";
 		}
-		program { name: "button_unclick";
+		program { "button_unclick";
 			signal: "mouse,up,1";
 			source: "button_image";
 			action: STATE_SET "default" 0.0;
 			target: "button_image";
 		}
-		program { name: "button_unclick2";
+		program { "button_unclick2";
 			signal: "mouse,clicked,1";
 			source: "button_image";
 			action: SIGNAL_EMIT "e,action,click" "";
 		}
-		program { name: "text_state";
+		program { "text_state";
 			signal: "e,state,text";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "e.swallow.icon";
 			target: "e.text.label";
 		}
-		program { name: "icon_state";
+		program { "icon_state";
 			signal: "e,state,icon";
 			source: "e";
 			action: STATE_SET "icon" 0.0;
 			target: "e.swallow.icon";
 			target: "e.text.label";
 		}
-		program { name: "combo_state";
+		program { "combo_state";
 			signal: "e,state,combo";
 			source: "e";
 			action: STATE_SET "combo" 0.0;
 			target: "e.swallow.icon";
 			target: "e.text.label";
 		}
-		program { name: "disable";
+		program { "disable";
 			signal: "e,state,disabled";
 			source: "e";
 			action: STATE_SET "disabled" 0.0;
@@ -134,7 +134,7 @@ group { "e/widgets/button";
 			target: "e.text.label";
 			target: "disabler";
 		}
-		program { name: "enable";
+		program { "enable";
 			signal: "e,state,enabled";
 			source: "e";
 			action: STATE_SET "default" 0.0;

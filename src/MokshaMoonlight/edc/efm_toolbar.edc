@@ -15,7 +15,7 @@
 	}       \
 
 //NAVIGATION
-group { name: "modules/efm_navigation/main";
+group { "modules/efm_navigation/main";
 	images.image: "icon_left_arrow.png" COMP;
 	images.image: "icon_right_arrow.png" COMP;
 	images.image: "icon_up_arrow.png" COMP;
@@ -25,10 +25,10 @@ group { name: "modules/efm_navigation/main";
 	images.image: "button-normal.png" COMP;
 	images.image: "button-pressed.png" COMP;
 	parts {
-		rect { name: "base"; mouse;
+		rect { "base"; mouse;
 			desc { "default"; color: "#00000000"; }
 		}
-		rect { name: "begin"; nomouse;
+		rect { "begin"; nomouse;
 			desc { "default";
 				max: 1 1;
 				align: 0.0 0.0;
@@ -119,7 +119,7 @@ NAV_BUTTON("up",         "icon_up_arrow",    "forward_bg", 10);
 NAV_BUTTON("refresh",    "refresh",          "up_bg", 1);
 NAV_BUTTON("favorites",  "favorites",        "refresh_bg", 1);
 
-		swallow { name: "e.swallow.pathbar";
+		swallow { "e.swallow.pathbar";
 			desc { "default";
 				align: 0.0 0.5;
 					/* rel1.to_x: "favorites_base"; */
@@ -180,11 +180,11 @@ NAV_BUTTON_PROG("favorites");
 	}
 }
 
-group {	name: "modules/efm_navigation/pathbar_scrollframe";
+group { "modules/efm_navigation/pathbar_scrollframe";
 	images.image: "icon_left_arrow.png" COMP;
 	images.image: "icon_right_arrow.png" COMP;
 	parts {
-		rect { name: "base"; mouse;
+		rect { "base"; mouse;
 			desc { "default"; color: "#00000000";
 				rel1 {
 					to_x: "left_arrow";
@@ -197,19 +197,19 @@ group {	name: "modules/efm_navigation/pathbar_scrollframe";
 				}
 			}
 		}
-		rect { name: "clipper"; nomouse;
+		rect { "clipper"; nomouse;
 			desc { "default";
 			rel1.to: "base";
 			rel2.to: "base";
 			}
 		}
-		swallow { name: "e.swallow.content"; clip: "clipper";
+		swallow { "e.swallow.content"; clip: "clipper";
 			desc { "default";
 				rel1.to: "clipper";
 				rel2.to: "clipper";
 			}
 		}
-		image { name: "left_arrow"; mouse; scale;
+		image { "left_arrow"; mouse; scale;
 			desc { "default"; min: 16 16; max: 18 20;
 				/* aspect: 1.0 1.0;
 				* aspect_preference: VERTICAL; */
@@ -220,7 +220,7 @@ group {	name: "modules/efm_navigation/pathbar_scrollframe";
 				image.normal: "icon_left_arrow.png";
 			}
 		}
-		image { name: "right_arrow"; mouse; scale;
+		image { "right_arrow"; mouse; scale;
 			desc { "default"; min: 16 16; max: 18 20;
 				align: 1.0 0.5;
 				image.normal: "icon_right_arrow.png";
@@ -229,7 +229,7 @@ group {	name: "modules/efm_navigation/pathbar_scrollframe";
 				image.normal: "icon_right_arrow.png";
 			}
 		}
-		part { name: "e.dragable.hbar"; nomouse;
+		part { "e.dragable.hbar"; nomouse;
 			dragable {
 				x: 1 1 0;
 				y: 0 0 0;
@@ -242,7 +242,7 @@ group {	name: "modules/efm_navigation/pathbar_scrollframe";
 				rel2.to: "base";
 			}
 		}
-		rect { name: "event"; mouse; repeat;
+		rect { "event"; mouse; repeat;
 			desc { "default"; color: "#00000000"; }
 		}
 	}
@@ -250,13 +250,13 @@ group {	name: "modules/efm_navigation/pathbar_scrollframe";
 	programs {
 		OVER("right_arrow", "right_arrow")
 		OVER("left_arrow", "left_arrow")
-		program { name: "sb_left";
+		program { "sb_left";
 			signal: "mouse,down,1";
 			source: "left_arrow";
 			action: DRAG_VAL_STEP -5.0 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_right";
+		program { "sb_right";
 			signal: "mouse,down,1";
 			source: "right_arrow";
 			action: DRAG_VAL_STEP 5.0 0.0;
@@ -265,12 +265,12 @@ group {	name: "modules/efm_navigation/pathbar_scrollframe";
 	}
 }
 
-group { name: "modules/efm_navigation/pathbar_button";
+group { "modules/efm_navigation/pathbar_button";
 	images.image: "button-normal.png" COMP;
 	images.image: "button-pressed.png" COMP;
 	images.image: "button-prelight.png" COMP;
 	parts {
-		image{ name: "bg"; nomouse;
+		image{ "bg"; nomouse;
 		desc { "default"; min: 28 28;
 			image {
 				normal: "button-normal.png";
@@ -285,7 +285,7 @@ group { name: "modules/efm_navigation/pathbar_button";
 		}
 	}
 //Label3 part is used to set the size of the button on pathbar, in fact it has the min option set to 1 1
-		text { name: "label3"; nomouse; scale;
+		text { "label3"; nomouse; scale;
 		desc { "default"; max: 200 32;
 				rel1.to: "e.text.label";
 				rel2.to: "e.text.label";
@@ -298,7 +298,7 @@ group { name: "modules/efm_navigation/pathbar_button";
 				}
 			}
 		}
-		text { name: "label2"; nomouse; scale;
+		text { "label2"; nomouse; scale;
 			desc { "default"; max: 200 32;
 				rel1.to: "e.text.label";
 				rel2.to: "e.text.label";
@@ -314,7 +314,7 @@ group { name: "modules/efm_navigation/pathbar_button";
 			}
 			desc { state: "selected" 0.0; inherit; hid; }
 		}
-		text { name: "e.text.label"; nomouse; scale;
+		text { "e.text.label"; nomouse; scale;
 			desc { "default"; max: 200 32; color: "#000000"; hid;
 				rel1.offset: 7 0;
 				rel2.offset: -8 -1;
@@ -333,7 +333,7 @@ group { name: "modules/efm_navigation/pathbar_button";
 				vis;
 			}
 		}
-		rect { name: "event"; mouse; ignore: ON_HOLD;
+		rect { "event"; mouse; ignore: ON_HOLD;
 			desc {
 				"default";
 				color: "#00000000";
@@ -342,31 +342,31 @@ group { name: "modules/efm_navigation/pathbar_button";
 	}
 	programs {
 	OVER("event", "bg")
-		program { name: "click";
+		program { "click";
 			signal: "mouse,down,1";
 			source: "event";
 			action: STATE_SET "selected" 0.0;
 			target: "bg";
 		}
-		program { name: "unclick";
+		program { "unclick";
 			signal: "mouse,up,1";
 			source: "event";
 			action: STATE_SET "default" 0.0;
 			target: "bg";
 		}
-		program { name: "send";
+		program { "send";
 			signal: "mouse,clicked,1";
 			source: "event";
 			action: SIGNAL_EMIT "e,action,click" "";
 		}
-		program { name: "select";
+		program { "select";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "e.text.label";
 			target: "label2";
 		}
-		program { name: "normal";
+		program { "normal";
 			signal: "e,state,default";
 			source: "e";
 			action: STATE_SET "default" 0.0;

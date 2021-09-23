@@ -29,7 +29,7 @@ group { "e/transitions/crossfade";
 	}
 
 	programs {
-		program { name: "go";
+		program { "go";
 			signal: "e,action,start";
 			source: "e";
 			action: STATE_SET "done" 0.0;
@@ -37,7 +37,7 @@ group { "e/transitions/crossfade";
 			target: "bg_new_clip";
 			after: "go2";
 		}
-		program { name: "go2";
+		program { "go2";
 			action: SIGNAL_EMIT "e,state,done" "";
 		}
 	}
@@ -89,7 +89,7 @@ group { "e/transitions/vswipe";
 		}
 	}
 	programs {
-		program { name: "go";
+		program { "go";
 			signal: "e,action,start";
 			source: "e";
 			action: STATE_SET "done" 0.0;
@@ -98,7 +98,7 @@ group { "e/transitions/vswipe";
 			target: "bg_prev_clip";
 			after: "go2";
 		}
-		program { name: "go2";
+		program { "go2";
 			action: SIGNAL_EMIT "e,state,done" "";
 		}
 	}

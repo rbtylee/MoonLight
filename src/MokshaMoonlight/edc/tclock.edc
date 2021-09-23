@@ -41,25 +41,25 @@ group { "modules/tclock/main";
 
 	programs
 	{
-		program { name: "p1";
+		program { "p1";
 			signal: "time_hidden";
 			source: "";
 			action: STATE_SET "hidden" 0.0;
 			target: "tclock_time";
 		}
-		program { name: "p2";
+		program { "p2";
 			signal: "time_visible";
 			source: "";
 			action: STATE_SET "visible" 0.0;
 			target: "tclock_time";
 		}
-		program { name: "p3";
+		program { "p3";
 			signal: "date_hidden";
 			source: "";
 			action: STATE_SET "hidden" 0.0;
 			target: "tclock_date";
 		}
-		program { name: "p4";
+		program { "p4";
 			signal: "date_visible";
 			source: "";
 			action: STATE_SET "visible" 0.0;

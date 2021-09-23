@@ -254,7 +254,7 @@ group { "e/fileman/default/progress";
 	}
 
 	programs {
-		program { name: "set_need_attention";
+		program { "set_need_attention";
 			signal: "e,action,set,need_attention";
 			source: "e";
 			action: STATE_SET "need_attention" 0.0;
@@ -262,56 +262,56 @@ group { "e/fileman/default/progress";
 			target: "bg";
 			after: "need_loop";
 		}
-		program { name: "need_loop";
+		program { "need_loop";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 1.0;
 			target: "bg";
 			after: "set_need_attention";
 		}
-		program { name: "set_normal";
+		program { "set_normal";
 			signal: "e,action,set,normal";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 1.0;
 			target: "bg";
 		}
-		program { name: "set_icon_unknow";
+		program { "set_icon_unknow";
 			signal: "e,action,icon,unknow";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 		}
-		program { name: "set_icon_copy";
+		program { "set_icon_copy";
 			signal: "e,action,icon,copy";
 			source: "e";
 			action: STATE_SET "copy" 0.0;
 			target: "icon";
 		}
-		program { name: "set_icon_move";
+		program { "set_icon_move";
 			signal: "e,action,icon,move";
 			source: "e";
 			action: STATE_SET "move" 0.0;
 			target: "icon";
 		}
-		program { name: "set_icon_delete";
+		program { "set_icon_delete";
 			signal: "e,action,icon,delete";
 			source: "e";
 			action: STATE_SET "delete" 0.0;
 			target: "icon";
 		}
-		program { name: "bt_abort_down";
+		program { "bt_abort_down";
 			signal: "mouse,down,*";
 			source: "e.event.abort";
 			action: STATE_SET "active" 0.0;
 			target: "bt_abort_bt";
 		}
-		program { name: "bt_abort_up";
+		program { "bt_abort_up";
 			signal: "mouse,up,*";
 			source: "e.event.abort";
 			action: STATE_SET "default" 0.0;
 			target: "bt_abort_bt";
 		}
-		program { name: "bt_abort_click";
+		program { "bt_abort_click";
 			signal: "mouse,clicked,*";
 			source: "e.event.abort";
 			action: SIGNAL_EMIT "e,fm,operation,abort" "";
@@ -708,145 +708,145 @@ group { "e/fileman/default/scrollframe";
 	}
 
 	programs {
-		program { name: "sb_vbar_show";
+		program { "sb_vbar_show";
 			signal: "e,action,show,vbar";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "sb_vbar";
 		}
-		program { name: "sb_vbar_hide";
+		program { "sb_vbar_hide";
 			signal: "e,action,hide,vbar";
 			source: "e";
 			action: STATE_SET "hidden" 0.0;
 			target: "sb_vbar";
 		}
-		program { name: "sb_hbar_show";
+		program { "sb_hbar_show";
 			signal: "e,action,show,hbar";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "sb_hbar";
 		}
-		program { name: "sb_hbar_hide";
+		program { "sb_hbar_hide";
 			signal: "e,action,hide,hbar";
 			source: "e";
 			action: STATE_SET "hidden" 0.0;
 			target: "sb_hbar";
 		}
-		program { name: "sb_vbar_a1_down";
+		program { "sb_vbar_a1_down";
 			signal: "mouse,down,1";
 			source: "sb_vbar_a1";
 			action: STATE_SET "clicked" 0.0;
 			target: "sb_vbar_a1_arrow";
 		}
-		program { name: "sb_vbar_a1_down2";
+		program { "sb_vbar_a1_down2";
 			signal: "mouse,down,1";
 			source: "sb_vbar_a1";
 			action: DRAG_VAL_STEP 0.0 -1.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_a1_up";
+		program { "sb_vbar_a1_up";
 			signal: "mouse,up,1";
 			source: "sb_vbar_a1";
 			action: STATE_SET "default" 0.0;
 			target: "sb_vbar_a1_arrow";
 		}
-		program { name: "sb_vbar_a2_down";
+		program { "sb_vbar_a2_down";
 			signal: "mouse,down,1";
 			source: "sb_vbar_a2";
 			action: STATE_SET "clicked" 0.0;
 			target: "sb_vbar_a2_arrow";
 		}
-		program { name: "sb_vbar_a2_down2";
+		program { "sb_vbar_a2_down2";
 			signal: "mouse,down,1";
 			source: "sb_vbar_a2";
 			action: DRAG_VAL_STEP 0.0 1.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_a2_up";
+		program { "sb_vbar_a2_up";
 			signal: "mouse,up,1";
 			source: "sb_vbar_a2";
 			action: STATE_SET "default" 0.0;
 			target: "sb_vbar_a2_arrow";
 		}
-		program { name: "sb_vbar_p1_down";
+		program { "sb_vbar_p1_down";
 			signal: "mouse,down,1";
 			source: "sb_vbar_p1";
 			action: DRAG_VAL_PAGE 0.0 -1.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_p2_down";
+		program { "sb_vbar_p2_down";
 			signal: "mouse,down,1";
 			source: "sb_vbar_p2";
 			action: DRAG_VAL_PAGE  0.0 1.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_down";
+		program { "sb_vbar_down";
 			signal: "mouse,down,1";
 			source: "e.dragable.vbar";
 			action: STATE_SET "clicked" 0.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_up";
+		program { "sb_vbar_up";
 			signal: "mouse,up,1";
 			source: "e.dragable.vbar";
 			action: STATE_SET "default" 0.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_hbar_a1_down";
+		program { "sb_hbar_a1_down";
 			signal: "mouse,down,1";
 			source: "sb_hbar_a1";
 			action: STATE_SET "clicked" 0.0;
 			target: "sb_hbar_a1_arrow";
 		}
-		program { name: "sb_hbar_a1_down2";
+		program { "sb_hbar_a1_down2";
 			signal: "mouse,down,1";
 			source: "sb_hbar_a1";
 			action: DRAG_VAL_STEP -1.0 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_a1_up";
+		program { "sb_hbar_a1_up";
 			signal: "mouse,up,1";
 			source: "sb_hbar_a1";
 			action: STATE_SET "default" 0.0;
 			target: "sb_hbar_a1_arrow";
 		}
-		program { name: "sb_hbar_a2_down";
+		program { "sb_hbar_a2_down";
 			signal: "mouse,down,1";
 			source: "sb_hbar_a2";
 			action: STATE_SET "clicked" 0.0;
 			target: "sb_hbar_a2_arrow";
 		}
-		program { name: "sb_hbar_a2_down2";
+		program { "sb_hbar_a2_down2";
 			signal: "mouse,down,1";
 			source: "sb_hbar_a2";
 			action: DRAG_VAL_STEP 1.0 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_a2_up";
+		program { "sb_hbar_a2_up";
 			signal: "mouse,up,1";
 			source: "sb_hbar_a2";
 			action: STATE_SET "default" 0.0;
 			target: "sb_hbar_a2_arrow";
 		}
-		program { name: "sb_hbar_p1_down";
+		program { "sb_hbar_p1_down";
 			signal: "mouse,down,1";
 			source: "sb_hbar_p1";
 			action: DRAG_VAL_PAGE -1.0 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_p2_down";
+		program { "sb_hbar_p2_down";
 			signal: "mouse,down,1";
 			source: "sb_hbar_p2";
 			action: DRAG_VAL_PAGE  1.0 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_down";
+		program { "sb_hbar_down";
 			signal: "mouse,down,1";
 			source: "e.dragable.hbar";
 			action: STATE_SET "clicked" 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_up";
+		program { "sb_hbar_up";
 			signal: "mouse,up,1";
 			source: "e.dragable.hbar";
 			action: STATE_SET "default" 0.0;
@@ -1207,146 +1207,146 @@ group { "e/fileman/desktop/scrollframe";
 	}
 
 	programs {
-		program { name: "sb_vbar_show";
+		program { "sb_vbar_show";
 			signal: "e,action,show,vbar";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "sb_vbar";
 		}
-		program { name: "sb_vbar_hide";
+		program { "sb_vbar_hide";
 			signal: "e,action,hide,vbar";
 			source: "e";
 			action: STATE_SET "hidden" 0.0;
 			target: "sb_vbar";
 		}
-		program { name: "sb_hbar_show";
+		program { "sb_hbar_show";
 			signal: "e,action,show,hbar";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "sb_hbar";
 		}
-		program { name: "sb_hbar_hide";
+		program { "sb_hbar_hide";
 			signal: "e,action,hide,hbar";
 			source: "e";
 			action: STATE_SET "hidden" 0.0;
 			target: "sb_hbar";
 		}
 
-		program { name: "sb_vbar_a1_down";
+		program { "sb_vbar_a1_down";
 			signal: "mouse,down,1";
 			source: "sb_vbar_a1";
 			action: STATE_SET "clicked" 0.0;
 			target: "sb_vbar_a1_arrow";
 		}
-		program { name: "sb_vbar_a1_down2";
+		program { "sb_vbar_a1_down2";
 			signal: "mouse,down,1";
 			source: "sb_vbar_a1";
 			action: DRAG_VAL_STEP 0.0 -1.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_a1_up";
+		program { "sb_vbar_a1_up";
 			signal: "mouse,up,1";
 			source: "sb_vbar_a1";
 			action: STATE_SET "default" 0.0;
 			target: "sb_vbar_a1_arrow";
 		}
-		program { name: "sb_vbar_a2_down";
+		program { "sb_vbar_a2_down";
 			signal: "mouse,down,1";
 			source: "sb_vbar_a2";
 			action: STATE_SET "clicked" 0.0;
 			target: "sb_vbar_a2_arrow";
 		}
-		program { name: "sb_vbar_a2_down2";
+		program { "sb_vbar_a2_down2";
 			signal: "mouse,down,1";
 			source: "sb_vbar_a2";
 			action: DRAG_VAL_STEP 0.0 1.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_a2_up";
+		program { "sb_vbar_a2_up";
 			signal: "mouse,up,1";
 			source: "sb_vbar_a2";
 			action: STATE_SET "default" 0.0;
 			target: "sb_vbar_a2_arrow";
 		}
-		program { name: "sb_vbar_p1_down";
+		program { "sb_vbar_p1_down";
 			signal: "mouse,down,1";
 			source: "sb_vbar_p1";
 			action: DRAG_VAL_PAGE 0.0 -1.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_p2_down";
+		program { "sb_vbar_p2_down";
 			signal: "mouse,down,1";
 			source: "sb_vbar_p2";
 			action: DRAG_VAL_PAGE  0.0 1.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_down";
+		program { "sb_vbar_down";
 			signal: "mouse,down,1";
 			source: "e.dragable.vbar";
 			action: STATE_SET "clicked" 0.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_vbar_up";
+		program { "sb_vbar_up";
 			signal: "mouse,up,1";
 			source: "e.dragable.vbar";
 			action: STATE_SET "default" 0.0;
 			target: "e.dragable.vbar";
 		}
-		program { name: "sb_hbar_a1_down";
+		program { "sb_hbar_a1_down";
 			signal: "mouse,down,1";
 			source: "sb_hbar_a1";
 			action: STATE_SET "clicked" 0.0;
 			target: "sb_hbar_a1_arrow";
 		}
-		program { name: "sb_hbar_a1_down2";
+		program { "sb_hbar_a1_down2";
 			signal: "mouse,down,1";
 			source: "sb_hbar_a1";
 			action: DRAG_VAL_STEP -1.0 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_a1_up";
+		program { "sb_hbar_a1_up";
 			signal: "mouse,up,1";
 			source: "sb_hbar_a1";
 			action: STATE_SET "default" 0.0;
 			target: "sb_hbar_a1_arrow";
 		}
-		program { name: "sb_hbar_a2_down";
+		program { "sb_hbar_a2_down";
 			signal: "mouse,down,1";
 			source: "sb_hbar_a2";
 			action: STATE_SET "clicked" 0.0;
 			target: "sb_hbar_a2_arrow";
 		}
-		program { name: "sb_hbar_a2_down2";
+		program { "sb_hbar_a2_down2";
 			signal: "mouse,down,1";
 			source: "sb_hbar_a2";
 			action: DRAG_VAL_STEP 1.0 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_a2_up";
+		program { "sb_hbar_a2_up";
 			signal: "mouse,up,1";
 			source: "sb_hbar_a2";
 			action: STATE_SET "default" 0.0;
 			target: "sb_hbar_a2_arrow";
 		}
-		program { name: "sb_hbar_p1_down";
+		program { "sb_hbar_p1_down";
 			signal: "mouse,down,1";
 			source: "sb_hbar_p1";
 			action: DRAG_VAL_PAGE -1.0 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_p2_down";
+		program { "sb_hbar_p2_down";
 			signal: "mouse,down,1";
 			source: "sb_hbar_p2";
 			action: DRAG_VAL_PAGE  1.0 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_down";
+		program { "sb_hbar_down";
 			signal: "mouse,down,1";
 			source: "e.dragable.hbar";
 			action: STATE_SET "clicked" 0.0;
 			target: "e.dragable.hbar";
 		}
-		program { name: "sb_hbar_up";
+		program { "sb_hbar_up";
 			signal: "mouse,up,1";
 			source: "e.dragable.hbar";
 			action: STATE_SET "default" 0.0;
@@ -1608,14 +1608,14 @@ group { "e/fileman/default/icon/variable";
 						set_int(longpressed, 0);
 		}
 		}
-		program { name: "rename1";
+		program { "rename1";
 			signal: "mouse,down,1"; source: "label_event";
 			in: 0.4 0.0;
 			script {
 						set_int(longpressed, 1);
 			}
 		}
-		program { name: "rename2";
+		program { "rename2";
 			signal: "mouse,up,1"; source: "label_event";
 			script {
 						if (get_int(longpressed)) {
@@ -1624,7 +1624,7 @@ group { "e/fileman/default/icon/variable";
 						}
 			}
 		}
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
@@ -1633,7 +1633,7 @@ group { "e/fileman/default/icon/variable";
 			target: "label2";
 			transition: LINEAR 0.2;
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -1642,25 +1642,25 @@ group { "e/fileman/default/icon/variable";
 			target: "label2";
 			transition: LINEAR 0.1;
 		}
-		program { name: "ask";
+		program { "ask";
 			signal: "e,state,ask";
 			source: "e";
 			action: STATE_SET "ask" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "move";
+		program { "move";
 			signal: "e,state,move";
 			source: "e";
 			action: STATE_SET "move" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "copy";
+		program { "copy";
 			signal: "e,state,copy";
 			source: "e";
 			action: STATE_SET "copy" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "thumb_gen";
+		program { "thumb_gen";
 			signal: "e,action,thumb,gen";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
@@ -1669,7 +1669,7 @@ group { "e/fileman/default/icon/variable";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen-";
+		program { "thumb_gen-";
 			signal: "e,action,thumb,gen,alpha";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -1678,30 +1678,30 @@ group { "e/fileman/default/icon/variable";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen2";
+		program { "thumb_gen2";
 			action: STATE_SET "min" 0.0;
 			target: "icon";
 			after: "thumb_gen3";
 		}
-		program { name: "thumb_gen3";
+		program { "thumb_gen3";
 			action: STATE_SET "max" 0.0;
 			target: "icon";
 			transition: DECELERATE 0.2;
 			after: "thumb_gen4";
 		}
-		program { name: "thumb_gen4";
+		program { "thumb_gen4";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.1;
 			after: "thumb_gen5";
 		}
-		program { name: "thumb_gen5";
+		program { "thumb_gen5";
 			action: STATE_SET "max2" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.2;
 			after: "thumb_gen6";
 		}
-		program { name: "thumb_gen6";
+		program { "thumb_gen6";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.3;
@@ -1935,7 +1935,7 @@ group { "e/fileman/default/icon/fixed";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
@@ -1944,7 +1944,7 @@ group { "e/fileman/default/icon/fixed";
 			target: "label2";
 			transition: LINEAR 0.2;
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -1953,25 +1953,25 @@ group { "e/fileman/default/icon/fixed";
 			target: "label2";
 			transition: LINEAR 0.1;
 		}
-		program { name: "ask";
+		program { "ask";
 			signal: "e,state,ask";
 			source: "e";
 			action: STATE_SET "ask" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "move";
+		program { "move";
 			signal: "e,state,move";
 			source: "e";
 			action: STATE_SET "move" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "copy";
+		program { "copy";
 			signal: "e,state,copy";
 			source: "e";
 			action: STATE_SET "copy" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "thumb_gen";
+		program { "thumb_gen";
 			signal: "e,action,thumb,gen";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
@@ -1980,7 +1980,7 @@ group { "e/fileman/default/icon/fixed";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen-";
+		program { "thumb_gen-";
 			signal: "e,action,thumb,gen,alpha";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -1989,30 +1989,30 @@ group { "e/fileman/default/icon/fixed";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen2";
+		program { "thumb_gen2";
 			action: STATE_SET "min" 0.0;
 			target: "icon";
 			after: "thumb_gen3";
 		}
-		program { name: "thumb_gen3";
+		program { "thumb_gen3";
 			action: STATE_SET "max" 0.0;
 			target: "icon";
 			transition: DECELERATE 0.2;
 			after: "thumb_gen4";
 		}
-		program { name: "thumb_gen4";
+		program { "thumb_gen4";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.1;
 			after: "thumb_gen5";
 		}
-		program { name: "thumb_gen5";
+		program { "thumb_gen5";
 			action: STATE_SET "max2" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.2;
 			after: "thumb_gen6";
 		}
-		program { name: "thumb_gen6";
+		program { "thumb_gen6";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.3;
@@ -2020,7 +2020,7 @@ group { "e/fileman/default/icon/fixed";
 	}
 }
 
-/*	group { name: "e/fileman/desktop/icon/variable";
+/*	group { "e/fileman/desktop/icon/variable";
 			REMOVED */
 
 group { "e/fileman/default/list/variable";
@@ -2259,14 +2259,14 @@ group { "e/fileman/default/list/variable";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "selected";
 			target: "e.text.label";
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -2274,25 +2274,25 @@ group { "e/fileman/default/list/variable";
 			target: "e.text.label";
 			transition: LINEAR 0.1;
 		}
-		program { name: "ask";
+		program { "ask";
 			signal: "e,state,ask";
 			source: "e";
 			action: STATE_SET "ask" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "move";
+		program { "move";
 			signal: "e,state,move";
 			source: "e";
 			action: STATE_SET "move" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "copy";
+		program { "copy";
 			signal: "e,state,copy";
 			source: "e";
 			action: STATE_SET "copy" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "thumb_gen";
+		program { "thumb_gen";
 			signal: "e,action,thumb,gen";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
@@ -2301,7 +2301,7 @@ group { "e/fileman/default/list/variable";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen-";
+		program { "thumb_gen-";
 			signal: "e,action,thumb,gen,alpha";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -2310,30 +2310,30 @@ group { "e/fileman/default/list/variable";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen2";
+		program { "thumb_gen2";
 			action: STATE_SET "min" 0.0;
 			target: "icon";
 			after: "thumb_gen3";
 		}
-		program { name: "thumb_gen3";
+		program { "thumb_gen3";
 			action: STATE_SET "max" 0.0;
 			target: "icon";
 			transition: DECELERATE 0.2;
 			after: "thumb_gen4";
 		}
-		program { name: "thumb_gen4";
+		program { "thumb_gen4";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.1;
 			after: "thumb_gen5";
 		}
-		program { name: "thumb_gen5";
+		program { "thumb_gen5";
 			action: STATE_SET "max2" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.2;
 			after: "thumb_gen6";
 		}
-		program { name: "thumb_gen6";
+		program { "thumb_gen6";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.3;
@@ -2576,14 +2576,14 @@ group { "e/fileman/default/list_odd/variable";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "selected";
 			target: "e.text.label";
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -2591,25 +2591,25 @@ group { "e/fileman/default/list_odd/variable";
 			target: "e.text.label";
 			transition: LINEAR 0.1;
 		}
-		program { name: "ask";
+		program { "ask";
 			signal: "e,state,ask";
 			source: "e";
 			action: STATE_SET "ask" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "move";
+		program { "move";
 			signal: "e,state,move";
 			source: "e";
 			action: STATE_SET "move" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "copy";
+		program { "copy";
 			signal: "e,state,copy";
 			source: "e";
 			action: STATE_SET "copy" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "thumb_gen";
+		program { "thumb_gen";
 			signal: "e,action,thumb,gen";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
@@ -2618,7 +2618,7 @@ group { "e/fileman/default/list_odd/variable";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen-";
+		program { "thumb_gen-";
 			signal: "e,action,thumb,gen,alpha";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -2627,30 +2627,30 @@ group { "e/fileman/default/list_odd/variable";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen2";
+		program { "thumb_gen2";
 			action: STATE_SET "min" 0.0;
 			target: "icon";
 			after: "thumb_gen3";
 		}
-		program { name: "thumb_gen3";
+		program { "thumb_gen3";
 			action: STATE_SET "max" 0.0;
 			target: "icon";
 			transition: DECELERATE 0.2;
 			after: "thumb_gen4";
 		}
-		program { name: "thumb_gen4";
+		program { "thumb_gen4";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.1;
 			after: "thumb_gen5";
 		}
-		program { name: "thumb_gen5";
+		program { "thumb_gen5";
 			action: STATE_SET "max2" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.2;
 			after: "thumb_gen6";
 		}
-		program { name: "thumb_gen6";
+		program { "thumb_gen6";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.3;
@@ -2894,14 +2894,14 @@ group { "e/fileman/default/list/fixed";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "selected";
 			target: "e.text.label";
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -2909,25 +2909,25 @@ group { "e/fileman/default/list/fixed";
 			target: "e.text.label";
 			transition: LINEAR 0.1;
 		}
-		program { name: "ask";
+		program { "ask";
 			signal: "e,state,ask";
 			source: "e";
 			action: STATE_SET "ask" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "move";
+		program { "move";
 			signal: "e,state,move";
 			source: "e";
 			action: STATE_SET "move" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "copy";
+		program { "copy";
 			signal: "e,state,copy";
 			source: "e";
 			action: STATE_SET "copy" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "thumb_gen";
+		program { "thumb_gen";
 			signal: "e,action,thumb,gen";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
@@ -2936,7 +2936,7 @@ group { "e/fileman/default/list/fixed";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen-";
+		program { "thumb_gen-";
 			signal: "e,action,thumb,gen,alpha";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -2945,30 +2945,30 @@ group { "e/fileman/default/list/fixed";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen2";
+		program { "thumb_gen2";
 			action: STATE_SET "min" 0.0;
 			target: "icon";
 			after: "thumb_gen3";
 		}
-		program { name: "thumb_gen3";
+		program { "thumb_gen3";
 			action: STATE_SET "max" 0.0;
 			target: "icon";
 			transition: DECELERATE 0.2;
 			after: "thumb_gen4";
 		}
-		program { name: "thumb_gen4";
+		program { "thumb_gen4";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.1;
 			after: "thumb_gen5";
 		}
-		program { name: "thumb_gen5";
+		program { "thumb_gen5";
 			action: STATE_SET "max2" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.2;
 			after: "thumb_gen6";
 		}
-		program { name: "thumb_gen6";
+		program { "thumb_gen6";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.3;
@@ -3206,14 +3206,14 @@ group { "e/fileman/default/list_odd/fixed";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "selected";
 			target: "e.text.label";
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -3221,25 +3221,25 @@ group { "e/fileman/default/list_odd/fixed";
 			target: "e.text.label";
 			transition: LINEAR 0.1;
 		}
-		program { name: "ask";
+		program { "ask";
 			signal: "e,state,ask";
 			source: "e";
 			action: STATE_SET "ask" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "move";
+		program { "move";
 			signal: "e,state,move";
 			source: "e";
 			action: STATE_SET "move" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "copy";
+		program { "copy";
 			signal: "e,state,copy";
 			source: "e";
 			action: STATE_SET "copy" 0.0;
 			target: "dnd_action";
 		}
-		program { name: "thumb_gen";
+		program { "thumb_gen";
 			signal: "e,action,thumb,gen";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
@@ -3248,7 +3248,7 @@ group { "e/fileman/default/list_odd/fixed";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen-";
+		program { "thumb_gen-";
 			signal: "e,action,thumb,gen,alpha";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -3257,30 +3257,30 @@ group { "e/fileman/default/list_odd/fixed";
 			target: "icon_box_bg";
 			after: "thumb_gen2";
 		}
-		program { name: "thumb_gen2";
+		program { "thumb_gen2";
 			action: STATE_SET "min" 0.0;
 			target: "icon";
 			after: "thumb_gen3";
 		}
-		program { name: "thumb_gen3";
+		program { "thumb_gen3";
 			action: STATE_SET "max" 0.0;
 			target: "icon";
 			transition: DECELERATE 0.2;
 			after: "thumb_gen4";
 		}
-		program { name: "thumb_gen4";
+		program { "thumb_gen4";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.1;
 			after: "thumb_gen5";
 		}
-		program { name: "thumb_gen5";
+		program { "thumb_gen5";
 			action: STATE_SET "max2" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.2;
 			after: "thumb_gen6";
 		}
-		program { name: "thumb_gen6";
+		program { "thumb_gen6";
 			action: STATE_SET "default" 0.0;
 			target: "icon";
 			transition: SINUSOIDAL 0.3;
@@ -3313,14 +3313,14 @@ group { "e/fileman/toolbar/default/base";
 	}
 
 	programs {
-		program { name: "orient1";
+		program { "orient1";
 			signal: "e,state,orientation,top";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "base";
 			target: "e.swallow.content";
 		}
-		program { name: "orient2";
+		program { "orient2";
 			signal: "e,state,orientation,bottom";
 			source: "e";
 			action: STATE_SET "bottom" 0.0;

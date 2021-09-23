@@ -128,14 +128,14 @@ group { "e/modules/clock/digital";
 	}
 
 	programs {
-		program { name: "init";
+		program { "init";
 			signal: "load";
 			source: "";
 			script {
 				clock_cb(0);
 			}
 		}
-		program { name: "today,show";
+		program { "today,show";
 			signal: "e,state,date,on";
 			source: "e";
 			script {
@@ -144,7 +144,7 @@ group { "e/modules/clock/digital";
 				restart_clock();
 			}
 		}
-		program { name: "today,hide";
+		program { "today,hide";
 			signal: "e,state,date,off";
 			source: "e";
 			script {
@@ -153,7 +153,7 @@ group { "e/modules/clock/digital";
 				restart_clock();
 			}
 		}
-		program { name:"secon";
+		program {"secon";
 			signal: "e,state,seconds,on";
 			source: "e";
 			script {
@@ -161,7 +161,7 @@ group { "e/modules/clock/digital";
 				restart_clock();
 			}
 		}
-		program { name: "secoff";
+		program { "secoff";
 			signal: "e,state,seconds,off";
 			source: "e";
 			script {
@@ -169,7 +169,7 @@ group { "e/modules/clock/digital";
 				restart_clock();
 			}
 		}
-		program { name: "24h";
+		program { "24h";
 			signal: "e,state,24h,on";
 			source: "e";
 			script {
@@ -177,7 +177,7 @@ group { "e/modules/clock/digital";
 				restart_clock();
 			}
 		}
-		program { name: "12h";
+		program { "12h";
 			signal: "e,state,24h,off";
 			source: "e";
 			script {
@@ -185,26 +185,26 @@ group { "e/modules/clock/digital";
 				restart_clock();
 			}
 		}
-		program { name: "horizontal";
+		program { "horizontal";
 			signal: "e,state,horizontal";
 			source: "e";
 			action: STATE_SET "horizontal" 0.0;
 			target: "time";
 			after: "horizontal-eval";
 		}
-		program { name: "horizontal-eval";
+		program { "horizontal-eval";
 			script {
 				set_int(horizontal, 1);
 			}
 		}
-		program { name: "vertical";
+		program { "vertical";
 			signal: "e,state,vertical";
 			source: "e";
 			action: STATE_SET "vertical" 0.0;
 			target: "time";
 			after: "vertical-eval";
 		}
-		program { name: "vertical-eval";
+		program { "vertical-eval";
 			script {
 				set_int(horizontal, 0);
 			}
@@ -290,7 +290,7 @@ group { "e/modules/clock/calendar/day";
 		rect { "day"; mouse;
 			desc { "default"; color: "#00000000"; }
 		}
-		program { name: "prev_clicked";
+		program { "prev_clicked";
 			signal: "mouse,clicked,1*"; source: "day";
 			action: SIGNAL_EMIT "e,action,date,get" "";
 		}
@@ -431,17 +431,17 @@ group { "e/modules/clock/calendar";
 				rel2.relative: 0.0 1.0;
 			}
 
-			program { name: "prev_down";
+			program { "prev_down";
 				signal: "mouse,down,1*"; source: "prev";
 				action: STATE_SET "pressed" 0.0;
 				target: "previm";
 			}
-			program { name: "prev_up";
+			program { "prev_up";
 				signal: "mouse,up,1"; source: "prev";
 				action: STATE_SET "default" 0.0;
 				target: "previm";
 			}
-			program { name: "prev_clicked";
+			program { "prev_clicked";
 				signal: "mouse,clicked,1*"; source: "prev";
 				action: SIGNAL_EMIT "e,action,prev" "";
 			}
@@ -469,17 +469,17 @@ group { "e/modules/clock/calendar";
 				rel2.to_y: "e.text.month";
 				rel2.relative: 1.0 1.0;
 			}
-			program { name: "next_down";
+			program { "next_down";
 				signal: "mouse,down,1"; source: "next";
 				action: STATE_SET "pressed" 0.0;
 				target: "nextim";
 			}
-			program { name: "next_up";
+			program { "next_up";
 				signal: "mouse,up,1"; source: "next";
 				action: STATE_SET "default" 0.0;
 				target: "nextim";
 			}
-			program { name: "next_clicked";
+			program { "next_clicked";
 				signal: "mouse,clicked,1"; source: "next";
 				action: SIGNAL_EMIT "e,action,next" "";
 			}

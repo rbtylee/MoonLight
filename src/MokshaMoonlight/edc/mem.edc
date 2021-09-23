@@ -376,7 +376,7 @@ group { "modules/mem/main";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "label_active";
 			source: "*";
 			action: STATE_SET "visible" 0.0;
@@ -384,12 +384,12 @@ group { "modules/mem/main";
 			target: "real_label";
 			target: "swap_label";
 		}
-		program { name: "go_passive2";
+		program { "go_passive2";
 			source: "*";
 			action: ACTION_STOP;
 			target: "go_active";
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "label_passive";
 			source: "";
 			action: STATE_SET "default" 0.0;

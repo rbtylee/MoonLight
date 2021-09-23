@@ -35,14 +35,14 @@ group { "e/pointer/enlightenment/resize_br/color";
 	}
 
 	programs {
-		program { name: "box1";
+		program { "box1";
 			signal: "load"; source: "";
 			action: STATE_SET "p1" 0.0;
 			transition: SINUSOIDAL 0.5;
 			target: "box";
 			after: "box2";
 		}
-		program { name: "box2";
+		program { "box2";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.5;
 			target: "box";
@@ -195,32 +195,32 @@ group { "e/pointer/enlightenment/hand/color";
 	}
 
 	 programs {
-		program { name: "box1";
+		program { "box1";
 			signal: "load"; source: "";
 			action: STATE_SET "p1" 0.0;
 			transition: SINUSOIDAL 0.5;
 			target: "box";
 			after: "box2";
 		}
-		program { name: "box2";
+		program { "box2";
 			action: STATE_SET "p2" 0.0;
 			transition: SINUSOIDAL 0.5;
 			target: "box";
 			after: "box3";
 		}
-		program { name: "box3";
+		program { "box3";
 			action: STATE_SET "p3" 0.0;
 			transition: SINUSOIDAL 0.5;
 			target: "box";
 			after: "box4";
 		}
-		program { name: "box4";
+		program { "box4";
 			action: STATE_SET "p4" 0.0;
 			transition: SINUSOIDAL 0.5;
 			target: "box";
 			after: "box5";
 		}
-		program { name: "box5";
+		program { "box5";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.5;
 			target: "box";

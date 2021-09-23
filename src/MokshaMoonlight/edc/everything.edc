@@ -101,7 +101,7 @@ group { "e/modules/everything/list";
 			}
 			desc { "faded"; inherit; color: "#14141464"; }
 		}
-		rect { name: "list_clip"; clip: "base";
+		rect { "list_clip"; clip: "base";
 			desc { "default"; color: VISIBLE;
 				fixed: 1 1;
 				rel1.relative: 0.0 0.0;
@@ -113,7 +113,7 @@ group { "e/modules/everything/list";
 				rel2.to_x: "base";
 			}
 		}
-		swallow { name: "e.swallow.list"; clip: "list_clip"; mouse;
+		swallow { "e.swallow.list"; clip: "list_clip"; mouse;
 			desc { "default"; min: 32 170;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 0 3;
@@ -128,7 +128,7 @@ group { "e/modules/everything/list";
 				rel2.relative: 0.0 1.0;
 			}
 		}
-		swallow { name: "e.swallow.list2"; clip: "list_clip"; mouse;
+		swallow { "e.swallow.list2"; clip: "list_clip"; mouse;
 			desc { "default"; min: 32 170;
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 0 3;
@@ -146,7 +146,7 @@ group { "e/modules/everything/list";
 	}
 
 	programs {
-		program { name: "blink_off";
+		program { "blink_off";
 			signal: "show";
 			source: "";
 			action: STATE_SET "faded" 0.0;
@@ -154,39 +154,39 @@ group { "e/modules/everything/list";
 			target: "cursor";
 			after: "blink_on";
 		}
-		program { name: "blink_on";
+		program { "blink_on";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.35;
 			target: "cursor";
 			after: "blink_off";
 		}
-		program { name: "show_list";
+		program { "show_list";
 			signal: "e,state,list_show";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
 			target: "base";
 		}
-		program { name: "hide_list";
+		program { "hide_list";
 			signal: "e,state,list_hide";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: ACCELERATE 0.08;
 			target: "base";
 		}
-		program { name: "show_entry";
+		program { "show_entry";
 			signal: "e,state,entry_show";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
 			target: "input_base";
 		}
-		program { name: "hide_entry";
+		program { "hide_entry";
 			signal: "e,state,entry_hide";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.08;
 			target: "input_base";
 		}
-		program { name: "update_list";
+		program { "update_list";
 			signal: "e,signal,update";
 			source: "e";
 			action: STATE_SET "faded" 0.0;
@@ -194,12 +194,12 @@ group { "e/modules/everything/list";
 			target: "bar_clip";
 			after: "update_list2";
 		}
-		program { name: "update_list2";
+		program { "update_list2";
 			action: STATE_SET "default" 0.0;
 			/* transition: SINUSOIDAL 0.15; */
 			target: "bar_clip";
 		}
-		program { name: "slide_left";
+		program { "slide_left";
 			signal: "e,action,slide,left";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -207,17 +207,17 @@ group { "e/modules/everything/list";
 			target: "e.swallow.list2";
 			after: "slide_left2";
 		}
-		program { name: "slide_left2";
+		program { "slide_left2";
 			action: STATE_SET "default" 1.0;
 			transition: ACCELERATE 0.15;
 			target: "e.swallow.list";
 			target: "e.swallow.list2";
 			after: "left_end";
 		}
-		program { name: "left_end";
+		program { "left_end";
 			action: SIGNAL_EMIT "e,action,slide,left,finished" "";
 		}
-		program { name: "slide_right";
+		program { "slide_right";
 			signal: "e,action,slide,right";
 			source: "e";
 			action: STATE_SET "default" 1.0;
@@ -225,17 +225,17 @@ group { "e/modules/everything/list";
 			target: "e.swallow.list2";
 			after: "slide_right2";
 		}
-		program { name: "slide_right2";
+		program { "slide_right2";
 			action: STATE_SET "default" 0.0;
 			transition: ACCELERATE 0.15;
 			target: "e.swallow.list";
 			target: "e.swallow.list2";
 			after: "right_end";
 		}
-		program { name: "right_end";
+		program { "right_end";
 			action: SIGNAL_EMIT "e,action,slide,right,finished" "";
 		}
-		program { name: "slide_default";
+		program { "slide_default";
 			signal: "e,action,slide,default";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -335,7 +335,7 @@ group { "e/modules/everything/main";
 	}
 
 	programs {
-		program { name: "object_selector_hide";
+		program { "object_selector_hide";
 			signal: "e,state,object_selector_hide";
 			source: "e";
 			action: STATE_SET "default" 0.00;
@@ -344,7 +344,7 @@ group { "e/modules/everything/main";
 			target: "subject_selector";
 			target: "action_selector";
 		}
-		program { name: "object_selector_show";
+		program { "object_selector_show";
 			signal: "e,state,object_selector_show";
 			source: "e";
 			action: STATE_SET "wide" 0.00;
@@ -439,7 +439,7 @@ group { "e/modules/everything/selector_item";
 		}
 	}
 	programs {
-		program { name: "sel";
+		program { "sel";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
@@ -448,7 +448,7 @@ group { "e/modules/everything/selector_item";
 			target: "e.text.label";
 			target: "e.text.plugin";
 		}
-		program { name: "unsel";
+		program { "unsel";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -457,7 +457,7 @@ group { "e/modules/everything/selector_item";
 			target: "e.text.label";
 			target: "e.text.plugin";
 		}
-		program { name: "update";
+		program { "update";
 			signal: "e,signal,update";
 			source: "e";
 			action: STATE_SET "faded" 0.0;
@@ -465,12 +465,12 @@ group { "e/modules/everything/selector_item";
 			target: "icon_clip";
 			after: "show_icon";
 		}
-		program { name: "show_icon";
+		program { "show_icon";
 			action: STATE_SET "default" 0.0;
 			transition: ACCELERATE 0.3;
 			target: "icon_clip";
 		}
-		program { name: "thumb_show";
+		program { "thumb_show";
 			signal: "e,action,thumb,show";
 			source: "e";
 			action: STATE_SET "faded" 0.0;
@@ -478,7 +478,7 @@ group { "e/modules/everything/selector_item";
 			target: "icon_clip";
 			after: "thumb_show2";
 		}
-		program { name: "thumb_show2";
+		program { "thumb_show2";
 			action: STATE_SET "default" 0.0;
 			transition: SINUSOIDAL 0.2;
 			target: "icon_clip";
@@ -538,7 +538,7 @@ group { "e/modules/everything/tab_item";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
@@ -547,7 +547,7 @@ group { "e/modules/everything/tab_item";
 			target: "label2";
 			transition: LINEAR 0.1;
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -610,7 +610,7 @@ group { "e/modules/everything/tab_item/back";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
@@ -619,7 +619,7 @@ group { "e/modules/everything/tab_item/back";
 			target: "label2";
 			transition: LINEAR 0.1;
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -768,14 +768,14 @@ group { "e/modules/everything/thumbview/item/thumb";
 	}
 
 	programs {
-		program { name: "sel";
+		program { "sel";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "bg";
 			target: "e.text.label";
 		}
-		program { name: "unsel";
+		program { "unsel";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -783,65 +783,65 @@ group { "e/modules/everything/thumbview/item/thumb";
 			target: "bg";
 			target: "e.text.label";
 		}
-		program { name: "mark";
+		program { "mark";
 			signal: "e,state,marked";
 			source: "e";
 			action: STATE_SET "marked" 0.0;
 			target: "bg_mark";
 			transition: ACCELERATE 0.15;
 		}
-		program { name: "unmark";
+		program { "unmark";
 			signal: "e,state,unmarked";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: LINEAR 0.2;
 			target: "bg_mark";
 		}
-		program { name: "arrow_show";
+		program { "arrow_show";
 			signal: "e,state,browseable";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
 			target: "arrow";
 		}
-		program { name: "thumb_show_delayed";
+		program { "thumb_show_delayed";
 			signal: "e,action,thumb,show_delayed";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "clip";
 			after: "thumb_show2";
 		}
-		program { name: "thumb_show";
+		program { "thumb_show";
 			signal: "e,action,thumb,show";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
 			target: "clip";
 		}
-		program { name: "thumb_show2";
+		program { "thumb_show2";
 			action: STATE_SET "visible" 0.0;
 			transition: DECELERATE 0.1;
 			target: "clip";
 		}
-		program { name: "go_big";
+		program { "go_big";
 			action: STATE_SET "visible" 0.0;
 			target: "over_clip";
 			target: "over";
 			target: "over2";
 			after: "go_big2";
 		}
-		program { name: "go_big2";
+		program { "go_big2";
 			action: STATE_SET "huge" 0.0;
 			transition: DECELERATE 0.4;
 			target: "over_clip";
 			after: "go_big3";
 		}
-		program { name: "go_big3";
+		program { "go_big3";
 			action: STATE_SET "default" 0.0;
 			transition: DECELERATE 0.2;
 			target: "over_clip";
 			target: "over";
 			target: "over2";
 		}
-		program { name: "action_go";
+		program { "action_go";
 			signal: "e,action,go";
 			source: "e";
 			action: ACTION_STOP;
@@ -975,7 +975,7 @@ group { "e/modules/everything/thumbview/item/list";
 	}
 
 	programs {
-		program { name: "sel";
+		program { "sel";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
@@ -984,7 +984,7 @@ group { "e/modules/everything/thumbview/item/list";
 			target: "e.text.detail";
 			transition: ACCELERATE 0.0;
 		}
-		program { name: "unsel";
+		program { "unsel";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -993,47 +993,47 @@ group { "e/modules/everything/thumbview/item/list";
 			target: "e.text.label";
 			target: "e.text.detail";
 		}
-		program { name: "mark";
+		program { "mark";
 			signal: "e,state,marked";
 			source: "e";
 			action: STATE_SET "marked" 0.0;
 			target: "bg_mark";
 			transition: ACCELERATE 0.15;
 		}
-		program { name: "unmark";
+		program { "unmark";
 			signal: "e,state,unmarked";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			transition: LINEAR 0.2;
 			target: "bg_mark";
 		}
-		program { name: "arrow_show";
+		program { "arrow_show";
 			signal: "e,state,browseable";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
 			target: "arrow";
 		}
-		program { name: "thumb_show_delayed";
+		program { "thumb_show_delayed";
 			signal: "e,action,thumb,show_delayed";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
 			target: "clip";
 			transition: DECELERATE 0.1;
 		}
-		program { name: "thumb_show";
+		program { "thumb_show";
 			signal: "e,action,thumb,show";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
 			target: "clip";
 		}
-		program { name: "detail_show";
+		program { "detail_show";
 			signal: "e,state,detail,show";
 			source: "e";
 			action: STATE_SET "detail" 0.0;
 			/* transition: ACCELERATE 0.08; */
 			target: "spacer";
 		}
-		program { name: "detail_hide";
+		program { "detail_hide";
 			signal: "e,state,detail,hide";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -1080,42 +1080,42 @@ group { "e/modules/everything/thumbview/main/window";
 	}
 
 	programs {
-		program { name: "go_into_show";
+		program { "go_into_show";
 			signal: "e,action,show,into";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
 			transition: LINEAR 0.5;
 			target: "right_arrow";
 		}
-		program { name: "go_into_hide";
+		program { "go_into_hide";
 			signal: "e,action,hide,into";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "right_arrow";
 			transition: LINEAR 0.5;
 		}
-		program { name: "go_back_show";
+		program { "go_back_show";
 			signal: "e,action,show,back";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
 			transition: LINEAR 0.5;
 			target: "left_arrow";
 		}
-		program { name: "go_back_hide";
+		program { "go_back_hide";
 			signal: "e,action,hide,back";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "left_arrow";
 			transition: LINEAR 0.5;
 		}
-		program { name: "hiding";
+		program { "hiding";
 			signal: "e,action,hide,list";
 			source: "e";
 			action: STATE_SET "default" 0.0;
 			target: "clip";
 			transition: LINEAR 0.25;
 		}
-		program { name: "showing";
+		program { "showing";
 			signal: "e,action,show,list";
 			source: "e";
 			action: STATE_SET "visible" 0.0;
@@ -1127,8 +1127,7 @@ group { "e/modules/everything/thumbview/main/window";
 
 group { "e/modules/everything/textblock";
 	styles {
-		style {
-			name: "everything_textblock_style";
+		style { "everything_textblock_style";
 			base: "font=Sans font_size=10 align=left color=#000";
 			tag: "hilight" "+ font=Sans:style=Bold color=#0c0c0c";
 			tag: "b" "+ font=Sans:style=Bold font_size=9";

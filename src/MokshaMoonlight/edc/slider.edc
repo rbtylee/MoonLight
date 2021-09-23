@@ -124,31 +124,31 @@ group { "e/widgets/slider_vertical";
 	}
 
 	programs {
-		program { name: "sld_p1_down";
+		program { "sld_p1_down";
 			signal: "mouse,down,1";
 			source: "sld_p1";
 			action: DRAG_VAL_PAGE 0.0 -1.0;
 			target: "e.dragable.slider";
 		}
-		program { name: "sld_p2_down";
+		program { "sld_p2_down";
 			signal: "mouse,down,1";
 			source: "sld_p2";
 			action: DRAG_VAL_PAGE  0.0 1.0;
 			target: "e.dragable.slider";
 		}
-		program { name: "button_down";
+		program { "button_down";
 			signal: "mouse,down,1";
 			source: "e.dragable.slider";
 			action: STATE_SET "clicked" 0.0;
 			target: "button";
 		}
-		program { name: "button_up";
+		program { "button_up";
 			signal: "mouse,up,1";
 			source: "e.dragable.slider";
 			action: STATE_SET "default" 0.0;
 			target: "button";
 		}
-		program { name: "show_label";
+		program { "show_label";
 			signal: "e,action,show,label";
 			source: "e";
 			action: STATE_SET "active" 0.0;
@@ -157,7 +157,7 @@ group { "e/widgets/slider_vertical";
 			target: "label_base";
 			target: "e.text.label";
 		}
-		program { name: "hide_label";
+		program { "hide_label";
 			signal: "e,action,hide,label";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -166,14 +166,14 @@ group { "e/widgets/slider_vertical";
 			target: "label_base";
 			target: "e.text.label";
 		}
-		program { name: "disable";
+		program { "disable";
 			signal: "e,state,disabled";
 			source: "e";
 			action: STATE_SET "disabled" 0.0;
 			target: "clip";
 			target: "event";
 		}
-		program { name: "enable";
+		program { "enable";
 			signal: "e,state,enabled";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -308,31 +308,31 @@ group { "e/widgets/slider_horizontal";
 	}
 
 	programs {
-		program { name: "sld_p1_down";
+		program { "sld_p1_down";
 			signal: "mouse,down,1";
 			source: "sld_p1";
 			action: DRAG_VAL_PAGE -1.0 0.0;
 			target: "e.dragable.slider";
 		}
-		program { name: "sld_p2_down";
+		program { "sld_p2_down";
 			signal: "mouse,down,1";
 			source: "sld_p2";
 			action: DRAG_VAL_PAGE  1.0 0.0;
 			target: "e.dragable.slider";
 		}
-		program { name: "sld_down";
+		program { "sld_down";
 			signal: "mouse,down,1";
 			source: "e.dragable.slider";
 			action: STATE_SET "clicked" 0.0;
 			target: "slider";
 		}
-		program { name: "sld_up";
+		program { "sld_up";
 			signal: "mouse,up,1";
 			source: "e.dragable.slider";
 			action: STATE_SET "default" 0.0;
 			target: "slider";
 		}
-		program { name: "show_label";
+		program { "show_label";
 			signal: "e,action,show,label";
 			source: "e";
 			action: STATE_SET "active" 0.0;
@@ -341,7 +341,7 @@ group { "e/widgets/slider_horizontal";
 			target: "label_base";
 			target: "e.text.label";
 		}
-		program { name: "hide_label";
+		program { "hide_label";
 			signal: "e,action,hide,label";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -350,14 +350,14 @@ group { "e/widgets/slider_horizontal";
 			target: "label_base";
 			target: "e.text.label";
 		}
-		program { name: "disable";
+		program { "disable";
 			signal: "e,state,disabled";
 			source: "e";
 			action: STATE_SET "disabled" 0.0;
 			target: "clip";
 			target: "event";
 		}
-		program { name: "enable";
+		program { "enable";
 			signal: "e,state,enabled";
 			source: "e";
 			action: STATE_SET "default" 0.0;

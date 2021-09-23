@@ -89,19 +89,19 @@ group { "e/widgets/syscon/main";
 	}
 
 	programs {
-		program { name: "button_click";
+		program { "button_click";
 			signal: "mouse,down,1";
 			source: "event";
 			action: STATE_SET "clicked" 0.0;
 			target: "button_image";
 		}
-		program { name: "button_unclick";
+		program { "button_unclick";
 			signal: "mouse,up,1";
 			source: "event";
 			action: STATE_SET "default" 0.0;
 			target: "button_image";
 		}
-		program { name: "button_unclick2";
+		program { "button_unclick2";
 			signal: "mouse,clicked,1";
 			source: "event";
 			action: SIGNAL_EMIT "e,action,close" "";
@@ -182,36 +182,31 @@ group { "e/widgets/syscon/item/button";
 	}
 
 	programs {
-		program {
-			name: "button_click";
+		program { "button_click";
 			signal: "mouse,down,1";
 			source: "button_image";
 			action: STATE_SET "clicked" 0.0;
 			target: "button_image";
 		}
-		program {
-			name: "button_unclick";
+		program { "button_unclick";
 			signal: "mouse,up,1";
 			source: "button_image";
 			action: STATE_SET "default" 0.0;
 			target: "button_image";
 		}
-		program {
-			name: "button_unclick2";
+		program { "button_unclick2";
 			signal: "mouse,clicked,1";
 			source: "button_image";
 			action: SIGNAL_EMIT "e,action,click" "";
 		}
-		program {
-			name: "disable";
+		program { "disable";
 			signal: "e,state,disabled";
 			source: "e";
 			action: STATE_SET "disabled" 0.0;
 			target: "button_image";
 			target: "disabler";
 		}
-		program {
-			name: "enable";
+		program { "enable";
 			signal: "e,state,enabled";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -347,7 +342,7 @@ group { "e/sys/logout";
 	}
 
 	programs {
-		program { name: "busy_anim";
+		program { "busy_anim";
 			signal: "show";
 			source: "";
 			action: STATE_SET "default" 0.0;

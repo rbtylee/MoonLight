@@ -92,7 +92,7 @@ group { "e/widgets/winlist/main";
 	}
 }
 
-group {	"e/widgets/winlist/item";
+group "e/widgets/winlist/item";
 	images.image: "menuitem.png" COMP;
 	images.image: "pager_window.png" COMP;
 	images.image: "pager_window_shaded.png" COMP;
@@ -168,25 +168,25 @@ group {	"e/widgets/winlist/item";
 	}
 
 	programs {
-		program { name: "type1";
+		program { "type1";
 			signal: "e,state,iconified";
 			source: "e";
 			action: STATE_SET "iconified" 0.0;
 			target: "type";
 		}
-		program { name: "type2";
+		program { "type2";
 			signal: "e,state,invisible";
 			source: "e";
 			action: STATE_SET "invisible" 0.0;
 			target: "type";
 		}
-		program { name: "type3";
+		program { "type3";
 			signal: "e,state,shaded";
 			source: "e";
 			action: STATE_SET "shaded" 0.0;
 			target: "type";
 		}
-		program { name: "sel";
+		program { "sel";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
@@ -194,7 +194,7 @@ group {	"e/widgets/winlist/item";
 			target: "bg";
 			target: "e.text.label";
 		}
-		program { name: "unsel";
+		program { "unsel";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;

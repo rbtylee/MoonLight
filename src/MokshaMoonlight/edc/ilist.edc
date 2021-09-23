@@ -56,14 +56,14 @@ group { "e/widgets/ilist";
 		}
 	}
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "selected";
 			target: "e.text.label";
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -148,14 +148,14 @@ group { "e/widgets/ilist_header";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "selected";
 			target: "e.text.label";
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -217,14 +217,14 @@ group { "e/widgets/ilist_header_odd";
 	}
 
 	programs {
-		program { name: "go_active";
+		program { "go_active";
 			signal: "e,state,selected";
 			source: "e";
 			action: STATE_SET "selected" 0.0;
 			target: "selected";
 			target: "e.text.label";
 		}
-		program { name: "go_passive";
+		program { "go_passive";
 			signal: "e,state,unselected";
 			source: "e";
 			action: STATE_SET "default" 0.0;
@@ -239,12 +239,12 @@ group { "e/widgets/ilist/toggle_end";
 	inherit: "e/widgets/radio";
 
 	programs {
-		program { name: "on";
+		program { "on";
 		signal: "e,state,checked"; source: "e";
 		action: STATE_SET "on" 0.0;
 		target: "mark_hold";
 		}
-		program { name: "off";
+		program { "off";
 		signal: "e,state,unchecked"; source: "e";
 		action: STATE_SET "default" 0.0;
 		target: "mark_hold";

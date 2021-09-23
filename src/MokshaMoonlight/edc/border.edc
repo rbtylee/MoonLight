@@ -381,7 +381,7 @@ program { \
 	target: "urgent"; \
 	target: "urgent2"; \
 }		\
-program { name: "shade_hide"; \
+program { "shade_hide"; \
 	action: STATE_SET "hidden" 0.0; \
 	target: "client_clip"; \
 } \
@@ -399,7 +399,7 @@ program { \
 	target: "bottom-left"; \
 	target: "bottom-right"; \
 } \
-program { name: "unshading"; \
+program { "unshading"; \
 	signal: "e,state,unshading"; source: "e"; \
 	action: STATE_SET "default" 0.0; \
 	target: "e.swallow.client"; \
@@ -484,7 +484,7 @@ program { \
 	target: "urgent"; \
 	target: "urgent2"; \
 } \
-program { name: "shade_hide"; \
+program { "shade_hide"; \
 	action: STATE_SET "hidden" 0.0; \
 	target: "client_clip"; \
 } \
@@ -502,7 +502,7 @@ program { \
 	target: "bottom-left"; \
 	target: "bottom-right"; \
 } \
-program { name: "unshading"; \
+program { "unshading"; \
 	signal: "e,state,unshading"; source: "e"; \
 	action: STATE_SET "default" 0.0; \
 	target: "e.swallow.client"; \
