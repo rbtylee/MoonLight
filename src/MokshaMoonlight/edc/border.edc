@@ -1,3 +1,5 @@
+images.image: "bd_top.png" COMP;
+
 #define BORDER(NAME, MIN, MAX, REL1, OFF1, REL2, OFF2, IMG1, RELF1, RELF2, OFFF2) \
 image { NAME; nomouse; 								\
 	desc { "default"; 									\

@@ -1,8 +1,6 @@
 group { "e/modules/pager/popup";
 	alias: "e/modules/pager16/popup";
 	inherit: "e/gadman/popup";
-	images.image: "dia_topshad.png" COMP;
-	//images.image: "bd_top.png" COMP;
 	parts {
 		text { "e.text.label"; nomouse; scale;
 			desc { "default"; color: "#000000";
