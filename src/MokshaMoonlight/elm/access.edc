@@ -1,9 +1,8 @@
-group { name: "elm/access/base/default";
+group { "elm/access/base/default";
 	images.image: "access_glow.png" LOSSY 85;
 	parts {
-		part { name: "block1"; type: RECT; mouse_events:  0;
-			description { state: "default" 0.0;
-				color: 0 0 0 200;
+		rect { "block1"; nomouse;
+			desc { "default"; color: "#000000C8";
 				rel1.to: "base";
 				rel1.offset: -100000 -100000;
 				rel2.to: "base";
@@ -11,9 +10,8 @@ group { name: "elm/access/base/default";
 				rel2.offset: 100000 96;
 			}
 		}
-		part { name: "block2"; type: RECT; mouse_events:  0;
-			description { state: "default" 0.0;
-				color: 0 0 0 200;
+		rect { "block2"; nomouse;
+			desc { "default"; color: "#000000C8";
 				rel1.to: "base";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: -100000 -97;
@@ -21,9 +19,8 @@ group { name: "elm/access/base/default";
 				rel2.offset: 100000 100000;
 			}
 		}
-		part { name: "block3"; type: RECT; mouse_events:  0;
-			description { state: "default" 0.0;
-				color: 0 0 0 200;
+		rect { "block3"; nomouse;
+			desc { "default"; color: "#000000C8";
 				rel1.to: "block1";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 0;
@@ -33,9 +30,8 @@ group { name: "elm/access/base/default";
 				rel2.offset: 96 -1;
 			}
 		}
-		part { name: "block4"; type: RECT; mouse_events:  0;
-			description { state: "default" 0.0;
-				color: 0 0 0 200;
+		rect { "block4"; nomouse;
+			desc { "default"; color: "#000000C8";
 				rel1.to_x: "base";
 				rel1.to_y: "block1";
 				rel1.relative: 1.0 1.0;
@@ -45,8 +41,8 @@ group { name: "elm/access/base/default";
 				rel2.offset: -1 -1;
 			}
 		}
-		part { name: "base"; mouse_events:  0;
-			description { state: "default" 0.0;
+		part { "base"; nomouse;
+			desc { "default";
 				image.normal: "access_glow.png";
 				image.border: 112 112 112 112;
 				rel1.offset: -102 -102;
