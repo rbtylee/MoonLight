@@ -17,7 +17,6 @@
 #  can be found in "/usr/share/common-licenses/GPL-3".
 #
 
-# TO DO test for proper number of arguments
 if [ ! $# -eq 4 ]
   then
     echo "ERROR: Not enough arguments supplied"
