@@ -1,139 +1,106 @@
-group { name: "elm/bubble/top_left/default";
+group { "elm/bubble/top_left/default";
 	alias: "elm/bubble/base/default";
+
 	images.image: "bub_base_tl.png" COMP;
 	images.image: "bub_base_tr.png" COMP;
 	images.image: "bub_base_tl_SH.png" COMP;
 	images.image: "bub_base_tr_SH.png" COMP;
+
 	parts {
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
+		rect { "event";
+			desc { "default"; color: "#00000000"; }
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.icon";
+			desc { "default"; hid;
 				fixed: 1 1;
-				visible: 0;
 				align: 0.0 0.0;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
 				rel1.offset: 2 2;
-				rel2 {
-					to_y: "elm.text";
-					relative: 0.0 1.0;
-					offset: 2 -1;
-				}
+				rel2.to_y: "elm.text";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 2 -1;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { name: "sizer.content"; type: TEXT; mouse_events:  0;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "sizer.content"; nomouse; scale;
+			desc { "default"; hid;
 				fixed: 1 1;
-				visible: 0;
-				text { font: "Sans"; size: 10;
-					min: 0 0;
-					text_class: "bubble";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 0;
+				text.text_class: "bubble";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit;
 				rel1.to: "elm.swallow.icon";
 				rel2.to: "elm.swallow.icon";
-				text {
-					min: 1 1;
-					ellipsis: -1;
-					text: "M";
-					ellipsis: -1;
-				}
+				text.min: 1 1;
+				text.ellipsis: -1;
+				text.text: "M";
+				text.ellipsis: -1;
 			}
 		}
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "elm.text"; effect: SHADOW BOTTOM; nomouse; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: VISIBLE;
 				fixed: 0 1;
 				align: 0.0 0.0;
-				rel1 {
-					to_x: "elm.swallow.icon";
-					relative: 1.0 0.0;
-					offset: 2 2;
-				}
-				rel2 {
-					to_x: "elm.info";
-					relative: 0.0 0.0;
-					offset: -3 2;
-				}
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "label_text";
-				text { font: "Sans:style=Bold"; size: 10;
-					min: 0 1;
-					max: 0 1;
-					align: 0.0 0.0;
-					text_class: "bubble";
-				}
+				rel1.to_x: "elm.swallow.icon";
+				rel1.relative: 1.0 0.0;
+				rel1.offset: 2 2;
+				rel2.to_x: "elm.info";
+				rel2.relative: 0.0 0.0;
+				rel2.offset: -3 2;
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.min: 0 1; text.max: 0 1;
+				text.align: 0.0 0.0;
+				text.text_class: "bubble";
 			}
 		}
-		part { name: "elm.info"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "elm.info"; effect: SHADOW BOTTOM; nomouse; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: "#FFFFFF19";
 				align: 1.0 0.0;
 				fixed: 1 1;
 				rel1.relative: 1.0 0.0;
 				rel1.offset: -3 2;
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -3 2;
-				color: 255 255 255 255;;
-				color3: 255 255 255 25;
-				color_class: "label_text";
-				text { font: "Sans"; size: 10;
-					min: 1 1;
-					max: 1 1;
-					ellipsis: -1;
-					align: 1.0 0.0;
-					text_class: "bubble_info";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 1 1; text.max: 1 1;
+				text.ellipsis: -1;
+				text.align: 1.0 0.0;
+				text.text_class: "bubble_info";
 			}
 		}
-		part { name: "base"; mouse_events:  0;
-			description { state: "default" 0.0;
-				rel1 {
-					to_y: "elm.swallow.icon";
-					relative: 0.0 1.0;
-					offset: 0 0;
-				}
+		part { "base"; nomouse;
+			desc { "default";
+				rel1.to_y: "elm.swallow.icon";
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 0 0;
 				image.normal: "bub_base_tl.png";
 				image.border: 24 8 12 9;
 				image.middle: SOLID;
 				fill.smooth: 0;
 				color: BACADA(TOOLTIP_OPACITY);
 			}
-			description { state: "rtl" 0.0;
-				inherit: "default" 0.0;
+			desc { "rtl"; inherit;
 				image.normal: "bub_base_tr.png";
 				image.border: 8 24 12 9;
 			}
 		}
-		part { name: "base_SH"; mouse_events:  0;
-			description { state: "default" 0.0;
+		part { "base_SH"; nomouse;
+			desc { "default";
 				STAY_ON("base")
 				image.normal: "bub_base_tl_SH.png";
 				image.border: 24 8 12 9;
 				fill.smooth: 1;
 			}
-			description { state: "rtl" 0.0;
-				inherit: "default" 0.0;
+			desc { "rtl"; inherit;
 				image.normal: "bub_base_tr.png";
 				image.border: 8 24 12 9;
 			}
 		}
-		part { name: "elm.swallow.content";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.to: "base";
 				rel1.offset: 5 9;
 				rel2.to: "base";
@@ -141,6 +108,7 @@ group { name: "elm/bubble/top_left/default";
 			}
 		}
 	}
+
 	programs {
 		program {
 			signal: "elm,state,icon,visible"; source: "elm";
@@ -169,84 +137,65 @@ group { name: "elm/bubble/top_left/default";
 	}
 }
 
-group { name: "elm/bubble/top_right/default";
+group { "elm/bubble/top_right/default";
+
 	images.image: "bub_base_tr.png" COMP;
 	images.image: "bub_base_tl.png" COMP;
 	images.image: "bub_base_tr_SH.png" COMP;
 	images.image: "bub_base_tl_SH.png" COMP;
+
 	parts {
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
+		rect { "event";
+			desc { "default"; color: "#00000000"; }
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.icon";
+			desc { "default"; hid;
 				fixed: 1 1;
-				visible: 0;
 				align: 1.0 0.0;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
 				rel1.offset: -3 2;
 				rel1.relative: 1.0 0.0;
-				rel2 {
-					to_y: "elm.text";
-					relative: 1.0 1.0;
-					offset: -3 -1;
-				}
+				rel2.to_y: "elm.text";
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -3 -1;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { name: "sizer.content"; type: TEXT; mouse_events:  0;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "sizer.content"; nomouse; scale;
+			desc { "default"; hid;
 				fixed: 1 1;
-				visible: 0;
-				text { font: "Sans"; size: 10;
-					min: 0 0;
-					text_class: "bubble";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 0;
+				text.text_class: "bubble";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit;
 				rel1.to: "elm.swallow.icon";
 				rel2.to: "elm.swallow.icon";
-				text {
-					min: 1 1;
-					ellipsis: -1;
-					text: "M";
-				}
+				text.min: 1 1;
+				text.ellipsis: -1;
+				text.text: "M";
 			}
 		}
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "elm.text"; effect: SHADOW BOTTOM; nomouse; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: VISIBLE;
 				fixed: 0 1;
 				align: 0.0 0.0;
 				rel1.offset: 2 2;
-				rel2 {
-					to_x: "elm.info";
-					relative: 0.0 0.0;
-					offset: -3 2;
-				}
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "label_text";
-				text { font: "Sans:style=Bold"; size: 10;
-					min: 0 1;
-					max: 0 1;
-					align: 0.0 0.0;
-					text_class: "bubble";
-				}
+				rel2.to_x: "elm.info";
+				rel2.relative: 0.0 0.0;
+				rel2.offset: -3 2;
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.min: 0 1; text.max: 0 1;
+				text.align: 0.0 0.0;
+				text.text_class: "bubble";
 			}
 		}
-		part { name: "elm.info"; type: TEXT; mouse_events: 0;
+		part { "elm.info"; type: TEXT; nomouse;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: "#FFFFFF19";
 				align: 1.0 0.0;
 				fixed: 1 1;
 				rel1.relative: 1.0 0.0;
@@ -254,52 +203,41 @@ group { name: "elm/bubble/top_right/default";
 				rel2.to_x: "elm.swallow.icon";
 				rel2.relative: 0.0 0.0;
 				rel2.offset: -3 2;
-				color: 255 255 255 255;;
-				color3: 255 255 255 25;
-				color_class: "label_text";
-				text { font: "Sans"; size: 10;
-					min: 1 1;
-					max: 1 1;
-					ellipsis: -1;
-					align: 1.0 0.0;
-					text_class: "bubble_info";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 1 1; text.max: 1 1;
+				text.ellipsis: -1;
+				text.align: 1.0 0.0;
+				text.text_class: "bubble_info";
 			}
 		}
-		part { name: "base"; mouse_events:  0;
-			description { state: "default" 0.0;
-				rel1 {
-					to_y: "elm.swallow.icon";
-					relative: 0.0 1.0;
-					offset: 0 0;
-				}
+		part { "base"; nomouse;
+			desc { "default"; color: BACADA(TOOLTIP_OPACITY);
+				rel1.to_y: "elm.swallow.icon";
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 0 0;
 				image.normal: "bub_base_tr.png";
 				image.border: 8 24 12 9;
 				image.middle: SOLID;
 				fill.smooth: 0;
-				color: BACADA(TOOLTIP_OPACITY);
 			}
-			description { state: "rtl" 0.0;
-				inherit: "default" 0.0;
+			desc { "rtl"; inherit;
 				image.normal: "bub_base_tl.png";
 				image.border: 24 8 12 9;
 			}
 		}
-		part { name: "base_SH"; mouse_events:  0;
-			description { state: "default" 0.0;
+		part { "base_SH"; nomouse;
+			desc { "default";
 				STAY_ON("base")
 				image.normal: "bub_base_tr_SH.png";
 				image.border: 8 24 12 9;
 			}
-			description { state: "rtl" 0.0;
-				inherit: "default" 0.0;
+			desc { "rtl"; inherit;
 				image.normal: "bub_base_tl_SH.png";
 				image.border: 24 8 12 9;
 			}
 		}
-		part { name: "elm.swallow.content";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.to: "base";
 				rel1.offset: 5 9;
 				rel2.to: "base";
@@ -307,6 +245,7 @@ group { name: "elm/bubble/top_right/default";
 			}
 		}
 	}
+
 	programs {
 		program {
 			signal: "elm,state,icon,visible"; source: "elm";
@@ -335,140 +274,104 @@ group { name: "elm/bubble/top_right/default";
 	}
 }
 
-group { name: "elm/bubble/bottom_left/default";
+group { "elm/bubble/bottom_left/default";
+
 	images.image: "bub_base_bl.png" COMP;
 	images.image: "bub_base_br.png" COMP;
 	images.image: "bub_base_bl_SH.png" COMP;
 	images.image: "bub_base_br_SH.png" COMP;
+
 	parts {
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
+		rect { "event"; type: RECT;
+			desc { "default"; color: "#00000000"; }
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.icon";
+			desc { "default"; hid;
 				fixed: 1 1;
-				visible: 0;
 				align: 0.0 1.0;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
-				rel1 {
-					to_y: "elm.text";
-					offset: 2 0;
-				}
-				rel2 {
-					relative: 0.0 1.0;
-					offset: 2 -3;
-				}
+				rel1.to_y: "elm.text";
+				rel1.offset: 2 0;
+				rel2.relative: 0.0 1.0;
+				rel2.offset: 2 -3;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { name: "sizer.content"; type: TEXT; mouse_events:  0;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "sizer.content"; nomouse; scale;
+			desc { "default"; hid;
 				fixed: 1 1;
-				visible: 0;
-				text { font: "Sans"; size: 10;
-					min: 0 0;
-					text_class: "bubble";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 0;
+				text.text_class: "bubble";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit;
 				rel1.to: "elm.swallow.icon";
 				rel2.to: "elm.swallow.icon";
-				text {
-					min: 1 1;
-					ellipsis: -1;
-					text: "M";
-				}
+				text.min: 1 1;
+				text.ellipsis: -1;
+				text.text: "M";
 			}
 		}
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "elm.text"; effect: SHADOW BOTTOM; nomouse; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: VISIBLE;
 				fixed: 0 1;
 				align: 0.0 1.0;
-				rel1 {
-					to_x: "elm.swallow.icon";
-					relative: 1.0 1.0;
-					offset: 2 -3;
-				}
-				rel2 {
-					to_x: "elm.info";
-					relative: 0.0 1.0;
-					offset: -3 -3;
-				}
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "label_text";
-				text { font: "Sans:style=Bold"; size: 10;
-					min: 0 1;
-					max: 0 1;
-					align: 0.0 1.0;
-					text_class: "bubble";
-				}
+				rel1.to_x: "elm.swallow.icon";
+				rel1.relative: 1.0 1.0;
+				rel1.offset: 2 -3;
+				rel2.to_x: "elm.info";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: -3 -3;
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.min: 0 1; text.max: 0 1;
+				text.align: 0.0 1.0;
+				text.text_class: "bubble";
 			}
 		}
-		part { name: "elm.info"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "elm.info"; effect: SHADOW BOTTOM; nomouse; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: "#FFFFFF19";
 				align: 1.0 1.0;
 				fixed: 1 1;
 				rel1.relative: 1.0 1.0;
 				rel1.offset: -3 -3;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -3 -3;
-				color: 255 255 255 255;;
-				color3: 255 255 255 25;
-				color_class: "label_text";
-				text { font: "Sans"; size: 10;
-					min: 1 1;
-					max: 1 1;
-					align: 1.0 1.0;
-					ellipsis: -1;
-					text_class: "bubble_info";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 1 1; text.max: 1 1;
+				text.align: 1.0 1.0;
+				text.ellipsis: -1;
+				text.text_class: "bubble_info";
 			}
 		}
-		part { name: "base"; mouse_events:  0;
-			description { state: "default" 0.0;
-			rel2 {
-					to_y: "elm.swallow.icon";
-					relative: 1.0 0.0;
-				}
+		part { "base"; nomouse;
+			desc { "default"; color: BACADA(TOOLTIP_OPACITY);
+				rel2.to_y: "elm.swallow.icon";
+				rel2.relative: 1.0 0.0;
 				image.normal: "bub_base_bl.png";
 				image.border: 24 8 8 13;
 				image.middle: SOLID;
 				fill.smooth: 0;
-				color: BACADA(TOOLTIP_OPACITY);
 			}
-			description { state: "rtl" 0.0;
-				inherit: "default" 0.0;
+			desc { "rtl"; inherit;
 				image.normal: "bub_base_br.png";
 				image.border: 8 24 8 13;
 			}
 		}
-		part { name: "base_SH"; mouse_events:  0;
-			description { state: "default" 0.0;
+		part { "base_SH"; nomouse;
+			desc { "default";
 				STAY_ON("base")
 				image.normal: "bub_base_bl_SH.png";
 				image.border: 24 8 8 13;
 			}
-			description { state: "rtl" 0.0;
-				inherit: "default" 0.0;
+			desc { "rtl"; inherit;
 				image.normal: "bub_base_br_SH.png";
 				image.border: 8 24 8 13;
 			}
 		}
-		part { name: "elm.swallow.content";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.to: "base";
 				rel1.offset: 5 4;
 				rel2.to: "base";
@@ -476,6 +379,7 @@ group { name: "elm/bubble/bottom_left/default";
 			}
 		}
 	}
+
 	programs {
 		program {
 			signal: "elm,state,icon,visible"; source: "elm";
@@ -504,89 +408,63 @@ group { name: "elm/bubble/bottom_left/default";
 	}
 }
 
-group { name: "elm/bubble/bottom_right/default";
+group { "elm/bubble/bottom_right/default";
+
 	images.image: "bub_base_br.png" COMP;
 	images.image: "bub_base_bl.png" COMP;
 	images.image: "bub_base_br_SH.png" COMP;
 	images.image: "bub_base_bl_SH.png" COMP;
 
 	parts {
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
+		rect { "event";
+			desc { "default"; color: "#00000000"; }
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.icon";
+			desc { "default"; hid;
 				fixed: 1 1;
-				visible: 0;
 				align: 1.0 1.0;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
-				rel1 {
-					to_y: "elm.text";
-					offset: -3 0;
-				}
-				rel2 {
-					relative: 1.0 1.0;
-					offset: -3 -3;
-				}
+				rel1.to_y: "elm.text";
+				rel1.offset: -3 0;
+				rel2.relative: 1.0 1.0;
+				rel2.offset: -3 -3;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { name: "sizer.content"; type: TEXT; mouse_events:  0;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "sizer.content"; nomouse; scale;
+			desc { "default"; hid;
 				fixed: 1 1;
-				visible: 0;
-				text { font: "Sans"; size: 10;
-					min: 0 0;
-					text_class: "bubble";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 0;
+				text.text_class: "bubble";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit;
 				rel1.to: "elm.swallow.icon";
 				rel2.to: "elm.swallow.icon";
-				text {
-					min: 1 1;
-					text: "M";
-					ellipsis: -1;
-				}
+				text.min: 1 1;
+				text.text: "M";
+				text.ellipsis: -1;
 			}
 		}
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "elm.text"; effect: SHADOW BOTTOM;  nomouse; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: VISIBLE;
 				fixed: 0 1;
 				align: 0.0 1.0;
-				rel1 {
-					relative: 0.0 1.0;
-					offset: 2 -3;
-				}
-				rel2 {
-					to_x: "elm.info";
-					relative: 0.0 1.0;
-					offset: -3 -3;
-				}
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "label_text";
-				text { font: "Sans:style=Bold"; size: 10;
-					min: 0 1;
-					max: 0 1;
-					align: 0.0 1.0;
-					text_class: "bubble";
-				}
+				rel1.relative: 0.0 1.0;
+				rel1.offset: 2 -3;
+				rel2.to_x: "elm.info";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: -3 -3;
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.min: 0 1; text.max: 0 1;
+				text.align: 0.0 1.0;
+				text.text_class: "bubble";
 			}
 		}
-		part { name: "elm.info"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "elm.info"; effect: SHADOW BOTTOM; nomouse; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: "#FFFFFF19";
 				align: 1.0 1.0;
 				fixed: 1 1;
 				rel1.relative: 1.0 1.0;
@@ -594,50 +472,39 @@ group { name: "elm/bubble/bottom_right/default";
 				rel2.to_x: "elm.swallow.icon";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: -3 -3;
-				color: 255 255 255 255;;
-				color3: 255 255 255 25;
-				color_class: "label_text";
-				text { font: "Sans"; size: 10;
-					min: 1 1;
-					max: 1 1;
-					align: 1.0 1.0;
-					ellipsis: -1;
-					text_class: "bubble_info";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 1 1; text.max: 1 1;
+				text.align: 1.0 1.0;
+				text.ellipsis: -1;
+				text.text_class: "bubble_info";
 			}
 		}
-		part { name: "base"; mouse_events:  0;
-			description { state: "default" 0.0;
-				rel2 {
-					to_y: "elm.swallow.icon";
-					relative: 1.0 0.0;
-				}
+		part { "base"; nomouse;
+			desc { "default"; color: BACADA(TOOLTIP_OPACITY);
+				rel2.to_y: "elm.swallow.icon";
+				rel2.relative: 1.0 0.0;
 				image.normal: "bub_base_br.png";
 				image.border: 8 24 8 13;
 				image.middle: SOLID;
-				color: BACADA(TOOLTIP_OPACITY);
 			}
-			description { state: "rtl" 0.0;
-				inherit: "default" 0.0;
+			desc { "rtl"; inherit;
 				image.normal: "bub_base_bl.png";
 				image.border: 24 8 8 13;
 			}
 		}
-		part { name: "base_SH"; mouse_events:  0;
-			description { state: "default" 0.0;
+		part { "base_SH"; nomouse;
+			desc { "default";
 				STAY_ON("base")
 				image.normal: "bub_base_br_SH.png";
 				image.border: 8 24 8 13;
 			}
-			description { state: "rtl" 0.0;
-				inherit: "default" 0.0;
+			desc { "rtl"; inherit;
 				image.normal: "bub_base_bl_SH.png";
 				image.border: 24 8 8 13;
 			}
 		}
-		part { name: "elm.swallow.content";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.to: "base";
 				rel1.offset: 5 4;
 				rel2.to: "base";
@@ -645,6 +512,7 @@ group { name: "elm/bubble/bottom_right/default";
 			}
 		}
 	}
+
 	programs {
 		program {
 			signal: "elm,state,icon,visible"; source: "elm";
