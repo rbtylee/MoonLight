@@ -1,4 +1,4 @@
-group { name: "elm/check/base/default";
+group { "elm/check/base/default";
 	images.image: "check_base.png" COMP;
 	images.image: "check_on.png" COMP;
 	
@@ -79,35 +79,35 @@ group { name: "elm/check/base/default";
 		}
 	}
 	parts {
-		part { name: "base"; mouse_events: 0;
-		  clip_to: "clip";
-			description { state: "default" 0.0;
+		part { "base"; mouse_events: 0;
+		  clip: "clip";
+			desc { "default";
 				align: 0.0 0.5;
 				min: 18 19;
 				max: 18 19;
 				fixed: 1 1;
 				image.normal: "check_base.png";
 				}
-				description {
+				desc {
 				state: "selected" 0.0;
-				inherit: "default" 0.0;
+				inherit;
 				image.normal: "check_on.png";
 			}
 		}
-	part { name: "clip"; type: RECT;
-			description { state: "default" 0.0;
+	part { "clip"; type: RECT;
+			desc { "default";
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "disabled" 0.0;
+				inherit;
 				color: 255 255 255 100;
 			}
 		}
-		part { name: "elm.swallow.content"; type: SWALLOW;
-			scale: 1;
-			clip_to: "clip";
-			description { state: "default" 0.0;
+		part { "elm.swallow.content"; type: SWALLOW;
+			scale;
+			clip: "clip";
+			desc { "default";
 				fixed: 1 0;
-				visible: 0;
+				hid;
 				align: 0.0 0.5;
 				max: 0 0;
 				rel1.to_x: "base";
@@ -117,26 +117,26 @@ group { name: "elm/check/base/default";
 				rel2.offset: 1 -2;
 				rel2.relative: 1.0 1.0;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "visible" 0.0;
+				inherit;
 				fixed: 0 0;
-				visible: 1;
+				vis;
 				aspect: 1.0 1.0;
 				min: 16 16;
 			}
 		}
-		part { name: "sizer.content"; type: TEXT; mouse_events:  0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "sizer.content"; type: TEXT; nomouse;
+			scale;
+			desc { "default";
 				fixed: 1 1;
-				visible: 0;
+				hid;
 				text { font: "Sans"; size: 10;
 					min: 0 0;
 					text_class: "check_text";
 				}
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "visible" 0.0;
+				inherit;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
 				text {
@@ -145,8 +145,8 @@ group { name: "elm/check/base/default";
 					text: "M";
 				}
 			}
-			description { state: "icononly" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "icononly" 0.0;
+				inherit;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
 				text {
@@ -156,16 +156,16 @@ group { name: "elm/check/base/default";
 				}
 			}
 		}
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
+		part { "elm.text"; type: TEXT; mouse_events: 0;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { "default";
 				rel1.offset: 2 2;
 				rel1.to_x: "elm.swallow.content";
 				rel1.relative: 1.0 0.0;
 				rel2.offset: -3 -3;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "check_text";
 				text { font: "Sans"; size: 10;
 				  min: 0 0;
@@ -173,36 +173,36 @@ group { name: "elm/check/base/default";
 				  text_class: "check";
 				}
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+			desc { state: "disabled" 0.0;
+				inherit;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "check_text_disabled";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "visible" 0.0;
+				inherit;
+				vis;
 				text.min: 1 1;
 					text.ellipsis: -1;
 			}
-			description { state: "disabled_visible" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+			desc { state: "disabled_visible" 0.0;
+				inherit;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "check_text_disabled";
-				visible: 1;
+				vis;
 				text.min: 1 1;
 					text.ellipsis: -1;
 			}
 		}
-		part { name: "event"; type: RECT;
+		part { "event"; type: RECT;
 			ignore_flags: ON_HOLD;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
+			desc { "default";
+				color: "#00000000";
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
+			desc { state: "disabled" 0.0;
+				inherit;
+				hid;
 			}
 		}
 	}
@@ -277,7 +277,7 @@ group { name: "elm/check/base/default";
 #undef DISABLE
 }
 
-group { name: "elm/check/base/toggle";
+group { "elm/check/base/toggle";
 
 	images.image: "slider_runnerh.png" COMP;
 	images.image: "barH.png" COMP;
@@ -415,9 +415,9 @@ group { name: "elm/check/base/toggle";
 		}
 	}
 	parts {
-		part { name: "tog"; type: SPACER;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "tog"; type: SPACER;
+			scale;
+			desc { "default";
 				fixed: 1 0;
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 2 2;
@@ -427,23 +427,23 @@ group { name: "elm/check/base/toggle";
 				max: 106 24;
 			}
 		}
-		part { name: "base";
-			description { state: "default" 0.0;
+		part { "base";
+			desc { "default";
 				image.normal: "slider_runnerh.png";
 				image.border: 4 4 4 4;
 				STAY_ON("tog")
 				fill.smooth: 0;
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-			color: 255 255 255 200;
+			desc { state: "disabled" 0.0;
+				inherit;
+			color: "#FFFFFFC8";
 			}
 		}
 		
-		part { name: "onrect"; mouse_events: 0;
-			scale: 1;
-			clip_to: "tog_clip";
-			description { state: "default" 0.0;
+		part { "onrect"; mouse_events: 0;
+			scale;
+			clip: "tog_clip";
+			desc { "default";
 				rel1.to: "base";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 1 2;
@@ -454,37 +454,37 @@ group { name: "elm/check/base/toggle";
 				image.normal: "barH.png";
 				image.border: 5 5 5 5 ;
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-			color: 255 255 255 200;
+			desc { state: "disabled" 0.0;
+				inherit;
+			color: "#FFFFFFC8";
 			}
 		}
-		part { name: "offrect"; type: RECT; mouse_events: 0;
-			scale: 1;
-			clip_to: "tog_clip";
-			description { state: "default" 0.0;
+		part { "offrect"; type: RECT; mouse_events: 0;
+			scale;
+			clip: "tog_clip";
+			desc { "default";
 				rel1.to: "button";
 				rel1.relative: 0.5 0.0;
 				rel2.to: "base";
 				rel2.relative: 1.0 1.0;
-				color: 0 0 0 0;
+				color: "#00000000";
 			}
 		}
 		
 		
-		part { name: "elm.offtext"; type: TEXT; mouse_events:  0;
+		part { "elm.offtext"; type: TEXT; nomouse;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			clip_to: "tog_clip";
-			description { state: "default" 0.0;
+			scale;
+			clip: "tog_clip";
+			desc { "default";
 				fixed: 1 1;
 				rel1.to: "button";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 2 3;
 				rel2.to: "offrect";
 				rel2.offset: -2 -2;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "border_frame";
 				text { font: "Sans"; size: 10;
 					min: 0 1;
@@ -493,26 +493,26 @@ group { name: "elm/check/base/toggle";
 					text: "OFF";
 				}
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+			desc { state: "disabled" 0.0;
+				inherit;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "button_text_disabled";
 			}
 		}
-		part { name: "elm.ontext"; type: TEXT; mouse_events:  0;
+		part { "elm.ontext"; type: TEXT; nomouse;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			clip_to: "tog_clip";
-			description { state: "default" 0.0;
+			scale;
+			clip: "tog_clip";
+			desc { "default";
 				fixed: 1 1;
 				rel1.to: "onrect";
 				rel1.offset: 4 0;
 				rel2.to: "button";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: -1 -2;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "ilist_item_selected";
 				text { font: "Sans"; size: 10;
 					min: 0 1;
@@ -521,39 +521,39 @@ group { name: "elm/check/base/toggle";
 					text: "ON";
 				}
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+			desc { state: "disabled" 0.0;
+				inherit;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "button_text_disabled";
 			}
 		}
-		part { name: "tog_clip"; type: RECT;
-			description { state: "default" 0.0;
+		part { "tog_clip"; type: RECT;
+			desc { "default";
 				rel1.to: "tog";
 				rel2.to: "tog";
 			}
 		}
-		part { name: "button"; type: RECT;
-			scale: 1;
-			clip_to: "tog_clip";
+		part { "button"; type: RECT;
+			scale;
+			clip: "tog_clip";
 			dragable {
 				x: 1 1 0;
 				y: 0 0 0;
 				confine: "tog";
 			}
-			description { state: "default" 0.0;
+			desc { "default";
 				//fixed: 1 1;
 				rel1.to: "tog";
 				rel2.to: "tog";
 				min: 52 24;
 				max: 52 99999;
-				color: 0 0 0 0;
+				color: "#00000000";
 			}
 		}
 		
-		part { name: "drag_button"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "drag_button"; mouse_events: 0;
+			desc { "default";
 				image.normal: "button-normal.png";
 				image.border: 6 6 6 6;
 				STAY_ON("button")
@@ -561,67 +561,67 @@ group { name: "elm/check/base/toggle";
 				rel2.offset: -1 -2;
 				fill.smooth: 0;
 			}
-			description { state: "over" 0.0;
-			inherit: "default" 0.0;
+			desc { state: "over" 0.0;
+			inherit;
 			image.normal: "button-prelight.png";
 		}
-			description { state: "clicked" 0.0;
-			inherit: "default" 0.0;
+			desc { state: "clicked" 0.0;
+			inherit;
 			image.normal: "button-pressed.png";
 		}
-			description { state: "disabled" 0.0;
-			inherit: "default" 0.0;
+			desc { state: "disabled" 0.0;
+			inherit;
 			image.normal: "button-insensitive.png";
 		}
 		}
 		
 	 
-		part { name: "button_events"; type: RECT;
+		part { "button_events"; type: RECT;
 			dragable.events: "button";
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
+			desc { "default";
+				color: "#00000000";
 			}
 		}
-		part { name: "clip"; type: RECT;
-			description { state: "default" 0.0;
+		part { "clip"; type: RECT;
+			desc { "default";
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "disabled" 0.0;
+				inherit;
 				color: 255 255 255 64;
 			}
 		}
-		part { name: "elm.swallow.content"; type: SWALLOW;
-			scale: 1;
-			clip_to: "clip";
-			description { state: "default" 0.0;
+		part { "elm.swallow.content"; type: SWALLOW;
+			scale;
+			clip: "clip";
+			desc { "default";
 				fixed: 1 0;
-				visible: 0;
+				hid;
 				align: 0.0 0.5;
 				max: 0 0;
 				rel1.offset: 1 1;
 				rel2.offset: 1 -2;
 				rel2.relative: 0.0 1.0;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "visible" 0.0;
+				inherit;
 				fixed: 0 0;
-				visible: 1;
+				vis;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
 				min: 16 16;
 			}
 		}
-		part { name: "sizer.content"; type: TEXT; mouse_events:  0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "sizer.content"; type: TEXT; nomouse;
+			scale;
+			desc { "default";
 				fixed: 1 1;
-				visible: 0;
+				hid;
 				text { font: "Sans"; size: 10;
 					min: 0 0;
 					text_class: "check_text";
 				}
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "visible" 0.0;
+				inherit;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
 				text {
@@ -630,8 +630,8 @@ group { name: "elm/check/base/toggle";
 					text: "M";
 				}
 			}
-			description { state: "icononly" 0.0;
-				inherit: "default" 0.0;
+			desc { state: "icononly" 0.0;
+				inherit;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
 				text {
@@ -641,17 +641,17 @@ group { name: "elm/check/base/toggle";
 				}
 			}
 		}
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
+		part { "elm.text"; type: TEXT; mouse_events: 0;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { "default";
 				rel1.to_x: "elm.swallow.content";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 2 2;
 				rel2.to_x: "tog";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: -5 -3;
-				color: 255 255 255 255;
+				color: VISIBLE;
 				color3: 0 0 0 128;
 				color_class: "check_text";
 				text { font: "Sans"; size: 10;
@@ -660,49 +660,49 @@ group { name: "elm/check/base/toggle";
 				  text_class: "check";
 				}
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+			desc { state: "disabled" 0.0;
+				inherit;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "check_text_disabled";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "visible" 0.0;
+				inherit;
+				vis;
 				text.min: 1 1;
 					text.ellipsis: -1;
 			}
-			description { state: "disabled_visible" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+			desc { state: "disabled_visible" 0.0;
+				inherit;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "check_text_disabled";
-				visible: 1;
+				vis;
 				text.min: 1 1;
 					text.ellipsis: -1;
 			}
 		}
-		part { name: "event"; type: RECT;
+		part { "event"; type: RECT;
 			ignore_flags: ON_HOLD;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
+			desc { "default";
+				color: "#00000000";
 				rel1.to_x: "elm.swallow.content";
 				rel2.to_x: "elm.text";
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
+			desc { state: "disabled" 0.0;
+				inherit;
+				hid;
 			}
 		}
-		part { name: "event2"; type: RECT;
+		part { "event2"; type: RECT;
 			ignore_flags: ON_HOLD;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-				visible: 0;
+			desc { "default";
+				color: "#00000000";
+				hid;
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "disabled" 0.0;
+				inherit;
+				vis;
 			}
 		}
 	}
@@ -746,7 +746,7 @@ group { name: "elm/check/base/toggle";
 				set_drag(PART:"button", drag, 0.0);
 			}
 		}
-		program {      
+		program {     
 			signal: "mouse,clicked,1"; source: "button";
 			script {
 				new Float:dx, Float:dy;
@@ -779,7 +779,7 @@ group { name: "elm/check/base/toggle";
 				set_int(is_drag, 0);
 			}
 		}
-		program { name: "drag_end";
+		program { "drag_end";
 			signal: "mouse,up,1"; source: "button";
 			script {
 				new Float:dx, Float:dy;

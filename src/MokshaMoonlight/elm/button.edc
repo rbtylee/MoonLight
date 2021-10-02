@@ -1,17 +1,19 @@
-group { name: "elm/button/base/default";
+#define ICON     1
+#define LABEL    2
+#define MASK     3
+#define DISABLE  4
+
+group { "elm/button/base/default";
 	data.item: "focus_highlight" "on";
 	alias: "elm/button/base/naviframe/back_btn/default";
 	alias: "elm/button/base/naviframe/back_btn/pager";
+
 	images.image: "button-normal.png" COMP;
 	images.image: "button-pressed.png" COMP;
 	images.image: "button-prelight.png" COMP;
 	images.image: "button-insensitive.png" COMP;
 	images.image: "focus.png" COMP;
 
-#define ICON     1
-#define LABEL    2
-#define MASK     3
-#define DISABLE  4
 	script {
 		public btmode;
 		public eval_mode(m) {
@@ -76,39 +78,32 @@ group { name: "elm/button/base/default";
 			}
 		}
 	}
+
 	parts {
-		part { name: "base";
-			description { state: "default" 0.0;
+		part { "base";
+			desc { "default";
 				image.normal: "button-normal.png";
 				image.border: 6 6 6 6;
 				rel1.offset: 1 2;
 				rel2.offset: -1 -2;
 				fill.smooth: 0;
 			}
-			description { state: "clicked" 0.0;
-			 inherit: "default" 0.0;
-			 image.normal: "button-pressed.png";
-		 }
-		 description { state: "prelight" 0.0;
-			 inherit: "default" 0.0;
-			 image.normal: "button-prelight.png";
-		 }
-		 description { state: "disabled" 0.0;
-			 inherit: "default" 0.0;
-			 image.normal: "button-insensitive.png";
-		 }
-		}
-		part { name: "icon_clip"; type: RECT;
-			description { state: "default" 0.0;
+			desc { "clicked"; inherit;
+				image.normal: "button-pressed.png";
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 64;
+			desc { "prelight"; inherit;
+				image.normal: "button-prelight.png";
+			}
+			desc { "disabled"; inherit;
+				image.normal: "button-insensitive.png";
 			}
 		}
-		part { name: "elm.swallow.content"; type: SWALLOW; mouse_events: 0;
-			clip_to: "icon_clip";
-			description { state: "default" 0.0;
+		rect { "icon_clip";
+			desc { "default"; }
+			desc { "disabled"; inherit; color: "#FFFFFF40"; }
+		}
+		swallow { "elm.swallow.content"; nomouse; clip: "icon_clip";
+			desc { "default"; hid;
 				fixed: 1 0;
 				align: 0.0 0.5;
 				rel1.offset: 6 5;
@@ -116,155 +111,118 @@ group { name: "elm/button/base/default";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 6 -8;
 				rel2.to: "base";
-				visible: 0;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit; vis;
 				fixed: 1 0;
 				aspect: 1.0 1.0;
-				visible: 1;
 			}
-			description { state: "icononly" 0.0;
-				inherit: "default" 0.0;
+			desc { "icononly"; inherit; vis;
 				fixed: 0 0;
 				align: 0.5 0.5;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -7 -8;
-				visible: 1;
 			}
 		}
-		part { name: "sizer.content"; type: TEXT; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
-			  // fixed: 1 1;
-				visible: 0;
-				text { font: "Sans"; size: 10;
-					min: 0 0;
-					text_class: "button_text";
-				}
+		text { "sizer.content"; nomouse; scale;
+			desc { "default"; hid;
+				// fixed: 1 1;
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 0;
+				text.text_class: "button_text";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
-				text {
-					min: 1 1;
-					text: "M";
-					ellipsis: -1;
-				}
+				text.min: 1 1;
+				text.text: "M";
+				text.ellipsis: -1;
 			}
-			description { state: "icononly" 0.0;
-				inherit: "default" 0.0;
+			desc { "icononly"; inherit;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
-				text {
-					min: 1 1;
-					text: "M";
-					ellipsis: -1;
-				}
+				text.min: 1 1;
+				text.text: "M";
+				text.ellipsis: -1;
 			}
 		}
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
-			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "elm.text"; effect: SHADOW BOTTOM; nomouse; scale;
+			desc { "default"; color: VISIBLE; color_class: "button_text"; hid;
+				color3: VISIBLE;
 				rel1.offset: 0 5;
 				rel1.relative: 1.0 0.0;
 				rel1.to_x: "elm.swallow.content";
 				rel1.to_y: "base";
 				rel2.offset: -7 -7;
 				rel2.to: "base";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "button_text";
-				text { font: "Sans"; size: 10;
-					align: 0.5 0.5;
-					min: 0 0;
-					text_class: "button";
-				}
-				visible: 0;
+				text.font: "Sans"; text.size: 10;
+				text.align: 0.5 0.5;
+				text.min: 0 0;
+				text.text_class: "button";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit; vis;
 				rel1.offset: 2 5;
 				text.min: 1 1;
 				text.ellipsis: -1;
-				visible: 1;
 			}
-			description { state: "textonly" 0.0;
-				inherit: "default" 0.0;
+			desc { "textonly"; inherit; vis;
 				text.min: 1 1;
 				text.ellipsis: -1;
-				visible: 1;
 			}
-			description { state: "disabled_visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "disabled_visible"; inherit; vis;
 				rel1.offset: 2 5;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+				color: VISIBLE;
+				color3: VISIBLE;
 				color_class: "button_text_disabled";
 				text.min: 1 1;
 				text.ellipsis: -1;
-				visible: 1;
 			}
-			description { state: "disabled_textonly" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+			desc { "disabled_textonly"; inherit; color: VISIBLE; vis;
 				color_class: "button_text_disabled";
+				color3: VISIBLE;
 				text.min: 1 1;
 				text.ellipsis: -1;
-				visible: 1;
 			}
 		}
-		part { name: "focus"; type: IMAGE; mouse_events: 0;
-		  description { state: "default" 0.0;
-			  image.normal: "focus.png";
-			  STAY_ON("base")
-			  visible: 0;
-		  }
-		  description { state: "focused" 0.0;
-			  inherit: "default" 0.0;
-			  visible: 1;
-		  }
-	  }
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
+		image { "focus"; nomouse;
+			desc { "default"; hid;
+				image.normal: "focus.png";
+				STAY_ON("base")
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+			desc { "focused"; inherit; vis; }
+		}
+		part { "event"; type: RECT;
+			desc { "default"; color: "#00000000"; }
+			desc { "disabled"; inherit; hid; }
 		}
 	}
+
 	programs {
-	  OVER_P("base","event","default","prelight")
-program {
+		 OVER_P("base","event","default","prelight")
+		program {
 			signal: "mouse,down,1"; source: "event";
 			action: SIGNAL_EMIT "elm,action,press" "elm";
 			after: "button_click_anim";
 		}
-		program { name: "button_click_anim";
+		program { "button_click_anim";
 			action: STATE_SET "clicked" 0.0;
 			target: "base";
 		}
-		program { name: "button_unclick";
+		program { "button_unclick";
 			signal: "mouse,up,1"; source: "event";
 			action: SIGNAL_EMIT "elm,action,unpress" "elm";
 			after: "button_unclick_anim";
 		}
-		program { name: "button_unclick_anim";
+		program { "button_unclick_anim";
 			action: STATE_SET "default" 0.0;
 			target: "base";
 		}
-		program { name: "buttonactivate";
+		program { "buttonactivate";
 			signal: "elm,anim,activate"; source: "elm";
 			action: STATE_SET "clicked" 0.0;
-		 target: "base";
+			target: "base";
 			after: "button_unpressed_anim";
 		}
-		program { name: "button_unpressed_anim";
+		program { "button_unpressed_anim";
 			action: STATE_SET "default" 0.0;
 			in: 0.5 0.0;
 			target: "base";
@@ -283,7 +241,7 @@ program {
 			signal: "mouse,clicked,1"; source: "event";
 			action: SIGNAL_EMIT "elm,action,click" "elm";
 		}
-		program { name: "button_text_visible";
+		program { "button_text_visible";
 			signal: "elm,state,text,visible"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -291,7 +249,7 @@ program {
 				eval_mode(m);
 			}
 		}
-		program { name: "button_text_hidden";
+		program { "button_text_hidden";
 			signal: "elm,state,text,hidden"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -299,7 +257,7 @@ program {
 				eval_mode(m);
 			}
 		}
-		program { name: "button_icon_visible";
+		program { "button_icon_visible";
 			signal: "elm,state,icon,visible"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -307,7 +265,7 @@ program {
 				eval_mode(m);
 			}
 		}
-		program { name: "button_icon_hidden";
+		program { "button_icon_hidden";
 			signal: "elm,state,icon,hidden"; source: "elm";
 			action:  STATE_SET "default" 0.0;
 			script {
@@ -316,7 +274,7 @@ program {
 				eval_mode(m);
 			}
 		}
-		program { name: "button_state_disabled";
+		program { "button_state_disabled";
 			signal: "elm,state,disabled"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -324,12 +282,12 @@ program {
 				eval_mode(m);
 			}
 		}
-		program { name: "button_state_disabled2";
+		program { "button_state_disabled2";
 			signal: "elm,state,disabled"; source: "elm";
 			action: STATE_SET "disabled" 0.0;
 			target: "base";
 		}
-		program { name: "button_state_enabled";
+		program { "button_state_enabled";
 			signal: "elm,state,enabled"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -337,7 +295,7 @@ program {
 				eval_mode(m);
 			}
 		}
-		program { name: "button_state_enabled2";
+		program { "button_state_enabled2";
 			signal: "elm,state,enabled"; source: "elm";
 			action: STATE_SET "default" 0.0;
 			target: "base";
@@ -349,33 +307,28 @@ program {
 #undef DISABLE
 }
 
-group { name: "elm/button/base/anchor";
+group { "elm/button/base/anchor";
 	inherit: "elm/button/base/default";
 	parts {
-		part { name: "base";
-			description { state: "default" 0.0;
-				color: TRANSPARENT;
+		part { "base";
+			desc { "default"; color: TRANSPARENT; }
+			desc { "clicked"; inherit; color: VISIBLE;
+				image.normal: "button-pressed.png";
 			}
-			description { state: "clicked" 0.0;
-			 inherit: "default" 0.0;
-			 image.normal: "button-pressed.png";
-			 color: VISIBLE;
-		 }
-		 description { state: "prelight" 0.0;
-			 inherit: "default" 0.0;
-			 image.normal: "button-prelight.png";
-			 color: VISIBLE;
-		 }
+			desc { "prelight"; inherit; color: VISIBLE;
+				image.normal: "button-prelight.png";
+			}
 		}
 	}
 }
 
-group { name: "elm/button/base/colorselector/left/default";
+group { "elm/button/base/colorselector/left/default";
 	inherit: "elm/button/base/default";
 	images.image: "menu_arrow_l_normal.png" COMP;
+
 	parts {
-		part { name: "ic"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "ic"; nomouse;
+			desc { "default";
 				FIXED_SIZE(9,12)
 				image.normal: "menu_arrow_l_normal.png";
 			}
@@ -383,12 +336,13 @@ group { name: "elm/button/base/colorselector/left/default";
 	}
 }
 
-group { name: "elm/button/base/colorselector/right/default";
+group { "elm/button/base/colorselector/right/default";
 	inherit: "elm/button/base/default";
 	images.image: "menu_arrow_normal.png" COMP;
+
 	parts {
-		part { name: "ic"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "ic"; nomouse;
+			desc { "default";
 				FIXED_SIZE(9,12)
 				image.normal: "menu_arrow_normal.png";
 			}
@@ -396,7 +350,7 @@ group { name: "elm/button/base/colorselector/right/default";
 	}
 }
 
-group { name: "elm/button/base/media_player/prev/default";
+group { "elm/button/base/media_player/prev/default";
 	alias: "elm/button/base/media_player/rewind/default";
 	alias: "elm/button/base/media_player/play/default";
 	alias: "elm/button/base/media_player/pause/default";
@@ -422,7 +376,7 @@ group { name: "elm/button/base/media_player/prev/default";
 	inherit: "elm/button/base/anchor";
 }
 
-group { name: "elm/button/base/hoversel_vertical/default";
+group { "elm/button/base/hoversel_vertical/default";
 	inherit: "elm/button/base/default";
 	alias: "elm/button/base/hoversel_vertical/entry";
 	alias: "elm/button/base/hoversel_horizontal/default";
@@ -435,10 +389,9 @@ group { name: "elm/button/base/hoversel_vertical/default";
 	images.image: "menu_arrow_d_normal.png" COMP;
 	images.image: "menu_arrow_d_sel.png" COMP;
 
-
 	parts {
-		part { name: "elm.text"; type: TEXT;
-			description { state: "default" 0.0;
+		part { "elm.text"; type: TEXT;
+			desc { "default";
 				rel1.offset: 0 5;
 				rel1.relative: 1.0 0.0;
 				rel1.to_x: "elm.swallow.content";
@@ -449,56 +402,39 @@ group { name: "elm/button/base/hoversel_vertical/default";
 				rel2.relative: 0.0 1.0;
 				text.text_class: "hoversel";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit; vis;
 				rel1.offset: 2 5;
-				text {
-				min: 1 1;
-				ellipsis: -1;
-				}
-				visible: 1;
-			}
-			description { state: "textonly" 0.0;
-				inherit: "default" 0.0;
 				text.min: 1 1;
 				text.ellipsis: -1;
-				visible: 1;
 			}
-			description { state: "disabled_visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "textonly"; inherit; vis;
+				text.min: 1 1;
+				text.ellipsis: -1;
+			}
+			desc { "disabled_visible"; inherit; vis;
+				color_class: "button_text_disabled";
 				rel1.offset: 2 5;
+				text.min: 1 1;
+				text.ellipsis: -1;
+			}
+			desc { "disabled_textonly"; inherit; vis;
 				color_class: "button_text_disabled";
 				text.min: 1 1;
 				text.ellipsis: -1;
-				visible: 1;
-			}
-			description { state: "disabled_textonly" 0.0;
-				inherit: "default" 0.0;
-				color_class: "button_text_disabled";
-				text.min: 1 1;
-				text.ellipsis: -1;
-				visible: 1;
 			}
 		}
-		part { name: "separator"; mouse_events: 0; type: RECT;
-		description { state: "default" 0.0;
-			rel1.to: "arrow";
-			rel1.offset: -6 -8;
-			rel2.to: "arrow";
-			rel2.relative: 0.0 1.0;
-			rel2.offset: -4 6;
-			min: 1 1;
-			max: 1 999;
-			color: 0 0 0 30;
+		rect { "separator"; nomouse; type: RECT;
+			desc { "default"; min: 1 1; max: 1 999; color: "#0000001E";
+				rel1.to: "arrow";
+				rel1.offset: -6 -8;
+				rel2.to: "arrow";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: -4 6;
+			}
+			desc { "disabled";  inherit; color: "#0000000A"; }
 		}
-		description { state: "disabled" 0.0;
-			inherit: "default";
-			color: 0 0 0 10;
-		}
-
-	  }
-		part { name: "arrow"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "arrow"; nomouse;
+			desc { "default";
 				align: 1.0 0.5;
 				rel1.to: "base";
 				rel1.relative: 1.0 0.0;
@@ -509,48 +445,44 @@ group { name: "elm/button/base/hoversel_vertical/default";
 				image.border: 2 2 1 1;
 				FIXED_SIZE(12,9)
 			}
-			description { state: "clicked" 0.0;
-				inherit: "default" 0.0;
+			desc { "clicked"; inherit;
 				image.normal: "menu_arrow_d_sel.png";
 			}
-			description { state: "disabled" 0.0;
-			inherit: "default";
-			color: 255 255 255 125;
-		}
+			desc { "disabled"; inherit; color: "#FFFFFF7D"; }
 		}
 	}
+
 	programs {
-		program { name: "button_state_disabled2";
+		program { "button_state_disabled2";
 			signal: "elm,state,disabled"; source: "elm";
 			action: STATE_SET "disabled" 0.0;
 			target: "base";
 			target: "arrow";
 			target: "separator";
 		}
-		program { name: "button_state_enabled2";
+		program { "button_state_enabled2";
 			signal: "elm,state,enabled"; source: "elm";
 			action: STATE_SET "default" 0.0;
 			target: "base";
 			target: "arrow";
 			target: "separator";
 		}
-		program { name: "button_click_anim";
+		program { "button_click_anim";
 			target: "arrow";
 		}
-		program { name: "button_unclick_anim";
+		program { "button_unclick_anim";
 			target: "arrow";
 		}
-		program { name: "buttonactivate";
+		program { "buttonactivate";
 			target: "arrow";
 		}
-		program { name: "button_unpressed_anim";
+		program { "button_unpressed_anim";
 			target: "arrow";
 		}
 	}
 }
 
-
-group { name: "elm/button/base/hoversel_vertical_entry/default";
+group { "elm/button/base/hoversel_vertical_entry/default";
 	alias: "elm/button/base/hoversel_vertical_entry/entry";
 
 	images.image: "menuitem.png" COMP;
@@ -616,29 +548,20 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 		}
 	}
 	parts {
-		part { name: "base"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "base"; nomouse;
+			desc { "default"; hid;
 				rel1.offset: -6 0;
 				image.normal: "menuitem.png";
 				image.border: 4 4 4 4;
-				visible: 0;
 			}
-			description { state: "active" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "active"; inherit; vis; }
 		}
-		part { name: "icon_clip"; type: RECT;
-			description { state: "default" 0.0;
-			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 64;
-			}
+		part { "icon_clip"; type: RECT;
+			desc { "default"; }
+			desc { "disabled"; inherit; color: "#FFFFFF40"; }
 		}
-		part { name: "elm.swallow.content"; type: SWALLOW; mouse_events: 0;
-			clip_to: "icon_clip";
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.content"; nomouse; clip: "icon_clip";
+			desc { "default"; hid;
 				fixed: 1 0;
 				align: 0.0 0.5;
 				rel1.offset: 6 6;
@@ -646,141 +569,99 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 6 -3;
 				rel2.to: "base";
-				visible: 0;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit; vis;
 				fixed: 1 0;
 				aspect: 1.0 1.0;
-				visible: 1;
 			}
-			description { state: "icononly" 0.0;
-				inherit: "default" 0.0;
+			desc { "icononly"; inherit; vis;
 				fixed: 0 0;
 				align: 0.5 0.5;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -7 -8;
-				visible: 1;
 			}
 		}
-		part { name: "sizer.content"; type: TEXT; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "sizer.content"; nomouse; scale;
+			desc { "default"; hid;
 				fixed: 1 1;
-				visible: 0;
-				text { font: "Sans"; size: 8;
-					min: 0 0;
-					text_class: "button_text";
-				}
+				text.font: "Sans"; text.size: 8;
+				text.min: 0 0;
+				text.text_class: "button_text";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
-				text {
-					min: 1 1;
-					ellipsis: -1;
-					text: "M";
-				}
+				text.min: 1 1;
+				text.ellipsis: -1;
+				text.text: "M";
 			}
-			description { state: "icononly" 0.0;
-				inherit: "default" 0.0;
+			desc { "icononly"; inherit;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
-				text {
-					min: 1 1;
-					ellipsis: -1;
-					text: "M";
-				}
+				text.min: 1 1;
+				text.ellipsis: -1;
+				text.text: "M";
 			}
 		}
-		part { name: "click_clip"; type: RECT;
-			description { state: "default" 0.0;
-			}
-			description { state: "active" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+		rect { "click_clip";
+			desc { "default"; }
+			desc { "active"; inherit; hid; }
 		}
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
-			scale: 1;
-			clip_to: "click_clip";
-			description { state: "default" 0.0;
+		text { "elm.text"; nomouse; scale; clip: "click_clip";
+			desc { "default"; color_class: "menu_item"; hid;
+				color2: VISIBLE;
 				rel1.offset: 0 0;
 				rel1.relative: 1.0 0.0;
 				rel1.to_x: "elm.swallow.content";
 				rel1.to_y: "base";
 				rel2.offset: -7 -2;
 				rel2.to: "base";
-				color2: 255 255 255 255;
-				color_class: "menu_item";
-				text { font: "Sans"; size: 10;
-					align: 0.0 0.5;
-					min: 0 0;
-					text_class: "button";
-				}
-				visible: 0;
+				text.font: "Sans"; text.size: 10;
+				text.align: 0.0 0.5;
+				text.min: 0 0;
+				text.text_class: "button";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit; vis;
 				rel1.offset: 2 5;
 				text.min: 1 1;
-					text.ellipsis: -1;
-				visible: 1;
+				text.ellipsis: -1;
 			}
-			description { state: "textonly" 0.0;
-				inherit: "default" 0.0;
+			desc { "textonly"; inherit; vis;
 				text.min: 1 1;
-					text.ellipsis: -1;
-				visible: 1;
+				text.ellipsis: -1;
 			}
-			description { state: "disabled_visible" 0.0;
-				inherit: "default" 0.0;
-				rel1.offset: 2 5;
+			desc { "disabled_visible"; inherit; vis;
 				color_class: "menu_item_disabled";
+				rel1.offset: 2 5;
 				text.min: 1 1;
-					text.ellipsis: -1;
-				visible: 1;
+				text.ellipsis: -1;
 			}
-			description { state: "disabled_textonly" 0.0;
-				inherit: "default" 0.0;
+			desc { "disabled_textonly"; inherit; vis;
 				color_class: "menu_item_disabled";
 				text.min: 1 1;
 				text.ellipsis: -1;
-				visible: 1;
 			}
 		}
-		part { name: "label3"; type: TEXT; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "label3"; nomouse; scale; 
+			desc { "default"; color: VISIBLE; hid;
+				color2: VISIBLE;
+				color3: VISIBLE;
+				color_class: "menu_item_active";
 				fixed: 1 1;
 				STAY_ON("elm.text")
-				color: 255 255 255 255;
-				color2: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "menu_item_active";
-				text { font: "Sans"; size: 10;
-					text_source: "elm.text";
-					align: 0.0 0.5;
-					text_class: "hoversel_item";
-				}
-				visible: 0;
+				text.font: "Sans"; text.size: 10;
+				text.text_source: "elm.text";
+				text.align: 0.0 0.5;
+				text.text_class: "hoversel_item";
 			}
-			description { state: "active" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "active"; inherit; vis; }
 		}
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+		rect { "event";
+			desc { "default"; color: "#00000000"; }
+			desc { "disabled"; inherit; hid; }
 		}
 	}
+
 	programs {
 		OVER_P("base","event","default","active")
 		OVER_P("label3","event","default","active")
@@ -789,7 +670,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 			signal: "mouse,down,1"; source: "event";
 			action: SIGNAL_EMIT "elm,action,press" "elm";
 		}
-		program { name: "button_unclick";
+		program { "button_unclick";
 			signal: "mouse,up,1"; source: "event";
 			action: SIGNAL_EMIT "elm,action,unpress" "elm";
 		}
@@ -797,7 +678,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 			signal: "mouse,clicked,1"; source: "event";
 			action: SIGNAL_EMIT "elm,action,click" "elm";
 		}
-		program { name:   "button_text_visible";
+		program {  "button_text_visible";
 			signal: "elm,state,text,visible"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -805,7 +686,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 				eval_mode(m);
 			}
 		}
-		program { name:   "button_text_hidden";
+		program {  "button_text_hidden";
 			signal: "elm,state,text,hidden"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -813,7 +694,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 				eval_mode(m);
 			}
 		}
-		program { name:   "button_icon_visible";
+		program {  "button_icon_visible";
 			signal: "elm,state,icon,visible"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -821,7 +702,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 				eval_mode(m);
 			}
 		}
-		program { name:   "button_icon_hidden";
+		program {  "button_icon_hidden";
 			signal: "elm,state,icon,hidden"; source: "elm";
 			action:  STATE_SET "default" 0.0;
 			script {
@@ -830,7 +711,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 				eval_mode(m);
 			}
 		}
-		program { name:   "button_state_disabled";
+		program {  "button_state_disabled";
 			signal: "elm,state,disabled"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -838,7 +719,7 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 				eval_mode(m);
 			}
 		}
-		program { name:   "button_state_enabled";
+		program {  "button_state_enabled";
 			signal: "elm,state,enabled"; source: "elm";
 			script {
 				new m = get_int(btmode);
@@ -847,24 +728,24 @@ group { name: "elm/button/base/hoversel_vertical_entry/default";
 			}
 		}
 	}
+}
+
+group { "elm/button/base/hoversel_horizontal_entry/default";
+	inherit: "elm/button/base/hoversel_vertical_entry/default";
+	alias: "elm/button/base/hoversel_horizontal_entry/entry";
+
+	parts {
+		part { "base";
+			desc { "default";
+				rel1.offset: 0 0;
+			}
+			desc { "active"; inherit; vis; }
+		}
+	}
+}
+
 #undef ICON
 #undef LABEL
 #undef MASK
 #undef DISABLE
-}
 
-group { name: "elm/button/base/hoversel_horizontal_entry/default";
-	inherit: "elm/button/base/hoversel_vertical_entry/default";
-	alias: "elm/button/base/hoversel_horizontal_entry/entry";
-	parts {
-		part { name: "base";
-			description { state: "default" 0.0;
-				rel1.offset: 0 0;
-			}
-			description { state: "active" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
-		}
-	}
-}

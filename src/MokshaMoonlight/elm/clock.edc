@@ -1,4 +1,4 @@
-group { name: "elm/clock/flipdigit/default";
+group { "elm/clock/flipdigit/default";
 	images.image: "digit_0.png" COMP;
 	images.image: "digit_1.png" COMP;
 	images.image: "digit_2.png" COMP;
@@ -41,38 +41,38 @@ group { name: "elm/clock/flipdigit/default";
 		}
   }
   parts {
-		part { name: "b";
+		part { "b";
 			type: RECT;
-			scale: 1;
+			scale;
 			mouse_events: 1;
-			description { state: "default" 0.0;
-				visible: 0;
+			desc { "default";
+				hid;
 				rel1.relative: 0.0 0.5;
-				color: 0 0 0 0;
+				color: "#00000000";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "visible" 0.0;
+				inherit;
+				vis;
 			}
 		}
-		part { name: "t";
+		part { "t";
 			type: RECT;
-			scale: 1;
+			scale;
 			mouse_events: 1;
-			description { state: "default" 0.0;
-				visible: 0;
+			desc { "default";
+				hid;
 				rel2.relative: 1.0 0.5;
-				color: 0 0 0 0;
+				color: "#00000000";
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "visible" 0.0;
+				inherit;
+				vis;
 			}
 		}
-		part { name: "digit";
+		part { "digit";
 			mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { "default";
 				rel1.to_y: "atop";
 				rel1.relative: 0.0 1.0;
 				rel2.to_y: "abot";
@@ -82,8 +82,8 @@ group { name: "elm/clock/flipdigit/default";
 				color_class: "label_text";
 			}
 #define DIGIT_DESC(_DIGIT) \
-	description { state: _DIGIT 0.0; \
-		inherit: "default" 0.0; \
+	desc { state: _DIGIT 0.0; \
+		inherit; \
 		image.normal: "digit_"_DIGIT".png"; \
 		color_class: "label_text";\
 	}
@@ -99,11 +99,11 @@ group { name: "elm/clock/flipdigit/default";
 			DIGIT_DESC("9")
 		}
 #undef DIGIT_DESC
-		part { name: "atop";
+		part { "atop";
 			mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
-				visible: 0;
+			scale;
+			desc { "default";
+				hid;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 0.2;
 				align: 0.5 0.0;
@@ -111,16 +111,16 @@ group { name: "elm/clock/flipdigit/default";
 				image.normal: "menu_arrow_u_normal.png";
 				FIXED_SIZE(12,9)
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "visible" 0.0;
+				inherit;
+				vis;
 			}
 		}
-		part { name: "abot";
+		part { "abot";
 			mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
-				visible: 0;
+			scale;
+			desc { "default";
+				hid;
 				rel1.relative: 0.0 0.8;
 				rel2.relative: 1.0 1.0;
 				align: 0.5 0.0;
@@ -128,40 +128,40 @@ group { name: "elm/clock/flipdigit/default";
 				image.normal: "menu_arrow_d_normal.png";
 				FIXED_SIZE(12,9)
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "visible" 0.0;
+				inherit;
+				vis;
 			}
 		}
-		part { name: "access.t";
+		part { "access.t";
 			type: RECT;
-			description { state: "default" 0.0;
+			desc { "default";
 				rel1.to: "t";
 				rel2.to: "t";
-				color: 0 0 0 0;
-				visible: 0;
+				color: "#00000000";
+				hid;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "visible" 0.0;
+				inherit;
+				vis;
 			}
 		}
-		part { name: "access.b";
+		part { "access.b";
 			type: RECT;
-			description { state: "default" 0.0;
+			desc { "default";
 				rel1.to: "b";
 				rel2.to: "b";
-				color: 0 0 0 0;
-				visible: 0;
+				color: "#00000000";
+				hid;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "visible" 0.0;
+				inherit;
+				vis;
 			}
 		}
 	}
 	programs {
-		program { name: "load";
+		program { "load";
 			signal: "load";
 			source: "";
 			script {
@@ -170,7 +170,7 @@ group { name: "elm/clock/flipdigit/default";
 				set_int(v0_next, -1);
 			}
 		}
-		program { name: "edit_on";
+		program { "edit_on";
 			signal: "elm,state,edit,on";
 			source: "elm";
 			action: STATE_SET "visible" 0.0;
@@ -179,7 +179,7 @@ group { name: "elm/clock/flipdigit/default";
 			target: "t";
 			target: "b";
 		}
-		program { name: "edit_off";
+		program { "edit_off";
 			signal: "elm,state,edit,off";
 			source: "elm";
 			action: STATE_SET "default" 0.0;
@@ -188,56 +188,56 @@ group { name: "elm/clock/flipdigit/default";
 			target: "t";
 			target: "b";
 		}
-		program { name: "up";
+		program { "up";
 			signal: "mouse,down,1";
 			source: "t";
 			action: SIGNAL_EMIT "elm,action,up,start" "elm";
 		}
-		program { name: "up,stop";
+		program { "up,stop";
 			signal: "mouse,up,1";
 			source: "t";
 			action: SIGNAL_EMIT "elm,action,up,stop" "elm";
 		}
-		program { name: "down";
+		program { "down";
 			signal: "mouse,down,1";
 			source: "b";
 			action: SIGNAL_EMIT "elm,action,down,start" "elm";
 		}
-		program { name: "down,stop";
+		program { "down,stop";
 			signal: "mouse,up,1";
 			source: "b";
 			action: SIGNAL_EMIT "elm,action,down,stop" "elm";
 		}
-		program { name: "access_edit_on";
+		program { "access_edit_on";
 			signal: "elm,state,access,edit,on";
 			source: "elm";
 			action: STATE_SET "visible" 0.0;
 			target: "access.t";
 			target: "access.b";
 		}
-		program { name: "access_edit_off";
+		program { "access_edit_off";
 			signal: "elm,state,access,edit,off";
 			source: "elm";
 			action: STATE_SET "default" 0.0;
 			target: "access.t";
 			target: "access.b";
 		}
-		program { name: "access,up";
+		program { "access,up";
 			signal: "mouse,down,1";
 			source: "access.t";
 			action: SIGNAL_EMIT "elm,action,up,start" "elm";
 		}
-		program { name: "access,up,stop";
+		program { "access,up,stop";
 			signal: "mouse,up,1";
 			source: "access.t";
 			action: SIGNAL_EMIT "elm,action,up,stop" "elm";
 		}
-		program { name: "access,down";
+		program { "access,down";
 			signal: "mouse,down,1";
 			source: "access.b";
 			action: SIGNAL_EMIT "elm,action,down,start" "elm";
 		}
-		program { name: "access,down,stop";
+		program { "access,down,stop";
 			signal: "mouse,up,1";
 			source: "access.b";
 			action: SIGNAL_EMIT "elm,action,down,stop" "elm";
@@ -246,23 +246,23 @@ group { name: "elm/clock/flipdigit/default";
 }
 
 
-group { name: "elm/clock/flipampm/default";
+group { "elm/clock/flipampm/default";
 	inherit: "elm/clock/flipdigit/default";
 
 	images.image: "digit_am.png" COMP;
 	images.image: "digit_pm.png" COMP;
 	parts {
 
-		part { name: "digit";
+		part { "digit";
 			mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;	
+			scale;
+			desc { "default";	
 				aspect: (48/31) (48/31); aspect_preference: BOTH;
 				image.normal: "digit_am.png";
 			}
 #define DIGIT_DESC(_DIGIT, _AMPM) \
-	description { state: _DIGIT 0.0; \
-		inherit: "default" 0.0; \
+	desc { state: _DIGIT 0.0; \
+		inherit; \
 		image.normal: "digit_"_AMPM".png"; \
 		color_class: "label_text";\
 	}
@@ -274,18 +274,18 @@ group { name: "elm/clock/flipampm/default";
 }
 
 #define SWALLOW_PART(_NAME, _R1X, _R1Y, _R2X, _R2Y) \
-	part { name: _NAME; \
+	part { _NAME; \
 		type: SWALLOW; \
-		description { state: "default" 0.0; \
+		desc { "default"; \
 			rel1.relative: _R1X _R1Y; \
 			rel2.relative: _R2X _R2Y; \
 		} \
 	}
 
 #define HOLE_PART(_NAME, _R1X, _R1Y, _R2X, _R2Y, _AX, _AY, _OX, _OY, _W, _H) \
-	part { name: _NAME; \
+	part { _NAME; \
 			mouse_events: 0; \
-			description { state: "default" 0.0; \
+			desc { "default"; \
 				rel1.relative: _R1X _R1Y; \
 				rel1.offset: _OX _OY; \
 				rel2.relative: _R2X _R2Y; \
@@ -299,7 +299,7 @@ group { name: "elm/clock/flipampm/default";
 			} \
 		}
 
-group { name: "elm/clock/base-all/default";
+group { "elm/clock/base-all/default";
 	images.image: "hole_tiny.png" COMP;
 	parts {
 		SWALLOW_PART("d0", 0.0, 0.0, 0.125, 1.0)
@@ -316,7 +316,7 @@ group { name: "elm/clock/base-all/default";
 	}
 }
 
-group { name: "elm/clock/base-seconds/default";
+group { "elm/clock/base-seconds/default";
 	parts {
 		SWALLOW_PART("d0", 0.0, 0.0, 0.142857143, 1.0)
 		SWALLOW_PART("d1", 0.142857143, 0.0, 0.285714286, 1.0)
@@ -332,7 +332,7 @@ group { name: "elm/clock/base-seconds/default";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-group { name: "elm/clock/base-am_pm/default";
+group { "elm/clock/base-am_pm/default";
 	parts {
 		SWALLOW_PART("d0", 0.0, 0.0, 0.181818182, 1.0)
 		SWALLOW_PART("d1", 0.181818182, 0.0, 0.363636364, 1.0)
@@ -345,18 +345,18 @@ group { name: "elm/clock/base-am_pm/default";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
-group { name: "elm/clock/base/default";
+group { "elm/clock/base/default";
 	parts {
-		part { name: "base";
+		part { "base";
 			type: RECT;
 			scale : 1;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-				visible: 0;
+			desc { "default";
+				color: "#00000000";
+				hid;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
+			desc { state: "visible" 0.0;
+				inherit;
+				vis;
 			}
 		}
 		SWALLOW_PART("d0", 0.0, 0.0, 0.222222222, 1.0)
@@ -367,13 +367,13 @@ group { name: "elm/clock/base/default";
 		SWALLOW_PART("d3", 0.777777778, 0.0, 1.0, 1.0)
 	}
 	programs {
-		program { name: "access_on";
+		program { "access_on";
 			signal: "elm,state,access,on";
 			source: "elm";
 			action: STATE_SET "visible" 0.0;
 			target: "base";
 		}
-		program { name: "access_off";
+		program { "access_off";
 			signal: "elm,state,access,off";
 			source: "elm";
 			action: STATE_SET "default" 0.0;
