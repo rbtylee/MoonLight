@@ -47,4 +47,5 @@ cp -r "$icon_src" "$icon_dst/$1"
 
 if which update-icon-caches >/dev/null 2>&1 ; then
   update-icon-caches "$icon_dst/$1"
+fi
 exit 0
