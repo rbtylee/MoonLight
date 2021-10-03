@@ -11,6 +11,7 @@ group { "elm/clock/flipdigit/default";
 	images.image: "digit_9.png" COMP;
 	images.image: "menu_arrow_u_normal.png" COMP;
 	images.image: "menu_arrow_d_normal.png" COMP;
+
 	script {
 		public v0_cur, v0_lock, v0_next;
 
@@ -39,54 +40,34 @@ group { "elm/clock/flipdigit/default";
 				anim(1.0, "animator1", 1);
 			}
 		}
-  }
-  parts {
-		part { "b";
-			type: RECT;
-			scale;
-			mouse_events: 1;
-			desc { "default";
-				hid;
+	}
+
+	parts {
+		rect { "b"; scale; mouse;
+			desc { "default"; color: "#00000000"; hid;
 				rel1.relative: 0.0 0.5;
-				color: "#00000000";
 			}
-			desc { state: "visible" 0.0;
-				inherit;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "t";
-			type: RECT;
-			scale;
-			mouse_events: 1;
-			desc { "default";
-				hid;
+		rect { "t"; scale; mouse;
+			desc { "default"; color: "#00000000"; hid;
 				rel2.relative: 1.0 0.5;
-				color: "#00000000";
 			}
-			desc { state: "visible" 0.0;
-				inherit;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "digit";
-			mouse_events: 0;
-			scale;
-			desc { "default";
+		part { "digit"; nomouse; scale;
+			desc { "default"; color_class: "label_text";
 				rel1.to_y: "atop";
 				rel1.relative: 0.0 1.0;
 				rel2.to_y: "abot";
 				rel2.relative: 1.0 0.0;
 				aspect: (52/72) (52/72); aspect_preference: BOTH;
 				image.normal: "digit_0.png";
-				color_class: "label_text";
 			}
 #define DIGIT_DESC(_DIGIT) \
-	desc { state: _DIGIT 0.0; \
-		inherit; \
-		image.normal: "digit_"_DIGIT".png"; \
-		color_class: "label_text";\
-	}
+			desc { state: _DIGIT 0.0; inherit; color_class: "label_text"; \
+				image.normal: "digit_"_DIGIT".png"; \
+			}
 			DIGIT_DESC("0")
 			DIGIT_DESC("1")
 			DIGIT_DESC("2")
@@ -99,11 +80,8 @@ group { "elm/clock/flipdigit/default";
 			DIGIT_DESC("9")
 		}
 #undef DIGIT_DESC
-		part { "atop";
-			mouse_events: 0;
-			scale;
-			desc { "default";
-				hid;
+		part { "atop"; nomouse; scale;
+			desc { "default"; hid;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 0.2;
 				align: 0.5 0.0;
@@ -111,16 +89,10 @@ group { "elm/clock/flipdigit/default";
 				image.normal: "menu_arrow_u_normal.png";
 				FIXED_SIZE(12,9)
 			}
-			desc { state: "visible" 0.0;
-				inherit;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "abot";
-			mouse_events: 0;
-			scale;
-			desc { "default";
-				hid;
+		part { "abot"; nomouse; scale;
+			desc { "default"; hid;
 				rel1.relative: 0.0 0.8;
 				rel2.relative: 1.0 1.0;
 				align: 0.5 0.0;
@@ -128,38 +100,24 @@ group { "elm/clock/flipdigit/default";
 				image.normal: "menu_arrow_d_normal.png";
 				FIXED_SIZE(12,9)
 			}
-			desc { state: "visible" 0.0;
-				inherit;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "access.t";
-			type: RECT;
-			desc { "default";
+		rect { "access.t";
+			desc { "default"; color: "#00000000"; hid;
 				rel1.to: "t";
 				rel2.to: "t";
-				color: "#00000000";
-				hid;
 			}
-			desc { state: "visible" 0.0;
-				inherit;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "access.b";
-			type: RECT;
-			desc { "default";
+		rect { "access.b";
+			desc { "default"; color: "#00000000";  hid;
 				rel1.to: "b";
 				rel2.to: "b";
-				color: "#00000000";
-				hid;
 			}
-			desc { state: "visible" 0.0;
-				inherit;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
 	}
+
 	programs {
 		program { "load";
 			signal: "load";
@@ -245,27 +203,21 @@ group { "elm/clock/flipdigit/default";
 	}
 }
 
-
 group { "elm/clock/flipampm/default";
 	inherit: "elm/clock/flipdigit/default";
 
 	images.image: "digit_am.png" COMP;
 	images.image: "digit_pm.png" COMP;
 	parts {
-
-		part { "digit";
-			mouse_events: 0;
-			scale;
-			desc { "default";	
+		part { "digit"; nomouse; scale;
+			desc { "default";
 				aspect: (48/31) (48/31); aspect_preference: BOTH;
 				image.normal: "digit_am.png";
 			}
 #define DIGIT_DESC(_DIGIT, _AMPM) \
-	desc { state: _DIGIT 0.0; \
-		inherit; \
-		image.normal: "digit_"_AMPM".png"; \
-		color_class: "label_text";\
-	}
+			desc { state: _DIGIT 0.0; inherit; color_class: "label_text";						\
+				image.normal: "digit_"_AMPM".png";																		\
+			}
 			DIGIT_DESC("0", "am")
 			DIGIT_DESC("1", "pm")
 		}
@@ -274,29 +226,24 @@ group { "elm/clock/flipampm/default";
 }
 
 #define SWALLOW_PART(_NAME, _R1X, _R1Y, _R2X, _R2Y) \
-	part { _NAME; \
-		type: SWALLOW; \
-		desc { "default"; \
-			rel1.relative: _R1X _R1Y; \
-			rel2.relative: _R2X _R2Y; \
-		} \
-	}
+		swallow { _NAME;																													\
+			desc { "default";																												\
+				rel1.relative: _R1X _R1Y;																							\
+				rel2.relative: _R2X _R2Y;																							\
+			}																																				\
+		}
 
 #define HOLE_PART(_NAME, _R1X, _R1Y, _R2X, _R2Y, _AX, _AY, _OX, _OY, _W, _H) \
-	part { _NAME; \
-			mouse_events: 0; \
-			desc { "default"; \
-				rel1.relative: _R1X _R1Y; \
-				rel1.offset: _OX _OY; \
-				rel2.relative: _R2X _R2Y; \
-				rel2.offset: _OX _OY; \
-				align: _AX _AY; \
-				min: _W _H; \
-				max: _W _H; \
-				fixed: 1 1; \
-				image.normal: "hole_tiny.png"; \
-				color_class: "label_text";\
-			} \
+		part { _NAME; nomouse;																										\
+				desc { "default"; min: _W _H; max: _W _H; color_class: "label_text";	\
+					rel1.relative: _R1X _R1Y;																						\
+					rel1.offset: _OX _OY;																								\
+					rel2.relative: _R2X _R2Y;																						\
+					rel2.offset: _OX _OY;																								\
+					align: _AX _AY;																											\
+					fixed: 1 1;																													\
+					image.normal: "hole_tiny.png";																			\
+				}																																			\
 		}
 
 group { "elm/clock/base-all/default";
@@ -331,7 +278,6 @@ group { "elm/clock/base-seconds/default";
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////
 group { "elm/clock/base-am_pm/default";
 	parts {
 		SWALLOW_PART("d0", 0.0, 0.0, 0.181818182, 1.0)
@@ -344,20 +290,11 @@ group { "elm/clock/base-am_pm/default";
 	}
 }
 
-///////////////////////////////////////////////////////////////////////////////
 group { "elm/clock/base/default";
 	parts {
-		part { "base";
-			type: RECT;
-			scale : 1;
-			desc { "default";
-				color: "#00000000";
-				hid;
-			}
-			desc { state: "visible" 0.0;
-				inherit;
-				vis;
-			}
+		rect { "base"; scale;
+			desc { "default"; color: "#00000000"; hid; }
+			desc { "visible"; inherit; vis; }
 		}
 		SWALLOW_PART("d0", 0.0, 0.0, 0.222222222, 1.0)
 		SWALLOW_PART("d1", 0.222222222, 0.0, 0.444444444, 1.0)
@@ -366,6 +303,7 @@ group { "elm/clock/base/default";
 		SWALLOW_PART("d2", 0.555555556, 0.0, 0.777777778, 1.0)
 		SWALLOW_PART("d3", 0.777777778, 0.0, 1.0, 1.0)
 	}
+
 	programs {
 		program { "access_on";
 			signal: "elm,state,access,on";
