@@ -301,10 +301,6 @@ group { "elm/button/base/default";
 			target: "base";
 		}
 	}
-#undef ICON
-#undef LABEL
-#undef MASK
-#undef DISABLE
 }
 
 group { "elm/button/base/anchor";
