@@ -1,35 +1,31 @@
-group { name: "elm/colorselector/palette/default";
+group { "elm/colorselector/palette/default";
 	data.item: "horizontal_pad" 0;
 	data.item: "vertical_pad" 0;
+
 	parts {
-		part { name: "elm.picker"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.picker";
+			desc { "default";
 				fixed: 0 1;
 				align: 0.5 0.0;
 				rel2.relative: 1.0 0.0;
 			}
 		}
-		part { name: "sep1"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "sep1";
+			desc { "default"; min: 1 1; max: 99999 1; color: "#00000014";
 				fixed: 1 1;
 				rel1.to_y: "elm.picker";
 				rel1.offset: 4 4;
 				rel1.relative: 0.0 1.0;
 				rel2.to_y: "elm.picker";
 				rel2.offset: -5 5;
-				min: 1 1;
-				max: 99999 1; 
-			  color: 0 0 0 20;
 			}
-			description { state: "off" 0.0;
-				inherit: "default" 0.0;
+			desc { "off"; inherit; hid;
 				rel1.offset: 4 -2;
 				rel2.offset: -5 -1;
-				visible: 0;
 			}
 		}
-		part { name: "elm.palette"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.palette";
+			desc { "default";
 				align: 0.5 0.0;
 				rel1.to_y: "sep1";
 				rel1.relative: 0.0 1.0;
@@ -38,39 +34,34 @@ group { name: "elm/colorselector/palette/default";
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -1 -5;
 			}
-			description { state: "off" 0.0;
-				inherit: "default" 0.0;
+			desc { "off"; inherit;
 				rel1.offset: 0 0;
 				rel2.offset: -1 -1;
 			}
 		}
-		part { name: "sep2"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "sep2";
+			desc { "default"; min: 1 1; max: 99999 1; color: "#00000014";
 				fixed: 1 1;
 				rel1.to_y: "elm.selector";
 				rel1.offset: 4 -6;
 				rel2.to_y: "elm.selector";
 				rel2.offset: -5 -5;
 				rel2.relative: 1.0 0.0;
-				min: 1 1;
-				max: 99999 1;
-			  color: 0 0 0 20;
 			}
-			description { state: "off" 0.0;
-				inherit: "default" 0.0;
+			desc { "off"; inherit; hid;
 				rel1.offset: 4 0;
 				rel2.offset: -5 1;
-				visible: 0;
 			}
 		}
-		part { name: "elm.selector"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.selector";
+			desc { "default";
 				fixed: 0 1;
 				align: 0.0 1.0;
 				rel1.relative: 0.0 1.0;
 			}
 		}
 	}
+
 	programs {
 		program {
 			source: "elm"; signal: "elm,state,palette";
@@ -83,7 +74,6 @@ group { name: "elm/colorselector/palette/default";
 			action: STATE_SET "default" 0.0;
 			target: "elm.palette";
 		}
-		
 		program {
 			source: "elm"; signal: "elm,state,components";
 			action: STATE_SET "off" 0.0;
@@ -91,7 +81,6 @@ group { name: "elm/colorselector/palette/default";
 			target: "sep2";
 			target: "elm.palette";
 		}
-		
 		program {
 			source: "elm"; signal: "elm,state,both";
 			action: STATE_SET "off" 0.0;
@@ -103,7 +92,6 @@ group { name: "elm/colorselector/palette/default";
 			target: "elm.palette";
 			target: "sep2";
 		}
-		
 		program {
 			source: "elm"; signal: "elm,state,picker";
 			action: STATE_SET "off" 0.0;
@@ -111,7 +99,6 @@ group { name: "elm/colorselector/palette/default";
 			target: "sep2";
 			target: "elm.palette";
 		}
-		
 		program {
 			source: "elm"; signal: "elm,state,all";
 			action: STATE_SET "default" 0.0;
@@ -122,32 +109,28 @@ group { name: "elm/colorselector/palette/default";
 	}
 }
 
-group { name: "elm/colorselector/picker/default";
+group { "elm/colorselector/picker/default";
 	images.image: "inset_sunk.png" COMP;
-	
+
 	parts {
-		
-		part { name: "clipper"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "clipper";
+			desc { "default";
 				rel1.to: "elm.picker";
 				rel2.to: "elm.picker";
 			}
 		}
-		part { name: "elm.picker"; type: SWALLOW;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
-			rel1.offset: 3 3;
+		swallow { "elm.picker"; clip: "clipper";
+			desc { "default";
+				rel1.offset: 3 3;
 				rel2.offset: -4 -4;
 			}
 		}
-		part { name: "bg"; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "bg"; nomouse; scale;
+			desc { "default"; min: 18 18;
 				rel1.offset: -1 -1;
 				rel2.offset: 0 0;
 				rel1.to: "elm.picker";
 				rel2.to: "elm.picker";
-				min: 18 18;
 				image.normal: "inset_sunk.png";
 				image.border: 6 6 6 6;
 				image.middle: 0;
@@ -156,17 +139,17 @@ group { name: "elm/colorselector/picker/default";
 	}
 }
 
-group { name: "elm/colorselector/bg/default";
+group { "elm/colorselector/bg/default";
 	parts {
-		part { name: "elm.colorbar_0"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.colorbar_0";
+			desc { "default";
 				rel2.relative: 1.0 0.0;
 				align: 0.5 0.0;
 				fixed: 0 1;
 			}
 		}
-		part { name: "elm.colorbar_1"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.colorbar_1";
+			desc { "default";
 				rel1.to_y: "elm.colorbar_0";
 				rel1.relative: 0.0 1.0;
 				rel2.to_y: "elm.colorbar_0";
@@ -175,8 +158,8 @@ group { name: "elm/colorselector/bg/default";
 				fixed: 0 1;
 			}
 		}
-		part { name: "elm.colorbar_2"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.colorbar_2";
+			desc { "default";
 				rel1.to_y: "elm.colorbar_1";
 				rel1.relative: 0.0 1.0;
 				rel2.to_y: "elm.colorbar_1";
@@ -185,8 +168,8 @@ group { name: "elm/colorselector/bg/default";
 				fixed: 0 1;
 			}
 		}
-		part { name: "elm.colorbar_3"; type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.colorbar_3";
+			desc { "default";
 				rel1.to_y: "elm.colorbar_2";
 				rel1.relative: 0.0 1.0;
 				align: 0.5 0.0;
@@ -196,28 +179,28 @@ group { name: "elm/colorselector/bg/default";
 }
 
 
-group { name: "elm/colorselector/base/default";
+group { "elm/colorselector/base/default";
 	images.image: "inset_sunk.png" COMP;
 	images.image: "ring_shadow.png" COMP;
 	images.image: "ring_white_blue_glow.png" COMP;
+
 	parts {
-		part { name: "elm.bar_bg"; type: SWALLOW; mouse_events: 0;
-			description { state: "default" 0.0;
-				min: 32 15;
+		swallow { "elm.bar_bg"; nomouse;
+			desc { "default"; min: 32 15;
 				rel1.offset: 0 10;
 				rel1.to_x: "elm.arrow_bg";
 				rel2.offset: -1 -11;
 				rel2.to_x: "elm.arrow_bg";
 			}
 		}
-		part { name: "elm.bar"; type: SWALLOW; mouse_events: 0;
-			description { state: "default" 0.0;
+		swallow { "elm.bar"; nomouse;
+			desc { "default";
 				rel1.to: "elm.bar_bg";
 				rel2.to: "elm.bar_bg";
 			}
 		}
-		part { name: "shadow"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "shadow"; nomouse;
+			desc { "default";
 				image.normal: "inset_sunk.png";
 				image.border: 6 6 6 6;
 				image.middle: 0;
@@ -228,45 +211,36 @@ group { name: "elm/colorselector/base/default";
 				fill.smooth: 0;
 			}
 		}
-		part { name: "elm.arrow_bg"; type: SWALLOW;
-			description { state: "default" 0.0;
-				rel1 {
-					relative: 1.0 0.0;
-					offset: 6 0;
-					to_x: "elm.l_button";
-				}
-				rel2 {
-					relative: 0.0 1.0;
-					offset: -6 0;
-					to_x: "elm.r_button";
-				}
+		swallow { "elm.arrow_bg";
+			desc { "default";
+				rel1.relative: 1.0 0.0;
+				rel1.offset: 6 0;
+				rel1.to_x: "elm.l_button";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: -6 0;
+				rel2.to_x: "elm.r_button";
 			}
 		}
-		part { name: "elm.arrow"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "elm.arrow";
+			desc { "default"; min: 1 1; hid;
 				fixed: 1 1;
-				min: 1 1;
 				rel1.to_x: "elm.arrow_bg";
 				rel2.to_x: "elm.arrow_bg";
-				visible: 0;
 			}
-			dragable {
-				confine: "elm.arrow_bg";
-				x: 1 1 0;
-				y: 0 0 0;
-			}
+			dragable.confine: "elm.arrow_bg";
+			dragable.x: 1 1 0;
+			dragable.y: 0 0 0;
 		}
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "event";
+			desc { "default"; color: "#00000000";
 				rel1.to: "elm.arrow_icon";
 				rel2.to_x: "elm.arrow_icon";
 				rel2.to_y: "elm.arrow_bg";
-				color: 0 0 0 0;
 			}
 			dragable.events: "elm.arrow";
 		}
-		part { name: "arrow_under"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "arrow_under"; nomouse;
+			desc { "default";
 				image.normal: "ring_shadow.png";
 				rel1.to: "elm.arrow_icon";
 				rel1.offset: -2 -3;
@@ -274,12 +248,9 @@ group { name: "elm/colorselector/base/default";
 				rel2.offset: 1 1;
 			}
 		}
-		part { name: "elm.arrow_icon"; type: SWALLOW; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		swallow { "elm.arrow_icon"; nomouse; scale;
+			desc { "default"; min: 16 16; max: 16 16;
 				fixed: 1 1;
-				min: 16 16;
-				max: 16 16;
 				align: 0.5 (28/32);
 				rel1.to_x: "elm.arrow";
 				rel1.to_y: "shadow";
@@ -288,17 +259,16 @@ group { name: "elm/colorselector/base/default";
 				rel2.to_y: "shadow";
 			}
 		}
-		part { name: "arrow_over"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "arrow_over"; nomouse;
+			desc { "default";
 				image.normal: "ring_white_blue_glow.png";
 				rel1.to: "elm.arrow_icon";
 				rel2.to: "elm.arrow_icon";
 			}
 		}
-		part { name: "cursor"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "cursor";
+			desc { "default"; min: 1 1; color: "#FFFFFF96";
 				fixed: 1 1;
-				min: 1 1;
 				rel1.to_x: "elm.arrow_icon";
 				rel1.to_y: "shadow";
 				rel1.relative: 0.5 0.0;
@@ -306,23 +276,18 @@ group { name: "elm/colorselector/base/default";
 				rel2.to_y: "shadow";
 				rel2.relative: 0.5 1.0;
 				rel2.offset: 0 -1;
-				color: 255 255 255 150;
 			}
 			dragable.events: "elm.arrow";
 		}
-		part { name: "elm.arrow_bg_access"; type: RECT;
-			repeat_events: 1;
-			description { state: "default" 0.0;
+		rect { "elm.arrow_bg_access"; repeat;
+			desc { "default"; color: "#00000000";
 				rel1.to: "elm.arrow_bg";
 				rel2.to: "elm.arrow_bg";
-				color: 0 0 0 0;
 			}
 		}
-		part { name: "elm.l_button"; type: SWALLOW;
-			scale: 1;
-			description { state: "default" 0.0;
+		swallow { "elm.l_button"; scale;
+			desc { "default"; min: 20 20;
 				fixed: 1 1;
-				min: 20 20;
 				rel1.relative: 0.0 0.0;
 				rel1.to_y: "elm.bar_bg";
 				rel2.relative: 0.0 1.0;
@@ -330,11 +295,9 @@ group { name: "elm/colorselector/base/default";
 				align: 0.0 0.5;
 			}
 		}
-		part { name: "elm.r_button"; type: SWALLOW;
-			scale: 1;
-			description { state: "default" 0.0;
+		swallow { "elm.r_button"; scale;
+			desc { "default"; min: 20 20;
 				fixed: 1 1;
-				min: 20 20;
 				rel1.relative: 1.0 0.0;
 				rel1.to_y: "elm.bar_bg";
 				rel2.relative: 1.0 1.0;
@@ -345,11 +308,12 @@ group { name: "elm/colorselector/base/default";
 	}
 }
 
-group { name: "elm/colorselector/arrow/default";
+group { "elm/colorselector/arrow/default";
 	images.image: "ring_white_middle.png" COMP;
+
 	parts {
-		part { name: "base";
-			description { state: "default" 0.0;
+		part { "base";
+			desc { "default";
 				aspect: 1.0 1.0; aspect_preference: BOTH;
 				image.normal: "ring_white_middle.png";
 			}
@@ -357,14 +321,12 @@ group { name: "elm/colorselector/arrow/default";
 	}
 }
 
-group{ name: "elm/colorselector/image/colorbar_0/default";
-	images {
-		image: "color_picker_color.png" COMP;
-	}
+group{ "elm/colorselector/image/colorbar_0/default";
+	images.image: "color_picker_color.png" COMP;
+
 	parts {
-		part { name: "colorbar_0_image";
-			type: IMAGE;
-			description { state: "default" 0.0;
+		image { "colorbar_0_image";
+			desc { "default";
 				rel2.offset: -1 -1;
 				image.normal: "color_picker_color.png";
 			}
@@ -372,76 +334,70 @@ group{ name: "elm/colorselector/image/colorbar_0/default";
 	}
 }
 
-group { name: "elm/colorselector/image/colorbar_1/default";
+group { "elm/colorselector/image/colorbar_1/default";
 	images.image: "color_picker_opacity.png" COMP;
+
 	parts {
-		part { name: "colorbar_1_image";
-			description { state: "default" 0.0;
+		part { "colorbar_1_image";
+			desc { "default";
 				image.normal: "color_picker_opacity.png";
 			}
 		}
 	}
 }
 
-group { name: "elm/colorselector/image/colorbar_2/default";
+group { "elm/colorselector/image/colorbar_2/default";
 	images.image: "color_picker_brightness.png" COMP;
 	parts {
-		part { name: "colorbar_2_image";
-			description { state: "default" 0.0;
+		part { "colorbar_2_image";
+			desc { "default";
 				image.normal: "color_picker_brightness.png";
 			}
 		}
 	}
 }
 
-group { name: "elm/colorselector/image/colorbar_3/default";
+group { "elm/colorselector/image/colorbar_3/default";
 	images.image: "color_picker_alpha.png" COMP;
+
 	parts {
-		part { name: "colorbar_3_image";
-			description { state: "default" 0.0;
+		part { "colorbar_3_image";
+			desc { "default";
 				image.normal: "color_picker_alpha.png";
 			}
 		}
 	}
 }
 
-group { name: "elm/colorselector/bg_image/colorbar_3/default";
-	
+group { "elm/colorselector/bg_image/colorbar_3/default";
 	parts {
-		part { name: "bg"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "bg";
+			desc { "default";
 				color: TRANSPARENT;
 			}
 		}
 	}
 }
 
-group { name: "elm/colorselector/item/default";
-
+group { "elm/colorselector/item/default";
 	images.image: "inset_sunk.png" COMP;
 
 	parts {
-		part { name: "clipper"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "clipper";
+			desc { "default";
 				rel1.to: "color_obj";
 				rel2.to: "color_obj";
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 64;
-			}
+			desc { "disabled"; inherit; color: "#FFFFFF40"; }
 		}
-		part { name: "color_obj"; type: SWALLOW;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
+		swallow { "color_obj"; clip: "clipper";
+			desc { "default";
 				rel1.offset: 3 3;
 				rel2.offset: -4 -4;
 			}
 		}
-		part { name: "bg"; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
-				min: 20 20;
+		part { "bg"; nomouse; scale;
+			desc { "default"; min: 20 20;
 				rel1.to: "color_obj";
 				rel1.offset: -1 -1;
 				rel2.to: "color_obj";
@@ -454,11 +410,10 @@ group { name: "elm/colorselector/item/default";
 	}
 }
 
-group { name: "elm/colorselector/item/color/default";
+group { "elm/colorselector/item/color/default";
 	parts {
-		part { name: "color_rect"; type: RECT;
-			description{ state: "default" 0.0;
-			}
+		rect { "color_rect";
+			desc{ "default"; }
 		}
 	}
 }
