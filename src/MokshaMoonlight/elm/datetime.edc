@@ -1,135 +1,94 @@
 #define DATETIME_FIELD(_pos) \
-	part { \
-		name: "field"#_pos; type: SWALLOW; \
-		scale: 1; \
-		description { state: "default" 0.0; \
-			visible: 0; \
-			min: 0 0; \
-			align: 0.0 0.5; \
-			fixed: 1 0; \
-			rel1.relative: 1.0 0.0; \
-			rel1.to: "separator"#_pos; \
-			rel2.relative: 1.0 1.0; \
-			rel2.to: "separator"#_pos; \
-		} \
-		description { state: "enable" 0.0; \
-			inherit: "default" 0.0; \
-			visible: 1; \
-			min: 8 10; \
-		} \
-	} \
-	programs{ \
-		program { name: "field_"#_pos"enabled"; \
-			signal: "field"#_pos",enable"; source: "elm"; \
-			action: STATE_SET "enable" 0.0; \
-			target: "field"#_pos; \
-		} \
-		program { name: "field_"#_pos"disabled"; \
-			signal: "field"#_pos",disable"; source: "elm"; \
-			action: STATE_SET "default" 0.0; \
-			target: "field"#_pos; \
-		} \
-	 }
-#define DATETIME_SEPARATOR(_pos, _after) \
-	part { \
-		name: "separator"#_pos; type: TEXT; \
-		scale: 1; \
-		effect: SHADOW BOTTOM; \
-		clip_to: "disclip"; \
-		description { state: "default" 0.0; \
-			visible: 0; \
-			min: 0 0; \
-			align: 0.0 0.5; \
-			fixed: 1 0; \
-			rel1 { \
-				relative: 1.0 0.0; \
-				to: "field"#_after; \
-			} \
-			rel2 { \
-				relative: 1.0 1.0; \
-				to: "field"#_after; \
-			} \
-			color: 255 255 255 255; \
-			color3: 255 255 255 255; \
-			color_class: "label_text"; \
-			text { \
-				font: "Sans"; size: 10; \
-				min: 1 0; \
-					ellipsis: -1;	\
-				align: 0.5 0.5; \
-				text_class: "datetime_text"; \
-			} \
-		} \
-		description { state: "enable" 0.0; \
-			inherit: "default" 0.0; \
-			visible: 1; \
-			min: 8 10; \
-		} \
-	} \
-	part { \
-		name: "separator"#_pos"d"; type: TEXT; \
-		scale: 1; \
-		effect: SHADOW BOTTOM; \
-		clip_to: "disclip2"; \
-		description { state: "default" 0.0; \
-			visible: 0; \
-			rel1.to: "separator"#_pos; \
-			rel2.to: "separator"#_pos; \
-			color: 255 255 255 255; \
-			color3: 255 255 255 255; \
-			color_class: "label_text"; \
-			text { \
-				text_source: "separator"#_pos; \
-				font: "Sans"; size: 10; \
-				text_class: "datetime_text"; \
-			} \
-		} \
-		description { state: "enable" 0.0; \
-			inherit: "default" 0.0; \
-			visible: 1; \
-		} \
-	} \
-	programs { \
-		program { \
-			signal: "field"#_after",enable"; source: "elm"; \
-			action: STATE_SET "enable" 0.0; \
-			target: "separator"#_pos; \
-			target: "separator"#_pos"d"; \
-		} \
-		program { \
-			signal: "field"#_after",disable"; source: "elm"; \
-			action: STATE_SET "default" 0.0; \
-			target: "separator"#_pos; \
-			target: "separator"#_pos"d"; \
-		} \
+	swallow { "field"#_pos; scale;														\
+		desc { "default"; min: 0 0; hid;												\
+			align: 0.0 0.5;																				\
+			fixed: 1 0;																						\
+			rel1.relative: 1.0 0.0;																\
+			rel1.to: "separator"#_pos;														\
+			rel2.relative: 1.0 1.0;																\
+			rel2.to: "separator"#_pos;														\
+		}																												\
+		desc { "enable"; inherit; min: 8 10; vis; }							\
+	}																													\
+	programs{																									\
+		program { "field_"#_pos"enabled";												\
+			signal: "field"#_pos",enable"; source: "elm";					\
+			action: STATE_SET "enable" 0.0;												\
+			target: "field"#_pos;																	\
+		}																												\
+		program { "field_"#_pos"disabled";											\
+			signal: "field"#_pos",disable"; source: "elm";				\
+			action: STATE_SET "default" 0.0;											\
+			target: "field"#_pos;																	\
+		}																												\
 	}
-group { name: "elm/datetime/base/default";
+
+#define DATETIME_SEPARATOR(_pos, _after) \
+	text { "separator"#_pos; effect: SHADOW BOTTOM; scale;		\
+		clip: "disclip";																				\
+		desc { "default";  min: 0 0; color: VISIBLE; hid;				\
+			color3: VISIBLE;																			\
+			color_class: "label_text";														\
+			align: 0.0 0.5;																				\
+			fixed: 1 0;																						\
+			rel1.relative: 1.0 0.0;																\
+			rel1.to: "field"#_after;															\
+			rel2.relative: 1.0 1.0;																\
+			rel2.to: "field"#_after;															\
+			text.font: "Sans"; text.size: 10;											\
+			text.min: 1 0;																				\
+			text.ellipsis: -1;																		\
+			text.align: 0.5 0.5;																	\
+			text.text_class: "datetime_text";											\
+		}																												\
+		desc { "enable";  inherit; min: 8 10; vis;  }						\
+	}																													\
+	text  "separator"#_pos"d"; effect: SHADOW BOTTOM; scale;	\
+		clip: "disclip2";																				\
+		desc { "default"; color: VISIBLE; hid;									\
+			color3: VISIBLE;																			\
+			color_class: "label_text";														\
+			rel1.to: "separator"#_pos;														\
+			rel2.to: "separator"#_pos;														\
+			text.text_source: "separator"#_pos;										\
+			text.font: "Sans"; text.size: 10;													\
+			text.text_class: "datetime_text";											\
+		}																												\
+		desc { "enable"; inherit; vis; }												\
+	}																													\
+	programs {																								\
+		program {																								\
+			signal: "field"#_after",enable"; source: "elm";				\
+			action: STATE_SET "enable" 0.0;												\
+			target: "separator"#_pos;															\
+			target: "separator"#_pos"d";													\
+		}																												\
+		program {																								\
+			signal: "field"#_after",disable"; source: "elm";			\
+			action: STATE_SET "default" 0.0;											\
+			target: "separator"#_pos;															\
+			target: "separator"#_pos"d";													\
+		}																												\
+	}
+
+group { "elm/datetime/base/default";
 	parts {
-		part { name: "disclip"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "disclip";
+			desc { "default";
 				rel1.to: "separator0";
 				rel2.to: "separator7";
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+			desc { "disabled"; inherit; hid; }
 		}
-		part { name: "disclip2"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "disclip2";
+			desc { "default"; hid;
 				rel1.to: "separator0";
 				rel2.to: "separator7";
-				visible: 0;
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "disabled"; inherit; vis; }
 		}
-		part { name: "separator0"; type: SPACER;
-			scale: 1;
-			description { state: "default" 0.0;
-				min: 8 10;
+		spacer { "separator0"; scale;
+			desc { "default"; min: 8 10;
 				align: 0.0 0.5;
 				fixed: 1 0;
 				rel2.relative: 0.0 1.0;
@@ -147,31 +106,24 @@ group { name: "elm/datetime/base/default";
 		DATETIME_SEPARATOR(5,4)
 		DATETIME_FIELD(5)
 		DATETIME_SEPARATOR(6,5)
-		part { name: "separator7"; type: SPACER;
-			description { state: "default" 0.0;
+		spacer { "separator7";
+			desc { "default"; min: 8 10;
 				rel1.to: "separator6";
 				rel1.relative: 1.0 0.0;
-				min: 8 10;
 			}
 		}
-		part { name: "discover"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "discover";
+			desc { "default"; color: "#00000000"; hid;
 				rel1.to: "separator0";
 				rel2.to: "separator7";
-				visible: 0;
-				color: 0 0 0 0;
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "disabled"; inherit; vis; }
 		}
-		part { name: "elm.access"; type: RECT; repeat_events: 1;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
+		rect { "elm.access"; repeat;
+			desc { "default"; color: "#00000000"; }
 		}
 	}
+
 	programs {
 		program {
 			signal: "elm,state,disabled"; source: "elm";
