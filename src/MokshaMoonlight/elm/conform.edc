@@ -1,16 +1,14 @@
-group { name: "elm/conformant/base/default";
+group { "elm/conformant/base/default";
 	parts {
-		part { name: "elm.swallow.indicator";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.indicator";
+			desc { "default";
 				fixed: 0 1;
 				align: 0.0 0.0;
 				rel2.relative: 1.0 0.0;
 			}
 		}
-		part { name: "elm.swallow.content";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				fixed: 0 1;
 				align: 0.5 0.5;
 				rel1.relative: 0.0 1.0;
@@ -19,9 +17,8 @@ group { name: "elm/conformant/base/default";
 				rel2.to_y: "elm.swallow.clipboard";
 			}
 		}
-		part { name: "elm.swallow.clipboard";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.clipboard";
+			desc { "default";
 				fixed: 0 1;
 				align: 0.0 1.0;
 				rel1.relative: 0.0 0.0;
@@ -30,9 +27,8 @@ group { name: "elm/conformant/base/default";
 				rel2.to_y: "elm.swallow.virtualkeypad";
 			}
 		}
-		part { name: "elm.swallow.virtualkeypad";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.virtualkeypad";
+			desc { "default";
 				fixed: 0 1;
 				align: 0.0 1.0;
 				rel1.relative: 0.0 0.0;
@@ -41,9 +37,8 @@ group { name: "elm/conformant/base/default";
 				rel2.to_y: "elm.swallow.softkey";
 			}
 		}
-		part { name: "elm.swallow.softkey";
-			type: SWALLOW;
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.softkey";
+			desc { "default";
 				fixed: 0 1;
 				align: 0.0 1.0;
 				rel1.relative: 0.0 1.0;
