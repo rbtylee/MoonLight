@@ -1,247 +1,168 @@
-group { name: "elm/segment_control/base/default";
-	#define SEGMENT_TYPE_SINGLE 1
-	#define SEGMENT_TYPE_LEFT 2
-	#define SEGMENT_TYPE_MIDDLE 3
-	#define SEGMENT_TYPE_RIGHT 4
-	#define SEGMENT_STATE_NORMAL 1
-	#define SEGMENT_STATE_PRESSED 2
-	#define SEGMENT_STATE_SELECTED 3
-	#define SEGMENT_STATUS_ENABLED 0
-	#define SEGMENT_STATUS_DISABLED 1
+#define SEGMENT_TYPE_SINGLE 1
+#define SEGMENT_TYPE_LEFT 2
+#define SEGMENT_TYPE_MIDDLE 3
+#define SEGMENT_TYPE_RIGHT 4
+#define SEGMENT_STATE_NORMAL 1
+#define SEGMENT_STATE_PRESSED 2
+#define SEGMENT_STATE_SELECTED 3
+#define SEGMENT_STATUS_ENABLED 0
+#define SEGMENT_STATUS_DISABLED 1
+
+group { "elm/segment_control/base/default";
 	parts {
-		part { name: "bg";
-			type: RECT;
-			mouse_events: 0;
-			description {
-				state: "default" 0.0;
-				color: 0 0 0 0;
-				min: 160 31;
-			}
+		rect { "bg"; nomouse;
+			desc { "default"; color: "#00000000"; min: 160 31; }
 		}
 	}
 }
-group { name: "elm/segment_control/item/default";
-	images {
-		image: "button-normal.png" COMP;
-		image: "button-insensitive.png" COMP;
-		image: "button-prelight.png" COMP;
-		image: "button-pressed.png" COMP;
-		
-		image: "DT_left.png" COMP;
-		image: "DT_left2.png" COMP;
-		image: "DT_left3.png" COMP;
-		image: "DT_left0.png" COMP;
-		
-		image: "DT_right.png" COMP;
-		image: "DT_right2.png" COMP;
-		image: "DT_right3.png" COMP; 
-		image: "DT_right0.png" COMP; 
-		
-		image: "DT_middle.png" COMP;
-		image: "DT_middle2.png" COMP;
-		image: "DT_middle3.png" COMP;
-		image: "DT_middle0.png" COMP;
-			}
-		
+
+group { "elm/segment_control/item/default";
+	images.image: "button-normal.png" COMP;
+	images.image: "button-insensitive.png" COMP;
+	images.image: "button-prelight.png" COMP;
+	images.image: "button-pressed.png" COMP;
+	images.image: "DT_left.png" COMP;
+	images.image: "DT_left2.png" COMP;
+	images.image: "DT_left3.png" COMP;
+	images.image: "DT_left0.png" COMP;
+	images.image: "DT_right.png" COMP;
+	images.image: "DT_right2.png" COMP;
+	images.image: "DT_right3.png" COMP; 
+	images.image: "DT_right0.png" COMP; 
+	images.image: "DT_middle.png" COMP;
+	images.image: "DT_middle2.png" COMP;
+	images.image: "DT_middle3.png" COMP;
+	images.image: "DT_middle0.png" COMP;
+
 	parts {
-		part { name: "bg";
-		description { state: "default" 0.0;
-			rel1.offset: 0 2;
-			rel2.offset: -1 -1;
+		part { "bg";
+			desc { "default";
+				rel1.offset: 0 2;
+				rel2.offset: -1 -1;
 				image.normal: "button-normal.png";
-			image.border: 5 5 5 5;
+				image.border: 5 5 5 5;
+			}
+			desc {"default_single"; inherit;
+				image.normal: "button-normal.png";
+			}
+			desc {"default_left"; inherit;
+				image.normal: "DT_left.png";
+			}
+			desc {"default_right"; inherit;
+				image.normal: "DT_right.png";
+			}
+			desc {"default_middle"; inherit;
+				image.normal: "DT_middle.png";
+			}
+			desc {"pressed_single"; inherit;
+				image.normal: "button-pressed.png";
+			}
+			desc {"pressed_left"; inherit;
+				image.normal: "DT_left2.png";
+			}
+			desc {"pressed_right"; inherit;
+				image.normal: "DT_right2.png";
+			}
+			desc {"pressed_middle"; inherit;
+				image.normal: "DT_middle2.png";
+			}
+			desc {"selected_single"; inherit;
+				image.normal: "button-prelight.png";
+			}
+			desc {"selected_left"; inherit;
+				image.normal: "DT_left3.png";
+			}
+			desc {"selected_right"; inherit;
+				image.normal: "DT_right3.png";
+			}
+			desc {"selected_middle"; inherit;
+				image.normal: "DT_middle3.png";
+			}
+			desc {"disabled_single"; inherit;
+				image.normal: "button-insensitive.png";
+			}
+			desc {"disabled_left"; inherit;
+				image.normal: "DT_left0.png";
+			}
+			desc {"disabled_right"; inherit;
+				image.normal: "DT_right0.png";
+			}
+			desc {"disabled_middle"; inherit;
+				image.normal: "DT_middle0.png";
+			}
 		}
-		description { state: "default_single" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "button-normal.png";
-		}
-		description { state: "default_left" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_left.png";
-		}
-		description { state: "default_right" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_right.png";
-		}
-		description { state: "default_middle" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_middle.png";
-		}
-		description { state: "pressed_single" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "button-pressed.png";
-		}
-		description { state: "pressed_left" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_left2.png";
-		}
-		description { state: "pressed_right" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_right2.png";
-		}
-		description { state: "pressed_middle" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_middle2.png";
-		}
-		description { state: "selected_single" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "button-prelight.png";
-		}
-		description { state: "selected_left" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_left3.png";
-		}
-		description { state: "selected_right" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_right3.png";
-		}
-		description { state: "selected_middle" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_middle3.png";
-		}
-		description { state: "disabled_single" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "button-insensitive.png";
-		}
-		description { state: "disabled_left" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_left0.png";
-		}
-		description { state: "disabled_right" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_right0.png";
-		}
-		description { state: "disabled_middle" 0.0;
-			inherit: "default" 0.0;
-			image.normal: "DT_middle0.png";
-		}
-		
-	  }
-		part { name: "elm.swallow.icon";
-			type: SWALLOW;
-			scale: 1;
-			clip_to: "disabler";
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.icon"; scale; clip: "disabler";
+			desc { "default";
 				align: 0.5 0.5;
 				rel1.offset: 10 3;
 				rel2.relative: 0.0 1.0;
 				aspect: 1.0 1.0;
 				aspect_preference: BOTH;
 			}
-			description { state: "visible" 0.0;
-				inherit: "default" 0.0;
+			desc { "visible"; inherit;
 				rel2.relative: 0.25 1.0;
 				rel2.offset: -5 -4;
 			}
-			description { state: "icononly" 0.0;
-				inherit: "default" 0.0;
+			desc { "icononly"; inherit;
 				rel1.offset: 5 2;
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -5 -4;
 			}
 		}
-		part { name: "elm.text";
-			type: TEXT;
-			mouse_events: 0;
-			scale: 1;
-			effect: SHADOW BOTTOM;
-			description {
-				state: "default" 0.0;
-				visible: 0;
+		text { "elm.text"; effect: SHADOW BOTTOM; nomouse; scale;
+			desc { "default"; min: 1 1; color: VISIBLE; hid;
+				color3: VISIBLE;
+				color_class: "button_text";
 				fixed: 1 1;
-				min: 1 1;
-				rel1 {
-					to_x: "elm.swallow.icon";
-					relative: 1.0 0.0;
-					offset: 0 -1;
-				}
+				rel1.to_x: "elm.swallow.icon";
+				rel1.relative: 1.0 0.0;
+				rel1.offset: 0 -1;
 				rel2.offset: -8 -2;
-				color: 255 255 255 255; color3: 255 255 255 255;
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 1;
+				text.text_class: "button_text";
+			}
+			desc { "normal"; inherit; vis; }
+			desc { "pressed"; inherit; color: VISIBLE; vis;
+				color3: VISIBLE;
 				color_class: "button_text";
-				text {
-					font: "Sans";
-					size: 10;
-					min: 0 1;
-					text_class: "button_text";
-				}
 			}
-			description { state: "normal" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
-			description { state: "pressed" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "button_text";
-				visible: 1;
-			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-				color: 255 255 255 255; color3: 255 255 255 255;
+			desc { "disabled"; inherit; color: VISIBLE; vis;
+				color3: VISIBLE;
 				color_class: "button_text_disabled";
 			}
 		}
-		part { name: "text2";
-			type: TEXT;
-			mouse_events: 0;
-			scale: 1;
-			effect: SHADOW BOTTOM;
-			description {
-				state: "default" 0.0;
-				visible: 0;
+		text { "text2"; effect: SHADOW BOTTOM; nomouse; scale;
+			desc { "default"; min: 1 1; color: VISIBLE; hid;
+				color2: VISIBLE;
+				color3: VISIBLE;
+				color_class: "button_text";
 				fixed: 1 1;
-				min: 1 1;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				text {
-					font: "Sans";
-					size: 10;
-					min: 0 1;
-					text_source: "elm.text";
-					text_class: "button";
-				}
-				color: 255 255 255 255;
-				color2: 255 255 255 255;
-				color3: 255 255 255 255;
-				color_class: "button_text";
-				visible: 0;
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 1;
+				text.text_source: "elm.text";
+				text.text_class: "button";
 			}
-			description { state: "selected" 0.0;
-				inherit: "default" 0.0;
-				visible: 1;
-			}
+			desc { "selected"; inherit; vis; }
 		}
-		part {
-			name: "events";
-			type: RECT;
-			ignore_flags: ON_HOLD;
-			description {
-				state: "default" 0.0;
+		rect { "events"; ignore: ON_HOLD;
+			desc { "default"; color: "#00000000";
 				rel1.to: "bg";
 				rel2.to: "bg";
-				color: 0 0 0 0;
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+			desc { "disabled"; inherit; hid; }
 		}
-		part { name: "disabler"; type: RECT;
-			description { state: "default" 0.0;
+		rect { "disabler";
+			desc { "default";
 			 STAY_ON("bg")
 			}
-			description { state: "disabled" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 64;
-			}
+			desc { "disabled"; inherit; color: "#FFFFFF40"; }
 		}
-		
 	}
+
 	programs {
-		
-		
 		script {
 			public seg_type; // Single, Left, Middle, Right.
 			public seg_state; // Normal/Default, Pressed, Selected.
@@ -257,51 +178,41 @@ group { name: "elm/segment_control/item/default";
 					if(state == SEGMENT_STATE_NORMAL) {
 						if(type == SEGMENT_TYPE_SINGLE) {
 							set_state(PART:"bg", "default_single", 0.0);
-							}
-						else if(type == SEGMENT_TYPE_LEFT) {
+						} else if(type == SEGMENT_TYPE_LEFT) {
 							set_state(PART:"bg", "default_left", 0.0);
-				 }
-						else if(type == SEGMENT_TYPE_MIDDLE) {
-						  set_state(PART:"bg", "default_middle", 0.0);
-				 }
-						else if(type == SEGMENT_TYPE_RIGHT) {
-						  set_state(PART:"bg", "default_right", 0.0);
-							}
+						} else if(type == SEGMENT_TYPE_MIDDLE) {
+							set_state(PART:"bg", "default_middle", 0.0);
+						} else if(type == SEGMENT_TYPE_RIGHT) {
+							set_state(PART:"bg", "default_right", 0.0);
+						}
 						set_state(PART:"elm.text", "normal", 0.0);
-						set_state(PART:"text2", "default", 0.0);
-			  
+						set_state(PART:"text2", "default", 0.0); 
 					} else if(state == SEGMENT_STATE_PRESSED) {
 						if(type == SEGMENT_TYPE_SINGLE) {
 							set_state(PART:"bg", "pressed_single", 0.0);
-							}
-						else if(type == SEGMENT_TYPE_LEFT) {
+						} else if(type == SEGMENT_TYPE_LEFT) {
 							set_state(PART:"bg", "pressed_left", 0.0);
-				 }
-						else if(type == SEGMENT_TYPE_MIDDLE) {
+						} else if(type == SEGMENT_TYPE_MIDDLE) {
 							set_state(PART:"bg", "pressed_middle", 0.0);
-				 }
-						else if(type == SEGMENT_TYPE_RIGHT) {
+						} else if(type == SEGMENT_TYPE_RIGHT) {
 							set_state(PART:"bg", "pressed_right", 0.0);
-			  }
+						}
 						set_state(PART:"elm.text", "pressed", 0.0);
 						set_state(PART:"text2", "default", 0.0);
 					} else if(state == SEGMENT_STATE_SELECTED) {
 						if(type == SEGMENT_TYPE_SINGLE) {
 							set_state(PART:"bg", "selected_single", 0.0);
-				 }
-						else if(type == SEGMENT_TYPE_LEFT) {
-						  set_state(PART:"bg", "selected_left", 0.0);
-				 }
-						else if(type == SEGMENT_TYPE_MIDDLE) {
-						  set_state(PART:"bg", "selected_middle", 0.0);
-				 }
-						else if(type == SEGMENT_TYPE_RIGHT) {
-						  set_state(PART:"bg", "selected_right", 0.0);
-				}
+						} else if(type == SEGMENT_TYPE_LEFT) {
+							set_state(PART:"bg", "selected_left", 0.0);
+						} else if(type == SEGMENT_TYPE_MIDDLE) {
+							set_state(PART:"bg", "selected_middle", 0.0);
+						} else if(type == SEGMENT_TYPE_RIGHT) {
+							set_state(PART:"bg", "selected_right", 0.0);
+						}
 						set_state(PART:"elm.text", "default", 0.0);
 						set_state(PART:"text2", "selected", 0.0);
 					}
-				  set_state(PART:"disabler", "default", 0.0);
+					set_state(PART:"disabler", "default", 0.0);
 					set_state(PART:"events", "default", 0.0);
 				} else {
 					set_state(PART:"elm.text", "disabled", 0.0);
@@ -309,22 +220,18 @@ group { name: "elm/segment_control/item/default";
 					set_state(PART:"disabler", "disabled", 0.0);
 					set_state(PART:"events", "disabled", 0.0);
 					if(type == SEGMENT_TYPE_SINGLE) {
-					  set_state(PART:"bg", "disabled_single", 0.0);
-				 }
-					else if(type == SEGMENT_TYPE_LEFT) {
-					  set_state(PART:"bg", "disabled_left", 0.0);
-				 }
-					else if(type == SEGMENT_TYPE_MIDDLE) {
-					  set_state(PART:"bg", "disabled_middle", 0.0);
-				 }
-					else if(type == SEGMENT_TYPE_RIGHT) {
-					  set_state(PART:"bg", "disabled_right", 0.0);
-				 }
+						set_state(PART:"bg", "disabled_single", 0.0);
+					} else if(type == SEGMENT_TYPE_LEFT) {
+						set_state(PART:"bg", "disabled_left", 0.0);
+					} else if(type == SEGMENT_TYPE_MIDDLE) {
+						set_state(PART:"bg", "disabled_middle", 0.0);
+					} else if(type == SEGMENT_TYPE_RIGHT) {
+						set_state(PART:"bg", "disabled_right", 0.0);
+					}
 				}
 			} 
 		}
-		program {
-			name: "segment_type_s";
+		program { "segment_type_s";
 			signal: "elm,type,segment,single";
 			source: "elm";
 			script {
@@ -332,8 +239,7 @@ group { name: "elm/segment_control/item/default";
 				update_state();
 			}
 		}
-		program {
-			name: "segment_type_l";
+		program { "segment_type_l";
 			signal: "elm,type,segment,left";
 			source: "elm";
 			script {
@@ -341,8 +247,7 @@ group { name: "elm/segment_control/item/default";
 				update_state();
 			}
 		}
-		program {
-			name: "segment_type_m";
+		program { "segment_type_m";
 			signal: "elm,type,segment,middle";
 			source: "elm";
 			script {
@@ -350,8 +255,7 @@ group { name: "elm/segment_control/item/default";
 				update_state();
 			}
 		}
-		program {
-			name: "segment_type_r";
+		program { "segment_type_r";
 			signal: "elm,type,segment,right";
 			source: "elm";
 			script {
@@ -359,8 +263,7 @@ group { name: "elm/segment_control/item/default";
 				update_state();
 			}
 		}
-		program {
-			name: "normal_segment";
+		program { "normal_segment";
 			signal: "elm,state,segment,normal";
 			source: "elm";
 			script {
@@ -368,8 +271,7 @@ group { name: "elm/segment_control/item/default";
 				update_state();
 			}
 		}
-		program {
-			name: "pressed_segment";
+		program { "pressed_segment";
 			signal: "elm,state,segment,pressed";
 			source: "elm";
 			script {
@@ -377,8 +279,7 @@ group { name: "elm/segment_control/item/default";
 				update_state();
 			}
 		}
-		program {
-			name: "selected_segment";
+		program { "selected_segment";
 			signal: "elm,state,segment,selected";
 			source: "elm";
 			script {
@@ -386,7 +287,7 @@ group { name: "elm/segment_control/item/default";
 				update_state();
 			}
 		}
-		program { name: "disable_segment";
+		program { "disable_segment";
 			signal: "elm,state,disabled";
 			source: "elm";
 			script {
@@ -394,7 +295,7 @@ group { name: "elm/segment_control/item/default";
 				update_state();
 			}
 		}
-		program { name: "enable_segment";
+		program { "enable_segment";
 			signal: "elm,state,enabled";
 			source: "elm";
 			script {
@@ -402,7 +303,7 @@ group { name: "elm/segment_control/item/default";
 				update_state();
 			}
 		}
-		program { name: "text_show";
+		program { "text_show";
 			signal: "elm,state,text,visible";
 			source: "elm";
 			script {
@@ -413,7 +314,7 @@ group { name: "elm/segment_control/item/default";
 				  set_state(PART:"elm.swallow.icon", "visible", 0.0);
 			}
 		}
-		program { name: "text_hide";
+		program { "text_hide";
 			signal: "elm,state,text,hidden";
 			source: "elm";
 			script {
@@ -421,12 +322,12 @@ group { name: "elm/segment_control/item/default";
 				new Float:vl;
 				get_state(PART:"elm.swallow.icon", st, 30, vl);
 				if (!strcmp(st, "visible"))
-				  set_state(PART:"elm.swallow.icon", "icononly", 0.0);
+					set_state(PART:"elm.swallow.icon", "icononly", 0.0);
 				set_state(PART:"elm.text", "default", 0.0);
 				set_state(PART:"text2", "default", 0.0);
 			}
 		}
-		program { name: "icon_show";
+		program { "icon_show";
 			signal: "elm,state,icon,visible";
 			source: "elm";
 			script {
@@ -434,25 +335,27 @@ group { name: "elm/segment_control/item/default";
 				new Float:vl;
 				get_state(PART:"elm.text", st, 30, vl);
 				if ((!strcmp(st, "normal")) || (!strcmp(st, "selected")))
-				  set_state(PART:"elm.swallow.icon", "visible", 0.0);
+					set_state(PART:"elm.swallow.icon", "visible", 0.0);
 				else
-				  set_state(PART:"elm.swallow.icon", "icononly", 0.0);
+					set_state(PART:"elm.swallow.icon", "icononly", 0.0);
 			}
 		}
-		program { name: "icon_hide";
+		program { "icon_hide";
 			signal: "elm,state,icon,hidden";
 			source: "elm";
 			action:  STATE_SET "default" 0.0;
 			target: "elm.swallow.icon";
 		}
 	}
-	#undef SEGMENT_TYPE_SINGLE
-	#undef SEGMENT_TYPE_LEFT
-	#undef SEGMENT_TYPE_MIDDLE
-	#undef SEGMENT_TYPE_RIGHT
-	#undef SEGMENT_STATE_NORMAL
-	#undef SEGMENT_STATE_PRESSED
-	#undef SEGMENT_STATE_SELECTED
-	#undef SEGMENT_STATUS_ENABLED
-	#undef SEGMENT_STATUS_DISABLED
 }
+
+#undef SEGMENT_TYPE_SINGLE
+#undef SEGMENT_TYPE_LEFT
+#undef SEGMENT_TYPE_MIDDLE
+#undef SEGMENT_TYPE_RIGHT
+#undef SEGMENT_STATE_NORMAL
+#undef SEGMENT_STATE_PRESSED
+#undef SEGMENT_STATE_SELECTED
+#undef SEGMENT_STATUS_ENABLED
+#undef SEGMENT_STATUS_DISABLED
+
