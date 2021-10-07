@@ -1,275 +1,244 @@
-group { name: "elm/naviframe/item/basic/default";
-	parts {
 		// this set of limits and bottoms is evil - but it's a nasty construct
 		// allowing EITHER the title and subtitle texts OR the prev/next button
 		// swallows to control the lower bounds of the naviframe title, depending
 		// on which is taller
 #define BOTTOMMAX() \
-		part { name: "limit0"; type: SPACER; \
-			description { state: "default" 0.0; \
-				rel1.to_y: "title3"; \
-				rel1.relative: 0.0 1.0; \
-				rel2.to_y: "elm.swallow.next_btn"; \
-				rel2.offset: -1 0; \
-				align: 0.5 1.0; \
-				fixed: 0 1; \
-				limit: HEIGHT; \
-			} \
-		} \
-		part { name: "limit1"; type: SPACER; \
-			description { state: "default" 0.0; \
-				rel1.to_y: "elm.swallow.next_btn"; \
-				rel1.relative: 0.0 1.0; \
-				rel2.to_y: "title3"; \
-				rel2.offset: -1 0; \
-				align: 0.5 1.0; \
-				fixed: 0 1; \
-				limit: HEIGHT; \
-			} \
-		} \
-		part { name: "bottom0"; type: SPACER; \
-			description { state: "default" 0.0; \
-				rel1.to_y: "limit1"; \
-				rel1.relative: 0.0 1.0; \
-				rel2.to_y: "limit0"; \
-				rel2.offset: -1 0; \
-				align: 0.5 1.0; \
-				fixed: 0 1; \
-				limit: HEIGHT; \
-			} \
-			description { state: "other" 0.0; \
-				inherit: "default" 0.0; \
-				rel1.to_y: "limit0"; \
-				rel2.to_y: "limit1"; \
-			} \
-		} \
-		program { name: "pbot0"; \
-			signal: "limit,height,zero"; source: "bottom0"; \
-			script { \
-				new st[31], Float:vl; \
-				get_state(PART:"bottom0", st, 30, vl); \
-				if (st[0] == 'd') set_state(PART:"bottom0", "other", 1.0); \
-				else set_state(PART:"bottom0", "default", 1.0); \
-			} \
-		} \
-		part { name: "limit2"; type: SPACER; \
-			description { state: "default" 0.0; \
-				rel1.to_y: "title3"; \
-				rel1.relative: 0.0 1.0; \
-				rel2.to_y: "elm.swallow.prev_btn"; \
-				rel2.offset: -1 0; \
-				align: 0.5 1.0; \
-				fixed: 0 1; \
-				limit: HEIGHT; \
-			} \
-		} \
-		part { name: "limit3"; type: SPACER; \
-			description { state: "default" 0.0; \
-				rel1.to_y: "elm.swallow.prev_btn"; \
-				rel1.relative: 0.0 1.0; \
-				rel2.to_y: "title3"; \
-				rel2.offset: -1 0; \
-				align: 0.5 1.0; \
-				fixed: 0 1; \
-				limit: HEIGHT; \
-			} \
-		} \
-		part { name: "bottom1"; type: SPACER; \
-			description { state: "default" 0.0; \
-				rel1.to_y: "limit3"; \
-				rel1.relative: 0.0 1.0; \
-				rel2.to_y: "limit2"; \
-				rel2.offset: -1 0; \
-				align: 0.5 1.0; \
-				fixed: 0 1; \
-				limit: HEIGHT; \
-			} \
-			description { state: "other" 0.0; \
-				inherit: "default" 0.0; \
-				rel1.to_y: "limit2"; \
-				rel2.to_y: "limit3"; \
-			} \
-		} \
-		program { name: "pbot1"; \
-			signal: "limit,height,zero"; source: "bottom1"; \
-			script { \
-				new st[31], Float:vl; \
-				get_state(PART:"bottom1", st, 30, vl); \
-				if (st[0] == 'd') set_state(PART:"bottom1", "other", 1.0); \
-				else set_state(PART:"bottom1", "default", 1.0); \
-			} \
-		} \
-		part { name: "bottom"; type: SPACER; \
-			description { state: "default" 0.0; \
-				rel1.to_y: "bottom1"; \
-				rel1.offset: 0 -1; \
-				rel1.relative: 0.0 1.0; \
-				rel2.to_y: "bottom0"; \
-				align: 0.5 1.0; \
-				fixed: 0 1; \
-				limit: HEIGHT; \
-			} \
-			description { state: "other" 0.0; \
-				inherit: "default" 0.0; \
-				rel1.to_y: "bottom0"; \
-				rel2.to_y: "bottom1"; \
-			} \
-		} \
-		program { name: "pbot"; \
-			signal: "limit,height,zero"; source: "bottom"; \
-			script { \
-				new st[31], Float:vl; \
-				get_state(PART:"bottom", st, 30, vl); \
-				if (st[0] == 'd') set_state(PART:"bottom", "other", 1.0); \
-				else set_state(PART:"bottom", "default", 1.0); \
-			} \
+		spacer { "limit0";																								\
+			desc { "default";																								\
+				rel1.to_y: "title3";																					\
+				rel1.relative: 0.0 1.0;																				\
+				rel2.to_y: "elm.swallow.next_btn";														\
+				rel2.offset: -1 0;																						\
+				align: 0.5 1.0;																								\
+				fixed: 0 1;																										\
+				limit: HEIGHT;																								\
+			}																																\
+		}																																	\
+		spacer { "limit1";																								\
+			desc { "default";																								\
+				rel1.to_y: "elm.swallow.next_btn";														\
+				rel1.relative: 0.0 1.0;																				\
+				rel2.to_y: "title3";																					\
+				rel2.offset: -1 0;																						\
+				align: 0.5 1.0;																								\
+				fixed: 0 1;																										\
+				limit: HEIGHT;																								\
+			}																																\
+		}																																	\
+		spacer { "bottom0";																								\
+			desc { "default";																								\
+				rel1.to_y: "limit1";																					\
+				rel1.relative: 0.0 1.0;																				\
+				rel2.to_y: "limit0";																					\
+				rel2.offset: -1 0;																						\
+				align: 0.5 1.0;																								\
+				fixed: 0 1;																										\
+				limit: HEIGHT;																								\
+			}																																\
+			desc { state: "other" 0.0;																			\
+				inherit;																											\
+				rel1.to_y: "limit0";																					\
+				rel2.to_y: "limit1";																					\
+			}																																\
+		}																																	\
+		program { "pbot0";																								\
+			signal: "limit,height,zero"; source: "bottom0";									\
+			script {																												\
+				new st[31], Float:vl;																					\
+				get_state(PART:"bottom0", st, 30, vl);												\
+				if (st[0] == 'd') set_state(PART:"bottom0", "other", 1.0);		\
+				else set_state(PART:"bottom0", "default", 1.0);								\
+			}																																\
+		}																																	\
+		spacer { "limit2";																								\
+			desc { "default";																								\
+				rel1.to_y: "title3";																					\
+				rel1.relative: 0.0 1.0;																				\
+				rel2.to_y: "elm.swallow.prev_btn";														\
+				rel2.offset: -1 0;																						\
+				align: 0.5 1.0;																								\
+				fixed: 0 1;																										\
+				limit: HEIGHT;																								\
+			}																																\
+		}																																	\
+		spacer { "limit3";																								\
+			desc { "default";																								\
+				rel1.to_y: "elm.swallow.prev_btn";														\
+				rel1.relative: 0.0 1.0;																				\
+				rel2.to_y: "title3";																					\
+				rel2.offset: -1 0;																						\
+				align: 0.5 1.0;																								\
+				fixed: 0 1;																										\
+				limit: HEIGHT;																								\
+			}																																\
+		}																																	\
+		spacer { "bottom1";																								\
+			desc { "default";																								\
+				rel1.to_y: "limit3";																					\
+				rel1.relative: 0.0 1.0;																				\
+				rel2.to_y: "limit2";																					\
+				rel2.offset: -1 0;																						\
+				align: 0.5 1.0;																								\
+				fixed: 0 1;																										\
+				limit: HEIGHT;																								\
+			}																																\
+			desc { state: "other" 0.0;																			\
+				inherit;																											\
+				rel1.to_y: "limit2";																					\
+				rel2.to_y: "limit3";																					\
+			}																																\
+		}																																	\
+		program { "pbot1";																								\
+			signal: "limit,height,zero"; source: "bottom1";									\
+			script {																												\
+				new st[31], Float:vl;																					\
+				get_state(PART:"bottom1", st, 30, vl);												\
+				if (st[0] == 'd') set_state(PART:"bottom1", "other", 1.0);		\
+				else set_state(PART:"bottom1", "default", 1.0);								\
+			}																																\
+		}																																	\
+		spacer { "bottom";																								\
+			desc { "default";																								\
+				rel1.to_y: "bottom1";																					\
+				rel1.offset: 0 -1;																						\
+				rel1.relative: 0.0 1.0;																				\
+				rel2.to_y: "bottom0";																					\
+				align: 0.5 1.0;																								\
+				fixed: 0 1;																										\
+				limit: HEIGHT;																								\
+			}																																\
+			desc { state: "other" 0.0;																			\
+				inherit;																											\
+				rel1.to_y: "bottom0";																					\
+				rel2.to_y: "bottom1";																					\
+			}																																\
+		}																																	\
+		program { "pbot";																									\
+			signal: "limit,height,zero"; source: "bottom";									\
+			script {																												\
+				new st[31], Float:vl;																					\
+				get_state(PART:"bottom", st, 30, vl);													\
+				if (st[0] == 'd') set_state(PART:"bottom", "other", 1.0);			\
+				else set_state(PART:"bottom", "default", 1.0);								\
+			}																																\
 		}
+
+group { "elm/naviframe/item/basic/default";
+	parts {
 		BOTTOMMAX()
-		
-		part { name: "title1"; type: TEXT;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "title1"; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text"; hid;
+				color3: VISIBLE;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 0 2;
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -1 2;
 				align: 0.5 0.0;
-				color_class: "label_text";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				text { font: "Sans"; size: 8;
-					text: "X";
-					text_class: "title_bar_sub";
-					align: 0.5 0.0;
-					min: 0 1;
-				}
+				text.font: "Sans"; text.size: 8;
+				text.text: "X";
+				text.text_class: "title_bar_sub";
+				text.align: 0.5 0.0;
+				text.min: 0 1;
 				fixed: 0 1;
-				visible: 0;
 			}
 		}
-		part { name: "title2"; type: TEXT;
-			scale: 1;
-			effect: SOFT_SHADOW BOTTOM;
-			description { state: "default" 0.0;
-				color_class: "label_text";
+		text { "title2"; effect: SOFT_SHADOW BOTTOM; scale;
+			desc { "default"; color: VISIBLE; color_class: "title_bar"; hid;
+				color3: VISIBLE;
 				rel1.to_y: "title1";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 -1;
 				rel2.to_y: "title1";
 				rel2.offset: -1 -1;
 				align: 0.5 0.0;
-				color_class: "title_bar";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				text { font: "Sans:style=Bold"; size: 10;
-					text: "X";
-					text_class: "title_bar";
-					align: 0.5 0.0;
-					min: 0 1;
-				}
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.text: "X";
+				text.text_class: "title_bar";
+				text.align: 0.5 0.0;
+				text.min: 0 1;
 				fixed: 0 1;
-				visible: 0;
 			}
 		}
-		part { name: "title3"; type: TEXT;
-			scale: 1;
-			description { state: "default" 0.0;
+		text { "title3"; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text"; hid;
+				color3: VISIBLE;
 				rel1.to_y: "title2";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 0 -3;
 				rel2.to_y: "title2";
 				rel2.offset: -1 -3;
 				align: 0.5 0.0;
-				color_class: "label_text";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				text { font: "Sans"; size: 8;
-					text: "X";
-					text_class: "title_bar_sub";
-					align: 0.5 0.0;
-					min: 0 1;
-				}
+				text.font: "Sans"; text.size: 8;
+				text.text: "X";
+				text.text_class: "title_bar_sub";
+				text.align: 0.5 0.0;
+				text.min: 0 1;
 				fixed: 0 1;
-				visible: 0;
 			}
 		}
-		
-		
-		part { name: "clip"; type: RECT;
-			description { state: "default" 0.0;
-			}
+		rect { "clip";
+			desc { "default"; }
 		}
-		part { name: "base"; type: SPACER;
-			description { state: "default" 0.0;
-			}
-			description { state: "prev" 0.0;
-				inherit: "default" 0.0;
+		spacer { "base";
+			desc { "default"; }
+			desc { "prev"; inherit;
 				rel1.relative: -1.0 0.0;
 				rel2.relative: 0.0 1.0;
 			}
-			description { state: "next" 0.0;
-				inherit: "default" 0.0;
+			desc { "next"; inherit;
 				rel1.relative: 1.0 0.0;
 				rel2.relative: 2.0 1.0;
 			}
 		}
-		part { name: "elm.swallow.content"; type: SWALLOW;
-			clip_to: "clip";
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.content"; clip: "clip";
+			desc { "default";
 				rel1.to: "top";
 				rel1.relative: 0.0 1.0;
 				rel2.to: "base";
 			}
-			description { state: "title-hidden" 0.0;
-				inherit: "default" 0.0;
+			desc { "title-hidden"; inherit;
 				rel1.to: "base";
 				rel1.relative: 0.0 0.0;
 			}
 		}
-		part { name: "tophide0"; type: SPACER;
-			description { state: "default" 0.0;
+		spacer { "tophide0";
+			desc { "default";
 				rel1.to: "base";
 				rel2.to_x: "base";
 				rel2.to_y: "bottom";
 			}
 		}
-		part { name: "tophide1"; type: SPACER;
-			description { state: "default" 0.0;
+		spacer { "tophide1";
+			desc { "default";
 				rel1.to: "tophide0";
 				rel1.relative: 0.0 -1.0;
 				rel2.to: "tophide0";
 			}
 		}
-		part { name: "top"; type: RECT;
-			clip_to: "clip";
-			description { state: "default" 0.0;
-				color: TRANSPARENT;
+		rect { "top"; clip: "clip";
+			desc { "default"; color: TRANSPARENT;
 				rel1.to: "base";
 				rel2.to_x: "base";
 				rel2.to_y: "bottom";
 			}
-			description { state: "title-hidden" 0.0;
-				inherit: "default" 0.0;
+			desc { "title-hidden"; inherit;
 				rel1.to: "tophide1";
 				rel2.to: "base";
 				rel2.relative: 1.0 0.0;
 			}
 		}
-		part { name: "access.title"; type: RECT; repeat_events: 1;
-			clip_to: "clip";
-			description { state: "default" 0.0;
+		rect { "access.title"; repeat; clip: "clip";
+			desc { "default";
 				fixed: 1 1;
-				color: 0 0 0 0;
+				color: "#00000000";
 				rel1.to: "top";
 				rel2.to: "top";
 			}
 		}
-		part { name: "elm.text.title"; type: TEXT; mouse_events: 0;
-			scale: 1;
-			effect: SOFT_SHADOW BOTTOM;
-			clip_to: "elements_clip";
-			description { state: "default" 0.0;
-				color_class: "label_text";
+		text { "elm.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale;
+			clip: "elements_clip";
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: VISIBLE;
 				rel1.to_x: "base";
 				rel1.to_y: "top";
 				rel1.relative: 0.0 0.5;
@@ -278,26 +247,18 @@ group { name: "elm/naviframe/item/basic/default";
 				rel2.to_y: "top";
 				rel2.relative: 1.0 0.5;
 				align: 0.5 0.5;
-				color_class: "label_text";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
-				text { font: "Sans:style=Bold"; size: 10;
-					text_class: "title_bar";
-					align: 0.5 0.5;
-					min: 0 1;
-				}
+				text.font: "Sans:style=Bold"; text.size: 10;
+				text.text_class: "title_bar";
+				text.align: 0.5 0.5;
+				text.min: 0 1;
 				fixed: 0 1;
 			}
-			description { state: "hidden" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+			desc { "hidden"; inherit; hid; }
 		}
-		part { name: "elm.text.subtitle"; type: TEXT; mouse_events: 0;
-			scale: 1;
-			effect: SHADOW BOTTOM;
-			clip_to: "elements_clip";
-			description { state: "default" 0.0;
+		text { "elm.text.subtitle"; effect: SHADOW BOTTOM; nomouse; scale;
+			clip: "elements_clip";
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: VISIBLE;
 				rel1.to_x: "base";
 				rel1.to_y: "elm.text.title";
 				rel1.relative: 0.0 1.0;
@@ -306,77 +267,49 @@ group { name: "elm/naviframe/item/basic/default";
 				rel2.to_y: "elm.text.title";
 				rel2.offset: -1 -3;
 				align: 0.5 0.0;
-				color: 255 255 255 255;
-				color_class: "label_text";
-				color3: 255 255 255 255;
-				text { font: "Sans"; size: 8;
-					text_class: "title_bar_sub";
-					align: 0.5 0.0;
-					min: 0 1;
-				}
+				text.font: "Sans"; text.size: 8;
+				text.text_class: "title_bar_sub";
+				text.align: 0.5 0.0;
+				text.min: 0 1;
 				fixed: 0 1;
 			}
-			description { state: "hidden" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+			desc { "hidden"; inherit; hid; }
 		}
-		part { name: "buttons_clip"; type: RECT;
-			clip_to: "elements_clip";
-			description { state: "default" 0.0;
+		rect { "buttons_clip"; clip: "elements_clip";
+			desc { "default";
 				rel1.to: "base";
 				rel2.to: "base";
 			}
-			description { state: "title-hidden" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+			desc { "title-hidden"; inherit; hid; }
 		}
-		part { name: "elm.swallow.next_btn"; type: SWALLOW;
-			scale: 1;
-			clip_to: "buttons_clip";
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.next_btn";  scale; clip: "buttons_clip";
+			desc { "default"; min: 26 26; max: 1 1;
 				rel1.to_x: "base";
-//            rel1.to_y: "top";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: -3 2;
 				rel2.to_x: "base";
 				rel2.to_y: "title3";
 				rel2.offset: -3 -1;
 				align: 1.0 0.5;
-				min: 26 26;
-				max: 1 1;
 				fixed: 1 1;
 			}
-			description { state: "hidden" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+			desc { "hidden"; inherit; hid; }
 		}
-		part { name: "elm.swallow.prev_btn"; type: SWALLOW;
-			scale: 1;
-			clip_to: "buttons_clip";
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.prev_btn"; scale; clip: "buttons_clip";
+			desc { "default"; min: 26 26; max: 1 1;
 				rel1.to_x: "base";
-//            rel1.to_y: "top";
 				rel1.offset: 2 2;
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 2 -1;
 				rel2.to_x: "base";
 				rel2.to_y: "title3";
 				align: 0.0 0.5;
-				min: 26 26;
-				max: 1 1;
 				fixed: 1 1;
 			}
-			description { state: "hidden" 0.0;
-				inherit: "default" 0.0;
-				visible: 0;
-			}
+			desc { "hidden"; inherit; hid; }
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
-			clip_to: "elements_clip";
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.icon"; clip: "elements_clip";
+			desc { "default";
 				rel1.to_x: "elm.swallow.prev_btn";
 				rel1.to_y: "top";
 				rel1.relative: 1.0 0.0;
@@ -387,8 +320,7 @@ group { name: "elm/naviframe/item/basic/default";
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
 				align: 0.0 0.5;
 			}
-			description { state: "hidden" 0.0;
-				inherit: "default" 0.0;
+			desc { "hidden"; inherit;
 				rel1.to_x: "top";
 				rel1.relative: 0.0 0.0;
 				rel2.to_x: "top";
@@ -396,25 +328,17 @@ group { name: "elm/naviframe/item/basic/default";
 			  align: 0.5 0.5;
 			}
 		}
-		part { name: "elements_clip"; type: RECT;
-			clip_to: "clip";
-			description { state: "default" 0.0;
+		rect { "elements_clip"; clip: "clip";
+			desc { "default";
 				rel1.to: "base";
 				rel2.to: "base";
 			}
-			description { state: "hidden" 0.0;
-				inherit: "default" 0.0;
-				color: 255 255 255 0;
-				visible: 0;
-			}
-			description { state: "next" 0.0;
-				inherit: "hidden" 0.0;
-			}
-			description { state: "prev" 0.0;
-				inherit: "hidden" 0.0;
-			}
+			desc { "hidden"; inherit; color: TRANSPARENT; hid; }
+			desc { "next"; inherit; }
+			desc { "prev"; inherit; }
 		}
 	}
+
 	programs {
 		program {
 			signal: "elm,state,title,show"; source: "elm";
@@ -431,7 +355,7 @@ group { name: "elm/naviframe/item/basic/default";
 			target: "elm.swallow.content";
 			after: "titleshow2";
 		}
-		program { name: "titleshow2";
+		program { "titleshow2";
 			action: STATE_SET "default" 0.0;
 			target: "buttons_clip";
 			after: "title_transition_finished";
@@ -449,14 +373,14 @@ group { name: "elm/naviframe/item/basic/default";
 			target: "buttons_clip";
 			after: "titlehide2";
 		}
-		program { name: "titlehide2";
+		program { "titlehide2";
 			action: STATE_SET "title-hidden" 0.0;
 			transition: ACCELERATE 0.5;
 			target: "top";
 			target: "elm.swallow.content";
 			after: "title_transition_finished";
 		}
-		program { name: "title_transition_finished";
+		program { "title_transition_finished";
 			action: SIGNAL_EMIT "elm,action,title,transition,finished" "elm";
 		}
 		program {
@@ -503,7 +427,7 @@ group { name: "elm/naviframe/item/basic/default";
 			target: "elm.swallow.content";
 			target: "elements_clip";
 		}
-		
+
 		/* current page is being pushed: [previous]<----[current] */
 		program {
 			signal: "elm,state,cur,pushed"; source: "elm";
@@ -512,17 +436,16 @@ group { name: "elm/naviframe/item/basic/default";
 			target: "elements_clip";
 			after: "pushed2";
 		}
-		program { name: "pushed2";
+		program { "pushed2";
 			action: STATE_SET "prev" 0.0;
 			transition: ACCELERATE 0.5;
 			target: "base";
 			target: "elements_clip";
 			after: "pushed3";
 		}
-		program { name: "pushed3";
+		program { "pushed3";
 			action: SIGNAL_EMIT "elm,action,pushed,finished" "elm";
 		}
-
 		/* current page is being popped: [current]---->[next] */
 		program {
 			signal: "elm,state,cur,popped"; source: "elm";
@@ -531,17 +454,16 @@ group { name: "elm/naviframe/item/basic/default";
 			target: "elements_clip";
 			after: "popped2";
 		}
-		program { name: "popped2";
+		program { "popped2";
 			action: STATE_SET "next" 0.0;
 			transition: ACCELERATE 0.5;
 			target: "base";
 			target: "elements_clip";
 			after: "popped3";
 		}
-		program { name: "popped3";
+		program { "popped3";
 			action: SIGNAL_EMIT "elm,action,popped,finished" "elm";
 		}
-
 		/* new page is being pushed: [current]<----[next] */
 		program {
 			signal: "elm,state,new,pushed"; source: "elm";
@@ -550,17 +472,16 @@ group { name: "elm/naviframe/item/basic/default";
 			target: "elements_clip";
 			after: "pushedb2";
 		}
-		program { name: "pushedb2";
+		program { "pushedb2";
 			action: STATE_SET "default" 0.0;
 			transition: DECELERATE 0.5;
 			target: "base";
 			target: "elements_clip";
 			after: "pushedb3";
 		}
-		program { name: "pushedb3";
+		program { "pushedb3";
 			action: SIGNAL_EMIT "elm,action,show,finished" "elm";
 		}
-
 		/* previous page is being pushed: [previous]---->[current] */
 		program {
 			signal: "elm,state,prev,popped"; source: "elm";
@@ -569,61 +490,55 @@ group { name: "elm/naviframe/item/basic/default";
 			target: "elements_clip";
 			after: "poppedb2";
 		}
-		program { name: "poppedb2";
+		program { "poppedb2";
 			action: STATE_SET "default" 0.0;
 			transition: DECELERATE 0.5;
 			target: "base";
 			target: "elements_clip";
 			after: "poppedb3";
 		}
-		program { name: "poppedb3";
+		program { "poppedb3";
 			action: SIGNAL_EMIT "elm,action,show,finished" "elm";
 		}
 	}
 }
 
-group { name: "elm/naviframe/item/overlap/default";
+group { "elm/naviframe/item/overlap/default";
 	inherit: "elm/naviframe/item/basic/default";
 	alias: "elm/naviframe/item/overlap/pager";
+
 	parts {
 		// this is a hack around an edje_cc inherit bug - group doesnt seem
 		// to inherit properly with limits etc.
 		BOTTOMMAX()
-		
-		part { name: "elm.swallow.content";
-			description { state: "default" 0.0;
+		part { "elm.swallow.content";
+			desc { "default";
 				rel1.to: "base";
 				rel1.relative: 0.0 0.0;
 			}
 		}
-		part { name: "top";
-			description { state: "default" 0.0;
-				color: 255 255 255 224;
-			}
-			description { state: "title-hidden" 0.0;
-				color: 255 255 255 224;
-			}
+		part { "top";
+			desc { "default"; color: "#FFFFFFE0"; }
+			desc { "title-hidden"; color: "#FFFFFFE0"; }
 		}
 	}
+
 	programs {
 		/* current page is being pushed: [previous]<----[current] */
 		program {
 			signal: "elm,state,cur,pushed"; source: "elm";
 			action: SIGNAL_EMIT "elm,action,pushed,finished" "elm";
 		}
-
 		/* current page is being popped: [current]---->[next] */
 		program {
 			signal: "elm,state,cur,popped"; source: "elm";
 			action: SIGNAL_EMIT "elm,action,popped,finished" "elm";
 		}
-
 		/* new page is being pushed: [current]<----[next] */
 		program {
 			signal: "elm,state,new,pushed"; source: "elm";
 			action: SIGNAL_EMIT "elm,action,show,finished" "elm";
 		}
-
 		/* previous page is being pushed: [previous]---->[current] */
 		program {
 			signal: "elm,state,prev,popped"; source: "elm";
@@ -631,4 +546,5 @@ group { name: "elm/naviframe/item/overlap/default";
 		}
 	}
 }
+
 #undef BOTTOMMAX
