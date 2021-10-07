@@ -1,20 +1,16 @@
-group { name: "elm/video/base/default";
+group { "elm/video/base/default";
 	parts {
-		part { name: "clipper"; type: RECT;
-			description { state: "default" 0.0;
-				color: 255 255 255 255;
-			}
-			description { state: "darker" 0.0;
-				color: 128 128 128 255;
-			}
+		rect { "clipper";
+			desc { "default"; color: VISIBLE; }
+			desc { "darker"; color: "#808080"; }
 		}
-		part { name: "elm.swallow.video"; type: SWALLOW;  mouse_events: 1;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
+		swallow { "elm.swallow.video"; mouse; clip: "clipper";
+			desc { "default";
 				aspect: 1.0 1.0; aspect_preference: BOTH;
 			}
 		}
 	}
+
 	programs {
 		program {
 			signal: "elm,video,load"; source: "elm";
