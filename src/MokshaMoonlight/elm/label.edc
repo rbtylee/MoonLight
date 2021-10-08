@@ -1,6 +1,6 @@
-group { name: "elm/label/base/default";
+group { "elm/label/base/default";
 	styles {
-		style { name: "label_style";
+		style { "label_style";
 			base: "font=""Sans"" font_size=10 text_class=tb_plain align=center color=#ffffffff";
 			tag: "br" "\n";
 			tag: "hilight" "+ font=""Sans:style=Bold"" text_class=tb_light";
@@ -8,29 +8,23 @@ group { name: "elm/label/base/default";
 		}
 	}
 	parts {
-		part { name: "label.text.clip"; type: RECT;
-			description { state: "default" 0.0;
-			}
+		rect { "label.text.clip";
+			desc { "default"; }
 		}
-		part { name: "elm.text"; type: TEXTBLOCK;
-			clip_to: "label.text.clip";
-			scale: 1;
-			description { state: "default" 0.0;
+		textblock { "elm.text"; clip: "label.text.clip"; scale;
+			desc { "default"; text.style: "label_style";
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 1.0;
 				color_class: "label_text";
-				text {
-					style: "label_style";
-					min: 0 1;
-				}
+				text.min: 0 1;
 			}
 		}
 	}
 }
 
-group { name: "elm/label/base/marker";
+group { "elm/label/base/marker";
 	styles {
-		style { name: "label_style2";
+		style { "label_style2";
 			base: "font=""Sans:style=Bold"" font_size=10 text_class=tb_plain align=center color=#ffffffff";
 			tag: "br" "\n";
 			tag: "hilight" "+ font=""Sans:style=Bold"" color=#3399ff text_class=tb_light";
@@ -38,20 +32,17 @@ group { name: "elm/label/base/marker";
 		}
 	}
 	parts {
-		part { name: "elm.text"; type: TEXTBLOCK;
-			scale: 1;
-			description { state: "default" 0.0;
-			color_class: "label_text";
-				text { style: "label_style2";
-					min: 1 1;
-					ellipsis: -1;
-				}
+		textblock { "elm.text";  scale;
+			desc { "default"; color_class: "label_text";
+				text.style: "label_style2";
+				text.min: 1 1;
+				text.ellipsis: -1;
 			}
 		}
 	}
 }
 
-group { name: "elm/label/base/slide_long";
+group { "elm/label/base/slide_long";
 	script {
 		public g_duration, g_stopslide, g_timer_id, g_anim_id;
 
@@ -107,168 +98,46 @@ group { name: "elm/label/base/slide_long";
 			set_state(PART:"elm.text", "default", 0.0);
 		}
 	}
+
 	parts {
-		part { name: "label.text.clip"; type: RECT;
-			description { state: "default" 0.0;
-			}
+		rect { "label.text.clip";
+			desc { "default"; }
 		}
-		part { name: "elm.text"; type: TEXTBLOCK;
-			scale: 1;
-			clip_to: "label.text.clip";
-			description { state: "default" 0.0;
+		textblock { "elm.text";  scale; clip: "label.text.clip";
+			desc { "default"; color_class: "label_text";
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 1.0;
 				align: 0.0 0.0;
-				color_class: "label_text";
-				text {
-					style: "label_style";
-					min: 0 1;
-				}
+				text.style: "label_style";
+				text.min: 0 1;
 			}
-			description { state: "slide_end" 0.0;
-				inherit: "default" 0.0;
+			desc { "slide_end"; inherit;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 0.0 1.0;
 				align: 1.0 0.0;
-				text {
-					style: "label_style";
-					min: 1 1;
-					ellipsis: -1;
-				}
+				text.style: "label_style";
+				text.min: 1 1;
+				text.ellipsis: -1;
 			}
-			description { state: "slide_begin" 0.0;
-				inherit: "default" 0.0;
+			desc { "slide_begin"; inherit;
 				rel1.relative: 1.0 0.0;
 				rel2.relative: 1.0 1.0;
 				align: 0.0 0.0;
-				text {
-					style: "label_style";
-					min: 1 1;
-					ellipsis: -1;
-				}
+				text.style: "label_style";
+				text.min: 1 1;
+				text.ellipsis: -1;
 			}
 		}
 	}
+
 	programs {
-		program { name: "start_slide";
-			signal: "elm,state,slide,start"; source: "elm"; 
-			script {
-				start_slide();
-			}
-		}
-		program { name: "stop_slide";
-			signal: "elm,state,slide,stop"; source: "elm";
-			script {
-				stop_slide();
-			}
-		}
-	}
-}
-
-
-group { name: "elm/label/base/slide_short";
-	script {
-		public g_duration, g_stopslide, g_timer_id, g_anim_id;
-
-		public message(Msg_Type:type, id, ...) {
-			if ((type == MSG_FLOAT_SET) && (id == 0)) {
-				new Float:duration;
-				duration = getfarg(2);
-				set_float(g_duration, duration);
-			}
-		}
-		public slide_to_end_anim(val, Float:pos) {
-			new stopflag;
-			new id;
-			stopflag = get_int(g_stopslide);
-			if (stopflag == 1) return;
-			set_tween_state(PART:"elm.text", pos, "slide_begin", 0.0, "slide_end", 0.0);
-			if (pos >= 1.0) {
-				id = timer(0.5, "slide_to_begin", 1);
-				set_int(g_timer_id, id);
-			}
-		}
-		public slide_to_end() {
-			new stopflag;
-			new id;
-			new Float:duration;
-			stopflag = get_int(g_stopslide);
-			if (stopflag == 1) return;
-			duration = get_float(g_duration);
-			id = anim(duration, "slide_to_end_anim", 1);
-			set_int(g_anim_id, id);
-		}
-		public slide_to_begin() {
-			new stopflag;
-			new id;
-			stopflag = get_int(g_stopslide);
-			if (stopflag == 1) return;
-			set_state(PART:"elm.text", "slide_begin", 0.0);
-			id = timer(0.5, "slide_to_end", 1);
-			set_int(g_timer_id, id);
-		}
-		public start_slide() {
-			set_int(g_stopslide, 0);
-			set_state(PART:"elm.text", "slide_begin", 0.0);
-			slide_to_end();
-		}
-		public stop_slide() {
-			new id;
-			set_int(g_stopslide, 1);
-			id = get_int(g_anim_id);
-			cancel_anim(id);
-			id = get_int(g_timer_id);
-			cancel_timer(id);
-			set_state(PART:"elm.text", "default", 0.0);
-		}
-	}
-	parts {
-		part { name: "label.text.clip"; type: RECT;
-			description { state: "default" 0.0;
-			}
-		}
-		part { name: "elm.text"; type: TEXTBLOCK;
-			scale: 1;
-			clip_to: "label.text.clip";
-			description { state: "default" 0.0;
-				rel1.relative: 0.0 0.0;
-				rel2.relative: 1.0 1.0;
-				align: 0.0 0.0;
-				color_class: "label_text";
-				text { style: "label_style";
-					min: 0 1;
-				}
-			}
-			description { state: "slide_end" 0.0;
-				inherit: "default" 0.0;
-				rel1.relative: 1.0 0.0;
-				rel2.relative: 1.0 1.0;
-				align: 1.0 0.0;
-				text { style: "label_style";
-					min: 1 1;
-					ellipsis: -1;
-				}
-			}
-			description { state: "slide_begin" 0.0;
-				inherit: "default" 0.0;
-				rel1.relative: 0.0 0.0;
-				rel2.relative: 0.0 1.0;
-				align: 0.0 0.0;
-				text { style: "label_style";
-					min: 1 1;
-					ellipsis: -1;
-				}
-			}
-		}
-	}
-	programs {
-		program { name: "start_slide";
+		program { "start_slide";
 			signal: "elm,state,slide,start"; source: "elm";
 			script {
 				start_slide();
 			}
 		}
-		program { name: "stop_slide";
+		program { "stop_slide";
 			signal: "elm,state,slide,stop"; source: "elm";
 			script {
 				stop_slide();
@@ -277,7 +146,111 @@ group { name: "elm/label/base/slide_short";
 	}
 }
 
-group { name: "elm/label/base/slide_bounce";
+group { "elm/label/base/slide_short";
+	script {
+		public g_duration, g_stopslide, g_timer_id, g_anim_id;
+
+		public message(Msg_Type:type, id, ...) {
+			if ((type == MSG_FLOAT_SET) && (id == 0)) {
+				new Float:duration;
+				duration = getfarg(2);
+				set_float(g_duration, duration);
+			}
+		}
+		public slide_to_end_anim(val, Float:pos) {
+			new stopflag;
+			new id;
+			stopflag = get_int(g_stopslide);
+			if (stopflag == 1) return;
+			set_tween_state(PART:"elm.text", pos, "slide_begin", 0.0, "slide_end", 0.0);
+			if (pos >= 1.0) {
+				id = timer(0.5, "slide_to_begin", 1);
+				set_int(g_timer_id, id);
+			}
+		}
+		public slide_to_end() {
+			new stopflag;
+			new id;
+			new Float:duration;
+			stopflag = get_int(g_stopslide);
+			if (stopflag == 1) return;
+			duration = get_float(g_duration);
+			id = anim(duration, "slide_to_end_anim", 1);
+			set_int(g_anim_id, id);
+		}
+		public slide_to_begin() {
+			new stopflag;
+			new id;
+			stopflag = get_int(g_stopslide);
+			if (stopflag == 1) return;
+			set_state(PART:"elm.text", "slide_begin", 0.0);
+			id = timer(0.5, "slide_to_end", 1);
+			set_int(g_timer_id, id);
+		}
+		public start_slide() {
+			set_int(g_stopslide, 0);
+			set_state(PART:"elm.text", "slide_begin", 0.0);
+			slide_to_end();
+		}
+		public stop_slide() {
+			new id;
+			set_int(g_stopslide, 1);
+			id = get_int(g_anim_id);
+			cancel_anim(id);
+			id = get_int(g_timer_id);
+			cancel_timer(id);
+			set_state(PART:"elm.text", "default", 0.0);
+		}
+	}
+
+	parts {
+		rect { "label.text.clip";
+			desc { "default"; }
+		}
+		textblock { "elm.text"; scale; clip: "label.text.clip";
+			desc { "default"; color_class: "label_text";
+				rel1.relative: 0.0 0.0;
+				rel2.relative: 1.0 1.0;
+				align: 0.0 0.0;
+				text.style: "label_style";
+				text.min: 0 1;
+			}
+			desc { "slide_end"; inherit;
+				rel1.relative: 1.0 0.0;
+				rel2.relative: 1.0 1.0;
+				align: 1.0 0.0;
+				text.style: "label_style";
+				text.min: 1 1;
+				text.ellipsis: -1;
+			}
+			desc { "slide_begin"; inherit;
+				rel1.relative: 0.0 0.0;
+				rel2.relative: 0.0 1.0;
+				align: 0.0 0.0;
+				text.style: "label_style";
+				text.min: 1 1;
+				text.ellipsis: -1;
+			}
+		}
+	}
+
+	programs {
+		program { "start_slide";
+			signal: "elm,state,slide,start"; source: "elm";
+			script {
+				start_slide();
+			}
+		}
+		program { "stop_slide";
+			signal: "elm,state,slide,stop"; source: "elm";
+			script {
+				stop_slide();
+			}
+		}
+	}
+}
+
+group { "elm/label/base/slide_bounce";
 	script {
 		public g_duration, g_stopslide, g_timer_id, g_anim_id;
 
@@ -345,53 +318,46 @@ group { name: "elm/label/base/slide_bounce";
 			set_state(PART:"elm.text", "default", 0.0);
 		}
 	}
+
 	parts {
-		part { name: "label.text.clip"; type: RECT;
-			description { state: "default" 0.0;
-			}
+		rect { "label.text.clip";
+			desc { "default"; }
 		}
-		part { name: "elm.text"; type: TEXTBLOCK;
-			scale: 1;
-			clip_to: "label.text.clip";
-			description { state: "default" 0.0;
+		textblock { "elm.text"; scale; clip: "label.text.clip";
+			desc { "default"; color_class: "label_text";
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 1.0;
 				align: 0.0 0.0;
-				color_class: "label_text";
-				text { style: "label_style";
-					min: 0 1;
-				}
+				text.style: "label_style";
+				text.min: 0 1;
 			}
-			description { state: "slide_end" 0.0;
-				inherit: "default" 0.0;
+			desc { "slide_end"; inherit;
 				rel1.relative: 1.0 0.0;
 				rel2.relative: 1.0 1.0;
 				align: 1.0 0.0;
-				text { style: "label_style";
-					min: 1 1;
-					ellipsis: -1;
-				}
+				text.style: "label_style";
+				text.min: 1 1;
+				text.ellipsis: -1;
 			}
-			description { state: "slide_begin" 0.0;
-				inherit: "default" 0.0;
+			desc { "slide_begin"; inherit;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 0.0 1.0;
 				align: 0.0 0.0;
-				text { style: "label_style";
-					min: 1 1;
-					ellipsis: -1;
-				}
+				text.style: "label_style";
+				text.min: 1 1;
+				text.ellipsis: -1;
 			}
 		}
 	}
+
 	programs {
-		program { name: "start_slide";
+		program { "start_slide";
 			signal: "elm,state,slide,start"; source: "elm";
 			script {
 				start_slide();
 			}
 		}
-		program { name: "stop_slide";
+		program { "stop_slide";
 			signal: "elm,state,slide,stop"; source: "elm";
 			script {
 				stop_slide();
