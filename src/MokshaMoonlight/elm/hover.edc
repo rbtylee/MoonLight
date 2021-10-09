@@ -2,14 +2,14 @@
 group { name: "elm/hover/base/default";
 	parts {
 		part { name: "elm.swallow.offset"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 0.0 0.0;
 			}
 		}
 		part { name: "elm.swallow.size"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1.to: "elm.swallow.offset";
 				rel1.relative: 1.0 1.0;
@@ -17,13 +17,13 @@ group { name: "elm/hover/base/default";
 				rel2.relative: 1.0 1.0;
 			}
 		}
-		part { name: "base"; type: RECT; mouse_events: 1;
-			description { state: "default" 0.0;
+		part { name: "base"; type: RECT; mouse;
+			desc { state: "default" 0.0;
 				color: 0 0 0 64;
 			}
 		}
-		part { name: "box"; type: RECT; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { name: "box"; type: RECT; nomouse;
+			desc { state: "default" 0.0;
 				color: 0 0 0 0;
 				rel1.to: "elm.swallow.size";
 				rel1.offset: -2 -2;
@@ -32,7 +32,7 @@ group { name: "elm/hover/base/default";
 			}
 		}
 		part { name: "elm.swallow.slot.left"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 1.0 0.5;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 0.0;
@@ -43,7 +43,7 @@ group { name: "elm/hover/base/default";
 			}
 		}
 		part { name: "elm.swallow.slot.top-left"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 1.0 1.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 0.0;
@@ -54,7 +54,7 @@ group { name: "elm/hover/base/default";
 			}
 		}
 		part { name: "elm.swallow.slot.top"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.5 1.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 0.0;
@@ -65,7 +65,7 @@ group { name: "elm/hover/base/default";
 			}
 		}
 		part { name: "elm.swallow.slot.top-right"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 1.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 1.0 0.0;
@@ -76,7 +76,7 @@ group { name: "elm/hover/base/default";
 			}
 		}
 		part { name: "elm.swallow.slot.right"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.5;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 1.0 0.0;
@@ -87,7 +87,7 @@ group { name: "elm/hover/base/default";
 			}
 		}
 		part { name: "elm.swallow.slot.bottom-right"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 1.0 1.0;
@@ -98,7 +98,7 @@ group { name: "elm/hover/base/default";
 			}
 		}
 		part { name: "elm.swallow.slot.bottom"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.5 0.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 1.0;
@@ -109,7 +109,7 @@ group { name: "elm/hover/base/default";
 			}
 		}
 		part { name: "elm.swallow.slot.bottom-left"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 1.0 0.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 1.0;
@@ -120,7 +120,7 @@ group { name: "elm/hover/base/default";
 			}
 		}
 		part { name: "elm.swallow.slot.middle"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.swallow.size";
 				rel2.to: "elm.swallow.size";
 			}
@@ -138,14 +138,14 @@ group { name: "elm/hover/base/popout";
 	images.image: "dia_bg.png" COMP;
 	parts {
 		part { name: "elm.swallow.offset"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 0.0 0.0;
 			}
 		}
 		part { name: "elm.swallow.size"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1.to: "elm.swallow.offset";
 				rel1.relative: 1.0 1.0;
@@ -153,26 +153,26 @@ group { name: "elm/hover/base/popout";
 				rel2.relative: 1.0 1.0;
 			}
 		}
-		part { name: "base"; type: RECT; mouse_events: 1;
-			description { state: "default" 0.0;
+		part { name: "base"; type: RECT; mouse;
+			desc { state: "default" 0.0;
 				color: 0 0 0 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				color: 0 0 0 64;
 			}
 		}
 		part { name: "leftclip"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel2.to_x: "pop";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 1 -1;
 			}
 		}
 		part { name: "left";
-			clip_to: "leftclip";
-			description { state: "default" 0.0;
-				visible: 0;
+			clip: "leftclip";
+			desc { state: "default" 0.0;
+				hid;
 				rel1.to: "elm.swallow.slot.left";
 				rel1.offset: -5 -5;
 				rel2.to: "elm.swallow.slot.left";
@@ -182,14 +182,14 @@ group { name: "elm/hover/base/popout";
 				color_class: "dialog_base";
 				fill.smooth: 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
 		}
 		part { name: "elm.swallow.slot.left"; type: SWALLOW;
-			clip_to: "leftclip";
-			description { state: "default" 0.0;
+			clip: "leftclip";
+			desc { state: "default" 0.0;
 				align: 0.0 0.5;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 0.0;
@@ -198,7 +198,7 @@ group { name: "elm/hover/base/popout";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: -1 -1;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				rel1.offset: -7 0;
 				rel2.offset: -7 -1;
@@ -206,16 +206,16 @@ group { name: "elm/hover/base/popout";
 			}
 		}
 		part { name: "rightclip"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to_x: "pop";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: -2 0;
 			}
 		}
 		part { name: "right"; 
-			clip_to: "rightclip";
-			description { state: "default" 0.0;
-				visible: 0;
+			clip: "rightclip";
+			desc { state: "default" 0.0;
+				hid;
 				rel1.to: "elm.swallow.slot.right";
 				rel1.offset: -5 -5;
 				rel2.to: "elm.swallow.slot.right";
@@ -225,14 +225,14 @@ group { name: "elm/hover/base/popout";
 				color_class: "dialog_base";
 				fill.smooth: 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
 		}
 		part { name: "elm.swallow.slot.right"; type: SWALLOW;
-			clip_to: "rightclip";
-			description { state: "default" 0.0;
+			clip: "rightclip";
+			desc { state: "default" 0.0;
 				align: 1.0 0.5;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 1.0 0.0;
@@ -241,7 +241,7 @@ group { name: "elm/hover/base/popout";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: 0 -1;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				rel1.offset: 6 0;
 				rel2.offset: 6 -1;
@@ -249,16 +249,16 @@ group { name: "elm/hover/base/popout";
 			}
 		}
 		part { name: "topclip"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel2.to_y: "pop";
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -1 1;
 			}
 		}
 		part { name: "top";
-			clip_to: "topclip"; 
-			description { state: "default" 0.0;
-				visible: 0;
+			clip: "topclip"; 
+			desc { state: "default" 0.0;
+				hid;
 				rel1.to: "elm.swallow.slot.top";
 				rel1.offset: -5 -5;
 				rel2.to: "elm.swallow.slot.top";
@@ -268,15 +268,15 @@ group { name: "elm/hover/base/popout";
 				color_class: "dialog_base";
 				fill.smooth: 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
 	  }
 		part { name: "elm.swallow.slot.top"; type: SWALLOW;
-			clip_to: "topclip";
-			description { state: "default" 0.0;
-				visible: 1;
+			clip: "topclip";
+			desc { state: "default" 0.0;
+				vis;
 				align: 0.5 0.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 0.0;
@@ -285,7 +285,7 @@ group { name: "elm/hover/base/popout";
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -1 -1;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				rel1.offset: 0 -7;
 				rel2.offset: -1 -7;
@@ -293,16 +293,16 @@ group { name: "elm/hover/base/popout";
 			}
 		}
 		part { name: "bottomclip"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to_y: "pop";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: -1 -2;
 			}
 		}
 		part { name: "bottom"; 
-			clip_to: "bottomclip";
-			description { state: "default" 0.0;
-				visible: 0;
+			clip: "bottomclip";
+			desc { state: "default" 0.0;
+				hid;
 				rel1.to: "elm.swallow.slot.bottom";
 				rel1.offset: -5 -5;
 				rel2.to: "elm.swallow.slot.bottom";
@@ -312,14 +312,14 @@ group { name: "elm/hover/base/popout";
 				color_class: "dialog_base";
 				fill.smooth: 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
 		} 
 		part { name: "elm.swallow.slot.bottom"; type: SWALLOW;
-			clip_to: "bottomclip";
-			description { state: "default" 0.0;
+			clip: "bottomclip";
+			desc { state: "default" 0.0;
 				align: 0.5 1.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 1.0;
@@ -328,15 +328,15 @@ group { name: "elm/hover/base/popout";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -1 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				rel1.offset: 0 6;
 				rel2.offset: -1 6;
 				align: 0.5 0.0;
 			}
 		}
-		part { name: "pop"; mouse_events: 1; 
-			description { state: "default" 0.0;
+		part { name: "pop"; mouse; 
+			desc { state: "default" 0.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.offset: -6 -6;
 				rel2.to: "elm.swallow.slot.middle";
@@ -348,7 +348,7 @@ group { name: "elm/hover/base/popout";
 			}
 		}
 		part { name: "elm.swallow.slot.middle"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.swallow.size";
 				rel2.to: "elm.swallow.size";
 			}
@@ -433,14 +433,14 @@ group { name: "elm/hover/base/hoversel_vertical/default";
 
 	parts {
 		part { name: "elm.swallow.offset"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 0.0 0.0;
 			}
 		}
 		part { name: "elm.swallow.size"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1.to: "elm.swallow.offset";
 				rel1.relative: 1.0 1.0;
@@ -448,8 +448,8 @@ group { name: "elm/hover/base/hoversel_vertical/default";
 				rel2.relative: 1.0 1.0;
 			}
 		}
-		part { name: "bg"; mouse_events: 1; 
-			description { state: "default" 0.0;
+		part { name: "bg"; mouse; 
+			desc { state: "default" 0.0;
 				rel1.to_x: "limit0";
 				rel1.to_y: "elm.swallow.slot.top";
 				rel1.offset: -7 -4;
@@ -462,7 +462,7 @@ group { name: "elm/hover/base/hoversel_vertical/default";
 				color_class: "dialog_base";
 				fill.smooth: 0;
 			}
-			description { state: "bottom" 0.0;
+			desc { state: "bottom" 0.0;
 				rel1.to_x: "limit0";
 				rel1.to_y: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 1.0;
@@ -477,7 +477,7 @@ group { name: "elm/hover/base/hoversel_vertical/default";
 			}
 		}
 		part { name: "limit0"; type: SPACER;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to_x: "elm.swallow.slot.top";
 				rel1.offset: 1 0;
 				rel2.to_x: "elm.swallow.slot.middle";
@@ -487,13 +487,13 @@ group { name: "elm/hover/base/hoversel_vertical/default";
 				min: 1 1;
 				max: 1 99999;
 			}
-			description { state: "bottom" 0.0;
+			desc { state: "bottom" 0.0;
 				inherit: "default" 0.0;
 				rel1.to_x: "elm.swallow.slot.bottom";
 			}
 		}
 		part { name: "limit1"; type: SPACER;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to_x: "elm.swallow.slot.middle";
 				rel1.offset: -1 0;
 				rel1.relative: 1.0 0.0;
@@ -503,30 +503,30 @@ group { name: "elm/hover/base/hoversel_vertical/default";
 				min: 1 1;
 				max: 1 99999;
 			}
-			description { state: "bottom" 0.0;
+			desc { state: "bottom" 0.0;
 				inherit: "default" 0.0;
 				rel2.to_x: "elm.swallow.slot.bottom";
 			}
 		}
 		part { name: "base"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				color: 0 0 0 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				color: 0 0 0 0;
 			}
 		}
 		part { name: "topclip"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel2.to_y: "bg";
 				rel2.offset: -1 -6;
 			}
 		}
 		part { name: "elm.swallow.slot.top"; type: SWALLOW;
-			clip_to: "topclip";
-			description { state: "default" 0.0;
-				visible: 1;
+			clip: "topclip";
+			desc { state: "default" 0.0;
+				vis;
 				align: 0.5 0.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 0.0;
@@ -535,20 +535,20 @@ group { name: "elm/hover/base/hoversel_vertical/default";
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -1 -1;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				align: 0.5 1.0;
 			}
 		}
 		part { name: "bottomclip"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to_y: "bg";
 				rel1.offset: 0 3;
 			}
 		}
 		part { name: "elm.swallow.slot.bottom"; type: SWALLOW;
-			clip_to: "bottomclip";
-			description { state: "default" 0.0;
+			clip: "bottomclip";
+			desc { state: "default" 0.0;
 				align: 0.5 1.0;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 1.0;
@@ -557,14 +557,14 @@ group { name: "elm/hover/base/hoversel_vertical/default";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -1 2;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				align: 0.5 0.0;
 			}
 		}
 		part { name: "elm.swallow.slot.middle";
 			type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.swallow.size";
 				rel2.to: "elm.swallow.size";
 			}
@@ -633,14 +633,14 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
 
 	parts {
 		part { name: "elm.swallow.offset"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 0.0 0.0;
 			}
 		}
 		part { name: "elm.swallow.size"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				align: 0.0 0.0;
 				rel1.to: "elm.swallow.offset";
 				rel1.relative: 1.0 1.0;
@@ -649,16 +649,16 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
 			}
 		}
 		part { name: "base"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				color: 0 0 0 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				color: 0 0 0 0;
 			}
 		}
-		part { name: "bg"; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { name: "bg"; nomouse;
+			desc { state: "default" 0.0;
 				rel1.to_x: "elm.swallow.slot.left";
 				rel1.to_y: "elm.swallow.slot.middle";
 				rel1.offset: -6 0;
@@ -671,7 +671,7 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
 				color_class: "dialog_base";
 				fill.smooth: 0;
 			}
-			description { state: "right" 0.0;
+			desc { state: "right" 0.0;
 				rel1.to_x: "elm.swallow.slot.middle";
 				rel1.to_y: "elm.swallow.slot.middle";
 				rel1.relative: 1.0 0.0;
@@ -686,14 +686,14 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
 			}
 		} 
 		part { name: "leftclip"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel2.to_x: "elm.swallow.slot.middle";
 				rel2.relative: 0.0 1.0;
 			}
 		}
 		part { name: "elm.swallow.slot.left"; type: SWALLOW;
-			clip_to: "leftclip";
-			description { state: "default" 0.0;
+			clip: "leftclip";
+			desc { state: "default" 0.0;
 				align: 0.0 0.5;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 0.0 0.0;
@@ -702,7 +702,7 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: -1 -1;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				rel1.offset: -7 0;
 				rel2.offset: -7 -1;
@@ -710,14 +710,14 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
 			}
 		}
 		part { name: "rightclip"; type: RECT;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to_x: "elm.swallow.slot.middle";
 				rel1.relative: 1.0 0.0;
 			}
 		}
 		part { name: "elm.swallow.slot.right"; type: SWALLOW;
-			clip_to: "rightclip";
-			description { state: "default" 0.0;
+			clip: "rightclip";
+			desc { state: "default" 0.0;
 				align: 1.0 0.5;
 				rel1.to: "elm.swallow.slot.middle";
 				rel1.relative: 1.0 0.0;
@@ -726,7 +726,7 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: 0 -1;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				rel1.offset: 6 0;
 				rel2.offset: -6 -1;
@@ -734,7 +734,7 @@ group { name: "elm/hover/base/hoversel_horizontal/default";
 			}
 		}
 		part { name: "elm.swallow.slot.middle"; type: SWALLOW;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.swallow.size";
 				rel2.to: "elm.swallow.size";
 			}
