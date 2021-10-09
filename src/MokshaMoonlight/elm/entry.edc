@@ -1,19 +1,19 @@
-group { name: "elm/scroller/entry/default";
+group { "elm/scroller/entry/default";
 	inherit: "elm/scroller/base/default";
 	parts {
-		part { name: "bg"; mouse_events: 0;
-			description { state: "default" 0.0;
-				color: 255 255 255 255;
+		part { "bg"; nomouse;
+			desc { state: "default" 0.0;
+				color: VISIBLE;
 				color_class: "none";
 			}
 		}
-		part { name: "clipper"; type: RECT; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "clipper"; type: RECT; nomouse;
+			desc { state: "default" 0.0;
 				STAY_ON("bg")
 			}
 		}
-		part { name: "elm.swallow.content";
-			description { state: "default" 0.0;
+		part { "elm.swallow.content";
+			desc { state: "default" 0.0;
 				rel1.to: "elm.swallow.icon";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 0 0;
@@ -22,9 +22,9 @@ group { name: "elm/scroller/entry/default";
 				//rel2.offset: -1 -1;
 			}
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
+		part { "elm.swallow.icon"; type: SWALLOW;
+			clip: "clipper";
+			desc { state: "default" 0.0;
 				fixed: 1 1;
 				rel1.to: "clipper";
 				rel1.offset: 1 1;
@@ -34,16 +34,16 @@ group { name: "elm/scroller/entry/default";
 				visible: 0;
 				align: 1.0 0.0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
 				align: 0.0 0.0;
 			}
 		}
 		
-		part { name: "elm.swallow.end"; type: SWALLOW;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
+		part { "elm.swallow.end"; type: SWALLOW;
+			clip: "clipper";
+			desc { state: "default" 0.0;
 				fixed: 1 1;
 				rel1.to: "clipper";
 				rel1.offset: -2 1;
@@ -53,7 +53,7 @@ group { name: "elm/scroller/entry/default";
 				visible: 0;
 				align: 0.0 0.0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
 				align: 1.0 0.0;
@@ -84,7 +84,7 @@ group { name: "elm/scroller/entry/default";
 	}
 }
 
-group { name: "elm/scroller/entry_single/default";
+group { "elm/scroller/entry_single/default";
 	//~ images.image: "entry0.png" COMP;
 	//~ images.image: "entry1.png" COMP;
 	//~ images.image: "entry2.png" COMP;
@@ -93,18 +93,18 @@ group { name: "elm/scroller/entry_single/default";
 	data.item: "focus_highlight" "on";
 	
 	parts {
-		part { name: "sb_vbar_base"; type: RECT;
-			description { state: "default" 0.0;
+		part { "sb_vbar_base"; type: RECT;
+			desc { state: "default" 0.0;
 				fixed: 1 1;
 				rel2.relative: 1.0 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "elm.dragable.vbar"; type: RECT;
+		part { "elm.dragable.vbar"; type: RECT;
 			dragable.x: 0 0 0;
 			dragable.y: 1 1 0;
 			dragable.confine: "sb_vbar_base";
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				fixed: 1 1;
 				rel1.relative: 0.5  0.5;
 				rel1.to: "sb_vbar_base";
@@ -113,18 +113,18 @@ group { name: "elm/scroller/entry_single/default";
 				visible: 0;
 			}
 		}
-		part { name: "sb_hbar_base"; type: RECT;
-			description { state: "default" 0.0;
+		part { "sb_hbar_base"; type: RECT;
+			desc { state: "default" 0.0;
 				fixed: 1 1;
 				rel1.relative: 1.0 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "elm.dragable.hbar"; type: RECT;
+		part { "elm.dragable.hbar"; type: RECT;
 			dragable.x: 1 1 0;
 			dragable.y: 0 0 0;
 			dragable.confine: "sb_hbar_base";
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				fixed: 1 1;
 				rel1.relative: 0.5  0.5;
 				rel1.to: "sb_hbar_base";
@@ -133,32 +133,32 @@ group { name: "elm/scroller/entry_single/default";
 				visible: 0;
 			}
 		}
-		part { name: "bg";
-			description { state: "default" 0.0;
+		part { "bg";
+			desc { state: "default" 0.0;
 				image.normal: "entry.png";
 				image.border: 6 6 6 6;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color: 255 255 255 150;
 			}
 		}
-		part { name: "clipper"; type: RECT;
-			description { state: "default" 0.0;
+		part { "clipper"; type: RECT;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.swallow.background";
 				rel2.to: "elm.swallow.background";
 			}
 		}
-		part { name: "elm.swallow.background"; type: SWALLOW;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
+		part { "elm.swallow.background"; type: SWALLOW;
+			clip: "clipper";
+			desc { state: "default" 0.0;
 				rel1.offset: 1 1;
 				rel2.offset: -2 -2;
 			}
 		}
-		part { name: "elm.swallow.content"; type: SWALLOW;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
+		part { "elm.swallow.content"; type: SWALLOW;
+			clip: "clipper";
+			desc { state: "default" 0.0;
 				rel1.to: "elm.swallow.icon";
 				rel1.relative: 1.0 0.0;
 				rel1.offset: 4 1;
@@ -167,9 +167,9 @@ group { name: "elm/scroller/entry_single/default";
 				rel2.offset: 0 -2;
 			}
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
+		part { "elm.swallow.icon"; type: SWALLOW;
+			clip: "clipper";
+			desc { state: "default" 0.0;
 				fixed: 1 1;
 				rel1.offset: 1 3;
 				rel2.offset: 1 -5;
@@ -177,7 +177,7 @@ group { name: "elm/scroller/entry_single/default";
 				visible: 0;
 				align: 1.0 0.5;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
 				align: 0.0 0.5;
@@ -193,9 +193,9 @@ group { name: "elm/scroller/entry_single/default";
 			action: STATE_SET "default" 0.0;
 			target: "elm.swallow.icon";
 		}
-		part { name: "elm.swallow.end"; type: SWALLOW;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
+		part { "elm.swallow.end"; type: SWALLOW;
+			clip: "clipper";
+			desc { state: "default" 0.0;
 				fixed: 1 1;
 				rel1.offset: -2 3;
 				rel1.relative: 1.0 0.0;
@@ -203,7 +203,7 @@ group { name: "elm/scroller/entry_single/default";
 				visible: 0;
 				align: 0.0 0.5;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
 				align: 1.0 0.5;
@@ -219,39 +219,39 @@ group { name: "elm/scroller/entry_single/default";
 			action: STATE_SET "default" 0.0;
 			target: "elm.swallow.end";
 		}
-		/*part { name: "inset"; mouse_events: 0; repeat_events: 1;
-			description { state: "default" 0.0;
+		/*part { "inset"; nomouse; repeat_events: 1;
+			desc { state: "default" 0.0;
 				image.normal: "entry1.png";
 				image.border: 6 6 6 6;
 				STAY_ON("bg")
 				max: 9999 42;
 			 }
-			description { state: "focused" 0.0;
+			desc { state: "focused" 0.0;
 			inherit: "default" 0.0;
 			image.normal: "entry2.png";
 			color_class: "focus";
 		  }
-		 description { state: "disabled" 0.0;
+		 desc { state: "disabled" 0.0;
 			inherit: "default" 0.0;
 			image.normal: "entry0.png";
 		 }
 		}*/
-		part { name: "elm.swallow.overlay"; type: SWALLOW;
-			clip_to: "clipper";
-			description { state: "default" 0.0;
+		part { "elm.swallow.overlay"; type: SWALLOW;
+			clip: "clipper";
+			desc { state: "default" 0.0;
 				rel1.offset: 1 1;
 				rel2.offset: -2 -2;
 			}
 		}
 	}
 	programs {
-		program { name: "disable";
+		program { "disable";
 		signal: "elm,state,disabled"; source: "elm";
 		action: STATE_SET "disabled" 0.0;
 		//target: "inset";
 		target: "bg";
 	}
-	program { name: "enable";
+	program { "enable";
 		signal: "elm,state,enabled"; source: "elm";
 		action: STATE_SET "default" 0.0;
 		//target: "inset";
@@ -270,11 +270,11 @@ group { name: "elm/scroller/entry_single/default";
 	}
 }
 
-group { name: "elm/entry/cursor/default";
+group { "elm/entry/cursor/default";
 	min: 1 0;
 	parts {
-		part { name: "cursor"; mouse_events: 0; type: RECT;
-			description { state: "default" 0.0;
+		part { "cursor"; nomouse; type: RECT;
+			desc { state: "default" 0.0;
 			align: 0.5 1.0;
 			rel1.offset: 0 2;
 			rel2.offset: -1 0;
@@ -282,9 +282,9 @@ group { name: "elm/entry/cursor/default";
 				color_class: "entry_text";
 				FIXED_SIZE(1,16)
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
-				color: 255 255 255 255;
+				color: VISIBLE;
 			}
 		}
 	}
@@ -316,47 +316,47 @@ group { name: "elm/entry/cursor/default";
 			target: "cursor_hide_timer";
 			after: "cursor_show";
 		}
-		program { name: "cursor_hide_stop";
+		program { "cursor_hide_stop";
 			action: STATE_SET "default" 0.0;
 			target: "cursor";
 		}
-		program { name: "cursor_show";
+		program { "cursor_show";
 			action: STATE_SET "visible" 0.0;
 			target: "cursor";
 			after: "cursor_show_timer";
 		}
-		program { name: "cursor_hide";
+		program { "cursor_hide";
 			action: STATE_SET "default" 0.0;
 			target: "cursor";
 			transition: SINUSOIDAL 0.2;
 			after: "cursor_hide_timer";
 		}
-		program { name: "cursor_show_timer";
+		program { "cursor_show_timer";
 			in: 0.5 0.0;
 			after: "cursor_hide";
 		}
-		program { name: "cursor_hide_timer";
+		program { "cursor_hide_timer";
 			in: 0.2 0.0;
 			after: "cursor_show";
 		}
 	}
 }
 
-group { name: "elm/entry/selection/default";
+group { "elm/entry/selection/default";
 	parts {
-		part { name: "base"; type: RECT;
-			description { state: "default" 0.0;
+		part { "base"; type: RECT;
+			desc { state: "default" 0.0;
 				color_class: "focus";
 			}
 		}
 	}
 }
 
-group { name: "elm/entry/anchor/default";
+group { "elm/entry/anchor/default";
 	images.image: "bot_shine.png" COMP;
 	parts {
-		part { name: "bar";  mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "bar";  nomouse;
+			desc { state: "default" 0.0;
 				image.normal: "bot_shine.png";
 				image.border: 4 4 4 10;
 				fill.smooth: 1;
@@ -366,13 +366,13 @@ group { name: "elm/entry/anchor/default";
 				color_class: "focus";
 				color: 255 255 255 125;
 			}
-			description { state: "over" 0.0;
+			desc { state: "over" 0.0;
 			inherit: "default" 0.0;
-			color: 255 255 255 255;
+			color: VISIBLE;
 		 }
 		}
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
+		part { "event"; type: RECT;
+			desc { state: "default" 0.0;
 				color: TRANSPARENT;
 				STAY_ON("bar")
 			}
@@ -383,10 +383,10 @@ group { name: "elm/entry/anchor/default";
   }
 }
 
-group { name: "elm/entry/base/default";
+group { "elm/entry/base/default";
   
 	styles {
-		style { name: "entry_style";
+		style { "entry_style";
 			base: "font=""Sans"" font_size=10 color=#ffffff wrap=word text_class=entry color_class=entry_trext left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada underline=on underline_color=#bacada";
@@ -395,7 +395,7 @@ group { name: "elm/entry/base/default";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
 		}
 		
-		style { name: "entry_nowrap_style";
+		style { "entry_nowrap_style";
 			base: "font=""Sans"" font_size=10 color=#ffffff text_class=entry color_class=entry left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada underline=on underline_color=#bacada";
@@ -404,7 +404,7 @@ group { name: "elm/entry/base/default";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
 		}
 		
-		style { name: "entry_disabled_style";
+		style { "entry_disabled_style";
 			base: "font=""Sans"" font_size=10 color=#ffffff wrap=word text_class=entry color_class=entry_text_disabled left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada88 underline=on underline_color=#bacada88";
@@ -413,7 +413,7 @@ group { name: "elm/entry/base/default";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
 		}
 		
-		style { name: "entry_nowrap_disabled_style";
+		style { "entry_nowrap_disabled_style";
 			base: "font=""Sans"" font_size=10 color=#ffffff text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada88 underline=on underline_color=#bacada88";
@@ -421,7 +421,7 @@ group { name: "elm/entry/base/default";
 			tag:  "preedit" "+ underline=on underline_color=#bacada88";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
 		}
-		style { name: "entry_guide_style";
+		style { "entry_guide_style";
 			base: "font=""Sans"" font_size=10 color=#ffffff80 wrap=word text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "hilight" "+ font_weight=Bold";
@@ -429,9 +429,9 @@ group { name: "elm/entry/base/default";
 	}
 //   data.item: "context_menu_orientation" "horizontal";
 	parts {
-		part { name: "elm.guide"; type: TEXTBLOCK; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "elm.guide"; type: TEXTBLOCK; nomouse;
+			scale;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
 				color_class: "entry_text";
@@ -440,13 +440,13 @@ group { name: "elm/entry/base/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "hidden" 0.0;
+			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "elm.text"; type: TEXTBLOCK;
-			scale: 1;
+		part { "elm.text"; type: TEXTBLOCK;
+			scale;
 			entry_mode: EDITABLE;
 			select_mode: DEFAULT;
 //         select_mode: EXPLICIT;
@@ -458,7 +458,7 @@ group { name: "elm/entry/base/default";
 			source4: "elm/entry/cursor/default"; // cursorover
 //         source5: "elm/entry/anchor/default"; // anchor under
 			source6: "elm/entry/anchor/default"; // anchor over
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				/* we gotta use 0 0 here, because of scrolled entries */
 				fixed: 0 0;
 				align: 0.0 0.5;
@@ -468,7 +468,7 @@ group { name: "elm/entry/base/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;            
 				color_class: "entry_text_disabled";
 				text { style: "entry_disabled_style";
@@ -506,10 +506,10 @@ group { name: "elm/entry/base/default";
 	}
 }
 
-group { name: "elm/entry/base-mixedwrap/default";
+group { "elm/entry/base-mixedwrap/default";
 	inherit: "elm/entry/base/default";
 	styles {
-		style { name: "entry_style_mixedwrap";
+		style { "entry_style_mixedwrap";
 			base: "font=""Sans"" font_size=10 color=#ffffff wrap=mixed text_class=entry color_class=entry left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada underline=on underline_color=#bacada";
@@ -517,7 +517,7 @@ group { name: "elm/entry/base-mixedwrap/default";
 			tag:  "preedit" "+ underline=on underline_color=#bacada";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
 		}
-		style { name: "entry_disabled_style_mixedwrap";
+		style { "entry_disabled_style_mixedwrap";
 			base: "font=""Sans"" font_size=10 color=#151515 wrap=mixed text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada88 underline=on underline_color=#bacada88";
@@ -525,16 +525,16 @@ group { name: "elm/entry/base-mixedwrap/default";
 			tag:  "preedit" "+ underline=on underline_color=#bacada88";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
 		}
-		style { name: "entry_guide_style_mixedwrap";
+		style { "entry_guide_style_mixedwrap";
 			base: "font=""Sans"" font_size=10 color=#ffffff80 wrap=mixed text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "hilight" "+ font_weight=Bold";
 		}
 	}
 	parts {
-		part { name: "elm.guide"; type: TEXTBLOCK; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "elm.guide"; type: TEXTBLOCK; nomouse;
+			scale;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
 				color_class: "entry_text";
@@ -543,13 +543,13 @@ group { name: "elm/entry/base-mixedwrap/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "hidden" 0.0;
+			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "elm.text";
-			description { state: "default" 0.0;
+		part { "elm.text";
+			desc { state: "default" 0.0;
 				fixed: 1 0;
 				color_class: "entry_text";
 				text { style: "entry_style_mixedwrap";
@@ -557,7 +557,7 @@ group { name: "elm/entry/base-mixedwrap/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_disabled_style_mixedwrap";
@@ -568,10 +568,10 @@ group { name: "elm/entry/base-mixedwrap/default";
 	}
 }
 
-group { name: "elm/entry/base-charwrap/default";
+group { "elm/entry/base-charwrap/default";
 	inherit: "elm/entry/base/default";
 	styles {
-		style { name: "entry_style_charwrap";
+		style { "entry_style_charwrap";
 			base: "font=""Sans"" font_size=10 color=#ffffff wrap=char text_class=entry color_class=entry left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada underline=on underline_color=#bacada";
@@ -579,7 +579,7 @@ group { name: "elm/entry/base-charwrap/default";
 			tag:  "preedit" "+ underline=on underline_color=#bacada";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
 		}
-		style { name: "entry_disabled_style_charwrap";
+		style { "entry_disabled_style_charwrap";
 			base: "font=""Sans"" font_size=10 color=#151515 wrap=char text_class=entry color_class=entry_disabled left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada88 underline=on underline_color=#bacada88";
@@ -587,16 +587,16 @@ group { name: "elm/entry/base-charwrap/default";
 			tag:  "preedit" "+ underline=on underline_color=#bacada88";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
 		}
-		style { name: "entry_guide_style_charwrap";
+		style { "entry_guide_style_charwrap";
 			base: "font=""Sans"" font_size=10 color=#ffffff80 wrap=char text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "hilight" "+ font_weight=Bold";
 		}
 	}
 	parts {
-		part { name: "elm.guide"; type: TEXTBLOCK; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "elm.guide"; type: TEXTBLOCK; nomouse;
+			scale;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
 				color_class: "entry_text";
@@ -605,13 +605,13 @@ group { name: "elm/entry/base-charwrap/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "hidden" 0.0;
+			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "elm.text";
-			description { state: "default" 0.0;
+		part { "elm.text";
+			desc { state: "default" 0.0;
 				fixed: 1 0;
 				color_class: "entry_text";
 				text { style: "entry_style_charwrap";
@@ -619,7 +619,7 @@ group { name: "elm/entry/base-charwrap/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_disabled_style_charwrap";
@@ -630,12 +630,12 @@ group { name: "elm/entry/base-charwrap/default";
 	}
 }
 
-group { name: "elm/entry/base-nowrap/default";
+group { "elm/entry/base-nowrap/default";
 	inherit: "elm/entry/base/default";
 	parts {
-		part { name: "elm.guide"; type: TEXTBLOCK; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "elm.guide"; type: TEXTBLOCK; nomouse;
+			scale;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
 				color_class: "entry_text";
@@ -644,13 +644,13 @@ group { name: "elm/entry/base-nowrap/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "hidden" 0.0;
+			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "elm.text";
-			description { state: "default" 0.0;
+		part { "elm.text";
+			desc { state: "default" 0.0;
 				color_class: "entry_text";
 				text { style: "entry_nowrap_style";
 					min: 1 1;
@@ -658,7 +658,7 @@ group { name: "elm/entry/base-nowrap/default";
 					ellipsis: -1;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_nowrap_disabled_style";
@@ -669,10 +669,10 @@ group { name: "elm/entry/base-nowrap/default";
 	}
 }
 
-group { name: "elm/entry/base-single/default";
+group { "elm/entry/base-single/default";
 	inherit: "elm/entry/base/default";
 	styles {
-		style { name: "entry_single_style";
+		style { "entry_single_style";
 			base: "font=""Sans"" font_size=10 color=#ffffff wrap=none text_class=entry color_class=entry_text left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada underline=on underline_color=#bacada";
@@ -680,7 +680,7 @@ group { name: "elm/entry/base-single/default";
 			tag:  "preedit" "+ underline=on underline_color=#bacada";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000000 color=#ffffff";
 		}
-		style { name: "entry_single_disabled_style";
+		style { "entry_single_disabled_style";
 			base: "font=""Sans"" font_size=10 color=#ffffff  wrap=none text_class=entry color_class=entry_text_disabled left_margin=2 right_margin=2";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "link" "+ color=#bacada88 underline=on underline_color=#bacada88";
@@ -688,16 +688,16 @@ group { name: "elm/entry/base-single/default";
 			tag:  "preedit" "+ underline=on underline_color=#bacada88";
 			tag:  "preedit_sel" "+ backing=on backing_color=#000 color=#888888";
 		}
-		style { name: "entry_single_guide_style";
+		style { "entry_single_guide_style";
 			base: "font=""Sans"" font_size=10 color=#ffffff80 wrap=none text_class=entry color_class=entry_guide left_margin=2 right_margin=2 ellipsis=0.0";
 			tag:  "em" "+ font_style=Oblique";
 			tag:  "hilight" "+ font_weight=Bold";
 		}
 	}
 	parts {
-		part { name: "elm.guide"; type: TEXTBLOCK; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "elm.guide"; type: TEXTBLOCK; nomouse;
+			scale;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
 				color_class: "entry_text";
@@ -706,14 +706,14 @@ group { name: "elm/entry/base-single/default";
 					align: 0.0 0.5;
 				}
 			}
-			description { state: "hidden" 0.0;
+			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "elm.text";
+		part { "elm.text";
 			multiline: 0;
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				color_class: "entry_text";
 				text { style: "entry_single_style";
 					min: 1 1;
@@ -722,7 +722,7 @@ group { name: "elm/entry/base-single/default";
 					align: 0.0 0.5;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_single_disabled_style";
@@ -732,16 +732,16 @@ group { name: "elm/entry/base-single/default";
 	}
 }
 
-group { name: "elm/entry/base-single-noedit/default";
+group { "elm/entry/base-single-noedit/default";
 	inherit: "elm/entry/base/default";
 	parts {
-		part { name: "elm.text";
+		part { "elm.text";
 			entry_mode: PLAIN;
 			multiline: 0;
 			source: "elm/entry/selection/default"; // selection under
 			source4: ""; // cursorover
 			source6: "elm/entry/anchor/default"; // anchor over
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				color_class: "entry_text";
 				text { style: "entry_single_style";
 					min: 1 1;
@@ -750,7 +750,7 @@ group { name: "elm/entry/base-single-noedit/default";
 					align: 0.0 0.5;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_single_disabled_style";
@@ -760,15 +760,15 @@ group { name: "elm/entry/base-single-noedit/default";
 	}
 }
 
-group { name: "elm/entry/base-noedit/default";
+group { "elm/entry/base-noedit/default";
 	inherit: "elm/entry/base/default";
 	parts {
-		part { name: "elm.text";
+		part { "elm.text";
 			entry_mode: PLAIN;
 			source: "elm/entry/selection/default"; // selection under
 			source4: ""; // cursorover
 			source6: "elm/entry/anchor/default"; // anchor over
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				fixed: 1 0;
 				color_class: "entry_text";
 				text { style: "entry_style";
@@ -776,7 +776,7 @@ group { name: "elm/entry/base-noedit/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_disabled_style";
@@ -786,15 +786,15 @@ group { name: "elm/entry/base-noedit/default";
 	}
 }
 
-group { name: "elm/entry/base-noedit-mixedwrap/default";
+group { "elm/entry/base-noedit-mixedwrap/default";
 	inherit: "elm/entry/base/default";
 	parts {
-		part { name: "elm.text";
+		part { "elm.text";
 			entry_mode: PLAIN;
 			source: "elm/entry/selection/default"; // selection under
 			source4: ""; // cursorover
 			source6: "elm/entry/anchor/default"; // anchor over
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				fixed: 1 0;
 				color_class: "entry_text";
 				text { style: "entry_style_mixedwrap";
@@ -802,7 +802,7 @@ group { name: "elm/entry/base-noedit-mixedwrap/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_disabled_style_mixedwrap";
@@ -812,15 +812,15 @@ group { name: "elm/entry/base-noedit-mixedwrap/default";
 	}
 }
 
-group { name: "elm/entry/base-noedit-charwrap/default";
+group { "elm/entry/base-noedit-charwrap/default";
 	inherit: "elm/entry/base/default";
 	parts {
-		part { name: "elm.text";
+		part { "elm.text";
 			entry_mode: PLAIN;
 			source: "elm/entry/selection/default"; // selection under
 			source4: ""; // cursorover
 			source6: "elm/entry/anchor/default"; // anchor under
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				fixed: 1 0;
 				color_class: "entry_text";
 				text { style: "entry_style_charwrap";
@@ -828,7 +828,7 @@ group { name: "elm/entry/base-noedit-charwrap/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_disabled_style_charwrap";
@@ -838,15 +838,15 @@ group { name: "elm/entry/base-noedit-charwrap/default";
 	}
 }
 
-group { name: "elm/entry/base-nowrap-noedit/default";
+group { "elm/entry/base-nowrap-noedit/default";
 	inherit: "elm/entry/base/default";
 	parts {
-		part { name: "elm.text";
+		part { "elm.text";
 			entry_mode: PLAIN;
 			source: "elm/entry/selection/default"; // selection under
 			source4: ""; // cursorover
 			source6: "elm/entry/anchor/default"; // anchor under
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				color_class: "entry_text";
 				text { style: "entry_style";
 					min: 1 1;
@@ -854,7 +854,7 @@ group { name: "elm/entry/base-nowrap-noedit/default";
 					align: 0.0 0.0;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_disabled_style";
@@ -864,12 +864,12 @@ group { name: "elm/entry/base-nowrap-noedit/default";
 	}
 }
 
-group { name: "elm/entry/base-password/default";
+group { "elm/entry/base-password/default";
 	inherit: "elm/entry/base/default";
 	parts {
-		part { name: "elm.guide"; type: TEXTBLOCK; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "elm.guide"; type: TEXTBLOCK; nomouse;
+			scale;
+			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
 				text { style: "entry_single_guide_style";
@@ -877,18 +877,18 @@ group { name: "elm/entry/base-password/default";
 					align: 0.0 0.5;
 				}
 			}
-			description { state: "hidden" 0.0;
+			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "elm.text";
+		part { "elm.text";
 			entry_mode: PASSWORD;
 			multiline: 0;
 			source: "elm/entry/selection/default"; // selection under
 			source4: "elm/entry/cursor/default"; // cursorover
 			source6: "elm/entry/anchor/default"; // anchor under
-			description { state: "default" 0.0;
+			desc { state: "default" 0.0;
 				color_class: "entry_text";
 				text { style: "entry_single_style";
 					repch: "*";
@@ -898,7 +898,7 @@ group { name: "elm/entry/base-password/default";
 					align: 0.0 0.5;
 				}
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
 				color_class: "entry_text_disabled";
 				text { style: "entry_single_disabled_style";
@@ -908,37 +908,37 @@ group { name: "elm/entry/base-password/default";
 	}
 }
 
-group { name: "elm/entry/magnifier/default";
+group { "elm/entry/magnifier/default";
 	images.image: "frame_rounded.png" COMP;
 	parts {
-		part { name: "bg"; type: RECT; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "bg"; type: RECT; nomouse;
+			desc { state: "default" 0.0;
 				rel1.offset: 10 10;
 				rel1.to: "over";
 				rel2.offset: -11 -11;
 				rel2.to: "over";
 				color: 48 48 48 255;
 			}
-			description { state: "hidden" 0.0;
+			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "elm.swallow.content"; type: SWALLOW; mouse_events: 0;
-			description { state: "default" 0.0;
+		part { "elm.swallow.content"; type: SWALLOW; nomouse;
+			desc { state: "default" 0.0;
 				rel1.offset: 10 10;
 				rel1.to: "over";
 				rel2.offset: -11 -11;
 				rel2.to: "over";
 			}
-			description { state: "hidden" 0.0;
+			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
-		part { name: "over"; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "over"; nomouse;
+			scale;
+			desc { state: "default" 0.0;
 				min: 128 64;
 				align: 0 0;
 				image.normal: "frame_rounded.png";
@@ -946,21 +946,21 @@ group { name: "elm/entry/magnifier/default";
 				image.middle: 0;
 				fill.smooth: 0;
 			}
-			description { state: "hidden" 0.0;
+			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
 				visible: 0;
 			}
 		}
 	}
 	programs {
-		program { name: "magnifier_show";
+		program { "magnifier_show";
 			signal: "elm,action,show,magnifier"; source: "elm";
 			action: STATE_SET "default" 0.0;
 			target: "elm.swallow.content";
 			target: "bg";
 			target: "over";
 		}
-		program { name: "magnifier_hide";
+		program { "magnifier_hide";
 			signal: "elm,action,hide,magnifier"; source: "elm";
 			action: STATE_SET "hidden" 0.0;
 			target: "elm.swallow.content";
@@ -970,32 +970,32 @@ group { name: "elm/entry/magnifier/default";
 	}
 }
 
-group { name: "elm/entry/handler/start/default";
+group { "elm/entry/handler/start/default";
 	images.image: "handle_pick_up_left.png" COMP;
 	parts {
-		part { name: "base"; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "base"; nomouse;
+			scale;
+			desc { state: "default" 0.0;
 				min: 21 27; // 42 54
 				image.normal: "handle_pick_up_left.png";
 				align: (29/42) (11/54);
 				visible: 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
 			}
 		}
-		part { name: "event"; type: RECT;
-			scale: 1;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
+		part { "event"; type: RECT;
+			scale;
+			desc { state: "default" 0.0;
+				color: "#00000000";
 				rel1.to: "base";
 				rel2.to: "base";
 				min: 32 32;
 				visible: 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
 			}
@@ -1017,32 +1017,32 @@ group { name: "elm/entry/handler/start/default";
 	}
 }
 
-group { name: "elm/entry/handler/end/default";
+group { "elm/entry/handler/end/default";
 	images.image: "handle_pick_up_right.png" COMP;
 	parts {
-		part { name: "base"; mouse_events: 0;
-			scale: 1;
-			description { state: "default" 0.0;
+		part { "base"; nomouse;
+			scale;
+			desc { state: "default" 0.0;
 				min: 21 27; // 42 54
 				image.normal: "handle_pick_up_right.png";
 				align: (12/42) (11/54);
 				visible: 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
 			}
 		}
-		part { name: "event"; type: RECT;
-			scale: 1;
-			description { state: "default" 0.0;
-				color: 0 0 0 0;
+		part { "event"; type: RECT;
+			scale;
+			desc { state: "default" 0.0;
+				color: "#00000000";
 				rel1.to: "base";
 				rel2.to: "base";
 				min: 32 32;
 				visible: 0;
 			}
-			description { state: "visible" 0.0;
+			desc { state: "visible" 0.0;
 				inherit: "default" 0.0;
 				visible: 1;
 			}
@@ -1069,124 +1069,124 @@ group { name: "elm/entry/handler/end/default";
 // Tanya - Latvia
 // http://lazycrazy.deviantart.com/
 // http://lazycrazy.deviantart.com/art/Very-Emotional-Emoticons-144461621
-group { name: "elm/entry/emoticon/angry/default"; images.image:
-	"emo-angry.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/angry/default"; images.image:
+	"emo-angry.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-angry.png"; } } } }
-group { name: "elm/entry/emoticon/angry-shout/default"; images.image:
-	"emo-angry-shout.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/angry-shout/default"; images.image:
+	"emo-angry-shout.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-angry-shout.png"; } } } }
-group { name: "elm/entry/emoticon/crazy-laugh/default"; images.image:
-	"emo-crazy-laugh.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/crazy-laugh/default"; images.image:
+	"emo-crazy-laugh.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-crazy-laugh.png"; } } } }
-group { name: "elm/entry/emoticon/evil-laugh/default"; images.image:
-	"emo-evil-laugh.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/evil-laugh/default"; images.image:
+	"emo-evil-laugh.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-evil-laugh.png"; } } } }
-group { name: "elm/entry/emoticon/evil/default"; images.image:
-	"emo-evil.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/evil/default"; images.image:
+	"emo-evil.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-evil.png"; } } } }
-group { name: "elm/entry/emoticon/goggle-smile/default"; images.image:
-	"emo-goggle-smile.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/goggle-smile/default"; images.image:
+	"emo-goggle-smile.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-goggle-smile.png"; } } } }
-group { name: "elm/entry/emoticon/grumpy/default"; images.image:
-	"emo-grumpy.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/grumpy/default"; images.image:
+	"emo-grumpy.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-grumpy.png"; } } } }
-group { name: "elm/entry/emoticon/grumpy-smile/default"; images.image:
-	"emo-grumpy-smile.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/grumpy-smile/default"; images.image:
+	"emo-grumpy-smile.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-grumpy-smile.png"; } } } }
-group { name: "elm/entry/emoticon/guilty/default"; images.image:
-	"emo-guilty.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/guilty/default"; images.image:
+	"emo-guilty.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-guilty.png"; } } } }
-group { name: "elm/entry/emoticon/guilty-smile/default"; images.image:
-	"emo-guilty-smile.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/guilty-smile/default"; images.image:
+	"emo-guilty-smile.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-guilty-smile.png"; } } } }
-group { name: "elm/entry/emoticon/haha/default"; images.image:
-	"emo-haha.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/haha/default"; images.image:
+	"emo-haha.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-haha.png"; } } } }
-group { name: "elm/entry/emoticon/half-smile/default"; images.image:
-	"emo-half-smile.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/half-smile/default"; images.image:
+	"emo-half-smile.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-half-smile.png"; } } } }
-group { name: "elm/entry/emoticon/happy-panting/default"; images.image:
-	"emo-happy-panting.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/happy-panting/default"; images.image:
+	"emo-happy-panting.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-happy-panting.png"; } } } }
-group { name: "elm/entry/emoticon/happy/default"; images.image:
-	"emo-happy.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/happy/default"; images.image:
+	"emo-happy.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-happy.png"; } } } }
-group { name: "elm/entry/emoticon/indifferent/default"; images.image:
-	"emo-indifferent.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/indifferent/default"; images.image:
+	"emo-indifferent.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-indifferent.png"; } } } }
-group { name: "elm/entry/emoticon/kiss/default"; images.image:
-	"emo-kiss.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/kiss/default"; images.image:
+	"emo-kiss.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-kiss.png"; } } } }
-group { name: "elm/entry/emoticon/knowing-grin/default"; images.image:
-	"emo-knowing-grin.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/knowing-grin/default"; images.image:
+	"emo-knowing-grin.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-knowing-grin.png"; } } } }
-group { name: "elm/entry/emoticon/laugh/default"; images.image:
-	"emo-laugh.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/laugh/default"; images.image:
+	"emo-laugh.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-laugh.png"; } } } }
-group { name: "elm/entry/emoticon/little-bit-sorry/default"; images.image:
-	"emo-little-bit-sorry.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/little-bit-sorry/default"; images.image:
+	"emo-little-bit-sorry.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-little-bit-sorry.png"; } } } }
-group { name: "elm/entry/emoticon/love-lots/default"; images.image:
-	"emo-love-lots.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/love-lots/default"; images.image:
+	"emo-love-lots.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-love-lots.png"; } } } }
-group { name: "elm/entry/emoticon/love/default"; images.image:
-	"emo-love.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/love/default"; images.image:
+	"emo-love.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-love.png"; } } } }
-group { name: "elm/entry/emoticon/minimal-smile/default"; images.image:
-	"emo-minimal-smile.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/minimal-smile/default"; images.image:
+	"emo-minimal-smile.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-minimal-smile.png"; } } } }
-group { name: "elm/entry/emoticon/not-happy/default"; images.image:
-	"emo-not-happy.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/not-happy/default"; images.image:
+	"emo-not-happy.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-not-happy.png"; } } } }
-group { name: "elm/entry/emoticon/not-impressed/default"; images.image:
-	"emo-not-impressed.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/not-impressed/default"; images.image:
+	"emo-not-impressed.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-not-impressed.png"; } } } }
-group { name: "elm/entry/emoticon/omg/default"; images.image:
-	"emo-omg.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/omg/default"; images.image:
+	"emo-omg.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-omg.png"; } } } }
-group { name: "elm/entry/emoticon/opensmile/default"; images.image:
-	"emo-opensmile.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/opensmile/default"; images.image:
+	"emo-opensmile.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-opensmile.png"; } } } }
-group { name: "elm/entry/emoticon/smile/default"; images.image:
-	"emo-smile.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/smile/default"; images.image:
+	"emo-smile.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-smile.png"; } } } }
-group { name: "elm/entry/emoticon/sorry/default"; images.image:
-	"emo-sorry.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/sorry/default"; images.image:
+	"emo-sorry.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-sorry.png"; } } } }
-group { name: "elm/entry/emoticon/squint-laugh/default"; images.image:
-	"emo-squint-laugh.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/squint-laugh/default"; images.image:
+	"emo-squint-laugh.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-squint-laugh.png"; } } } }
-group { name: "elm/entry/emoticon/surprised/default"; images.image:
-	"emo-surprised.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/surprised/default"; images.image:
+	"emo-surprised.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-surprised.png"; } } } }
-group { name: "elm/entry/emoticon/suspicious/default"; images.image:
-	"emo-suspicious.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/suspicious/default"; images.image:
+	"emo-suspicious.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-suspicious.png"; } } } }
-group { name: "elm/entry/emoticon/tongue-dangling/default"; images.image:
-	"emo-tongue-dangling.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/tongue-dangling/default"; images.image:
+	"emo-tongue-dangling.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-tongue-dangling.png"; } } } }
-group { name: "elm/entry/emoticon/tongue-poke/default"; images.image:
-	"emo-tongue-poke.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/tongue-poke/default"; images.image:
+	"emo-tongue-poke.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-tongue-poke.png"; } } } }
-group { name: "elm/entry/emoticon/uh/default"; images.image:
-	"emo-uh.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/uh/default"; images.image:
+	"emo-uh.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-uh.png"; } } } }
-group { name: "elm/entry/emoticon/unhappy/default"; images.image:
-	"emo-unhappy.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/unhappy/default"; images.image:
+	"emo-unhappy.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-unhappy.png"; } } } }
-group { name: "elm/entry/emoticon/very-sorry/default"; images.image:
-	"emo-very-sorry.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/very-sorry/default"; images.image:
+	"emo-very-sorry.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-very-sorry.png"; } } } }
-group { name: "elm/entry/emoticon/what/default"; images.image:
-	"emo-what.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/what/default"; images.image:
+	"emo-what.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-what.png"; } } } }
-group { name: "elm/entry/emoticon/wink/default"; images.image:
-	"emo-wink.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/wink/default"; images.image:
+	"emo-wink.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-wink.png"; } } } }
-group { name: "elm/entry/emoticon/worried/default"; images.image:
-	"emo-worried.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/worried/default"; images.image:
+	"emo-worried.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-worried.png"; } } } }
-group { name: "elm/entry/emoticon/wtf/default"; images.image:
-	"emo-wtf.png" COMP; parts { part { name: "icon"; mouse_events: 0; description { state: "default" 0.0; max: 64 64; image.normal:
+group { "elm/entry/emoticon/wtf/default"; images.image:
+	"emo-wtf.png" COMP; parts { part { "icon"; nomouse; desc { state: "default" 0.0; max: 64 64; image.normal:
 				"emo-wtf.png"; } } } }
 //------------------------------------------------------------
