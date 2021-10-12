@@ -1,9 +1,7 @@
 group { "elm/notify/block_events/popup/default";
 	parts {
-		part { "base"; type: RECT;
-			desc { state: "default" 0.0;
-				color: 0 0 0 100;
-			}
+		rect { "base";
+			desc { "default"; color: "#00000064"; }
 		}
 		program {
 			signal: "mouse,clicked,1"; source: "base";
@@ -14,14 +12,11 @@ group { "elm/notify/block_events/popup/default";
 
 group { "elm/notify/block_events/popup/transparent";
 	parts {
-		part { "base"; type: RECT;
-			desc { state: "default" 0.0;
-				color: 0 0 0 0;
-			}
-			desc { state: "clicked" 0.0;
-				color: 0 0 0 192;
-			}
+		rect { "base";
+			desc { "default"; color: "#00000000"; }
+			desc { "clicked"; color: "#000000C0"; }
 		}
+
 		program {
 			signal: "mouse,down,1"; source: "base";
 			action: SIGNAL_EMIT "elm,action,click" "elm";
@@ -47,15 +42,15 @@ group { "elm/notify/top/popup/default";
 	images.image: "dia_bg.png" COMP; \
 	parts { \
 		part { "base";	\
-			desc { state: "default" 0.0;	\
+			desc { "default";	\
 				color_class: "dialog_base";	\
 				image.normal: "dia_bg.png";	\
 				image.border: 15 15 2 2;	\
 				fill.smooth: 0;	\
 			}	\
-			desc { state: "visible" 0.0;	\
+			desc { "visible";	\
 				color_class: "dialog_base";	\
-				color: 255 255 255 255;	\
+				color: VISIBLE;	\
 				image.normal: "dia_bg.png";	\
 				image.border: 15 15 2 2;	\
 				fill.smooth: 0;	\
@@ -154,15 +149,11 @@ group { "elm/label/base/popup/default";
 		}
 	}
 	parts {
-		part { "elm.text"; type: TEXTBLOCK; mouse_events: 0;
-			scale: 1;
-			desc { state: "default" 0.0;
-			 color_class: "label_text";
-				text {
-					style: "popup_desc_style";
-					min: 0 1;
-					max: 0 1;
-				}
+		textblock { "elm.text"; nomouse; scale;
+			desc { "default"; color_class: "label_text";
+				text.style: "popup_desc_style";
+				text.min: 0 1;
+				text.max: 0 1;
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 			}
@@ -182,14 +173,11 @@ group { "elm/label/base/popup/transparent";
 		}*/
 	}
 	parts {
-		part { "elm.text"; type: TEXTBLOCK; mouse_events: 0;
-			scale: 1;
-			desc { state: "default" 0.0;
-				text {
-					style: "popup_desc_style";
-					min: 0 1;
-					max: 0 1;
-				}
+		textblock { "elm.text"; nomouse; scale;
+			desc { "default";
+				text.style: "popup_desc_style";
+				text.min: 0 1;
+				text.max: 0 1;
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 			}
@@ -217,115 +205,89 @@ group { "elm/popup/base/default";
 		}
 	}
 	parts {
-		part { "base"; type: SPACER;
-			scale: 1;
-			desc { state: "default" 0.0;
-				min: 240 0;
-			}
+		spacer { "base"; scale;
+			desc { "default"; min: 240 0; }
 		}
-		part { "elm.bg.title"; type: RECT;
-			desc { state: "default" 0.0;
+		rect { "elm.bg.title";
+			desc { "default"; hid;
 				fixed: 1 1;
 				rel1.to: "elm.text.title";
 				rel2.to: "elm.text.title";
-				hid;
 			}
 		}
-		part { "elm.text.title"; type: TEXTBLOCK;
-			scale: 1;
-			desc { state: "default" 0.0;
+		textblock { "elm.text.title"; scale;
+			desc { "default"; color_class: "label_text"; hid;
 				fixed: 0 1;
-				color_class: "label_text";
-				text {
-					style: "popup_title_style";
-					min: 1 1;
-					ellipsis: -1;
-				}
-				hid;
+				text.style: "popup_title_style";
+				text.min: 1 1;
+				text.ellipsis: -1;
 				rel1.offset: 2 2;
 				rel2.offset: -3 2;
 				rel2.relative: 1.0 0.0;
 				align: 0.5 0.0;
 			}
-			desc { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "elm.swallow.title.icon"; type: SWALLOW;
-			scale: 1;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.title.icon"; scale;
+			desc { "default"; hid;
 				fixed: 1 1;
 				align: 0.0 0.5;
 				rel1.to_y: "elm.text.title";
 				rel2.to_y: "elm.text.title";
 				rel2.relative: 0.0 1.0;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
-				hid;
 			}
-			desc { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "elm.swallow.content"; type: SWALLOW;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 			}
-			desc { state: "show_title_area" 0.0;
-				inherit: "default" 0.0;
+			desc { "show_title_area"; inherit;
 				rel1.relative: 0.0 1.0;
 				rel1.to_y: "elm.bg.title";
 			}
-			desc { state: "show_action_area" 0.0;
-				inherit: "default" 0.0;
+			desc { "show_action_area"; inherit;
 				rel2.relative: 1.0 0.0;
 				rel2.to_y: "elm.swallow.action_area";
 			}
-			desc { state: "show_action_title_area" 0.0;
-				inherit: "default" 0.0;
+			desc { "show_action_title_area"; inherit;
 				rel1.relative: 0.0 1.0;
 				rel1.to_y: "elm.bg.title";
 				rel2.relative: 1.0 0.0;
 				rel2.to_y: "elm.swallow.action_area";
 			}
 		}
-		part { "elm.swallow.action_area"; type: SWALLOW;
-			scale: 1;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.action_area"; scale;
+			desc { "default"; hid;
 				fixed: 0 1;
 				align: 0.5 1.0;
-				hid;
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 2 -3;
 				rel1.to: "base";
 				rel2.offset: -3 -3;
 				rel2.to: "base";
 			}
-			desc { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		
-		part { "access.title"; type: RECT; repeat_events: 1;
-			desc { state: "default" 0.0;
+
+		rect { "access.title"; repeat;
+			desc { "default"; color: "#00000000";
 				fixed: 1 1;
 				rel1.to: "elm.bg.title";
 				rel2.to: "elm.bg.title";
-				color: 0 0 0 0;
 			}
 		}
-		part { "access.body"; type: RECT; repeat_events: 1;
-			desc { state: "default" 0.0;
+		rect { "access.body"; repeat;
+			desc { "default"; color: "#00000000";
 				fixed: 1 1;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
-				color: 0 0 0 0;
 			}
 		}
 	}
+
 	programs {
 		program {
 			signal: "elm,state,title,icon,visible"; source: "elm";
@@ -409,115 +371,91 @@ group { "elm/popup/base/transparent";
 			tag: "tab" "\t";
 		}*/
 	}
+
 	parts {
-		part { "base"; type: SPACER;
-			scale: 1;
-			desc { state: "default" 0.0;
-				min: 240 0;
-			}
+		spacer { "base"; scale;
+			desc { "default"; min: 240 0; }
 		}
-		part { "elm.bg.title"; type: RECT;
-			desc { state: "default" 0.0;
+		rect { "elm.bg.title";
+			desc { "default"; hid;
 				fixed: 1 1;
 				rel1.to: "elm.text.title";
 				rel2.to: "elm.text.title";
-				hid;
 			}
 		}
-		part { "elm.text.title"; type: TEXTBLOCK;
-			scale: 1;
-			desc { state: "default" 0.0;
+		textblock { "elm.text.title"; scale;
+			desc { "default"; hid;
 				fixed: 0 1;
-				text {
-					style: "popup_title_style";
-					min: 1 1;
-					ellipsis: -1;
-				}
-				hid;
+				text.style: "popup_title_style";
+				text.min: 1 1;
+				text.ellipsis: -1;
 				rel1.offset: 2 2;
 				rel2.offset: -3 2;
 				rel2.relative: 1.0 0.0;
 				align: 0.5 0.0;
 			}
-			desc { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "elm.swallow.title.icon"; type: SWALLOW;
-			scale: 1;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.title.icon"; scale;
+			desc { "default"; hid;
 				fixed: 1 1;
 				align: 0.0 0.5;
 				rel1.to_y: "elm.text.title";
 				rel2.to_y: "elm.text.title";
 				rel2.relative: 0.0 1.0;
 				aspect: 1.0 1.0; aspect_preference: VERTICAL;
-				hid;
 			}
-			desc { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "elm.swallow.content"; type: SWALLOW;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.offset: 2 2;
 				rel2.offset: -3 -3;
 			}
-			desc { state: "show_title_area" 0.0;
-				inherit: "default" 0.0;
+			desc { "show_title_area"; inherit;
 				rel1.relative: 0.0 1.0;
 				rel1.to_y: "elm.bg.title";
 			}
-			desc { state: "show_action_area" 0.0;
-				inherit: "default" 0.0;
+			desc { "show_action_area"; inherit;
 				rel2.relative: 1.0 0.0;
 				rel2.to_y: "elm.swallow.action_area";
 			}
-			desc { state: "show_action_title_area" 0.0;
-				inherit: "default" 0.0;
+			desc { "show_action_title_area"; inherit;
 				rel1.relative: 0.0 1.0;
 				rel1.to_y: "elm.bg.title";
 				rel2.relative: 1.0 0.0;
 				rel2.to_y: "elm.swallow.action_area";
 			}
 		}
-		part { "elm.swallow.action_area"; type: SWALLOW;
-			scale: 1;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.action_area"; scale;
+			desc { "default"; hid;
 				fixed: 0 1;
 				align: 0.5 1.0;
-				hid;
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 2 -3;
 				rel1.to: "base";
 				rel2.offset: -3 -3;
 				rel2.to: "base";
 			}
-			desc { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		
-		part { "access.title"; type: RECT; repeat_events: 1;
-			desc { state: "default" 0.0;
+
+		rect { "access.title"; repeat;
+			desc { "default"; color: "#00000000";
 				fixed: 1 1;
 				rel1.to: "elm.bg.title";
 				rel2.to: "elm.bg.title";
-				color: 0 0 0 0;
 			}
 		}
-		part { "access.body"; type: RECT; repeat_events: 1;
-			desc { state: "default" 0.0;
+		rect { "access.body"; repeat;
+			desc { "default"; color: "#00000000";
 				fixed: 1 1;
 				rel1.to: "elm.swallow.content";
 				rel2.to: "elm.swallow.content";
-				color: 0 0 0 0;
 			}
 		}
 	}
+
 	programs {
 		program {
 			signal: "elm,state,title,icon,visible"; source: "elm";
@@ -593,9 +531,8 @@ group { "elm/popup/base/transparent";
 group { "elm/popup/content/popup/default";
 	alias: "elm/popup/content/popup/transparent";
 	parts {
-		part {"elm.swallow.content"; type: SWALLOW;
-			desc { state: "default" 0.0;
-			}
+		swallow {"elm.swallow.content";
+			desc { "default"; }
 		}
 	}
 }
@@ -604,9 +541,8 @@ group { "elm/popup/buttons1/popup/default";
 	alias: "elm/popup/buttons1/popup/transparent";
 	data.item: "action_area_height" "80";
 	parts {
-		part {"elm.swallow.content.button1"; type: SWALLOW;
-			desc { state: "default" 0.0;
-			}
+		swallow {"elm.swallow.content.button1";
+			desc { "default"; }
 		}
 	}
 }
@@ -614,14 +550,15 @@ group { "elm/popup/buttons1/popup/default";
 group { "elm/popup/buttons2/popup/default";
 	alias: "elm/popup/buttons2/popup/transparent";
 	data.item: "action_area_height" "80";
-	parts{
-		part{"elm.swallow.content.button1"; type: SWALLOW;
-			desc { state: "default" 0.0;
+
+	parts {
+		swallow {"elm.swallow.content.button1";
+			desc { "default";
 				rel2.relative: 0.5 1.0;
 			}
 		}
-		part{"elm.swallow.content.button2"; type: SWALLOW;
-			desc { state: "default" 0.0;
+		swallow {"elm.swallow.content.button2";
+			desc { "default";
 				rel1.relative: 0.5 0.0;
 			}
 		}
@@ -629,24 +566,25 @@ group { "elm/popup/buttons2/popup/default";
 }
 
 group { "elm/popup/buttons3/popup/default";
-	alias: "elm/popup/buttons3/popup/transparent"; 
+	alias: "elm/popup/buttons3/popup/transparent";
 	data.item: "action_area_height" "80";
-	parts{
-		part{"elm.swallow.content.button1"; type: SWALLOW;
-			desc { state: "default" 0.0;
+
+	parts {
+		swallow {"elm.swallow.content.button1";
+			desc { "default";
 				rel2.relative: (1/3) 1.0;
 			}
 		}
-		part{"elm.swallow.content.button2"; type: SWALLOW;
-			desc { state: "default" 0.0;
+		swallow {"elm.swallow.content.button2";
+			desc { "default";
 				rel1.relative: 1.0 0.0;
 				rel1.to: "elm.swallow.content.button1";
 				rel2.relative: 0.0 1.0;
 				rel2.to: "elm.swallow.content.button3";
 			}
 		}
-		part{"elm.swallow.content.button3"; type: SWALLOW;
-			desc { state: "default" 0.0;
+		swallow {"elm.swallow.content.button3";
+			desc { "default";
 				rel1.relative: (2/3) 0.0;
 			}
 		}
@@ -655,16 +593,17 @@ group { "elm/popup/buttons3/popup/default";
 
 group { "elm/popup/item/popup/default";
 	inherit: "elm/list/item/default";
+
 	parts {
-		part { "elm.swallow.content"; type: SWALLOW;
-			insert_after: "elm.swallow.icon";
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.content"; after: "elm.swallow.icon";
+			desc { "default";
 				fixed: 0 1;
 				rel1.to: "elm.swallow.icon";
 				rel2.to: "elm.swallow.icon";
 			}
 		}
 	}
+
 	programs {
 		program {
 			signal: "mouse,down,1"; source: "event";
