@@ -36,27 +36,25 @@ group { "elm/notify/block_events/popup/transparent";
 	}
 }
 
+#define OVERRIDE_BASE() \
+	images.image: "dia_bg.png" COMP;																			\
+	parts {																																\
+		part { "base";																											\
+			desc { "default"; color_class: "dialog_base";											\
+				image.normal: "dia_bg.png";																			\
+				image.border: 15 15 2 2;																				\
+				fill.smooth: 0;																									\
+			}																																	\
+			desc { "visible"; color: VISIBLE; color_class: "dialog_base";			\
+				image.normal: "dia_bg.png";																			\
+				image.border: 15 15 2 2;																				\
+				fill.smooth: 0;																									\
+			}																																	\
+		}																																		\
+	}
+
 group { "elm/notify/top/popup/default";
 	inherit: "elm/notify/top/default";
-#define OVERRIDE_BASE() \
-	images.image: "dia_bg.png" COMP; \
-	parts { \
-		part { "base";	\
-			desc { "default";	\
-				color_class: "dialog_base";	\
-				image.normal: "dia_bg.png";	\
-				image.border: 15 15 2 2;	\
-				fill.smooth: 0;	\
-			}	\
-			desc { "visible";	\
-				color_class: "dialog_base";	\
-				color: VISIBLE;	\
-				image.normal: "dia_bg.png";	\
-				image.border: 15 15 2 2;	\
-				fill.smooth: 0;	\
-			}	\
-		}	\
-	}
 	OVERRIDE_BASE()
 }
 
