@@ -105,8 +105,8 @@ group { "elm/layout/application/content-back";
 					offset: -3 -1;
 				}
 				color_class: "label_text";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+				color: VISIBLE;
+				color3: VISIBLE;
 				text { font: "Sans:style=Bold"; size: 10;
 				}
 			}
@@ -248,8 +248,8 @@ group { "elm/layout/application/content-back-next";
 					offset: -3 -1;
 				}
 				color_class: "label_text";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+				color: VISIBLE;
+				color3: VISIBLE;
 				text { font: "Sans:style=Bold"; size: 10;
 				}
 			}
@@ -526,8 +526,8 @@ group { "elm/layout/application/titlebar";
 					relative: 0.0 1.0;
 				}
 				color_class: "label_text";
-				color: 255 255 255 255;
-				color3: 255 255 255 255;
+				color: VISIBLE;
+				color3: VISIBLE;
 				text { font: "Sans:style=Bold"; size: 10;
 				}
 			}
