@@ -1,14 +1,16 @@
 #define IC(Name, Alias, File, Min, Max) \
-group { name: "elm/icon/"##Name##"/default"; min: Min Min; max: Max Max;			\
+group { "elm/icon/"##Name##"/default"; min: Min Min; max: Max Max;						\
 	alias: "elm/icon/"##Alias##"/default";																			\
 	images.image: File COMP;																										\
 	parts {																																			\
-		part { name: "base";																											\
-			desc { aspect: 1.0 1.0; aspect_preference: BOTH;												\
+		part { "base";																														\
+			desc { aspect: 1.0 1.0;																									\
+				aspect_preference: BOTH;																							\
 				image.normal: File; }																									\
 	}																																						\
 	}																																						\
 }
+
 IC("home",        "toolbar/home",        "icon_home.png",        16, 0);
 IC("close",       "toolbar/close",       "icon_close.png",       16, 0);
 IC("apps",        "toolbar/apps",        "icon_apps.png",        16, 0);
@@ -26,10 +28,17 @@ IC("no_photo",    "photo/no_photo",      "icon_head.png",        16, 0);
 #undef IC
 
 #define IC(Name, File, Min, Max) \
-	group { name: "elm/icon/"##Name##"/default"; min: Min Min; max: Max Max; \
-	images.image: File COMP; parts { part { name: "base"; \
-	desc { aspect: 1.0 1.0; aspect_preference: BOTH; \
-	image.normal: File; } } } }
+group { "elm/icon/"##Name##"/default"; min: Min Min; max: Max Max;						\
+	images.image: File COMP;																										\
+	parts {																																			\
+			part { "base";																													\
+				desc { aspect: 1.0 1.0;																								\
+					aspect_preference: BOTH;																						\
+					image.normal: File;																									\
+				}																																			\
+		}																																					\
+	}																																						\
+}
 
 IC("toolbar/more_menu",    "icon_down_arrow.png",  16, 0);
 IC("menu/home",            "icon_home.png",        16, 0);
@@ -47,7 +56,6 @@ IC("menu/folder",          "icon_efm_folder.png",  16, 0);
 IC("menu/file",            "icon_efm_file.png",    16, 0);
 IC("media_player/info",    "icon_dummy.png",       16, 0);
 IC("media_player/eject",   "icon_efm_eject.png",   16, 0);
-
 #undef IC
 
 #define IC(Name, File, Min, Max) \
@@ -70,6 +78,4 @@ group { "elm/icon/"##Name##"/default/default"; min: Min Min; max: Max Max;		\
 		}																																					\
 	}																																						\
 }
-
 #undef IC
-
