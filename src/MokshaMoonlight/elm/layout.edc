@@ -1,37 +1,28 @@
 group { "elm/layout/application/content-back";
 	parts {
-		part { "elm.swallow.content"; type: SWALLOW;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.to_y: "title_clipper";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: -1 1;
 			}
 		}
-		part { "title_clipper"; type: RECT;
-			desc { state: "default" 0.0;
-				vis;
+		rect { "title_clipper";
+			desc { "default"; vis;
 				rel1.to_y: "back";
 				rel2.to_y: "back";
 			}
-			desc { state: "hidden" 0.0;
-				inherit: "default" 0.0;
-				hid;
+			desc { "hidden"; inherit; hid;
 				rel2.relative: 1.0 0.0;
 			}
 		}
-		part { "back_clipper"; type: RECT;
-			clip: "title_clipper";
-			desc { state: "default" 0.0;
-				vis;
-			}
-			desc { state: "hidden" 0.0;
-				hid;
-			}
+		rect { "back_clipper"; clip: "title_clipper";
+			desc { "default"; vis; }
+			desc { "hidden"; hid; }
 		}
-		part { "back"; type: EXTERNAL;
+		external { "back"; clip: "back_clipper";
 			source: "elm/button";
-			clip: "back_clipper";
-			desc { state: "default" 0.0;
+			desc { "default";
 				align: 0.0 0.0;
 				fixed: 1 1;
 				rel1.relative: 0.0 0.0;
@@ -41,6 +32,31 @@ group { "elm/layout/application/content-back";
 				params.string: "label" "Back";
 			}
 		}
+		swallow { "elm.swallow.end";
+			desc { "default";
+				align: 1.0 0.0;
+				fixed: 1 1;
+				rel1.relative: 1.0 0.0;
+				rel1.offset: -2 1;
+				rel2.relative: 1.0 0.0;
+				rel2.offset: -1 32;
+			}
+		}
+		text { "elm.text.title"; effect: SHADOW BOTTOM; scale;
+			clip: "title_clipper";
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: VISIBLE;
+				rel1.to_x: "back";
+				rel1.relative: 1.0 0.0;
+				rel1.offset: 2 1;
+				rel2.to_y: "back";
+				rel2.to_x: "elm.swallow.end";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: -3 -1;
+				text.font: "Sans:style=Bold"; text.size: 10;
+			}
+		}
+
 		programs {
 			program {
 				signal: "clicked"; source: "back";
@@ -68,65 +84,30 @@ group { "elm/layout/application/content-back";
 				target: "title_clipper";
 			}
 		}
-		part { "elm.swallow.end"; type: SWALLOW;
-			desc { state: "default" 0.0;
-				align: 1.0 0.0;
-				fixed: 1 1;
-				rel1 {
-					relative: 1.0 0.0;
-					offset: -2 1;
-				}
-				rel2.relative: 1.0 0.0;
-				rel2.offset: -1 32;
-			}
-		}
-		part { "elm.text.title"; type: TEXT;
-			effect: SHADOW BOTTOM;
-			scale;
-			clip: "title_clipper";
-			desc { state: "default" 0.0;
-				rel1.to_x: "back";
-				rel1.relative: 1.0 0.0;
-				rel1.offset: 2 1;
-				rel2.to_y: "back";
-				rel2.to_x: "elm.swallow.end";
-				rel2.relative: 0.0 1.0;
-				rel2.offset: -3 -1;
-				color_class: "label_text";
-				color: VISIBLE;
-				color3: VISIBLE;
-				text.font: "Sans:style=Bold"; text.size: 10;
-			}
-		}
 	}
 }
 
-/* application with a main content area with a back and next buttons and title area */
 group { "elm/layout/application/content-back-next";
 	parts {
-		part { "elm.swallow.content"; type: SWALLOW;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.to_y: "title_clipper";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: -1 1;
 			}
 		}
-		part { "title_clipper"; type: RECT;
-			desc { state: "default" 0.0;
-				vis;
+		rect { "title_clipper";
+			desc { "default"; vis;
 				rel1.to_y: "back";
 				rel2.to_y: "back";
 			}
-			desc { state: "hidden" 0.0;
-				inherit: "default" 0.0;
-				hid;
+			desc { "hidden"; inherit; hid;
 				rel2.relative: 1.0 0.0;
 			}
 		}
-		part { "back"; type: EXTERNAL;
+		external { "back"; clip: "back_clipper";
 			source: "elm/button";
-			clip: "back_clipper";
-			desc { state: "default" 0.0;
+			desc { "default";
 				align: 0.0 0.0;
 				fixed: 1 1;
 				rel1.relative: 0.0 0.0;
@@ -136,19 +117,13 @@ group { "elm/layout/application/content-back-next";
 				params.string: "label" "Back";
 			}
 		}
-		part { "back_clipper"; type: RECT;
-			clip: "title_clipper";
-			desc { state: "default" 0.0;
-				vis;
-			}
-			desc { state: "hidden" 0.0;
-				hid;
-			}
+		rect { "back_clipper";  clip: "title_clipper";
+			desc { "default"; vis; }
+			desc { "hidden"; hid; }
 		}
-		part { "next"; type: EXTERNAL;
+		external { "next"; clip: "next_clipper";
 			source: "elm/button";
-			clip: "next_clipper";
-			desc { state: "default" 0.0;
+			desc { "default";
 				align: 1.0 0.0;
 				fixed: 1 1;
 				rel1.relative: 1.0 0.0;
@@ -158,15 +133,25 @@ group { "elm/layout/application/content-back-next";
 				params.string: "label" "Next";
 			}
 		}
-		part { "next_clipper"; type: RECT;
+		rect { "next_clipper"; clip: "title_clipper";
+			desc { "default"; vis; }
+			desc { "hidden"; hid; }
+		}
+		text { "elm.text.title"; effect: SHADOW BOTTOM; scale;
 			clip: "title_clipper";
-			desc { state: "default" 0.0;
-				vis;
-			}
-			desc { state: "hidden" 0.0;
-				hid;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: VISIBLE;
+				rel1.to_x: "back";
+				rel1.relative: 1.0 0.0;
+				rel1.offset: 2 1;
+				rel2.to_y: "back";
+				rel2.to_x: "next";
+				rel2.relative: 0.0 1.0;
+				rel2.offset: -3 -1;
+				text.font: "Sans:style=Bold"; text.size: 10;
 			}
 		}
+
 		programs {
 			program {
 				signal: "clicked"; source: "back";
@@ -208,40 +193,21 @@ group { "elm/layout/application/content-back-next";
 				target: "next_clipper";
 			}
 		}
-		part { "elm.text.title"; type: TEXT;
-			effect: SHADOW BOTTOM;
-			scale;
-			clip: "title_clipper";
-			desc { state: "default" 0.0;
-				rel1.to_x: "back";
-				rel1.relative: 1.0 0.0;
-				rel1.offset: 2 1;
-				rel2.to_y: "back";
-				rel2.to_x: "next";
-				rel2.relative: 0.0 1.0;
-				rel2.offset: -3 -1;
-				color_class: "label_text";
-				color: VISIBLE;
-				color3: VISIBLE;
-				text.font: "Sans:style=Bold"; text.size: 10;
-			}
-		}
 	}
 }
 
-/* application with toolbar and main content area */
 group { "elm/layout/application/toolbar-content";
 	parts {
-		part { "elm.swallow.content"; type: SWALLOW;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.to_y: "elm.external.toolbar";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: -1 1;
 			}
 		}
-		part { "elm.external.toolbar"; type: EXTERNAL;
+		external { "elm.external.toolbar";
 			source: "elm/toolbar";
-			desc { state: "default" 0.0;
+			desc { "default";
 				align: 0.5 0.0;
 				fixed: 0 1;
 				rel2.relative: 1.0 0.0;
@@ -255,10 +221,10 @@ group { "elm/layout/application/toolbar-content";
 group { "elm/layout/application/toolbar-content-back";
 	inherit: "elm/layout/application/content-back";
 	parts {
-		part { "elm.external.toolbar"; type: EXTERNAL;
-			insert_after: "elm.swallow.content";
+		external { "elm.external.toolbar";
+			after: "elm.swallow.content";
 			source: "elm/toolbar";
-			desc { state: "default" 0.0;
+			desc { "default";
 				fixed: 0 1;
 				align: 0.5 0.0;
 				rel2.relative: 1.0 0.0;
@@ -266,7 +232,7 @@ group { "elm/layout/application/toolbar-content-back";
 			}
 		}
 		part { "back";
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.to_y: "elm.external.toolbar";
 				rel1.relative: 0.0 1.0;
 				rel2.to_y: "elm.external.toolbar";
@@ -274,7 +240,7 @@ group { "elm/layout/application/toolbar-content-back";
 			}
 		}
 		part { "elm.swallow.end";
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.to_y: "elm.external.toolbar";
 				rel1.relative: 1.0 1.0;
 				rel2.to_y: "elm.external.toolbar";
@@ -282,7 +248,7 @@ group { "elm/layout/application/toolbar-content-back";
 			}
 		}
 		part { "elm.text.title";
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.to_y: "elm.external.toolbar";
 				rel1.relative: 1.0 1.0;
 			}
@@ -290,13 +256,12 @@ group { "elm/layout/application/toolbar-content-back";
 	}
 }
 
-/* application with toolbar and main content area with a back and next buttons and title area */
 group { "elm/layout/application/toolbar-content-back-next";
 	inherit: "elm/layout/application/content-back-next";
 	parts {
-		part { "elm.external.toolbar"; type: EXTERNAL;
+		external { "elm.external.toolbar";
 			source: "elm/toolbar";
-			desc { state: "default" 0.0;
+			desc { "default";
 				fixed: 0 1;
 				align: 0.5 0.0;
 				rel2.relative: 1.0 0.0;
@@ -304,7 +269,7 @@ group { "elm/layout/application/toolbar-content-back-next";
 			}
 		}
 		part { "back";
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.to_y: "elm.external.toolbar";
 				rel1.relative: 0.0 1.0;
 				rel2.to_y: "elm.external.toolbar";
@@ -312,7 +277,7 @@ group { "elm/layout/application/toolbar-content-back-next";
 			}
 		}
 		part { "next";
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.to_y: "elm.external.toolbar";
 				rel1.relative: 1.0 1.0;
 				rel2.to_y: "elm.external.toolbar";
@@ -320,7 +285,7 @@ group { "elm/layout/application/toolbar-content-back-next";
 			}
 		}
 		part { "elm.text.title";
-			desc { state: "default" 0.0;
+			desc { "default";
 				rel1.to_y: "elm.external.toolbar";
 				rel1.relative: 1.0 1.0;
 			}
@@ -328,20 +293,19 @@ group { "elm/layout/application/toolbar-content-back-next";
 	}
 }
 
-/* application with toolbar and main content area as a vertical box */
 group { "elm/layout/application/toolbar-vbox";
 	parts {
-		part { "elm.box.content"; type: BOX;
-			desc { state: "default" 0.0;
+		box { "elm.box.content";
+			desc { "default";
 				rel1.to_y: "elm.external.toolbar";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: -1 0;
 				box.layout: "vertical";
 			}
 		}
-		part { "elm.external.toolbar"; type: EXTERNAL;
+		external { "elm.external.toolbar";
 			source: "elm/toolbar";
-			desc { state: "default" 0.0;
+			desc { "default";
 				align: 0.5 0.0;
 				fixed: 0 1;
 				rel2.relative: 1.0 0.0;
@@ -351,19 +315,18 @@ group { "elm/layout/application/toolbar-vbox";
 	}
 }
 
-/* application with toolbar and main content area as a table */
 group { "elm/layout/application/toolbar-table";
 	parts {
-		part { "elm.table.content"; type: TABLE;
-			desc { state: "default" 0.0;
+		table { "elm.table.content";
+			desc { "default";
 				rel1.to_y: "elm.external.toolbar";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: -1 0;
 			}
 		}
-		part { "elm.external.toolbar"; type: EXTERNAL;
+		external { "elm.external.toolbar";
 			source: "elm/toolbar";
-			desc { state: "default" 0.0;
+			desc { "default";
 				align: 0.5 0.0;
 				fixed: 0 1;
 				rel2.relative: 1.0 0.0;
@@ -373,50 +336,48 @@ group { "elm/layout/application/toolbar-table";
 	}
 }
 
-/* a simple title layout, with a label and two icons */
 group { "elm/layout/application/titlebar";
 	parts {
-		part { "elm.swallow.content"; type: SWALLOW;
-			desc { state: "default" 0.0;
+		swallow { "elm.swallow.content";
+			desc { "default";
 				rel1.to_y: "elm.swallow.icon";
 				rel1.relative: 0.0 1.0;
 				rel1.offset: -1 0;
 			}
 		}
-		part { "elm.swallow.icon"; type: SWALLOW;
-			scale;
-			desc { state: "default" 0.0;
-				hid;
+		swallow { "elm.swallow.icon"; scale;
+			desc { "default"; min: 24 24; hid;
 				fixed: 1 1;
 				align: 0.0 0.0;
-				min: 24 24;
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 2 2;
 				rel2.relative: 0.0 0.0;
 				rel2.offset: 2 2;
 			}
-			desc { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				vis;
-			}
+			desc { "visible"; inherit; vis; }
 		}
-		part { "elm.swallow.end"; type: SWALLOW;
-			scale;
-			desc { state: "default" 0.0;
-				hid;
+		swallow { "elm.swallow.end"; scale;
+			desc { "default"; min: 24 24; hid;
 				fixed: 1 1;
 				align: 1.0 0.0;
-				min: 24 24;
 				rel1.relative: 1.0 0.0;
 				rel1.offset: -3 2;
 				rel2.relative: 1.0 0.0;
 				rel2.offset: -3 2;
 			}
-			desc { state: "visible" 0.0;
-				inherit: "default" 0.0;
-				vis;
+			desc { "visible"; inherit; vis; }
+		}
+		text { "elm.text"; effect: SHADOW BOTTOM; scale;
+			desc { "default"; color: VISIBLE; color_class: "label_text";
+				color3: VISIBLE;
+				rel1.to: "elm.swallow.icon";
+				rel1.relative: 1.0 0.0;
+				rel2.to: "elm.swallow.end";
+				rel2.relative: 0.0 1.0;
+				text.font: "Sans:style=Bold"; text.size: 10;
 			}
 		}
+
 		programs {
 			program {
 				signal: "elm,state,icon,visible"; source: "elm";
@@ -437,20 +398,6 @@ group { "elm/layout/application/titlebar";
 				signal: "elm,state,end,hidden"; source: "elm";
 				action: STATE_SET "default" 0.0;
 				target: "elm.swallow.end";
-			}
-		}
-		part { "elm.text"; type: TEXT;
-			effect: SHADOW BOTTOM;
-			scale;
-			desc { state: "default" 0.0;
-				rel1.to: "elm.swallow.icon";
-				rel1.relative: 1.0 0.0;
-				rel2.to: "elm.swallow.end";
-				rel2.relative: 0.0 1.0;
-				color_class: "label_text";
-				color: VISIBLE;
-				color3: VISIBLE;
-				text.font: "Sans:style=Bold"; text.size: 10;
 			}
 		}
 	}
