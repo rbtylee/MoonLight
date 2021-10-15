@@ -1,125 +1,125 @@
 #define ODD(_NAME, _SRC) \
-	group { name: _NAME; \
+	group { _NAME; \
 		inherit: _SRC; \
 		parts { \
-			part { name: "base"; \
-				description { state: "default" 0.0; \
+			part { "base"; \
+				desc { state: "default" 0.0; \
 					color_class: "ilist_item_odd_base"; \
 				} \
 			} \
 		} \
 	}
 #define COMPRESS(_NAME, _SRC) \
-	group { name: _NAME; \
+	group { _NAME; \
 		inherit: _SRC; \
 		parts { \
-			part { name: "elm.text"; \
-				description { state: "default" 0.0; \
+			part { "elm.text"; \
+				desc { state: "default" 0.0; \
 					text.min: 0 1; \
 				} \
-				description { state: "selected" 0.0; \
+				desc { state: "selected" 0.0; \
 					text.min: 0 1; \
 				} \
-				description { state: "disabled" 0.0; \
-					text.min: 0 1; \
-				} \
-			} \
-			part { name: "label2"; \
-				description { state: "default" 0.0; \
-					text.min: 0 1; \
-				} \
-				description { state: "selected" 0.0; \
-					text.min: 0 1; \
-				} \
-				description { state: "disabled" 0.0; \
+				desc { state: "disabled" 0.0; \
 					text.min: 0 1; \
 				} \
 			} \
-			part { name: "label3"; \
-				description { state: "default" 0.0; \
+			part { "label2"; \
+				desc { state: "default" 0.0; \
 					text.min: 0 1; \
 				} \
-				description { state: "selected" 0.0; \
+				desc { state: "selected" 0.0; \
 					text.min: 0 1; \
 				} \
-				description { state: "disabled" 0.0; \
+				desc { state: "disabled" 0.0; \
+					text.min: 0 1; \
+				} \
+			} \
+			part { "label3"; \
+				desc { state: "default" 0.0; \
+					text.min: 0 1; \
+				} \
+				desc { state: "selected" 0.0; \
+					text.min: 0 1; \
+				} \
+				desc { state: "disabled" 0.0; \
 					text.min: 0 1; \
 				} \
 			} \
 		} \
 	}
 #define COMPRESS_ODD(_NAME, _SRC) \
-	group { name: _NAME; \
+	group { _NAME; \
 		inherit: _SRC; \
 		parts { \
-			part { name: "elm.text"; \
-				description { state: "default" 0.0; \
+			part { "elm.text"; \
+				desc { state: "default" 0.0; \
 					text.min: 0 1; \
 				} \
-				description { state: "selected" 0.0; \
+				desc { state: "selected" 0.0; \
 					text.min: 0 1; \
 				} \
-				description { state: "disabled" 0.0; \
-					text.min: 0 1; \
-				} \
-			} \
-			part { name: "label2"; \
-				description { state: "default" 0.0; \
-					text.min: 0 1; \
-				} \
-				description { state: "selected" 0.0; \
-					text.min: 0 1; \
-				} \
-				description { state: "disabled" 0.0; \
+				desc { state: "disabled" 0.0; \
 					text.min: 0 1; \
 				} \
 			} \
-			part { name: "label3"; \
-				description { state: "default" 0.0; \
+			part { "label2"; \
+				desc { state: "default" 0.0; \
 					text.min: 0 1; \
 				} \
-				description { state: "selected" 0.0; \
+				desc { state: "selected" 0.0; \
 					text.min: 0 1; \
 				} \
-				description { state: "disabled" 0.0; \
+				desc { state: "disabled" 0.0; \
 					text.min: 0 1; \
 				} \
 			} \
-			part { name: "base"; \
-				description { state: "default" 0.0; \
+			part { "label3"; \
+				desc { state: "default" 0.0; \
+					text.min: 0 1; \
+				} \
+				desc { state: "selected" 0.0; \
+					text.min: 0 1; \
+				} \
+				desc { state: "disabled" 0.0; \
+					text.min: 0 1; \
+				} \
+			} \
+			part { "base"; \
+				desc { state: "default" 0.0; \
 					color_class: "ilist_item_odd_base"; \
 				} \
 			} \
 		} \
 	}
 
-group { name: "elm/list/item/default";
+group { "elm/list/item/default";
 	data.item: "selectraise" "on";
 	data.item: "focusraise" "on";
  
 	parts {
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
+		part { "event"; type: RECT;
+			desc { state: "default" 0.0;
 				color: 0 0 0 0;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
 		}
 		CLIP_SWITCH("base","base","base","default","selected")
-		part { name: "base"; type: RECT; mouse_events: 0;
-		  clip_to: "base_clip_default";
-			description { state: "default" 0.0;
+		part { "base"; type: RECT; mouse_events: 0;
+		  clip: "base_clip_default";
+			desc { state: "default" 0.0;
 				color_class: "ilist_item_base";
 			}
-			description { state: "odd" 0.0;
+			desc { state: "odd" 0.0;
 				color_class: "ilist_item_base_odd";
 			}
 		}
-		part { name: "base_sel"; mouse_events: 0;
-		clip_to: "base_clip_selected";
-		description { state: "default" 0.0;
+		part { "base_sel"; mouse_events: 0;
+		clip: "base_clip_selected";
+		desc { state: "default" 0.0;
 			STAY_ON("base")
 			image.normal: "selected.png";
 			image.border: 2 2 2 2;
@@ -159,10 +159,10 @@ group { name: "elm/list/item/default";
 		}
 
 		//##//
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
+		part { "elm.text"; type: TEXT; mouse_events: 0;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { state: "default" 0.0;
 				rel1.offset: 2 3;
 				rel1.relative: 1.0 0.0;
 				rel1.to_x: "elm.swallow.icon";
@@ -180,19 +180,19 @@ group { name: "elm/list/item/default";
 					text_class: "list_item";
 				}
 			}
-			description { state: "selected" 0.0;
+			desc { state: "selected" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
 		}
-		part { name: "label2"; type: TEXT; mouse_events: 0;
+		part { "label2"; type: TEXT; mouse_events: 0;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { state: "default" 0.0;
 				STAY_ON("elm.text")
 				color: 255 255 255 125;
 				color3: 255 255 255 125;
@@ -202,21 +202,21 @@ group { name: "elm/list/item/default";
 					align: 0.0 0.5;
 					text_class: "list_item";
 				}
-				visible: 0;
+				hid;
 			}
-			description { state: "selected" 0.0;
+			desc { state: "selected" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
 		}
-		part { name: "label3"; type: TEXT; mouse_events: 0;
+		part { "label3"; type: TEXT; mouse_events: 0;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { state: "default" 0.0;
 				STAY_ON("elm.text")
 			  color: 255 255 255 255;
 				color3: 255 255 255 255;
@@ -226,15 +226,15 @@ group { name: "elm/list/item/default";
 					align: 0.0 0.5;
 					text_class: "list_item";
 				}
-				visible: 0;
+				hid;
 			}
-			description { state: "selected" 0.0;
+			desc { state: "selected" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
 		}
 		program {
@@ -266,8 +266,8 @@ group { name: "elm/list/item/default";
 			target: "label3";
 		}
 		//##//
-		part { name: "elm.swallow.icon"; type: SWALLOW;
-			description { state: "default" 0.0;
+		part { "elm.swallow.icon"; type: SWALLOW;
+			desc { state: "default" 0.0;
 				fixed: 1 0;
 				align: 0.0 0.5;
 				aspect: 1.0 1.0;
@@ -276,8 +276,8 @@ group { name: "elm/list/item/default";
 				rel2.offset: 2 -3;
 			}
 		}
-		part { name: "elm.swallow.end"; type: SWALLOW;
-			description { state: "default" 0.0;
+		part { "elm.swallow.end"; type: SWALLOW;
+			desc { state: "default" 0.0;
 				fixed: 1 0;
 				align: 1.0 0.5;
 				aspect: 1.0 1.0;
@@ -288,14 +288,14 @@ group { name: "elm/list/item/default";
 		}
 		//##//
 
-		part { name: "event_block"; type: RECT;
-			description { state: "default" 0.0;
+		part { "event_block"; type: RECT;
+			desc { state: "default" 0.0;
 				color: 0 0 0 0;
-				visible: 0;
+				hid;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
 		}
 		program {
@@ -320,34 +320,34 @@ COMPRESS_ODD("elm/list/item_compress_odd/default", "elm/list/item/default")
 // elm/list/h_item_compress/default
 // elm/list/h_item_compress_odd/default
 
-group { name: "elm/list/h_item/default";
+group { "elm/list/h_item/default";
 	data.item: "selectraise" "on";
 	data.item: "focusraise" "on";
 
 	parts {
-		part { name: "event"; type: RECT;
-			description { state: "default" 0.0;
+		part { "event"; type: RECT;
+			desc { state: "default" 0.0;
 				color: 0 0 0 0;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
 		}
 		
 		CLIP_SWITCH("base","base","base","default","selected")
-		part { name: "base"; type: RECT; mouse_events: 0;
-		  clip_to: "base_clip_default";
-			description { state: "default" 0.0;
+		part { "base"; type: RECT; mouse_events: 0;
+		  clip: "base_clip_default";
+			desc { state: "default" 0.0;
 				color_class: "ilist_item_base";
 			}
-			description { state: "odd" 0.0;
+			desc { state: "odd" 0.0;
 				color_class: "ilist_item_base_odd";
 			}
 		}
-		part { name: "base_sel"; mouse_events: 0;
-		clip_to: "base_clip_selected";
-		description { state: "default" 0.0;
+		part { "base_sel"; mouse_events: 0;
+		clip: "base_clip_selected";
+		desc { state: "default" 0.0;
 			STAY_ON("base")
 			image.normal: "selected.png";
 			image.border: 2 2 2 2;
@@ -387,10 +387,10 @@ group { name: "elm/list/h_item/default";
 		}
 
 		//##//
-		part { name: "elm.text"; type: TEXT; mouse_events: 0;
+		part { "elm.text"; type: TEXT; mouse_events: 0;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { state: "default" 0.0;
 				rel1.offset: 2 2;
 				rel1.relative: 0.0 1.0;
 				rel1.to_y: "elm.swallow.icon";
@@ -407,19 +407,19 @@ group { name: "elm/list/h_item/default";
 					text_class: "list_item";
 				}
 			}
-			description { state: "selected" 0.0;
+			desc { state: "selected" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
 		}
-		part { name: "label2"; type: TEXT; mouse_events: 0;
+		part { "label2"; type: TEXT; mouse_events: 0;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { state: "default" 0.0;
 				STAY_ON("elm.text")
 				color: 255 255 255 125;
 				color3: 255 255 255 125;
@@ -429,21 +429,21 @@ group { name: "elm/list/h_item/default";
 					align: 0.5 0.5;
 					text_class: "list_item";
 				}
-				visible: 0;
+				hid;
 			}
-			description { state: "selected" 0.0;
+			desc { state: "selected" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
 		}
-		part { name: "label3"; type: TEXT; mouse_events: 0;
+		part { "label3"; type: TEXT; mouse_events: 0;
 			effect: SHADOW BOTTOM;
-			scale: 1;
-			description { state: "default" 0.0;
+			scale;
+			desc { state: "default" 0.0;
 				STAY_ON("elm.text")
 				color: 255 255 255 255;
 				color3: 255 255 255 255;
@@ -453,15 +453,15 @@ group { name: "elm/list/h_item/default";
 					align: 0.5 0.5;
 					text_class: "list_item";
 				}
-				visible: 0;
+				hid;
 			}
-			description { state: "selected" 0.0;
+			desc { state: "selected" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 0;
+				hid;
 			}
 		}
 		program {
@@ -493,8 +493,8 @@ group { name: "elm/list/h_item/default";
 			target: "label3";
 		}
 		//##//
-		part { name: "elm.swallow.icon"; type: SWALLOW;
-			description { state: "default" 0.0;
+		part { "elm.swallow.icon"; type: SWALLOW;
+			desc { state: "default" 0.0;
 				fixed: 0 1;
 				aspect: 1.0 1.0;
 				align: 0.5 0.0;
@@ -503,8 +503,8 @@ group { name: "elm/list/h_item/default";
 				rel2.offset: -3 2;
 			}
 		}
-		part { name: "elm.swallow.end"; type: SWALLOW;
-			description { state: "default" 0.0;
+		part { "elm.swallow.end"; type: SWALLOW;
+			desc { state: "default" 0.0;
 				fixed: 0 1;
 				aspect: 1.0 1.0;
 				align: 0.5 1.0;
@@ -515,14 +515,14 @@ group { name: "elm/list/h_item/default";
 		}
 		//##//
 
-		part { name: "event_block"; type: RECT;
-			description { state: "default" 0.0;
+		part { "event_block"; type: RECT;
+			desc { state: "default" 0.0;
 				color: 0 0 0 0;
-				visible: 0;
+				hid;
 			}
-			description { state: "disabled" 0.0;
+			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				visible: 1;
+				vis;
 			}
 		}
 		program {
