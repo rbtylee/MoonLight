@@ -1,96 +1,96 @@
 #define ODD(_NAME, _SRC) \
-	group { _NAME; \
-		inherit: _SRC; \
-		parts { \
-			part { "base"; \
-				desc { "default"; \
-					color_class: "ilist_item_odd_base"; \
-				} \
-			} \
-		} \
+	group { _NAME;																\
+		inherit: _SRC;															\
+		parts {																			\
+			part { "base";														\
+				desc { "default";												\
+					color_class: "ilist_item_odd_base";		\
+				}																				\
+			}																					\
+		}																						\
 	}
 #define COMPRESS(_NAME, _SRC) \
-	group { _NAME; \
-		inherit: _SRC; \
-		parts { \
-			part { "elm.text"; \
-				desc { "default"; \
-					text.min: 0 1; \
-				} \
-				desc { "selected"; \
-					text.min: 0 1; \
-				} \
-				desc { "disabled"; \
-					text.min: 0 1; \
-				} \
-			} \
-			part { "label2"; \
-				desc { "default"; \
-					text.min: 0 1; \
-				} \
-				desc { "selected"; \
-					text.min: 0 1; \
-				} \
-				desc { "disabled"; \
-					text.min: 0 1; \
-				} \
-			} \
-			part { "label3"; \
-				desc { "default"; \
-					text.min: 0 1; \
-				} \
-				desc { "selected"; \
-					text.min: 0 1; \
-				} \
-				desc { "disabled"; \
-					text.min: 0 1; \
-				} \
-			} \
-		} \
+	group { _NAME;																\
+		inherit: _SRC;															\
+		parts {																			\
+			part { "elm.text";												\
+				desc { "default";												\
+					text.min: 0 1;												\
+				}																				\
+				desc { "selected";											\
+					text.min: 0 1;												\
+				}																				\
+				desc { "disabled";											\
+					text.min: 0 1;												\
+				}																				\
+			}																					\
+			part { "label2";													\
+				desc { "default";												\
+					text.min: 0 1;												\
+				}																				\
+				desc { "selected";											\
+					text.min: 0 1;												\
+				}																				\
+				desc { "disabled";											\
+					text.min: 0 1;												\
+				}																				\
+			}																					\
+			part { "label3";													\
+				desc { "default";												\
+					text.min: 0 1;												\
+				}																				\
+				desc { "selected";											\
+					text.min: 0 1;												\
+				}																				\
+				desc { "disabled";											\
+					text.min: 0 1;												\
+				}																				\
+			}																					\
+		}																						\
 	}
 #define COMPRESS_ODD(_NAME, _SRC) \
-	group { _NAME; \
-		inherit: _SRC; \
-		parts { \
-			part { "elm.text"; \
-				desc { "default"; \
-					text.min: 0 1; \
-				} \
-				desc { "selected"; \
-					text.min: 0 1; \
-				} \
-				desc { "disabled"; \
-					text.min: 0 1; \
-				} \
-			} \
-			part { "label2"; \
-				desc { "default"; \
-					text.min: 0 1; \
-				} \
-				desc { "selected"; \
-					text.min: 0 1; \
-				} \
-				desc { "disabled"; \
-					text.min: 0 1; \
-				} \
-			} \
-			part { "label3"; \
-				desc { "default"; \
-					text.min: 0 1; \
-				} \
-				desc { "selected"; \
-					text.min: 0 1; \
-				} \
-				desc { "disabled"; \
-					text.min: 0 1; \
-				} \
-			} \
-			part { "base"; \
-				desc { "default"; \
-					color_class: "ilist_item_odd_base"; \
-				} \
-			} \
-		} \
+	group { _NAME;																\
+		inherit: _SRC;															\
+		parts {																			\
+			part { "elm.text";												\
+				desc { "default";												\
+					text.min: 0 1;												\
+				}																				\
+				desc { "selected";											\
+					text.min: 0 1;												\
+				}																				\
+				desc { "disabled";											\
+					text.min: 0 1;												\
+				}																				\
+			}																					\
+			part { "label2";													\
+				desc { "default";												\
+					text.min: 0 1;												\
+				}																				\
+				desc { "selected";											\
+					text.min: 0 1;												\
+				}																				\
+				desc { "disabled";											\
+					text.min: 0 1;												\
+				}																				\
+			}																					\
+			part { "label3";													\
+				desc { "default";												\
+					text.min: 0 1;												\
+				}																				\
+				desc { "selected";											\
+					text.min: 0 1;												\
+				}																				\
+				desc { "disabled";											\
+					text.min: 0 1;												\
+				}																				\
+			}																					\
+			part { "base";														\
+				desc { "default";												\
+					color_class: "ilist_item_odd_base";		\
+				}																				\
+			}																					\
+		}																						\
 	}
 
 group { "elm/list/item/default";
@@ -114,7 +114,6 @@ group { "elm/list/item/default";
 				image.border: 2 2 2 2;
 			}
 		}
-
 		text { "elm.text"; effect: SHADOW BOTTOM; nomouse; scale;
 			desc { "default"; color: VISIBLE; color_class: "ilist_item";
 				color3: VISIBLE;
