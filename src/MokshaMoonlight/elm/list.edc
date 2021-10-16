@@ -277,13 +277,13 @@ group { "elm/list/h_item/default";
 			desc { "default"; color_class: "ilist_item_base"; }
 			desc { "odd"; color_class: "ilist_item_base_odd"; }
 		}
-		part { "base_sel"; nomouse;
-		clip: "base_clip_selected";
-		desc { "default";
-			STAY_ON("base")
-			image.normal: "selected.png";
-			image.border: 2 2 2 2;
-		}
+		part { "base_sel"; clip: "base_clip_selected"; nomouse;
+		
+			desc { "default";
+				STAY_ON("base")
+				image.normal: "selected.png";
+				image.border: 2 2 2 2;
+			}
 		}
 		program {
 			signal: "elm,state,odd"; source: "elm";
