@@ -271,51 +271,17 @@ group { "elm/list/h_item/default";
 			desc { "default"; color: "#00000000"; }
 			desc { "disabled"; inherit; hid; }
 		}
-
 		CLIP_SWITCH("base","base","base","default","selected")
 		rect { "base";   clip: "base_clip_default"; nomouse;
 			desc { "default"; color_class: "ilist_item_base"; }
 			desc { "odd"; color_class: "ilist_item_base_odd"; }
 		}
 		part { "base_sel"; clip: "base_clip_selected"; nomouse;
-		
 			desc { "default";
 				STAY_ON("base")
 				image.normal: "selected.png";
 				image.border: 2 2 2 2;
 			}
-		}
-		program {
-			signal: "elm,state,odd"; source: "elm";
-			action: STATE_SET "odd" 0.0;
-			target: "base";
-		}
-		program {
-			signal: "elm,state,even"; source: "elm";
-			action: STATE_SET "default" 0.0;
-			target: "base";
-		}
-		program {
-			signal: "elm,state,selected"; source: "elm";
-			action: STATE_SET "selected" 0.0;
-			target: "base_clip_selected";
-			target: "base_clip_default";
-		}
-		program {
-			signal: "elm,state,unselected"; source: "elm";
-			action: STATE_SET "default" 0.0;
-			target: "base_clip_selected";
-			target: "base_clip_default";
-		}
-		program {
-			signal: "elm,state,disabled"; source: "elm";
-			action: STATE_SET "disabled" 0.0;
-			target: "event";
-		}
-		program {
-			signal: "elm,state,enabled"; source: "elm";
-			action: STATE_SET "default" 0.0;
-			target: "event";
 		}
 		text { "elm.text"; effect: SHADOW BOTTOM; nomouse; scale;
 			desc { "default"; color: VISIBLE; color_class: "ilist_item";
@@ -359,34 +325,6 @@ group { "elm/list/h_item/default";
 			desc { "selected"; inherit; vis; }
 			desc { "disabled"; inherit; hid; }
 		}
-		program {
-			signal: "elm,state,selected"; source: "elm";
-			action: STATE_SET "selected" 0.0;
-			target: "elm.text";
-			target: "label2";
-			target: "label3";
-		}
-		program {
-			signal: "elm,state,unselected"; source: "elm";
-			action: STATE_SET "default" 0.0;
-			target: "elm.text";
-			target: "label2";
-			target: "label3";
-		}
-		program {
-			signal: "elm,state,disabled"; source: "elm";
-			action: STATE_SET "disabled" 0.0;
-			target: "elm.text";
-			target: "label2";
-			target: "label3";
-		}
-		program {
-			signal: "elm,state,enabled"; source: "elm";
-			action: STATE_SET "default" 0.0;
-			target: "elm.text";
-			target: "label2";
-			target: "label3";
-		}
 		swallow { "elm.swallow.icon";
 			desc { "default";
 				fixed: 0 1;
@@ -411,15 +349,78 @@ group { "elm/list/h_item/default";
 			desc { "default"; color: "#00000000"; hid; }
 			desc { "disabled"; inherit; vis; }
 		}
-		program {
-			signal: "elm,state,disabled"; source: "elm";
-			action: STATE_SET "disabled" 0.0;
-			target: "event_block";
-		}
-		program {
-			signal: "elm,state,enabled"; source: "elm";
-			action: STATE_SET "default" 0.0;
-			target: "event_block";
+
+		programs {
+			program {
+				signal: "elm,state,odd"; source: "elm";
+				action: STATE_SET "odd" 0.0;
+				target: "base";
+			}
+			program {
+				signal: "elm,state,even"; source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "base";
+			}
+			program {
+				signal: "elm,state,selected"; source: "elm";
+				action: STATE_SET "selected" 0.0;
+				target: "base_clip_selected";
+				target: "base_clip_default";
+			}
+			program {
+				signal: "elm,state,unselected"; source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "base_clip_selected";
+				target: "base_clip_default";
+			}
+			program {
+				signal: "elm,state,disabled"; source: "elm";
+				action: STATE_SET "disabled" 0.0;
+				target: "event";
+			}
+			program {
+				signal: "elm,state,enabled"; source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "event";
+			}
+			program {
+				signal: "elm,state,selected"; source: "elm";
+				action: STATE_SET "selected" 0.0;
+				target: "elm.text";
+				target: "label2";
+				target: "label3";
+			}
+			program {
+				signal: "elm,state,unselected"; source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "elm.text";
+				target: "label2";
+				target: "label3";
+			}
+			program {
+				signal: "elm,state,disabled"; source: "elm";
+				action: STATE_SET "disabled" 0.0;
+				target: "elm.text";
+				target: "label2";
+				target: "label3";
+			}
+			program {
+				signal: "elm,state,enabled"; source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "elm.text";
+				target: "label2";
+				target: "label3";
+			}
+			program {
+				signal: "elm,state,disabled"; source: "elm";
+				action: STATE_SET "disabled" 0.0;
+				target: "event_block";
+			}
+			program {
+				signal: "elm,state,enabled"; source: "elm";
+				action: STATE_SET "default" 0.0;
+				target: "event_block";
+			}
 		}
 	}
 }
