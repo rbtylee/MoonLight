@@ -4,8 +4,8 @@ group { "elm/photocam/base/default";
 
 	parts {
 		rect { "busy_clip";
-			desc { "default"; hid; color: TRANSPARENT; }
-			desc { "active"; vis; color: VISIBLE; }
+			desc { "default"; color: TRANSPARENT; hid; }
+			desc { "active"; color: VISIBLE; vis; }
 		}
 		part { "logo"; nomouse; clip: "busy_clip"; scale;
 			desc { "default"; FIXED_SIZE(51,51)

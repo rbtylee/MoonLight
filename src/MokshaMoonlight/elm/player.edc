@@ -29,25 +29,22 @@ group { "elm/player/base/default";
 	}
 
 	parts {
-		part { "bg"; type: RECT;
+		rect { "bg";
 			desc { "default"; color: "#000000";
 				rel1.offset: 1 1; rel2.offset: -2 -2;
 			}
 		}
-		part { "clipper"; type: RECT;
+		rect { "clipper";
 			desc { "default";
 				rel1.to: "bg"; rel2.to: "bg";
 			}
 		}
-		// video (elm_video) content here
-		part { "elm.swallow.content"; type: SWALLOW;
-			clip: "clipper";
+		swallow { "elm.swallow.content"; clip: "clipper";
 			desc { "default";
 				rel1.offset: 1 1; rel2.offset: -2 -2;
 			}
 		}
-		part { "barshad";
-			clip: "clipper";
+		part { "barshad"; clip: "clipper";
 			desc { "default"; color: TRANSPARENT; hid;
 				image.normal: "vgrad_shadow_bi.png";
 				rel1.to: "bar";
@@ -57,8 +54,7 @@ group { "elm/player/base/default";
 			}
 			desc { "visible"; inherit; color: "#FFFFFF80"; vis; }
 		}
-		part { "volpop_shadow"; nomouse;
-			clip: "volclip";
+		part { "volpop_shadow"; clip: "volclip"; nomouse;
 			desc { "default";
 				rel1.offset: -3 -2;
 				rel1.to: "volpop";
@@ -69,8 +65,7 @@ group { "elm/player/base/default";
 				fill.smooth: 0;
 			}
 		}
-		part { "bar"; type: RECT;
-			clip: "clipper";
+		rect { "bar"; clip: "clipper";
 			desc { "default"; color_class: "dialog_base";
 				rel1.to_y: "elm.swallow.media_player.prev";
 				rel1.offset: 1 -1;
@@ -78,25 +73,22 @@ group { "elm/player/base/default";
 				rel2.offset: -2 -1;
 			}
 		}
-		part { "volclip"; type: RECT;
+		rect { "volclip";
 			desc { "default"; color: TRANSPARENT; hid;
 				rel1.to: "bg";
 				rel2.to: "bg";
 			}
 			desc { "visible"; inherit; color: VISIBLE; vis; }
 		}
-		part { "volpop"; type: RECT;
-			clip: "volclip";
-			desc { "default";
-				color_class: "dialog_base";
+		rect { "volpop"; clip: "volclip";
+			desc { "default"; color_class: "dialog_base";
 				rel1.to: "elm.swallow.media_player.volumeslider";
 				rel1.offset: -1 -1;
 				rel2.to: "elm.swallow.media_player.volumeslider";
 				rel2.offset: 0 0;
 			}
 		}
-		part { "volpopclip"; type: RECT;
-			clip: "volclip";
+		rect { "volpopclip"; clip: "volclip";
 			desc { "default"; color: VISIBLE;
 				rel1.to: "volpop";
 				rel1.offset: 0 -5;
@@ -104,20 +96,16 @@ group { "elm/player/base/default";
 			}
 		}
 		part { "volpopbev"; clip: "volpopclip";
-			desc { "default";
+			desc { "default"; color_class: "dialog_base";
 				STAY_ON("volpop")
 				image.normal: "dia_bg.png";
 				image.border: 15 15 2 2;
-				color_class: "dialog_base";
 				fill.smooth: 0;
 			}
 		}
-		part { "elm.swallow.media_player.prev"; type: SWALLOW;
-			clip: "clipper";
-			scale;
-			desc { "default";
+		swallow { "elm.swallow.media_player.prev"; clip: "clipper"; scale;
+			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
-				min: BSZ BSZ;
 				align: 0.0 0.0;
 				rel1.relative: 0.0 1.0;
 				rel1.offset: 1 7;
@@ -130,9 +118,7 @@ group { "elm/player/base/default";
 				align: 0.0 1.0;
 			}
 		}
-		part { "elm.swallow.media_player.rewind"; type: SWALLOW;
-			clip: "clipper";
-			scale;
+		swallow { "elm.swallow.media_player.rewind";  clip: "clipper"; scale;
 			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
 				align: 0.0 1.0;
@@ -144,9 +130,7 @@ group { "elm/player/base/default";
 				rel2.offset: 0 -1;
 			}
 		}
-		part { "elm.swallow.media_player.play"; type: SWALLOW;
-			clip: "clipper";
-			scale;
+		swallow { "elm.swallow.media_player.play"; clip: "clipper"; scale;
 			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
 				align: 0.0 1.0;
@@ -159,9 +143,7 @@ group { "elm/player/base/default";
 			}
 			desc { "hidden"; inherit; hid; }
 		}
-		part { "elm.swallow.media_player.pause"; type: SWALLOW;
-			clip: "clipper";
-			scale;
+		swallow { "elm.swallow.media_player.pause"; clip: "clipper"; scale;
 			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
 				rel1.to: "elm.swallow.media_player.play";
@@ -169,12 +151,9 @@ group { "elm/player/base/default";
 			}
 			desc { "hidden"; inherit; hid; }
 		}
-		part { "elm.swallow.media_player.forward"; type: SWALLOW;
-			clip: "clipper";
-			scale;
-			desc { "default";
+		swallow { "elm.swallow.media_player.forward"; clip: "clipper"; scale;
+			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
-				min: BSZ BSZ;
 				align: 0.0 1.0;
 				rel1.to: "elm.swallow.media_player.play";
 				rel1.relative: 1.0 0.0;
@@ -184,12 +163,9 @@ group { "elm/player/base/default";
 				rel2.offset: 0 -1;
 			}
 		}
-		part { "elm.swallow.media_player.next"; type: SWALLOW;
-			clip: "clipper";
-			scale;
-			desc { "default";
+		swallow { "elm.swallow.media_player.next"; clip: "clipper"; scale;
+			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
-				min: BSZ BSZ;
 				align: 0.0 1.0;
 				rel1.to: "elm.swallow.media_player.forward";
 				rel1.relative: 1.0 0.0;
@@ -199,12 +175,9 @@ group { "elm/player/base/default";
 				rel2.offset: 0 -1;
 			}
 		}
-		part { "elm.swallow.media_player.stop"; type: SWALLOW;
-			clip: "clipper";
-			scale;
-			desc { "default";
+		swallow { "elm.swallow.media_player.stop"; clip: "clipper"; scale;
+			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
-				min: BSZ BSZ;
 				align: 0.0 1.0;
 				rel1.to: "elm.swallow.media_player.next";
 				rel1.relative: 1.0 0.0;
@@ -214,12 +187,9 @@ group { "elm/player/base/default";
 				rel2.offset: 0 -1;
 			}
 		}
-		part { "elm.swallow.media_player.eject"; type: SWALLOW;
-			clip: "clipper";
-			scale;
-			desc { "default";
+		swallow { "elm.swallow.media_player.eject"; clip: "clipper"; scale;
+			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
-				min: BSZ BSZ;
 				align: 0.0 1.0;
 				rel1.to: "elm.swallow.media_player.stop";
 				rel1.relative: 1.0 0.0;
@@ -229,12 +199,9 @@ group { "elm/player/base/default";
 				rel2.offset: 0 -1;
 			}
 		}
-		part { "elm.swallow.media_player.volume"; type: SWALLOW;
-			clip: "clipper";
-			scale;
-			desc { "default";
+		swallow { "elm.swallow.media_player.volume"; clip: "clipper"; scale;
+			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
-				min: BSZ BSZ;
 				align: 0.0 1.0;
 				rel1.to: "elm.swallow.media_player.eject";
 				rel1.relative: 1.0 0.0;
@@ -245,23 +212,17 @@ group { "elm/player/base/default";
 			}
 			desc { "hidden"; inherit; hid; }
 		}
-		part { "elm.swallow.media_player.mute"; type: SWALLOW;
-			clip: "clipper";
-			scale;
-			desc { "default";
+		swallow { "elm.swallow.media_player.mute"; clip: "clipper"; scale;
+			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
-				min: BSZ BSZ;
 				rel1.to: "elm.swallow.media_player.volume";
 				rel2.to: "elm.swallow.media_player.volume";
 			}
 			desc { "hidden"; inherit; hid; }
 		}
-		part { "elm.swallow.media_player.info"; type: SWALLOW;
-			clip: "clipper";
-			scale;
-			desc { "default";
+		swallow { "elm.swallow.media_player.info"; clip: "clipper"; scale;
+			desc { "default"; min: BSZ BSZ;
 				fixed: 1 1;
-				min: BSZ BSZ;
 				align: 0.0 1.0;
 				rel1.to: "elm.swallow.media_player.volume";
 				rel1.relative: 1.0 0.0;
@@ -271,8 +232,7 @@ group { "elm/player/base/default";
 				rel2.offset: 0 -1;
 			}
 		}
-		part { "elm.swallow.media_player.positionslider"; type: SWALLOW;
-			clip: "clipper";
+		swallow { "elm.swallow.media_player.positionslider"; clip: "clipper";
 			desc { "default";
 				fixed: 0 1;
 				rel1.relative: 1.0 0.0;
@@ -281,9 +241,7 @@ group { "elm/player/base/default";
 				rel2.offset: -2 -1;
 			}
 		}
-		part { "elm.swallow.media_player.volumeslider"; type: SWALLOW;
-			clip: "volclip";
-			scale;
+		swallow { "elm.swallow.media_player.volumeslider"; clip: "volclip"; scale;
 			desc { "default"; max: 99999 100;
 				fixed: 1 1;
 				rel1.to_x: "elm.swallow.media_player.volume";
@@ -294,9 +252,7 @@ group { "elm/player/base/default";
 				align: 0.5 1.0;
 			}
 		}
-		part { "controls"; type: RECT; repeat;
-			clip: "clipper";
-			scale;
+		rect { "controls"; clip: "clipper"; repeat; scale;
 			desc { "default"; min: BSZ BSZ; color: "#00000000";
 				align: 0.5 1.0;
 				rel1.relative: 0.0 0.8;
@@ -312,8 +268,7 @@ group { "elm/player/base/default";
 				align: 0.5 0.0;
 			}
 		}
-		part { "volume"; type: RECT; repeat;
-			clip: "clipper";
+		rect { "volume"; clip: "clipper"; repeat;
 			desc { "default"; color: "#00000000"; hid;
 				fixed: 1 1;
 				rel1.to_y: "volumetop";
