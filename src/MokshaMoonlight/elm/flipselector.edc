@@ -236,7 +236,7 @@ group { "elm/flipselector/base/default";
 				rel1.to: "bottom";
 				rel2 { to: "bottom"; relative: 1.0 0.0; }
 				image.normal: "flip_shad.png";
-				color: 255 255 255 200;
+				color: "#FFFFFFC8";
 				fill.smooth: 0;
 			}
 			desc { state: "half" 0.0;
@@ -300,7 +300,7 @@ group { "elm/flipselector/base/default";
 			}
 			desc { state: "shrink" 0.0;
 				inherit: "default" 0.0;
-				color: 128 128 128 255;
+				color: "#808080";
 				visible: 0;
 				rel2.relative: 1.0 0.5; /* FIXME: same visual effect? --> MAP! */
 			}
@@ -315,7 +315,7 @@ group { "elm/flipselector/base/default";
 			desc { state: "default" 0.0;
 				rel1.to: "top";
 				rel2.to: "top";
-				color: 239 239 239 255;
+				color: "#EFEFEF";
 				color_class: "focus";
 			}
 		}
@@ -338,16 +338,16 @@ group { "elm/flipselector/base/default";
 					align: 0.5 0.5;
 					source: "elm.top";
 				}
-				color: 210 210 210 255;
-				color2: 210 210 210 255;
-				color3: 210 210 210 255;
+				color: "#D2D2D2";
+				color2: "#D2D2D2";
+				color3: "#D2D2D2";
 				color_class: "menu_item_active";
 			}
 			desc { "disabled";
 				inherit: "default" 0.0;
-				color: 210 210 210 125;
-				color2: 210 210 210 125;
-				color3: 210 210 210 125;
+				color: "#D2D2D27D";
+				color2: "#D2D2D27D";
+				color3: "#D2D2D27D";
 				
 			}
 		}
@@ -365,13 +365,13 @@ group { "elm/flipselector/base/default";
 			desc { state: "default" 0.0;
 				rel1.to: "top";
 				rel2.to: "top";
-				color: 239 239 239 255;
+				color: "#EFEFEF";
 				color_class: "focus";
 			}
 			desc { state: "shrink" 0.0;
 				inherit: "default" 0.0;
 				rel1.relative: 0.0 1.0;
-				color: 223 223 223 255;
+				color: "#DFDFDF";
 			}
 		}
 		part { "elm.top"; type: TEXT; nomouse;
@@ -388,9 +388,9 @@ group { "elm/flipselector/base/default";
 					ellipsis: -1;
 					align: 0.5 0.5;
 				}
-				color: 210 210 210 255;
-				color2: 210 210 210 255;
-				color3: 210 210 210 255;
+				color: "#D2D2D2";
+				color2: "#D2D2D2";
+				color3: "#D2D2D2";
 				color_class: "menu_item_active";
 			}
 			desc { state: "shrink" 0.0;
@@ -400,9 +400,9 @@ group { "elm/flipselector/base/default";
 			}
 			desc { "disabled";
 				inherit: "default" 0.0;
-				color: 210 210 210 125;
-				color2: 210 210 210 125;
-				color3: 210 210 210 125;
+				color: "#D2D2D27D";
+				color2: "#D2D2D27D";
+				color3: "#D2D2D27D";
 			}
 		}
 		part { "top_shine_cur"; nomouse;
@@ -438,7 +438,7 @@ group { "elm/flipselector/base/default";
 				rel1.to: "top";
 				rel2.to: "top";
 				image.normal: "menu_arrow_u_normal.png";
-				color: 210 210 210 255;
+				color: "#D2D2D2";
 			}
 			desc { state: "hidden" 0.0;
 				inherit: "default" 0.0;
@@ -446,7 +446,7 @@ group { "elm/flipselector/base/default";
 			}
 			desc { "disabled";
 				inherit: "default" 0.0;
-				color: 210 210 210 125;
+				color: "#D2D2D27D";
 			}
 		}
 		part { "arrow_bottom"; nomouse;
