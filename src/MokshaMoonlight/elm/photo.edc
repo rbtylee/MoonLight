@@ -30,8 +30,7 @@ group { "elm/photo/base/default";
 				rel2.to: "clip";
 			}
 		}
-		part { "elm.swallow.content"; type: SWALLOW;
-			clip_to: "clip";
+		swallow { "elm.swallow.content"; clip: "clip";
 			desc { "default";
 				rel1.to: "clip";
 				rel2.to: "clip";
