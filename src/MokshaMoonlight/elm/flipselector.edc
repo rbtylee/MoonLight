@@ -225,9 +225,9 @@ group { "elm/flipselector/base/default";
 			}
 			desc { "disabled";
 				inherit: "default" 0.0;
-				color: 255 255 255 125;
-				color2: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color2: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 			}
 		}
 		part { "bottom_shadow"; nomouse;
@@ -306,9 +306,9 @@ group { "elm/flipselector/base/default";
 			}
 			desc { "disabled";
 				inherit: "default" 0.0;           
-				color: 255 255 255 125;
-				color2: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color2: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 			}
 		}
 		part { "top_prev"; type: RECT; nomouse;
@@ -464,7 +464,7 @@ group { "elm/flipselector/base/default";
 			}
 			desc { "disabled";
 				inherit: "default" 0.0;
-				color: 255 255 255 125;
+				color: "#FFFFFF7D";
 			}
 		}
 		part { "top_clipper"; type: RECT;
