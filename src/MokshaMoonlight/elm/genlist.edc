@@ -172,8 +172,8 @@ group { name: "elm/genlist/item/group_index/default"; nomouse; program_source: "
 			}
 			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 			}
 		}
 		part { name: "elm.swallow.pad"; type: SWALLOW;
@@ -252,7 +252,7 @@ group { name: "elm/genlist/item/default/default";
 #define BASEP() \
 		part { name: "event"; type: RECT; mouse;\
 			desc { state: "default" 0.0; \
-				color: 0 0 0 0; \
+				color: "#00000000"; \
 			} \
 			desc { state: "disabled" 0.0; \
 				inherit: "default" 0.0; \
@@ -312,7 +312,7 @@ group { name: "elm/genlist/item/default/default";
 #define TOPP() \
 		part { name: "event_block"; type: RECT; mouse; \
 			desc { state: "default" 0.0; \
-				color: 0 0 0 0; \
+				color: "#00000000"; \
 				hid; \
 			} \
 			desc { state: "disabled" 0.0; \
@@ -373,8 +373,8 @@ group { name: "elm/genlist/item/default/default";
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -616,8 +616,8 @@ group { name: "elm/genlist/item/default_style/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -835,8 +835,8 @@ group { name: "elm/genlist/item/one_icon/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -1040,8 +1040,8 @@ group { name: "elm/genlist/item/end_icon/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -1239,8 +1239,8 @@ group { name: "elm/genlist/item/no_icon/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -1463,7 +1463,7 @@ group { name: "elm/genlist/tree/default/default"; nomouse;
 			} \
 			desc { state: "disabled" 0.0; \
 				inherit: "default" 0.0;	\
-				color: 255 255 255 125; \
+				color: "#FFFFFF7D"; \
 			} \
 			desc { state: "default" 1.0; \
 				inherit: "default" 0.0; \
@@ -1478,7 +1478,7 @@ group { name: "elm/genlist/tree/default/default"; nomouse;
 			desc { state: "disabled" 1.0; \
 				FIXED_SIZE(12,9)	\
 				image.normal: "menu_arrow_d_normal.png"; \
-				color: 255 255 255 125; \
+				color: "#FFFFFF7D"; \
 			} \
 		} \
 		part { name: "arrow_img_r"; nomouse; \
@@ -1496,7 +1496,7 @@ group { name: "elm/genlist/tree/default/default"; nomouse;
 			} \
 			desc { state: "disabled" 0.0; \
 				inherit: "default" 0.0;	\
-				color: 255 255 255 125; \
+				color: "#FFFFFF7D"; \
 			} \
 			desc { state: "default" 1.0; \
 				inherit: "default" 0.0; \
@@ -1511,7 +1511,7 @@ group { name: "elm/genlist/tree/default/default"; nomouse;
 			desc { state: "disabled" 1.0; \
 				FIXED_SIZE(12,9)	\
 				image.normal: "menu_arrow_d_normal.png"; \
-				color: 255 255 255 125; \
+				color: "#FFFFFF7D"; \
 			} \
 		} \
 		part { name: "arrow"; type: RECT; insert_before: "event_block"; mouse;\
@@ -1526,7 +1526,7 @@ group { name: "elm/genlist/tree/default/default"; nomouse;
 				rel2.to_x: "elm.swallow.pad"; \
 				rel2.relative: 1.0 1.0; \
 				rel2.offset: -2 -3; \
-				color: 0 0 0 0; \
+				color: "#00000000"; \
 			} \
 		} \
 		part { name: "arrow_clip_l"; type: RECT; \
@@ -1719,7 +1719,7 @@ group { "elm/genlist/item/indent/default"; nomouse;
 				rel1.relative: 1.0 0.0;
 				rel2.to_x: "elm.swallow.pad";
 				rel2.relative: 1.0 1.0;
-				color: 0 0 0 0;
+				color: "#00000000";
 			}
 		}
 		swallow { "elm.swallow.icon";
@@ -1807,7 +1807,7 @@ group { name: "elm/genlist/tree_compress_odd/full/default";
 #define GENLIST_PART_MAP_START(param_x, param_y, param_z) \
 	desc { state: "map_transition" 0.0; \
 		inherit: "default" 0.0; \
-		color: 50 50 50 255; \
+		color: "#323232"; \
 		map { \
 			perspective: "point"; \
 			on: 1; \
@@ -1862,14 +1862,14 @@ group { name: "elm/genlist/tree/tree_effect/default"; nomouse;
 		part { name: "point"; type: RECT; mouse;
 			scale;
 			desc { state: "default" 0.0;
-				color: 0 0 0 0;
+				color: "#00000000";
 				rel1.relative: 0.0 0.0;
 				rel2.relative: 1.0 0.0;
 			}
 		}
 		part { name: "event"; type: RECT;  mouse;
 			desc { state: "default" 0.0;
-				color: 0 0 0 0;
+				color: "#00000000";
 			}
 		}
 		part { name: "group"; type: GROUP;  mouse;
@@ -1992,8 +1992,8 @@ group { name: "elm/genlist/item/icon_top_text_bottom/default";nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -2448,8 +2448,8 @@ group { name: "elm/genlist/item/double_label/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -2553,8 +2553,8 @@ group { name: "elm/genlist/item/double_label/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text.sub";
 				rel2.to: "elm.text.sub";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text.sub";
@@ -3094,8 +3094,8 @@ group { name: "elm/genlist/item/message/default"; nomouse;
 				fixed: 1 1;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -3200,8 +3200,8 @@ group { name: "elm/genlist/item/message/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.title.1";
 				rel2.to: "elm.title.1";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.title.1";
@@ -3293,8 +3293,8 @@ group { name: "elm/genlist/item/message/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.title.2";
 				rel2.to: "elm.title.2";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.title.2";
@@ -3496,8 +3496,8 @@ group { name: "elm/genlist/item/media/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text.title";
 				rel2.to: "elm.text.title";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text.title";
@@ -3601,8 +3601,8 @@ group { name: "elm/genlist/item/media/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text.album-artist";
 				rel2.to: "elm.text.album-artist";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text.album-artist";
@@ -3989,8 +3989,8 @@ group { name: "elm/genlist/item/media-album/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text.trackno";
 				rel2.to: "elm.text.trackno";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text.trackno";
@@ -4117,8 +4117,8 @@ group { name: "elm/genlist/item/media-album/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text.title";
 				rel2.to: "elm.text.title";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text.title";
@@ -4211,8 +4211,8 @@ group { name: "elm/genlist/item/media-album/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text.length";
 				rel2.to: "elm.text.length";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text.length";
@@ -4591,8 +4591,8 @@ group { name: "elm/genlist/item/media-preview/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				 color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -4695,8 +4695,8 @@ group { name: "elm/genlist/item/media-preview/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text.artist";
 				rel2.to: "elm.text.artist";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text.artist";
@@ -5197,8 +5197,8 @@ group { name: "elm/genlist/item/mode/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text.mode";
 				rel2.to: "elm.text.mode";
-				color: 255 255 255 125;
-				 color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text.mode";
@@ -5323,7 +5323,7 @@ group { name: "elm/genlist/item/mode/default"; nomouse;
 			desc { state: "default" 0.0;
 				rel1.to: "base";
 				rel2.to: "base";
-				color: 0 0 0 0;
+				color: "#00000000";
 			}
 			desc { state: "repeat_events" 0.0;
 				inherit: "default" 0.0;
