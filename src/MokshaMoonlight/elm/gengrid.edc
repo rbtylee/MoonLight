@@ -212,7 +212,7 @@ group { name: "elm/gengrid/item/default/default";
 			}
 			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				color: 255 255 255 64;
+				color: "#FFFFFF40";
 			}
 		}
 		part { name: "elm.swallow.pad"; type: SWALLOW;
@@ -393,7 +393,7 @@ group { name: "elm/gengrid/item/default_style/default";
 			}
 			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				color: 255 255 255 64;
+				color: "#FFFFFF40";
 			}
 		}
 		part { name: "elm.swallow.pad"; type: SWALLOW;
@@ -602,7 +602,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 			}
 			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				color: 255 255 255 64;
+				color: "#FFFFFF40";
 			}
 		}
 		program {      
@@ -712,7 +712,7 @@ group { name: "elm/gengrid/item/thumb/default";
 			}
 			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				color: 64 64 64 255;
+				color: "#404040";
 			}
 		}
 		program {
@@ -858,7 +858,7 @@ group { name: "elm/gengrid/item/thumb/default";
 			}
 			desc { state: "disabled" 0.0;
 				inherit: "default" 0.0;
-				color: 255 255 255 64;
+				color: "#FFFFFF40";
 			}
 			desc { state: "selected" 0.0;
 				inherit: "default" 0.0;
