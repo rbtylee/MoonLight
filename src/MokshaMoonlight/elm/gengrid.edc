@@ -12,7 +12,7 @@ group { name: "elm/gengrid/item/default/default";
 #define BASEP() \
 		part { name: "event"; type: RECT; \
 			desc { state: "default" 0.0; \
-				color: 0 0 0 0; \
+				color: "#00000000"; \
 			} \
 			desc { state: "disabled" 0.0; \
 				inherit: "default" 0.0; \
@@ -72,7 +72,7 @@ group { name: "elm/gengrid/item/default/default";
 #define TOPP() \
 		part { name: "event_block"; type: RECT; \
 			desc { state: "default" 0.0; \
-				color: 0 0 0 0; \
+				color: "#00000000"; \
 				hid; \
 			} \
 			desc { state: "disabled" 0.0; \
@@ -127,8 +127,8 @@ group { name: "elm/gengrid/item/default/default";
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -512,8 +512,8 @@ group { name: "elm/gengrid/item/album-preview/default";
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
@@ -774,8 +774,8 @@ group { name: "elm/gengrid/item/thumb/default";
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				color: 255 255 255 125;
-				color3: 255 255 255 125;
+				color: "#FFFFFF7D";
+				color3: "#FFFFFF7D";
 				color_class: "ilist_item";
 				text { font: "Sans"; size: 10;
 					text_source: "elm.text";
