@@ -232,7 +232,7 @@ group { "elm/gengrid/item/default_style/default";
 
 	parts {
 		BASEP()
-		part { "elm.text"; type: TEXTBLOCK; nomouse; scale;
+		textblock { "elm.text"; nomouse; scale;
 			desc { "default"; color_class: "ilist_item";
 				rel1.relative: 0.0 1.0; rel1.offset: 5 -5;
 				rel2.relative: 1.0 1.0; rel2.offset: -5 -5;
@@ -247,7 +247,7 @@ group { "elm/gengrid/item/default_style/default";
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; hid; }
 		}
-		part { "label2"; type: TEXTBLOCK; nomouse; scale;
+		textblock { "label2"; nomouse; scale;
 			desc { "default"; color_class: "grid_item_disabled"; hid;
 				rel1.to: "elm.text"; rel2.to: "elm.text";
 				text {
@@ -260,7 +260,7 @@ group { "elm/gengrid/item/default_style/default";
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; vis; }
 		}
-		part { "label3"; type: TEXTBLOCK; nomouse; scale;
+		textblock { "label3"; nomouse; scale;
 			desc { "default"; color_class: "grid_item_selected"; hid;
 				rel1.to: "elm.text"; rel2.to: "elm.text";
 				text {
@@ -475,7 +475,7 @@ group { "elm/gengrid/item/album-preview/default";
 			action: STATE_SET "visible" 0.0;
 			target: "icon_area";
 		}
-		part { "icon_area2"; type: SPACER;
+		spacer { "icon_area2";
 			desc { "default";
 				rel1.to: "icon_area"; rel1.relative: 0.3  0.3;
 				rel2.to: "icon_area"; rel2.relative: 0.7  0.7;
