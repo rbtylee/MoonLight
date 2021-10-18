@@ -1,8 +1,8 @@
-group { name: "elm/gengrid/item/group_index/default";
+group { "elm/gengrid/item/group_index/default";
 	inherit: "elm/genlist/item/group_index/default";
 }
 
-group { name: "elm/gengrid/item/default/default";
+group { "elm/gengrid/item/default/default";
 	data.item: "selectraise" "on";
 	data.item: "texts" "elm.text";
 	data.item: "contents" "elm.swallow.icon elm.swallow.end";
@@ -10,7 +10,7 @@ group { name: "elm/gengrid/item/default/default";
 	parts {
 //---------------------------------------------------------------------------
 #define BASEP() \
-		part { name: "event"; type: RECT; \
+		rect { "event"; \
 			desc { state: "default" 0.0; \
 				color: "#00000000"; \
 			} \
@@ -20,7 +20,7 @@ group { name: "elm/gengrid/item/default/default";
 			} \
 		} \
 		CLIP_SWITCH("base","base","base","default","selected")   \
-		part { name: "base"; type: RECT; nomouse; \
+		rect { "base"; nomouse; \
 			clip: "base_clip_default"; \
 			desc { state: "default" 0.0; \
 				color_class: "ilist_item_base"; \
@@ -29,7 +29,7 @@ group { name: "elm/gengrid/item/default/default";
 				color_class: "ilist_item_odd_base"; \
 			} \
 		} \
-		part { name: "base_sel"; nomouse; \
+		part { "base_sel"; nomouse; \
 			clip: "base_clip_selected";   \
 			desc { state: "default" 0.0; \
 			STAY_ON("base")   \
@@ -70,7 +70,7 @@ group { name: "elm/gengrid/item/default/default";
 			target: "event"; \
 		}
 #define TOPP() \
-		part { name: "event_block"; type: RECT; \
+		rect { "event_block"; \
 			desc { state: "default" 0.0; \
 				color: "#00000000"; \
 				hid; \
@@ -94,7 +94,7 @@ group { name: "elm/gengrid/item/default/default";
 		BASEP()
 
 		//##//
-		part { name: "elm.text"; type: TEXT; nomouse;
+		text { "elm.text"; nomouse;
 			effect: SHADOW BOTTOM;
 			scale;
 			desc { state: "default" 0.0;
@@ -121,7 +121,7 @@ group { name: "elm/gengrid/item/default/default";
 				hid;
 			}
 		}
-		part { name: "label2"; type: TEXT; nomouse;
+		text { "label2"; nomouse;
 			effect: SHADOW BOTTOM;
 			scale;
 			desc { state: "default" 0.0;
@@ -146,7 +146,7 @@ group { name: "elm/gengrid/item/default/default";
 				vis;
 			}
 		}
-		part { name: "label3"; type: TEXT; nomouse;
+		text { "label3"; nomouse;
 			effect: SHADOW BOTTOM;
 			scale;
 			desc { state: "default" 0.0;
@@ -202,7 +202,7 @@ group { name: "elm/gengrid/item/default/default";
 			target: "icon_area";
 		}
 		//##//
-		part { name: "icon_area"; type: RECT;
+		rect { "icon_area";
 			desc { state: "default" 0.0;
 				fixed: 1 0;
 				rel1.offset: 2 2;
@@ -215,7 +215,7 @@ group { name: "elm/gengrid/item/default/default";
 				color: "#FFFFFF40";
 			}
 		}
-		part { name: "elm.swallow.pad"; type: SWALLOW;
+		swallow { "elm.swallow.pad";
 			desc { state: "default" 0.0;
 				fixed: 0 1;
 				align: 0.0 1.0;
@@ -224,14 +224,14 @@ group { name: "elm/gengrid/item/default/default";
 				rel2.relative: 1.0 0.0;
 			}
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
+		swallow { "elm.swallow.icon";
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				rel1.to: "icon_area";
 				rel2.to: "icon_area";
 			}
 		}
-		part { name: "elm.swallow.end"; type: SWALLOW;
+		swallow { "elm.swallow.end";
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				fixed: 1 0;
@@ -243,16 +243,16 @@ group { name: "elm/gengrid/item/default/default";
 			}
 		}
 		//##//
-		
+
 		TOPP()
 	}
 }
 
-group { name: "elm/gengrid/item/default_style/default";
+group { "elm/gengrid/item/default_style/default";
 	data.item: "selectraise" "on";
 	data.item: "texts" "elm.text";
 	data.item: "contents" "elm.swallow.icon elm.swallow.end";
-	styles.style {    name: "gengrid_style";
+	styles.style {    "gengrid_style";
 		base: "font=""Sans"" font_size=10 align=left color=#4c4c4cff text_class=list_item ellipsis=1.0";
 		tag: "br" "\n";
 		tag: "ps" "ps";
@@ -260,7 +260,7 @@ group { name: "elm/gengrid/item/default_style/default";
 		tag: "b" "+ font_weight=Bold";
 		tag: "tab" "\t";
 	}
-	styles.style { name: "gengrid_style_selected";
+	styles.style { "gengrid_style_selected";
 		base: "font=""Sans"" font_size=10 align=left color=#ffffffff text_class=list_item_selected ellipsis=1.0";
 		tag: "br" "\n";
 		tag: "ps" "ps";
@@ -268,7 +268,7 @@ group { name: "elm/gengrid/item/default_style/default";
 		tag: "b" "+ font_weight=Bold";
 		tag: "tab" "\t";
 	}
-	styles.style { name: "gengrid_style_disabled";
+	styles.style { "gengrid_style_disabled";
 		base: "font=""Sans"" font_size=10 align=left color=#4c4c4c7d text_class=list_item ellipsis=1.0";
 		tag: "br" "\n";
 		tag: "ps" "ps";
@@ -276,12 +276,12 @@ group { name: "elm/gengrid/item/default_style/default";
 		tag: "b" "+ font_weight=Bold";
 		tag: "tab" "\t";
 	}
-	
+
 	parts {
 		BASEP()
 
 		//##//
-		part { name: "elm.text"; type: TEXTBLOCK; nomouse;
+		part { "elm.text"; type: TEXTBLOCK; nomouse;
 			scale;
 			desc { state: "default" 0.0;
 				rel1.relative: 0.0 1.0;
@@ -306,7 +306,7 @@ group { name: "elm/gengrid/item/default_style/default";
 				hid;
 			}
 		}
-		part { name: "label2"; type: TEXTBLOCK; nomouse;
+		part { "label2"; type: TEXTBLOCK; nomouse;
 			scale;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
@@ -329,7 +329,7 @@ group { name: "elm/gengrid/item/default_style/default";
 				vis;
 			}
 		}
-		part { name: "label3"; type: TEXTBLOCK; nomouse;
+		part { "label3"; type: TEXTBLOCK; nomouse;
 			scale;
 			desc { state: "default" 0.0;
 				rel1.to: "elm.text";
@@ -383,7 +383,7 @@ group { name: "elm/gengrid/item/default_style/default";
 			target: "icon_area";
 		}
 		//##//
-		part { name: "icon_area"; type: RECT;
+		rect { "icon_area";
 			desc { state: "default" 0.0;
 				fixed: 1 0;
 				rel1.offset: 2 2;
@@ -396,7 +396,7 @@ group { name: "elm/gengrid/item/default_style/default";
 				color: "#FFFFFF40";
 			}
 		}
-		part { name: "elm.swallow.pad"; type: SWALLOW;
+		swallow { "elm.swallow.pad";
 			desc { state: "default" 0.0;
 				fixed: 0 1;
 				align: 0.0 1.0;
@@ -405,14 +405,14 @@ group { name: "elm/gengrid/item/default_style/default";
 				rel2.relative: 1.0 0.0;
 			}
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
+		swallow { "elm.swallow.icon";
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				rel1.to: "icon_area";
 				rel2.to: "icon_area";
 			}
 		}
-		part { name: "elm.swallow.end"; type: SWALLOW;
+		swallow { "elm.swallow.end";
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				fixed: 1 0;
@@ -424,22 +424,22 @@ group { name: "elm/gengrid/item/default_style/default";
 			}
 		}
 		//##//
-		
+
 		TOPP()
 	}
 }
 
-group { name: "elm/gengrid/item/up/default";
+group { "elm/gengrid/item/up/default";
 	inherit: "elm/gengrid/item/default/default";
 	images.image: "menu_arrow_u_normal.png" COMP;
 	images.image: "menu_arrow_u_sel.png" COMP;
 	parts {
-		part { name: "icon_area"; type: RECT;
+		rect { "icon_area";
 			desc { state: "default" 0.0;
 				hid;
 			}
 		}
-		part { name: "up";
+		part { "up";
 			insert_after: "elm.swallow.pad";
 			desc { state: "default" 0.0;
 				aspect: 1.0 1.0; aspect_preference: BOTH;
@@ -453,12 +453,12 @@ group { name: "elm/gengrid/item/up/default";
 				image.normal: "menu_arrow_u_sel.png";
 		 }
 		}
-		program { name: "sel_up";
+		program { "sel_up";
 			signal: "elm,state,selected"; source: "elm";
 			action: STATE_SET "selected" 0.0;
 			target: "up";
 		}
-		program { name: "unsel_up";
+		program { "unsel_up";
 			signal: "elm,state,unselected"; source: "elm";
 			action: STATE_SET "default" 0.0;
 			target: "up";
@@ -466,20 +466,20 @@ group { name: "elm/gengrid/item/up/default";
 	}
 }
 
-group { name: "elm/gengrid/item/album-preview/default";
+group { "elm/gengrid/item/album-preview/default";
 	data.item: "selectraise" "on";
 	data.item: "texts" "elm.text";
 	data.item: "contents" "elm.swallow.icon.1 elm.swallow.icon.2 elm.swallow.icon.3 elm.swallow.icon.4";
 	data.item: "states" "have_files";
-	
+
 
 	images.image: "folder.png" COMP;
-	
+
 	parts {
 		BASEP()
 
 		//##//
-		part { name: "elm.text"; type: TEXT; nomouse;
+		text { "elm.text"; nomouse;
 			effect: SHADOW BOTTOM;
 			scale;
 			desc { state: "default" 0.0;
@@ -506,7 +506,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 				hid;
 			}
 		}
-		part { name: "label2"; type: TEXT; nomouse;
+		text { "label2"; nomouse;
 			effect: SHADOW BOTTOM;
 			scale;
 			desc { state: "default" 0.0;
@@ -531,7 +531,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 				vis;
 			}
 		}
-		part { name: "label3"; type: TEXT; nomouse;
+		text { "label3"; nomouse;
 			effect: SHADOW BOTTOM;
 			scale;
 			desc { state: "default" 0.0;
@@ -587,7 +587,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 			target: "icon_area";
 		}
 		//##//
-		part { name: "icon_area"; type: RECT;
+		rect { "icon_area";
 			desc { state: "default" 0.0;
 				fixed: 1 0;
 				rel1.offset: 2 2;
@@ -605,12 +605,12 @@ group { name: "elm/gengrid/item/album-preview/default";
 				color: "#FFFFFF40";
 			}
 		}
-		program {      
+		program {
 			signal: "elm,state,have_files,active"; source: "elm";
 			action: STATE_SET "visible" 0.0;
 			target: "icon_area";
 		}
-		part { name: "icon_area2"; type: SPACER;
+		part { "icon_area2"; type: SPACER;
 			desc { state: "default" 0.0;
 				rel1.to: "icon_area";
 				rel1.relative: 0.3  0.3;
@@ -618,7 +618,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 				rel2.relative: 0.7  0.7;
 			}
 		}
-		part { name: "folder";
+		part { "folder";
 			insert_after: "elm.swallow.pad";
 			desc { state: "default" 0.0;
 				aspect: 1.0 1.0; aspect_preference: BOTH;
@@ -627,7 +627,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 				image.normal: "folder.png";
 			}
 		}
-		part { name: "elm.swallow.pad"; type: SWALLOW;
+		swallow { "elm.swallow.pad";
 			desc { state: "default" 0.0;
 				fixed: 0 1;
 				align: 0.0 1.0;
@@ -636,7 +636,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 				rel2.relative: 1.0 0.0;
 			}
 		}
-		part { name: "elm.swallow.icon.1"; type: SWALLOW; nomouse;
+		swallow { "elm.swallow.icon.1"; nomouse;
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				rel1.to: "icon_area2";
@@ -645,7 +645,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 				rel2.relative: 0.5  0.5;
 			}
 		}
-		part { name: "elm.swallow.icon.2"; type: SWALLOW; nomouse;
+		swallow { "elm.swallow.icon.2"; nomouse;
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				rel1.to: "icon_area2";
@@ -654,7 +654,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 				rel2.relative: 1.0  0.5;
 			}
 		}
-		part { name: "elm.swallow.icon.3"; type: SWALLOW; nomouse;
+		swallow { "elm.swallow.icon.3"; nomouse;
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				rel1.to: "icon_area2";
@@ -663,7 +663,7 @@ group { name: "elm/gengrid/item/album-preview/default";
 				rel2.relative: 0.5  1.0;
 			}
 		}
-		part { name: "elm.swallow.icon.4"; type: SWALLOW; nomouse;
+		swallow { "elm.swallow.icon.4"; nomouse;
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				rel1.to: "icon_area2";
@@ -673,20 +673,20 @@ group { name: "elm/gengrid/item/album-preview/default";
 			}
 		}
 		//##//
-		
+
 		TOPP()
 	}
 }
 
-group { name: "elm/gengrid/item/thumb/default";
+group { "elm/gengrid/item/thumb/default";
 	data.item: "selectraise" "on";
 	data.item: "texts" "elm.text";
 	data.item: "contents" "elm.swallow.icon elm.swallow.end";
-	
+
 	images.image: "shadow_square.png" COMP;
 	parts {
 
-		part { name: "shadow"; nomouse;
+		part { "shadow"; nomouse;
 			desc { state: "default" 0.0;
 				image.normal: "shadow_square.png";
 				image.border: 14 14 14 14;
@@ -698,7 +698,7 @@ group { name: "elm/gengrid/item/thumb/default";
 				fill.smooth: 0;
 			}
 		}
-		part { name: "base"; type: RECT;
+		rect { "base";
 			desc { state: "default" 0.0;
 				rel1.offset: -4 -4;
 				rel1.to: "icon_area";
@@ -739,9 +739,9 @@ group { name: "elm/gengrid/item/thumb/default";
 			target: "base";
 			target: "icon_area";
 		}
-		
+
 		//##//
-		part { name: "elm.text"; type: TEXT; nomouse;
+		text { "elm.text"; nomouse;
 			effect: SHADOW BOTTOM;
 			scale;
 			desc { state: "default" 0.0;
@@ -768,7 +768,7 @@ group { name: "elm/gengrid/item/thumb/default";
 				hid;
 			}
 		}
-		part { name: "label2"; type: TEXT; nomouse;
+		text { "label2"; nomouse;
 			effect: SHADOW BOTTOM;
 			scale;
 			desc { state: "default" 0.0;
@@ -793,7 +793,7 @@ group { name: "elm/gengrid/item/thumb/default";
 				vis;
 			}
 		}
-		part { name: "label3"; type: TEXT; nomouse;
+		text { "label3"; nomouse;
 			effect: SHADOW BOTTOM;
 			scale;
 			desc { state: "default" 0.0;
@@ -847,7 +847,7 @@ group { name: "elm/gengrid/item/thumb/default";
 			target: "label3";
 		}
 		//##//
-		part { name: "icon_area"; type: RECT;
+		rect { "icon_area";
 			desc { state: "default" 0.0;
 				fixed: 1 0;
 				aspect: 1.0 1.0; aspect_preference: BOTH;
@@ -865,7 +865,7 @@ group { name: "elm/gengrid/item/thumb/default";
 				vis;
 			}
 		}
-		part { name: "elm.swallow.pad"; type: SWALLOW;
+		swallow { "elm.swallow.pad";
 			desc { state: "default" 0.0;
 				fixed: 0 1;
 				align: 0.0 1.0;
@@ -874,14 +874,14 @@ group { name: "elm/gengrid/item/thumb/default";
 				rel2.relative: 1.0 0.0;
 			}
 		}
-		part { name: "elm.swallow.icon"; type: SWALLOW;
+		swallow { "elm.swallow.icon";
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				rel1.to: "icon_area";
 				rel2.to: "icon_area";
 			}
 		}
-		part { name: "elm.swallow.end"; type: SWALLOW;
+		swallow { "elm.swallow.end";
 			clip: "icon_area";
 			desc { state: "default" 0.0;
 				fixed: 1 0;
