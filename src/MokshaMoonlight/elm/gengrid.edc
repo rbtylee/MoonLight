@@ -99,11 +99,10 @@ group { "elm/gengrid/item/default/default";
 				rel1.relative: 0.0 1.0; rel1.offset: 5 -5;
 				rel2.relative: 1.0 1.0; rel2.offset: -5 -5;
 				align: 0.5 1.0;
-				text { font: "Sans"; size: 10;
-					min: 0 1;
-					align: 0.5 1.0;
-					text_class: "grid_item";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 1;
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
 			}
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; hid; }
@@ -112,11 +111,10 @@ group { "elm/gengrid/item/default/default";
 			desc { "default"; color: "#FFFFFF7D"; color_class: "ilist_item"; hid;
 				color3: "#FFFFFF7D";
 				rel1.to: "elm.text"; rel2.to: "elm.text";
-				text { font: "Sans"; size: 10;
-					text_source: "elm.text";
-					align: 0.5 1.0;
-					text_class: "grid_item";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.text_source: "elm.text";
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
 			}
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; vis; }
@@ -126,11 +124,10 @@ group { "elm/gengrid/item/default/default";
 				color2: VISIBLE;
 				color3: VISIBLE;
 				STAY_ON("elm.text")
-				text { font: "Sans"; size: 10;
-					text_source: "elm.text";
-					align: 0.5 1.0;
-					text_class: "grid_item";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.text_source: "elm.text";
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
 			}
 			desc { "selected"; inherit; vis; }
 			desc { "disabled"; inherit; hid; }
@@ -237,12 +234,10 @@ group { "elm/gengrid/item/default_style/default";
 				rel1.relative: 0.0 1.0; rel1.offset: 5 -5;
 				rel2.relative: 1.0 1.0; rel2.offset: -5 -5;
 				align: 0.5 1.0;
-				text {
-					min: 0 1;
-					align: 0.5 1.0;
-					text_class: "grid_item";
-					style: "gengrid_style";
-				}
+				text.min: 0 1;
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
+				text.style: "gengrid_style";
 			}
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; hid; }
@@ -250,12 +245,10 @@ group { "elm/gengrid/item/default_style/default";
 		textblock { "label2"; nomouse; scale;
 			desc { "default"; color_class: "grid_item_disabled"; hid;
 				rel1.to: "elm.text"; rel2.to: "elm.text";
-				text {
-					text_source: "elm.text";
-					align: 0.5 1.0;
-					text_class: "grid_item";
-					style: "gengrid_style_disabled";
-				}
+				text.text_source: "elm.text";
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
+				text.style: "gengrid_style_disabled";
 			}
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; vis; }
@@ -263,12 +256,10 @@ group { "elm/gengrid/item/default_style/default";
 		textblock { "label3"; nomouse; scale;
 			desc { "default"; color_class: "grid_item_selected"; hid;
 				rel1.to: "elm.text"; rel2.to: "elm.text";
-				text {
-					text_source: "elm.text";
-					align: 0.5 1.0;
-					text_class: "grid_item";
-					style: "gengrid_style_selected";
-				}
+				text.text_source: "elm.text";
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
+				text.style: "gengrid_style_selected";
 			}
 			desc { "selected"; inherit; vis; }
 			desc { "disabled"; inherit; hid; }
@@ -391,11 +382,10 @@ group { "elm/gengrid/item/album-preview/default";
 				rel1.relative: 0.0 1.0; rel1.offset: 5 -5;
 				rel2.relative: 1.0 1.0; rel2.offset: -5 -5;
 				align: 0.5 1.0;
-				text { font: "Sans"; size: 10;
-					min: 0 1;
-					align: 0.5 1.0;
-					text_class: "grid_item";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 1;
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
 			}
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; hid; }
@@ -405,12 +395,10 @@ group { "elm/gengrid/item/album-preview/default";
 				color3: "#FFFFFF7D";
 				rel1.to: "elm.text";
 				rel2.to: "elm.text";
-				text { font: "Sans"; size: 10;
-					text_source: "elm.text";
-					align: 0.5 1.0;
-					text_class: "grid_item";
-				}
-				
+				text.font: "Sans"; text.size: 10;
+				text.text_source: "elm.text";
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
 			}
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; vis; }
@@ -420,11 +408,10 @@ group { "elm/gengrid/item/album-preview/default";
 				color2: VISIBLE;
 				color3: VISIBLE;
 				STAY_ON("elm.text")
-				text { font: "Sans"; size: 10;
-					text_source: "elm.text";
-					align: 0.5 1.0;
-					text_class: "grid_item";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.text_source: "elm.text";
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
 			}
 			desc { "selected"; inherit; vis; }
 			desc { "disabled"; inherit; hid; }
@@ -580,11 +567,10 @@ group { "elm/gengrid/item/thumb/default";
 				rel1.relative: 0.0 1.0; rel1.offset: 5 -5;
 				rel2.relative: 1.0 1.0; rel2.offset: -5 -5;
 				align: 0.5 1.0;
-				text { font: "Sans"; size: 10;
-					min: 0 1;
-					align: 0.5 1.0;
-					text_class: "grid_item";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.min: 0 1;
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
 			}
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; hid; }
@@ -593,27 +579,23 @@ group { "elm/gengrid/item/thumb/default";
 			desc { "default"; color: "#FFFFFF7D"; color_class: "ilist_item"; hid;
 				color3: "#FFFFFF7D";
 				rel1.to: "elm.text"; rel2.to: "elm.text";
-				text { font: "Sans"; size: 10;
-					text_source: "elm.text";
-					align: 0.5 1.0;
-					text_class: "grid_item";
-				}
+				text.font: "Sans"; text.size: 10;
+				text.text_source: "elm.text";
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
 			}
 			desc { "selected"; inherit; hid; }
 			desc { "disabled"; inherit; vis; }
 		}
 		text { "label3"; effect: SHADOW BOTTOM; nomouse; scale;
-			desc { "default"; hid;
-				STAY_ON("elm.text")
-				color: VISIBLE;
+			desc { "default"; color: VISIBLE; color_class: "ilist_item"; hid;
 				color2: VISIBLE;
 				color3: VISIBLE;
-				color_class: "ilist_item";
-				text { font: "Sans"; size: 10;
-					text_source: "elm.text";
-					align: 0.5 1.0;
-					text_class: "grid_item";
-				}
+				STAY_ON("elm.text")
+				text.font: "Sans"; text.size: 10;
+				text.text_source: "elm.text";
+				text.align: 0.5 1.0;
+				text.text_class: "grid_item";
 			}
 			desc { "selected"; inherit; vis; }
 			desc { "disabled"; inherit; hid; }
