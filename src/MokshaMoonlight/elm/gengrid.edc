@@ -1,3 +1,85 @@
+#define BASEP() \
+		rect { "event";																							\
+			desc { "default";																					\
+				color: "#00000000";																			\
+			}																													\
+			desc { "disabled";																				\
+				inherit;																								\
+				hid;																										\
+			}																													\
+		}																														\
+		CLIP_SWITCH("base","base","base","default","selected")			\
+		rect { "base"; nomouse;																			\
+			clip: "base_clip_default";																\
+			desc { "default";																					\
+				color_class: "ilist_item_base";													\
+			}																													\
+			desc { "odd"																							\
+				color_class: "ilist_item_odd_base";											\
+			}																													\
+		}																														\
+		part { "base_sel"; nomouse;																	\
+			clip: "base_clip_selected";																\
+			desc { "default";																					\
+				STAY_ON("base")																					\
+				image.normal: "selected.png";														\
+				image.border: 2 2 2 2;																	\
+			}																													\
+		}																														\
+		program {																										\
+			signal: "elm,state,odd"; source: "elm";										\
+			action: STATE_SET "odd" 0.0;															\
+			target: "base";																						\
+		}																														\
+		program {																										\
+			signal: "elm,state,even"; source: "elm";									\
+			action: STATE_SET "default" 0.0;													\
+			target: "base";																						\
+		}																														\
+		program {																										\
+			signal: "elm,state,selected"; source: "elm";							\
+			action: STATE_SET "selected" 0.0;													\
+			target: "base_clip_selected";															\
+			target: "base_clip_default";															\
+		}																														\
+		program {																										\
+			signal: "elm,state,unselected"; source: "elm";						\
+			action: STATE_SET "default" 0.0;													\
+			target: "base_clip_selected";															\
+			target: "base_clip_default";															\
+		}																														\
+		program {																										\
+			signal: "elm,state,disabled"; source: "elm";							\
+			action: STATE_SET "disabled" 0.0;													\
+			target: "event";																					\
+		}																														\
+		program {																										\
+			signal: "elm,state,enabled"; source: "elm";								\
+			action: STATE_SET "default" 0.0;													\
+			target: "event";																					\
+		}
+#define TOPP() \
+		rect { "event_block";																				\
+			desc { "default";																					\
+				color: "#00000000";																			\
+				hid;																										\
+			}																													\
+			desc { "disabled";																				\
+				inherit;																								\
+				vis;																										\
+			}																													\
+		}																														\
+		program {																										\
+			signal: "elm,state,disabled"; source: "elm";							\
+			action: STATE_SET "disabled" 0.0;													\
+			target: "event_block";																		\
+		}																														\
+		program {																										\
+			signal: "elm,state,enabled"; source: "elm";								\
+			action: STATE_SET "default" 0.0;													\
+			target: "event_block";																		\
+		}
+
 group { "elm/gengrid/item/group_index/default";
 	inherit: "elm/genlist/item/group_index/default";
 }
@@ -8,91 +90,7 @@ group { "elm/gengrid/item/default/default";
 	data.item: "contents" "elm.swallow.icon elm.swallow.end";
 
 	parts {
-//---------------------------------------------------------------------------
-#define BASEP() \
-		rect { "event"; \
-			desc { "default"; \
-				color: "#00000000"; \
-			} \
-			desc { "disabled"; \
-				inherit; \
-				hid; \
-			} \
-		} \
-		CLIP_SWITCH("base","base","base","default","selected")   \
-		rect { "base"; nomouse; \
-			clip: "base_clip_default"; \
-			desc { "default"; \
-				color_class: "ilist_item_base"; \
-			} \
-			desc { "odd" \
-				color_class: "ilist_item_odd_base"; \
-			} \
-		} \
-		part { "base_sel"; nomouse; \
-			clip: "base_clip_selected";   \
-			desc { "default"; \
-			STAY_ON("base")   \
-			image.normal: "selected.png"; \
-			image.border: 2 2 2 2;        \
-		}  \
-	  }   \
-		program { \
-			signal: "elm,state,odd"; source: "elm"; \
-			action: STATE_SET "odd" 0.0; \
-			target: "base"; \
-		} \
-		program { \
-			signal: "elm,state,even"; source: "elm"; \
-			action: STATE_SET "default" 0.0; \
-			target: "base"; \
-		} \
-		program { \
-			signal: "elm,state,selected"; source: "elm"; \
-			action: STATE_SET "selected" 0.0; \
-			target: "base_clip_selected"; \
-			target: "base_clip_default"; \
-		} \
-		program { \
-			signal: "elm,state,unselected"; source: "elm"; \
-			action: STATE_SET "default" 0.0; \
-			target: "base_clip_selected"; \
-			target: "base_clip_default"; \
-		} \
-		program { \
-			signal: "elm,state,disabled"; source: "elm"; \
-			action: STATE_SET "disabled" 0.0; \
-			target: "event"; \
-		} \
-		program { \
-			signal: "elm,state,enabled"; source: "elm"; \
-			action: STATE_SET "default" 0.0; \
-			target: "event"; \
-		}
-#define TOPP() \
-		rect { "event_block"; \
-			desc { "default"; \
-				color: "#00000000"; \
-				hid; \
-			} \
-			desc { "disabled"; \
-				inherit; \
-				vis; \
-			} \
-		} \
-		program { \
-			signal: "elm,state,disabled"; source: "elm"; \
-			action: STATE_SET "disabled" 0.0; \
-			target: "event_block"; \
-		} \
-		program { \
-			signal: "elm,state,enabled"; source: "elm"; \
-			action: STATE_SET "default" 0.0; \
-			target: "event_block"; \
-		}
-//---------------------------------------------------------------------------
 		BASEP()
-
 		text { "elm.text"; effect: SHADOW BOTTOM; nomouse; scale;
 			desc { "default"; color: VISIBLE; color_class: "ilist_item";
 				color3: VISIBLE;
