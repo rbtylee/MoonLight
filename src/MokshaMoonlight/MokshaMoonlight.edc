@@ -115,6 +115,7 @@ collections {
 	// Must be out of order
 	#include "edc/ilist.edc"
 	#include "edc/fileman.edc"
+	#include "edc/xkbswitch.edc"
 
 	/** Elementary Support **/
 	#include "elm/access.edc"
