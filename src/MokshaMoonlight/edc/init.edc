@@ -68,6 +68,7 @@ group { "e/init/splash";
 				text.text: "0.17.0";
 				text.min: 1 1;
 				text.align: 0.0 0.0;
+				text.ellipsis: -1;
 				text.text_class: "init_version";
 			}
 		}
