@@ -1,287 +1,287 @@
 images.image: "bd_top.png" COMP;
 
 #define BORDER(NAME, MIN, MAX, REL1, OFF1, REL2, OFF2, IMG1, RELF1, RELF2, OFFF2) \
-image { NAME; nomouse; 								\
+image { NAME; nomouse; 									\
 	desc { "default"; 									\
 		min: MIN; max: MAX;								\
-		fixed: 1 1;												\
+		fixed: 1 1;										\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
 		image.normal: IMG1; 							\
-	} 																	\
-	desc { state: "default" 0.1;				\
-		inherit: "default" 0.0;						\
+	} 													\
+	desc { state: "default" 0.1;						\
+		inherit: "default" 0.0;							\
 		min: MIN; max: MAX; 							\
-		rel1.relative: RELF1; 						\
+		rel1.relative: RELF1; 							\
 		rel1.offset: OFF1; 								\
-		rel1.to_y: "top-center";					\
-		rel2.relative: RELF2; 						\
+		rel1.to_y: "top-center";						\
+		rel2.relative: RELF2; 							\
 		rel2.offset: OFFF2; 							\
-		rel2.to_y: "top-center";					\
-		hid;															\
-	}																		\
+		rel2.to_y: "top-center";						\
+		hid;											\
+	}													\
 }
 
-#define BORDER2(NAME,TO1,REL1,OFF1,TO2,REL2,OFF2) \
-rect { NAME;  nomouse;								\
-	desc{ "default"; 										\
-		min: 1 1; max: 1 9999; 						\
+#define BORDER2(NAME,TO1,REL1,OFF1,TO2,REL2,OFF2) 		\
+rect { NAME;  nomouse;									\
+	desc{ "default"; 									\
+		min: 1 1; max: 1 9999; 							\
 		color: "#7E8388"; 								\
-		rel1.to: TO1; 										\
+		rel1.to: TO1; 									\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
-		rel2.to: TO2; 										\
+		rel2.to: TO2; 									\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	}																		\
+	}													\
 }
 
 #define BORDER3(NAME, MIN, MAX, TO1, REL1, OFF1, TO2, REL2, OFF2, IMG1, RELF1, RELF2, OFFF2) \
-image { NAME; nomouse; 								\
+image { NAME; nomouse; 									\
 	desc { "default"; 									\
 		min: MIN; max: MAX; 							\
-		rel1.to: TO1; 										\
+		rel1.to: TO1; 									\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
-		rel2.to: TO2; 										\
+		rel2.to: TO2; 									\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
 		image.normal: IMG1; 							\
-		image.border: 72 72 0 0;					\
-	} 																	\
-	desc { state: "default" 0.1;				\
-		inherit: "default" 0.0;						\
-		min: 0 0; max: 9999 0; 						\
-		rel1.relative: RELF1; 						\
+		image.border: 72 72 0 0;						\
+	} 													\
+	desc { state: "default" 0.1;						\
+		inherit: "default" 0.0;							\
+		min: 0 0; max: 9999 0; 							\
+		rel1.relative: RELF1; 							\
 		rel1.offset: OFF1; 								\
-		rel2.relative: RELF2; 						\
+		rel2.relative: RELF2; 							\
 		rel2.offset: OFFF2; 							\
-		hid;															\
-	}																		\
+		hid;											\
+	}													\
 }
 
 #define BORDER4(NAME, MIN, MAX, REL1, OFF1, REL2, OFF2, IMG1, RELF1, RELF2, OFFF2, OFFS1) \
-image { NAME; nomouse; 								\
-	desc {"default"; 										\
+image { NAME; nomouse; 									\
+	desc {"default"; 									\
 		min: MIN; max: MAX; 							\
-		fixed: 1 1;												\
+		fixed: 1 1;										\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
 		image.normal: IMG1; 							\
-	}																		\
-	desc { state: "default" 0.1;				\
-		inherit: "default" 0.0;						\
+	}													\
+	desc { state: "default" 0.1;						\
+		inherit: "default" 0.0;							\
 		min: MIN; max: MAX; 							\
-		rel1.relative: RELF1; 						\
+		rel1.relative: RELF1; 							\
 		rel1.offset: OFF1; 								\
-		rel1.to_y: "top-center";					\
-		rel2.relative: RELF2; 						\
+		rel1.to_y: "top-center";						\
+		rel2.relative: RELF2; 							\
 		rel2.offset: OFFF2; 							\
-		rel2.to_y: "top-center";					\
-		hid;															\
-	}																		\
-	desc { "shaded";										\
-		inherit: "default" 0.0;						\
+		rel2.to_y: "top-center";						\
+		hid;											\
+	}													\
+	desc { "shaded";									\
+		inherit: "default" 0.0;							\
 		rel1.offset: OFFS1;								\
-	}																		\
+	}													\
 }
 
-#define SHADOW_PART(TO1, OFF1, TO2, OFF2) \
-rect { "shadow_clip"; nomouse;				\
-	desc { "default";										\
-		STAY_ON("shadow")									\
-		color: VISIBLE;										\
-	}																		\
-	desc { state: "hidden" 0.0;					\
-		inherit: "default" 0.0;						\
+#define SHADOW_PART(TO1, OFF1, TO2, OFF2)				\
+rect { "shadow_clip"; nomouse;							\
+	desc { "default";									\
+		STAY_ON("shadow")								\
+		color: VISIBLE;									\
+	}													\
+	desc { state: "hidden" 0.0;							\
+		inherit: "default" 0.0;							\
 		color: TRANSPARENT;								\
-		hid;															\
-	}																		\
-}																			\
-part { "shadow"; nomouse; 						\
+		hid;											\
+	}													\
+}														\
+part { "shadow"; nomouse; 								\
 	clip: "shadow_clip";								\
-	desc { "default";										\
-		image.normal: "win_shadow.png";		\
-		image.border: 10 10 15 14;				\
-		image.middle: 0;									\
-		rel1.to: TO1;											\
+	desc { "default";									\
+		image.normal: "win_shadow.png";					\
+		image.border: 10 10 15 14;						\
+		image.middle: 0;								\
+		rel1.to: TO1;									\
 		rel1.offset: OFF1;								\
-		rel2.to: TO2;											\
+		rel2.to: TO2;									\
 		rel2.offset: OFF2;								\
-		fill.smooth: 0;										\
+		fill.smooth: 0;									\
 		color: "#00000096";								\
-	}																		\
-	desc { state: "maximized" 0.0;			\
-		inherit: "default" 0.0;						\
+	}													\
+	desc { state: "maximized" 0.0;						\
+		inherit: "default" 0.0;							\
 		color: TRANSPARENT;								\
-		hid; 															\
-	}																		\
+		hid; 											\
+	}													\
 }
 
 #define E_SWALLOW_CLIENT(NAME, TO1, REL1, OFF1, TO2, REL2, OFF2) \
-rect { "client_clip"; 								\
-	desc { "default";										\
-		rel1.to_y: "e.swallow.client";		\
-		rel2.to_y: "e.swallow.client";		\
-	}																		\
-	desc { state: "hidden" 0.0;					\
-		inherit: "default" 0.0;						\
-		hid;															\
-	}																		\
-}																			\
-swallow { NAME; mouse;								\
+rect { "client_clip"; 									\
+	desc { "default";									\
+		rel1.to_y: "e.swallow.client";					\
+		rel2.to_y: "e.swallow.client";					\
+	}													\
+	desc { state: "hidden" 0.0;							\
+		inherit: "default" 0.0;							\
+		hid;											\
+	}													\
+}														\
+swallow { NAME; mouse;									\
 	clip: "client_clip";								\
-	nomouse; 														\
+	nomouse; 											\
 	desc { "default"; 									\
-		rel1.to_y: TO1; 									\
+		rel1.to_y: TO1; 								\
 		rel1.relative: REL1;							\
 		rel1.offset: OFF1; 								\
-		rel2.to_x: TO2; 									\
+		rel2.to_x: TO2; 								\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	}																		\
-	desc { state: "shaded" 0.0;					\
-		inherit: "default" 0.0;						\
-		hid;															\
-	}																		\
+	}													\
+	desc { state: "shaded" 0.0;							\
+		inherit: "default" 0.0;							\
+		hid;											\
+	}													\
 }
 
 #define TITLE_CLIP(NAME, MIN, TO1, REL1, OFF1, TO2, REL2, OFF2, COLOR) \
-rect { NAME; nomouse; 								\
+rect { NAME; nomouse; 									\
 	desc { "default"; 									\
-		min: MIN; 												\
-		color: COLOR; 										\
-		rel1.to: TO1; 										\
+		min: MIN; 										\
+		color: COLOR; 									\
+		rel1.to: TO1; 									\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
-		rel2.to: TO2; 										\
+		rel2.to: TO2; 									\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	}																		\
+	}													\
 }
 
-#define E_SWALLOW_ICON(NAME, RELT)		\
-swallow { NAME; 											\
+#define E_SWALLOW_ICON(NAME, RELT)						\
+swallow { NAME; 										\
 	desc { "default"; 									\
-		aspect: 1.0 1.0;									\
-		aspect_preference: BOTH;					\
-		rel1.to: RELT; 										\
-		rel2.to: RELT; 										\
-	}																		\
-	desc { state: "urgent" 0.0;					\
-		inherit: "default" 0.0;						\
+		aspect: 1.0 1.0;								\
+		aspect_preference: BOTH;						\
+		rel1.to: RELT; 									\
+		rel2.to: RELT; 									\
+	}													\
+	desc { state: "urgent" 0.0;							\
+		inherit: "default" 0.0;							\
 		color: TRANSPARENT;								\
-	}																		\
+	}													\
 }
 
 #define MOVE_WINDOW(NAME, MIN, MAX, TO1, REL1, OFF1, TO2, REL2, OFF2, COLOR) \
-rect { NAME; 													\
+rect { NAME; 											\
 	desc { "default"; 									\
 		min: MIN; max: MAX; 							\
-		color: COLOR; 										\
-		rel1.to: TO1; 										\
+		color: COLOR; 									\
+		rel1.to: TO1; 									\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
-		rel2.to: TO2; 										\
+		rel2.to: TO2; 									\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	}																		\
+	}													\
 }
 
-#define E_EVENT_ICON(NAME, TO1, TO2) 	\
+#define E_EVENT_ICON(NAME, TO1, TO2) 					\
 rect { NAME; mouse; 									\
 	desc { "default"; 									\
-		align: 0.0 0.5;										\
-		aspect: 1.0 1.0;									\
-		aspect_preference: VERTICAL;			\
-		color: TRANSPARENT; 						\
-		rel1.to: TO1; 										\
-		rel1.offset: 2 0;									\
+		align: 0.0 0.5;									\
+		aspect: 1.0 1.0;								\
+		aspect_preference: VERTICAL;					\
+		color: TRANSPARENT; 							\
+		rel1.to: TO1; 									\
+		rel1.offset: 2 0;								\
 		rel1.relative: 0 0;								\
-		rel2.to: TO2; 										\
+		rel2.to: TO2; 									\
 		rel2.relative: 1 1;								\
-		vis;															\
-	}																		\
+		vis;											\
+	}													\
 }
 
-#define E_EVENT_ICON_LEFT(NAME, TO1, TO2)	\
+#define E_EVENT_ICON_LEFT(NAME, TO1, TO2)				\
 rect { NAME; mouse; 									\
 	desc { "default"; 									\
-		align: 0.0 0.5;										\
-		aspect: 1.0 1.0;									\
-		aspect_preference: VERTICAL;			\
-		color: TRANSPARENT; 						\
-		rel1.to: TO1; 										\
-		rel1.offset: 5 3;									\
+		align: 0.0 0.5;									\
+		aspect: 1.0 1.0;								\
+		aspect_preference: VERTICAL;					\
+		color: TRANSPARENT; 							\
+		rel1.to: TO1; 									\
+		rel1.offset: 5 3;								\
 		rel1.relative: 1 0;								\
-		rel2.to: TO2; 										\
+		rel2.to: TO2; 									\
 		rel2.relative: 1 1;								\
-		vis;															\
-	} 																	\
+		vis;											\
+	} 													\
 }
 
 #define CLIPS(NAME, MIN, MAX, TO, REL1, OFF1, REL2, OFF2) \
-rect { NAME; nomouse; 								\
+rect { NAME; nomouse; 									\
 	desc { "default"; 									\
 		min: MIN; max: MAX; 							\
-		color: VISIBLE;										\
-		rel1.to: TO; 											\
+		color: VISIBLE;									\
+		rel1.to: TO; 									\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
-		rel2.to: TO; 											\
+		rel2.to: TO; 									\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	}																		\
-	desc { state: "clicked" 0.0; 				\
-		inherit: "default" 0.0; 					\
-		color: "#D7D7D7";						\
-	}																		\
+	}													\
+	desc { state: "clicked" 0.0; 						\
+		inherit: "default" 0.0; 						\
+		color: "#D7D7D7";								\
+	}													\
 }
 
-#define BUTTONS(NAME, CLIP, SIZE, TO, IMG) \
-image { NAME; mouse; clip: CLIP; 			\
+#define BUTTONS(NAME, CLIP, SIZE, TO, IMG) 				\
+image { NAME; mouse; clip: CLIP; 						\
 	desc { "default"; 									\
-		min: SIZE;  max: SIZE; 						\
-		color: VISIBLE;										\
-		rel1.to: TO; 											\
-		rel2.to: TO; 											\
+		min: SIZE;  max: SIZE; 							\
+		color: VISIBLE;									\
+		rel1.to: TO; 									\
+		rel2.to: TO; 									\
 		image.normal: IMG; 								\
-	}																		\
-	desc { state: "clicked" 0.0; 				\
-		inherit: "default" 0.0; 					\
-		color: "#D7D7D7";									\
-	}																		\
-	desc { state: "default" 0.1; 				\
-		inherit: "default" 0.0; 					\
+	}													\
+	desc { state: "clicked" 0.0; 						\
+		inherit: "default" 0.0; 						\
+		color: "#D7D7D7";								\
+	}													\
+	desc { state: "default" 0.1; 						\
+		inherit: "default" 0.0; 						\
 		color: "#FFFFFFC0";								\
-	}																		\
+	}													\
 }
 
 #define RESIZE_TOP(NAME, MIN, MAX, TO1, REL1, OFF1, TO2, REL2, OFF2, COLOR) \
-rect { NAME; nomouse; 								\
+rect { NAME; nomouse; 									\
 	desc { "default"; 									\
 		min: MIN; max: MAX; 							\
-		color: COLOR; 										\
-		rel1.to: TO1; 										\
+		color: COLOR; 									\
+		rel1.to: TO1; 									\
 		rel1.relative: REL1; 							\
 		rel1.offset: OFF1; 								\
-		rel2.to: TO2; 										\
+		rel2.to: TO2; 									\
 		rel2.relative: REL2; 							\
 		rel2.offset: OFF2; 								\
-	}																		\
+	}													\
 }
 
-#define PART_EVENT_MAP(NAME, REPEAT, PART_NAME) \
-rect { NAME; repeat_events: REPEAT; 	\
+#define PART_EVENT_MAP(NAME, REPEAT, PART_NAME) 		\
+rect { NAME; repeat_events: REPEAT; 					\
 	desc { "default"; 									\
-		color: "#00000000"; 									\
+		color: "#00000000"; 							\
 		rel1.to: PART_NAME; 							\
 		rel2.to: PART_NAME; 							\
-	}																		\
+	}													\
 }
 
 #define BORDER_DEFAULT_PROGRAMS() \
