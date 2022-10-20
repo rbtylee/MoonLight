@@ -165,7 +165,7 @@ group { "e/modules/notification/main";
 				text.min: 0 1;
 			}
 		}
-		part { name: "notification.swallow.desktop_icon"; type: SWALLOW; nomouse;
+		swallow { name: "notification.swallow.desktop_icon"; nomouse;
 			scale: 1;
 			desc { state: "default" 0.0;
 				align: 0.0 0.0;
@@ -201,7 +201,7 @@ group { "e/modules/notification/main";
 				fixed: 0 1;
 			}
 		}
-		part { name: "notification.swallow.actions"; type: SWALLOW;
+		swallow { name: "notification.swallow.actions";
 			scale: 1;
 			desc { state: "default" 0.0;
 				align: 0.5 1.0;
