@@ -81,8 +81,7 @@
 			rel2.to: TO2;																		\
 			link.base: "elm,state,"STATE_VISIBLE;						\
 			}																								\
-		desc { STATE_UNVISIBLE; hid;											\
-			inherit: "default" 0.0;													\
+		desc { STATE_UNVISIBLE; inherit; hid;											\
 			link.base: "elm,state,"STATE_UNVISIBLE;					\
 			}																								\
 		}																									\
@@ -92,8 +91,7 @@
 			rel2.to: TO2;																		\
 			link.base: "elm,state,"STATE_VISIBLE;						\
 		}																									\
-		desc { STATE_UNVISIBLE; vis;											\
-			inherit: "default" 0.0;													\
+		desc { STATE_UNVISIBLE; inherit; vis;											\
 			link.base: "elm,state,"STATE_UNVISIBLE;					\
 		}																									\
 	}
@@ -106,9 +104,7 @@
 			rel1.to: TO1;																		\
 			rel2.to: TO2;																		\
 		}																									\
-		desc { state: STATE_UNVISIBLE 0.0; hid;						\
-			inherit: STATE_VISIBLE 0.0;											\
-		}																									\
+		desc { state: STATE_UNVISIBLE 0.0; inherit; hid; }						\
 	}																										\
 	rect { NAME"_clip_"STATE_UNVISIBLE;									\
 		clip: CLIP_TO;																		\
@@ -116,7 +112,5 @@
 			rel1.to: TO1;																		\
 			rel2.to: TO2;																		\
 		}																									\
-		desc { state: STATE_UNVISIBLE 0.0; vis;						\
-			inherit: STATE_VISIBLE 0.0;											\
-		}																									\
+		desc { state: STATE_UNVISIBLE 0.0; inherit; vis; }						\
 	}
