@@ -119,7 +119,7 @@ group { "e/modules/notification/main";
 			}
 		}
 		rect { "bodyclip";
-			desc { "default"; min: 280 125;
+			desc { "default"; min: 280 165;
 				rel2.offset: -13 -13;
 			}
 		}
