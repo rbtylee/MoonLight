@@ -250,6 +250,7 @@ image { NAME; mouse; clip: CLIP; 						\
 		rel1.to: TO; 									\
 		rel2.to: TO; 									\
 		image.normal: IMG; 								\
+		fill.smooth: 1; 								\
 	}													\
 	desc { state: "clicked" 0.0; 						\
 		inherit: "default" 0.0; 						\
@@ -576,7 +577,7 @@ group { "e/widgets/border/default/border";
 		}
 		BORDER("top-left-over", 6 23, 6 23, 0.0 0.0, 3 22, 0.0 0.0, 3 0, "bd_top_left_over.png", 0.0 0.0, 0.0 0.0, 3 22)
 		BORDER("top-right-over", 6 23, 6 23, 1.0 0.0, 0 22, 1.0 0.0, -6 0, "bd_top_right.png", 1.0 0.0, 1.0 0.0, 20 22)
-		BORDER3("top-center-over", 5 23, 9999 23, "top-left", 0.0 0.5,  3 0, "top-right", 1.0 0.5, -15 0, "bd_top_over.png", 1.0 1.0, 0.0 1.0, -1 -2)
+		BORDER3("top-center-over", 5 23, 9999 23, "top-left", 0.0 0.5,  3 0, "top-right", 1.0 0.5, -25 0, "bd_top_over.png", 1.0 1.0, 0.0 1.0, -1 -2)
 
 		MOVE_WINDOW("move-window", 1 22, 9999 22, "top-left", 0.0 0.0, 5 2, "top-right", 1.0 1.0, -7 -1, 255 0 0 0)
 		PART_EVENT_MAP("e.event.resize.t", 0, "resize_t")
@@ -589,11 +590,11 @@ group { "e/widgets/border/default/border";
 		PART_EVENT_MAP("e.event.resize.tr", 0, "top-right")
 		PART_EVENT_MAP("e.event.resize.tl", 0, "top-left")
 		CLIPS("close-clip", 20 18, 20 18, "top-right", 1.0 0.0, 0 0, 0.0 1.0, -15 -8)
-		CLIPS("max-clip", 20 18, 20 18, "close-clip", 1.0 0.0, 0 0, 0.0 1.0, -45 -1)
-		CLIPS("min-clip", 20 18, 20 18, "max-clip", 1.0 0.0, 0 0, 0.0 1.0, -45 -1)
-		BUTTONS("button-close", "close-clip", 15 15, "close-clip", "bd_button_close_unfocused.png")
-		BUTTONS("button-max", "max-clip", 15 15, "max-clip", "bd_button_max_unfocused.png")
-		BUTTONS("button-min", "min-clip", 15 15, "min-clip", "bd_button_min_unfocused.png")
+		CLIPS("max-clip", 20 18, 20 18, "close-clip", 1.0 0.0, 0 0, 0.0 1.0, -55 -1)
+		CLIPS("min-clip", 20 18, 20 18, "max-clip", 1.0 0.0, 0 0, 0.0 1.0, -55 -1)
+		BUTTONS("button-close", "close-clip", 17 17, "close-clip", "bd_button_close_unfocused.png")
+		BUTTONS("button-max", "max-clip", 17 17, "max-clip", "bd_button_max_unfocused.png")
+		BUTTONS("button-min", "min-clip", 17 17, "min-clip", "bd_button_min_unfocused.png")
 		PART_EVENT_MAP("e.event.close", 1, "button-close")
 		PART_EVENT_MAP("e.event.maximize", 1, "button-max")
 		PART_EVENT_MAP("e.event.minimize", 1, "button-min")
@@ -662,7 +663,7 @@ group { "e/widgets/border/left_controls/border";
 		}
 		BORDER("top-left-over", 6 23, 6 23, 0.0 0.0, 3 22, 0.0 0.0, 3 0, "bd_top_lefts.png", 0.0 0.0, 0.0 0.0, 3 22)
 		BORDER("top-right-over", 6 23, 6 23, 1.0 0.0, 0 22, 1.0 0.0, -6 0, "bd_top_right_over.png", 1.0 1.0, 1.0 0.0, -5 23)
-		BORDER3("top-center-over", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top_over_left.png", 1.0 1.0, 0.0 1.0, -1 -2)
+		BORDER3("top-center-over", 5 23, 9999 23, "top-left", 1.0 0.5, 10 0, "top-right", 0.0 0.5, -1 -2, "bd_top_over_left.png", 1.0 1.0, 0.0 1.0, -1 -2)
 
 		MOVE_WINDOW("move-window", 1 22, 9999 22, "top-left", 0.0 0.0, 5 2, "top-right", 1.0 1.0, -7 -1, 255 0 0 0)
 		PART_EVENT_MAP("e.event.resize.t", 0, "resize_t")
@@ -675,11 +676,11 @@ group { "e/widgets/border/left_controls/border";
 		PART_EVENT_MAP("e.event.resize.tr", 0, "top-right")
 		PART_EVENT_MAP("e.event.resize.tl", 0, "top-left")
 		CLIPS("close-clip", 20 18, 20 18, "top-left", 0.0 0.0, 0 0, 0.0 1.0, 30 -8)
-		CLIPS("max-clip", 20 18, 20 18, "close-clip", 1.0 0.0, 0 0, 0.0 1.0, 30 -1)
-		CLIPS("min-clip", 20 18, 20 18, "max-clip", 1.0 0.0, 0 0, 0.0 1.0, 30 -1)
-		BUTTONS("button-close", "close-clip", 15 15, "close-clip", "bd_button_close_unfocused.png")
-		BUTTONS("button-max", "max-clip", 15 15, "max-clip", "bd_button_max_unfocused.png")
-		BUTTONS("button-min", "min-clip", 15 15, "min-clip", "bd_button_min_unfocused.png")
+		CLIPS("max-clip", 20 18, 20 18, "close-clip", 1.0 0.0, 0 0, 0.0 1.0, 35 -1)
+		CLIPS("min-clip", 20 18, 20 18, "max-clip", 1.0 0.0, 0 0, 0.0 1.0, 35 -1)
+		BUTTONS("button-close", "close-clip", 17 17, "close-clip", "bd_button_close_unfocused.png")
+		BUTTONS("button-max", "max-clip", 17 17, "max-clip", "bd_button_max_unfocused.png")
+		BUTTONS("button-min", "min-clip", 17 17, "min-clip", "bd_button_min_unfocused.png")
 		PART_EVENT_MAP("e.event.close", 1, "button-close")
 		PART_EVENT_MAP("e.event.maximize", 1, "button-max")
 		PART_EVENT_MAP("e.event.minimize", 1, "button-min")
@@ -748,7 +749,7 @@ group { "e/widgets/border/squared/border";
 		}
 		BORDER("top-left-over", 6 23, 6 23, 0.0 0.0, 3 22, 0.0 0.0, 3 0, "bd_top_left_over.png", 0.0 0.0, 0.0 0.0, 3 22)
 		BORDER("top-right-over", 6 23, 6 23, 1.0 0.0, 0 22, 1.0 0.0, -6 0, "bd_top_right.png", 1.0 1.0, 1.0 0.0, -5 23)
-		BORDER3("top-center-over", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top_over.png", 1.0 1.0, 0.0 1.0, -1 -2)
+		BORDER3("top-center-over", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -18 -2, "bd_top_over.png", 1.0 1.0, 0.0 1.0, -1 -2)
 
 		MOVE_WINDOW("move-window", 1 22, 9999 22, "top-left", 0.0 0.0, 5 2, "top-right", 1.0 1.0, -7 -1, 255 0 0 0)
 		PART_EVENT_MAP("e.event.resize.t", 0, "resize_t")
@@ -761,11 +762,11 @@ group { "e/widgets/border/squared/border";
 		PART_EVENT_MAP("e.event.resize.tr", 0, "top-right")
 		PART_EVENT_MAP("e.event.resize.tl", 0, "top-left")
 		CLIPS("close-clip", 20 18, 20 18, "top-right", 1.0 0.0, 0 0, 0.0 1.0, -15 -8)
-		CLIPS("max-clip", 20 18, 20 18, "close-clip", 1.0 0.0, 0 0, 0.0 1.0, -45 -1)
-		CLIPS("min-clip", 20 18, 20 18, "max-clip", 1.0 0.0, 0 0, 0.0 1.0, -45 -1)
-		BUTTONS("button-close", "close-clip", 15 15, "close-clip", "bd_button_close_unfocused.png")
-		BUTTONS("button-max", "max-clip", 15 15, "max-clip", "bd_button_max_unfocused.png")
-		BUTTONS("button-min", "min-clip", 15 15, "min-clip", "bd_button_min_unfocused.png")
+		CLIPS("max-clip", 20 18, 20 18, "close-clip", 1.0 0.0, 0 0, 0.0 1.0, -55 -1)
+		CLIPS("min-clip", 20 18, 20 18, "max-clip", 1.0 0.0, 0 0, 0.0 1.0, -55 -1)
+		BUTTONS("button-close", "close-clip", 17 17, "close-clip", "bd_button_close_unfocused.png")
+		BUTTONS("button-max", "max-clip", 17 17, "max-clip", "bd_button_max_unfocused.png")
+		BUTTONS("button-min", "min-clip", 17 17, "min-clip", "bd_button_min_unfocused.png")
 		PART_EVENT_MAP("e.event.close", 1, "button-close")
 		PART_EVENT_MAP("e.event.maximize", 1, "button-max")
 		PART_EVENT_MAP("e.event.minimize", 1, "button-min")
@@ -840,7 +841,7 @@ group { "e/widgets/border/noresize_dialog/border";
 		PART_EVENT_MAP("e.event.titlebar", 1, "move-window")
 		CLIPS("close-clip", 20 18, 20 18, "top-right", 1.0 0.0, 0 0, 0.0 1.0, -7 -8)
 		//CLIPS("close-clip", 20 18, 20 18, "top-left", 0.0 0.0, 0 0, 0.0 1.0, 30 -8)
-		BUTTONS("button-close", "close-clip", 15 15, "close-clip", "bd_button_close_unfocused.png")
+		BUTTONS("button-close", "close-clip", 17 17, "close-clip", "bd_button_close_unfocused.png")
 		PART_EVENT_MAP("e.event.close", 1, "button-close")
 		text { "text_alt"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title2_rect";
 			desc { "default"; color: VISIBLE; vis;
@@ -920,7 +921,7 @@ group { "e/widgets/border/dialog/border";
 		PART_EVENT_MAP("e.event.resize.tl", 0, "top-left")
 		CLIPS("close-clip", 20 18, 20 18, "top-right", 1.0 0.0, 0 0, 0.0 1.0, -7 -8)
 		//CLIPS("close-clip", 20 18, 20 18, "top-left", 0.0 0.0, 0 0, 0.0 1.0, 30 -8)
-		BUTTONS("button-close", "close-clip", 15 15, "close-clip", "bd_button_close_unfocused.png")
+		BUTTONS("button-close", "close-clip", 17 17, "close-clip", "bd_button_close_unfocused.png")
 		PART_EVENT_MAP("e.event.close", 1, "button-close")
 		RESIZE_TOP("resize_t", 1 2, 9999 2, "top-left", 0.0 0.0, 0 0, "top-right", 0.0 0.0, -1 0, 255 0 0 0)
 		text { "text_alt"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title2_rect";
