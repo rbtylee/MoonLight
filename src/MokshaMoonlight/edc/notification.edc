@@ -118,8 +118,8 @@ group { "e/modules/notification/main";
 				rel2.relative: 0.0 1.0;
 			}
 		}
-		rect { "bodyclip";
-			desc { "default"; min: 280 165;
+		rect { "bodyclip"; scale;
+			desc { "default"; min: 220 115;
 				rel2.offset: -13 -13;
 			}
 		}
