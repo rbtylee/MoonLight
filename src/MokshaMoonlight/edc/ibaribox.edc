@@ -24,6 +24,7 @@ group { "e/modules/ibar/menu";
 		spacer { "sizer";
 			desc { "default"; }
 			desc { "hidden"; minmul: 0 0;
+				fixed: 1 1;
 				rel1.relative: 0.5 1.0;
 				rel2.relative: 0.5 1.0;
 			}
@@ -36,19 +37,20 @@ group { "e/modules/ibar/menu";
 			desc { "hidden"; color: "#00000000"; inherit; }
 		}
 		part { "base"; nomouse;
+			clip_to: "clip";
 			desc { "default"; color: VISIBLE;
 				align: 0.5 0.0;
 				rel1.to: "sizer";
 				rel2.to: "sizer";
 				image.normal: "base_ibar.png";
-				image.border: 17 17 7 17;
+				image.border: 17 17 17 17;
 				fill.smooth: 0;
 			}
 		}
 		box { "e.box"; clip: "clip";
 			desc { "default";
 				rel1.to: "sizer";
-				rel1.offset: 16 5;
+				rel1.offset: 12 12;
 				rel2.to: "sizer";
 				rel2.offset: -17 -17;
 				box.layout: "vertical";
@@ -69,7 +71,7 @@ group { "e/modules/ibar/menu";
 			action: STATE_SET "default" 0.0;
 			target: "sizer";
 			target: "clip";
-			transition: SINUSOIDAL 0.2;
+			//~ transition: SINUSOIDAL 0.2;
 			after: "show2";
 		}
 		program { "show2";
@@ -79,7 +81,7 @@ group { "e/modules/ibar/menu";
 			action: STATE_SET "hidden" 0.0;
 			target: "sizer";
 			target: "clip";
-			transition: SINUSOIDAL 0.2;
+			//~ transition: SINUSOIDAL 0.2;
 			after: "hide2";
 		}
 		program { "hide2";
@@ -105,11 +107,14 @@ group { "e/modules/ibar/menu/item";
 				image.normal: "menuitem.png";
 				image.border: 4 4 4 4;
 				fill.smooth: 0;
+				link.base: "e,state,unfocused" "e";
 			}
-			desc { "focus"; inherit; vis; }
+			desc { "focused"; inherit; vis;
+				 link.base: "e,state,focused" "e";
+			}
 		}
 		part { "icon_shadow"; nomouse; clip: "icon_clip";
-			desc { "default"; color: "#000000";
+			desc { "default"; hid; color: "#000000";
 				image.normal: "win_glow.png";
 				image.border: 9 9 9 9;
 				image.middle: 0;
@@ -118,6 +123,7 @@ group { "e/modules/ibar/menu/item";
 				rel1.offset: -4 -4;
 				rel2.offset: 3 3;
 			}
+			desc { "focus"; inherit; vis; color: "#ffffff"; }
 		}
 		swallow { "e.swallow.icon"; nomouse; clip: "icon_clip";
 				desc { "default";
@@ -133,7 +139,8 @@ group { "e/modules/ibar/menu/item";
 
 				color3: VISIBLE;
 				align: 0.0 0.0;
-				color_class: "menu_item";
+				//~ color_class: "menu_item";
+				color: 40 40 40 255;
 				text.font: "Sans"; text.size: 10;
 				text.text: "window name thingy";
 				text.min: 0 1;
@@ -158,14 +165,14 @@ group { "e/modules/ibar/menu/item";
 			signal: "mouse,in"; source: "event";
 			action: STATE_SET "focus" 0.0;
 			target: "e.text.title";
-			target: "base";
+			target: "icon_shadow";
 			transition: LINEAR 0.0;
 		}
 		program {
 			signal: "mouse,out"; source: "event";
 			action: STATE_SET "default" 0.0;
 			target: "e.text.title";
-			target: "base";
+			target: "icon_shadow";
 			transition: LINEAR 0.0;
 		}
 	}
@@ -181,8 +188,8 @@ group { "e/modules/ibox/icon";
 		}
 		swallow { "e.swallow.content"; clip: "item_clip";
 			desc { "default";
-				rel1.offset: 2 2;
-				rel2.offset: -3 -3;
+				rel1.offset: 5 2;
+				rel2.offset: -5 -3;
 			}
 			desc { "bigger"; }
 		}
@@ -192,9 +199,9 @@ group { "e/modules/ibox/icon";
 				rel1.relative: 1.0 1.0;
 				rel1.offset: -5 -5;
 				rel2.relative: 1.0 1.0;
-				rel2.offset: -4 -4;
+				rel2.offset:   -4 -4;
 				image.normal: "led_tiny.png";
-				color_class: "focus";
+				//~ color_class: "focus";
 			}
 			desc { "visible"; inherit; vis; }
 		}
