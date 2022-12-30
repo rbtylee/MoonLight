@@ -1,3 +1,41 @@
+bodhi-theme-moksha-moonlight (0.11.0-1) jammy; urgency=medium
+
+  * ibar icon menu support added
+  
+ -- Robert Wiley <ylee@bodhilinux.com>  Thu, 15 Dec 2022 17:10:37 -0500
+
+bodhi-theme-moksha-moonlight (0.11.0) jammy; urgency=medium
+
+  * Notification port to new API
+  * Moksha version in splash screen
+  * xkbswitch no label added
+  * Battery popup charging status added
+  
+ -- Robert Wiley <ylee@bodhilinux.com>  Sun, 30 Oct 2022 14:56:56 -0400
+
+bodhi-theme-moksha-moonlight (0.10.10) focal; urgency=medium
+
+  * Delete modules-launcher.svg
+  
+ -- Robert Wiley <ylee@bodhilinux.com>  Wed, 26 Jan 2022 07:24:57 -0500
+
+bodhi-theme-moksha-moonlight (0.10.9) focal; urgency=medium
+
+   * Notification body action added
+   * Systray show/hide support added
+   * Systray MOKSHA_SYSTRAY_ARROW env support
+
+ -- Robert Wiley <ylee@bodhilinux.com>  Wed, 19 Jan 2022 06:28:06 -0500
+
+bodhi-theme-moksha-moonlight (0.10.8) focal; urgency=medium
+
+  * Pager: add live preview
+  * Shaped border corners revert due to resize issues
+  * init.edc: proper display of status msgs
+  * Desklock bug fix
+
+ -- Robert Wiley <ylee@bodhilinux.com>  Fri, 01 Oct 2021 18:27:02 -0400
+ 
 bodhi-theme-moksha-moonlight (0.10.7) focal; urgency=medium
 
   * Revert GTK and Icon set names
