@@ -1085,6 +1085,7 @@ group { "e/widgets/border/default/move";
 				text.text: "X Y";
 				text.font: "Sans"; text.size: 10;
 				text.align: 0.5 0.5;
+				text.ellipsis: -1;
 				text.min: 1 1;
 				text.text_class: "move_text";
 			}
@@ -1121,6 +1122,7 @@ group { "e/widgets/border/default/resize";
 				text.font: "Sans"; text.size: 10;
 				text.align: 0.5 0.5;
 				text.min: 1 1;
+				text.ellipsis: -1;
 				text.text_class: "resize_text";
 			}
 		}
