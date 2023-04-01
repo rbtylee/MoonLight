@@ -134,19 +134,20 @@ group { NAME; 																							\
 			BASE_ORIENT("bottom_right", IMAGE_BOTTOM)							\
 		} 																											\
 		swallow { "e.swallow.content";										\
-			desc { "default"; }																		\
-			ORIENT("left", 1 1, 0 0)															\
-			ORIENT("left_top", 1 0, 0 0)													\
-			ORIENT("left_bottom", 1 0, 0 0)												\
-			ORIENT("right", 0 1, 0 0)															\
-			ORIENT("right_top", 0 1, 0 0)													\
-			ORIENT("right_bottom", 0 1, 0 0)											\
+		    desc { "default"; } 													\
 			ORIENT("top", 1 1, 0 0)																\
 			ORIENT("top_left", 1 1,  0 0)													\
 			ORIENT("top_right", 1 1, 0 0 )												\
 			ORIENT("bottom", 1 0, 0 0 )														\
 			ORIENT("bottom_left", 1 0, 0 0)												\
 			ORIENT("bottom_right", 1 0, 0 -1)											\
+			desc { "vert"; }																		\
+			ORIENT("left", 1 1, 0 0)															\
+			ORIENT("left_top", 1 0, 0 0)													\
+			ORIENT("left_bottom", 1 0, 0 0)												\
+			ORIENT("right", 0 1, 0 0)															\
+			ORIENT("right_top", 0 1, 0 0)													\
+			ORIENT("right_bottom", 0 1, 0 0)											\
 		}																												\
 	}																													\
 	programs 																							\
