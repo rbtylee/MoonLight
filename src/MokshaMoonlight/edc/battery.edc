@@ -178,7 +178,9 @@ group { "e/modules/battery/main";
 				rel2.to_x: "bg";
 				rel2.to_y: "pwr";
 				text.font: "Sans"; text.size: 7; 
-				text.fit: 1 0; text.ellipsis: -1;
+				//~ text.fit: 1 0;
+				text.min: 1 1;  
+				text.ellipsis: -1;
 				text.text_class: "module_small";
 			}
 		}
@@ -191,7 +193,9 @@ group { "e/modules/battery/main";
 				rel2.offset: -1 -5;
 				rel2.to: "bg";
 				text.font: "Sans"; text.size: 6;
-				text.fit: 1 0; text.ellipsis: -1;
+				//~ text.fit: 1 0; 
+				text.min: 1 1;
+				text.ellipsis: -1;
 				text.text_class: "module_small";
 			}
 		}
