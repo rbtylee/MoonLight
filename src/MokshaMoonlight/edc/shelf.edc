@@ -1,21 +1,6 @@
-#define OFFSET() \
-script { \
-		public message(Msg_Type:type, id, ...) { \
-			new val = getarg(2); \
-			if ((type == MSG_INT_SET) && (id == 0)) \
-				custom_state(PART:"e.swallow.content", "default", 0.0); \
-			if ((type == MSG_INT_SET) && (id == 1)) \
-				custom_state(PART:"e.swallow.content", "vert", 0.0); \
-			set_state_val(PART:"e.swallow.content", STATE_REL1_OFFSET, val, val); \
-			set_state_val(PART:"e.swallow.content", STATE_REL2_OFFSET, 0 - val, 0 - val); \
-			set_state(PART:"e.swallow.content", "custom", 0.0); \
-		} \
-	}
-
 group { "e/shelf/default/inset";
 	alias: "e/shelf/alternate/inset";
 	images.image: "shelf_inset.png" COMP;
-	OFFSET() 
 	parts {
 		image { "base";
 			desc { "default"; color: VISIBLE;
@@ -51,7 +36,6 @@ group { "e/shelf/default/inset";
 
 group { "e/shelf/default/plain";
 	alias: "e/shelf/alternate/plain";
-	OFFSET()
 	parts {
 		rect { "clip";
 			desc { "default"; color: VISIBLE; }
@@ -70,8 +54,6 @@ group { "e/shelf/default/plain";
 }
 
 group { "e/shelf/invisible/base";
-	//data.item: "shaped" "1";
-	OFFSET() 
 	parts {
 		swallow { "e.swallow.content";
 			desc { "default";
@@ -92,7 +74,6 @@ group { "e/shelf/invisible/base";
 
 group { "e/shelf/invisible/plain";
 	alias: "e/shelf/invisible/inset";
-	OFFSET() 
 	parts {
 		rect { "clip";
 			desc { "default"; color: VISIBLE; }
@@ -117,8 +98,7 @@ desc { POS 0.0; inherit;						\
 
 #define ORIENT(POS, OFF1, OFF2) \
 desc { POS 0.0; inherit;									\
-	rel1.relative: 0.0 0.0;								\
-	rel2.relative: 1.0 1.0;								\
+	rel.to: "spacer";								\
 	rel1.offset: OFF1;											\
 	rel2.offset: OFF2;											\
 }
@@ -139,8 +119,18 @@ group { NAME; 																							\
 	images.image: IMAGE_LEFT COMP;														\
 	images.image: IMAGE_RIGHT COMP;														\
 	images.image: IMAGE_BOTTOM COMP;													\
-	data.item: "shaped" "1"; 									\
-	OFFSET() \
+	script { \
+		public message(Msg_Type:type, id, ...) { \
+			new val = getarg(2); \
+			if ((type == MSG_INT_SET) && (id == 0)) \
+				custom_state(PART:"spacer", "default", 0.0); \
+			if ((type == MSG_INT_SET) && (id == 1)) \
+				custom_state(PART:"spacer", "vert", 0.0); \
+			set_state_val(PART:"spacer", STATE_REL1_OFFSET, val, val); \
+			set_state_val(PART:"spacer", STATE_REL2_OFFSET, 0 - val, 0 - val); \
+			set_state(PART:"spacer", "custom", 0.0); \
+		} \
+	} \
 	parts 																									\
 		part { "base"; nomouse;																	\
 			desc { "default"; color_class: "shelf_base";					\
@@ -161,23 +151,35 @@ group { NAME; 																							\
 			BASE_ORIENT("bottom_left", IMAGE_BOTTOM)							\
 			BASE_ORIENT("bottom_right", IMAGE_BOTTOM)							\
 		} 																											\
+		part {   													\
+            name: "spacer"; nomouse;										\
+	        type: SPACER; 										\
+            desc { 										\
+               state: "default" 0.0; 							\
+	           rel1.offset: 12 12; 								\
+	           rel2.offset: -12 -12; 								\
+            } 													\
+            desc { 										\
+               state: "vert" 0.0; inherit; 							\
+            }     								\
+	 } 		\
 		swallow { "e.swallow.content";										\
 		    desc { "default"; } 													\
-			ORIENT("top", 1 1, 0 0)																\
-			ORIENT("top_left", 1 1,  0 0)													\
-			ORIENT("top_right", 1 1, 0 0 )												\
-			ORIENT("bottom", 1 0, 0 0 )														\
-			ORIENT("bottom_left", 1 0, 0 0)												\
-			ORIENT("bottom_right", 1 0, 0 -1)											\
-			desc { "vert"; }																		\
-			ORIENT("left", 1 1, 0 0)															\
-			ORIENT("left_top", 1 0, 0 0)													\
-			ORIENT("left_bottom", 1 0, 0 0)												\
-			ORIENT("right", 0 1, 0 0)															\
-			ORIENT("right_top", 0 1, 0 0)													\
-			ORIENT("right_bottom", 0 1, 0 0)											\
-		}																												\
-	}																													\
+			description { state: "default" 0.0; }					\
+		    ORIENT("top", 1 1, 0 0)								\
+		    ORIENT("top_left", 1 1,  0 0)						\
+		    ORIENT("top_right", 1 1, 0 0 )						\
+		    ORIENT("bottom", 1 0, 0 0 )							\
+		    ORIENT("bottom_left", 1 0, 0 0)						\
+		    ORIENT("bottom_right", 1 0, 0 -1)					\
+		    ORIENT("left", 1 1, 0 0)							\
+		    ORIENT("left_top", 1 0, 0 0)							\
+		    ORIENT("left_bottom", 1 0, 0 0)						\
+		    ORIENT("right", 0 1, 0 0)							\
+		    ORIENT("right_top", 0 1, 0 0)						\
+		    ORIENT("right_bottom", 0 1, 0 0)						\
+         } 													\
+      } 		\
 	programs 																							\
 		ORIENT_PROGRAM("left")																	\
 		ORIENT_PROGRAM("left_top")															\
@@ -200,7 +202,6 @@ group { NAME; 																							\
 	images.image: IMAGE_LEFT COMP;														\
 	images.image: IMAGE_RIGHT COMP;														\
 	images.image: IMAGE_BOTTOM COMP;													\
-	OFFSET() \
 	parts 																									\
 		part { "base";	 																				\
 			desc { "default"; color_class: "shelf_base"; 					\
@@ -221,6 +222,20 @@ group { NAME; 																							\
 			BASE_ORIENT("bottom_left", IMAGE_BOTTOM)							\
 			BASE_ORIENT("bottom_right", IMAGE_BOTTOM)							\
 		}																												\
+		part {   													\
+            name: "spacer"; mouse_events:0;										\
+	        type: SPACER; 										\
+            description { 										\
+               state: "default" 0.0; 							\
+	           rel1.offset: 12 12; 								\
+	           rel2.offset: -12 -12; 								\
+            } 													\
+            description { 										\
+               state: "vert" 0.0; 							\
+	           rel1.offset: 12 12; 							\
+	           rel2.offset: -12 -12; 							\
+            }     								\
+	 } 		\
 		swallow { "e.swallow.content"; 													\
 		    desc { "default"; } 													\
 			ORIENT("top", 1 1, 0 0)																\
@@ -263,7 +278,6 @@ group { "e/shelf/alternate/base";
 	images.image: "shelf_bga_top.png" COMP;
 	images.image: "shelf_bga_left.png" COMP;
 	images.image: "shelf_bga_right.png" COMP;
-	OFFSET()
 	parts {
 		part { "base"; nomouse;
 			desc { "default"; color_class: "shelf_base";
@@ -385,7 +399,6 @@ group { "e/shelf/alternate/base";
 }
 
 group { "e/shelf/alternate/plain";
-	OFFSET() 
 	parts {
 		rect { "clip";
 			desc { "default";
@@ -407,7 +420,6 @@ group { "e/shelf/alternate/plain";
 
 group { "e/shelf/alternate/inset";
 	images.image: "shelf_invisible_inset.png" COMP;
-	OFFSET() 
 	parts {
 		image { "background"; nomouse;
 			desc { "default";
