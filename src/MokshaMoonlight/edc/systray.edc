@@ -39,10 +39,12 @@ group { "e/modules/systray/main";
 			desc { "default";
 				rel1.offset: 10 0;
 				rel2.offset: -10 -1;
+				visible: 0;
 			}
 			desc { "vertical";
 				rel1.offset: 1 8;
 				rel2.offset: -1 -8;
+				visible: 0;
 			}
 		}
 		box { "e.box";
