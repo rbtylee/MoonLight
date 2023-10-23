@@ -297,10 +297,6 @@ group { "e/modules/clock/calendar/day";
 		rect { "day"; mouse;
 			desc { "default"; color: "#00000000"; }
 		}
-		program { "prev_clicked";
-			signal: "mouse,clicked,1*"; source: "day";
-			action: SIGNAL_EMIT "e,action,date,get" "";
-		}
 		text { "e.text.label"; nomouse; effect: SHADOW BOTTOM; scale; clip: "clip";
 			desc { "default"; color: "#000000";
 				color3: "#00000000";
