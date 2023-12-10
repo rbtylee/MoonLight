@@ -14,6 +14,17 @@ group { "e/widgets/radio";
 				image.normal: "radio_base.png";
 			}
 		}
+		part { name: "focus";
+			desc { "default";
+				rel1.offset: -3 -1;
+				rel2.offset:  0  2;
+				color: "#FFFFFF80";
+				image.normal: "tooltip-base_SH.png";
+				image.border: 9 9 9 9;
+				hid;
+			}
+			desc { "focused"; inherit; vis; }
+		}
 		part { "mark"; nomouse; clip: "mark_hold";
 			desc { "default";
 				rel1.to: "mark_hold";
@@ -93,6 +104,18 @@ group { "e/widgets/radio";
 			target: "event";
 			target: "e.text.label";
 		}
+		program {
+			name: "focus_in";
+			signal: "e,state,focused"; source: "e";
+			action: STATE_SET "focused" 0.0;
+			target: "focus";
+		}
+		program {
+			name: "focus_out";
+			signal: "e,state,unfocused"; source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "focus";
+		}
 	}
 }
 
@@ -111,6 +134,17 @@ group { "e/widgets/radio_icon";
 				rel2.offset: 2 -3;
 				image.normal: "radio_base.png";
 			}
+		}
+		part { name: "focus";
+			desc { "default";
+				rel1.offset: -3 -2;
+				rel2.offset:  0  0;
+				color: "#FFFFFF80";
+				image.normal: "tooltip-base_SH.png";
+				image.border: 9 9 9 9;
+				hid;
+			}
+			desc { "focused"; inherit; vis; }
 		}
 		part { "mark"; nomouse; clip: "mark_hold";
 			desc { "default";
@@ -218,6 +252,18 @@ group { "e/widgets/radio_icon";
 			target: "mark";
 			target: "event";
 			target: "e.text.label";
+		}
+		program {
+			name: "focus_in";
+			signal: "e,state,focused"; source: "e";
+			action: STATE_SET "focused" 0.0;
+			target: "focus";
+		}
+		program {
+			name: "focus_out";
+			signal: "e,state,unfocused"; source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "focus";
 		}
 	}
 }

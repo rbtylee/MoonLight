@@ -18,6 +18,11 @@ group { "e/widgets/button";
 				image.border: 4 4 4 4;
 				image.normal: "button-prelight.png";
 			}
+			desc { "focused"; inherit;
+				image.border: 4 4 4 4;
+				color: "#CCCCCCFF";
+				image.normal: "button-prelight.png";
+			}
 			desc { "disabled"; inherit;
 				image.border: 4 4 4 4;
 				image.normal: "button-insensitive.png";
@@ -27,7 +32,7 @@ group { "e/widgets/button";
 			desc { "default";
 				align: 0.0 0.5;
 				rel1.relative: 0.0 0.0;
-				rel1.offset: 3	3;
+				rel1.offset: 3  3;
 				rel1.to: "button_image";
 				rel2.relative: 0.0 1.0;
 				rel2.offset: 3  -4;
@@ -41,7 +46,7 @@ group { "e/widgets/button";
 				rel1.offset: 3  3;
 				rel1.to: "button_image";
 				rel2.relative: 0.0 1.0;
-				rel2.offset: 3	-4;
+				rel2.offset: 3 -4;
 				rel2.to: "button_image";
 			}
 			desc { "icon"; inherit;
@@ -51,7 +56,7 @@ group { "e/widgets/button";
 				rel1.offset: 3  3;
 				rel1.to: "button_image";
 				rel2.relative: 1.0 1.0;
-				rel2.offset: -4	-4;
+				rel2.offset: -4 -4;
 				rel2.to: "button_image";
 			}
 		}
@@ -141,6 +146,18 @@ group { "e/widgets/button";
 			target: "button_image";
 			target: "e.text.label";
 			target: "disabler";
+		}
+		program {
+			name: "focus_in";
+			signal: "e,state,focused"; source: "e";
+			action: STATE_SET "focused" 0.0;
+			target: "button_image";
+		}
+		program {
+			name: "focus_out";
+			signal: "e,state,unfocused"; source: "e";
+			action: STATE_SET "default" 0.0;
+			target: "button_image";
 		}
 	}
 }
