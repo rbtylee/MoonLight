@@ -112,6 +112,20 @@ program { POS; 											\
 	target: "e.swallow.content"; 						\
 }
 
+#define SIZE_SCRIPT									\
+script {										\
+			public message(Msg_Type:type, id, ...) {			\
+			new val = getarg(2);						\
+			if ((type == MSG_INT_SET) && (id == 0))				\
+				custom_state(PART:"spacer", "default", 0.0);		\
+			if ((type == MSG_INT_SET) && (id == 1))				\
+				custom_state(PART:"spacer", "vert", 0.0);		\
+			set_state_val(PART:"spacer", STATE_REL1_OFFSET, val, val);	\
+			set_state_val(PART:"spacer", STATE_REL2_OFFSET, 0 - val, 0 - val); \
+			set_state(PART:"spacer", "custom", 0.0);			\
+		       }								\
+		}
+
 //Shelf has rounded border, panel doesn't
 #define SHELF(NAME, IMAGE_TOP, IMAGE_LEFT, IMAGE_RIGHT, IMAGE_BOTTOM) \
 group { NAME; 																							\
@@ -119,18 +133,7 @@ group { NAME; 																							\
 	images.image: IMAGE_LEFT COMP;														\
 	images.image: IMAGE_RIGHT COMP;														\
 	images.image: IMAGE_BOTTOM COMP;													\
-	script { \
-		public message(Msg_Type:type, id, ...) { \
-			new val = getarg(2); \
-			if ((type == MSG_INT_SET) && (id == 0)) \
-				custom_state(PART:"spacer", "default", 0.0); \
-			if ((type == MSG_INT_SET) && (id == 1)) \
-				custom_state(PART:"spacer", "vert", 0.0); \
-			set_state_val(PART:"spacer", STATE_REL1_OFFSET, val, val); \
-			set_state_val(PART:"spacer", STATE_REL2_OFFSET, 0 - val, 0 - val); \
-			set_state(PART:"spacer", "custom", 0.0); \
-		} \
-	} \
+	SIZE_SCRIPT																\
 	parts 																									\
 		part { "base"; nomouse;																	\
 			desc { "default"; color_class: "shelf_base";					\
@@ -152,17 +155,17 @@ group { NAME; 																							\
 			BASE_ORIENT("bottom_right", IMAGE_BOTTOM)							\
 		} 																											\
 		part {   													\
-            name: "spacer"; nomouse;										\
-	        type: SPACER; 										\
-            desc { 										\
-               state: "default" 0.0; 							\
-	           rel1.offset: 12 12; 								\
-	           rel2.offset: -12 -12; 								\
-            } 													\
-            desc { 										\
-               state: "vert" 0.0; inherit; 							\
-            }     								\
-	 } 		\
+		    name: "spacer"; nomouse;										\
+		    type: SPACER; 										\
+		    desc { 										\
+			state: "default" 0.0; 							\
+			rel1.offset: 12 12; 								\
+			rel2.offset: -12 -12; 								\
+		    } 													\
+		    desc { 										\
+			state: "vert" 0.0; inherit; 							\
+		    }     								\
+		} 		\
 		swallow { "e.swallow.content";										\
 		    desc { "default"; } 													\
 			description { state: "default" 0.0; }					\
@@ -202,6 +205,7 @@ group { NAME; 																							\
 	images.image: IMAGE_LEFT COMP;														\
 	images.image: IMAGE_RIGHT COMP;														\
 	images.image: IMAGE_BOTTOM COMP;													\
+	SIZE_SCRIPT										\
 	parts 																									\
 		part { "base";	 																				\
 			desc { "default"; color_class: "shelf_base"; 					\
@@ -223,19 +227,17 @@ group { NAME; 																							\
 			BASE_ORIENT("bottom_right", IMAGE_BOTTOM)							\
 		}																												\
 		part {   													\
-            name: "spacer"; mouse_events:0;										\
-	        type: SPACER; 										\
-            description { 										\
-               state: "default" 0.0; 							\
-	           rel1.offset: 12 12; 								\
-	           rel2.offset: -12 -12; 								\
-            } 													\
-            description { 										\
-               state: "vert" 0.0; 							\
-	           rel1.offset: 12 12; 							\
-	           rel2.offset: -12 -12; 							\
-            }     								\
-	 } 		\
+		    name: "spacer"; nomouse;										\
+		    type: SPACER; 										\
+		    desc { 										\
+			state: "default" 0.0; 							\
+			rel1.offset: 12 12; 								\
+			rel2.offset: -12 -12; 								\
+		    } 													\
+		    desc { 										\
+			state: "vert" 0.0; inherit; 							\
+		    }     								\
+		} 		\
 		swallow { "e.swallow.content"; 													\
 		    desc { "default"; } 													\
 			ORIENT("top", 1 1, 0 0)																\
@@ -278,6 +280,7 @@ group { "e/shelf/alternate/base";
 	images.image: "shelf_bga_top.png" COMP;
 	images.image: "shelf_bga_left.png" COMP;
 	images.image: "shelf_bga_right.png" COMP;
+	SIZE_SCRIPT
 	parts {
 		part { "base"; nomouse;
 			desc { "default"; color_class: "shelf_base";
@@ -297,12 +300,25 @@ group { "e/shelf/alternate/base";
 				image.normal: "shelf_bga_right.png";
 			}
 		}
+		part {
+		    name: "spacer"; nomouse;
+		    type: SPACER;
+		    desc {
+			state: "default" 0.0;
+			rel1.offset: 12 12;
+			rel2.offset: -12 -12;
+		    }
+		    desc {
+			state: "vert" 0.0; inherit;
+		    }
+		}
 		swallow { "e.swallow.content";
 			desc { "default";
 				rel1.relative: 0.0 0.0;
-				rel1.offset: 2 2;
+				rel1.offset: 1 1;
+				rel.to: "spacer";
 				rel2.relative: 1.0 1.0;
-				rel2.offset: -3 -3;
+				rel2.offset: 0 0;
 			}
 			desc { "top"; inherit; }
 			desc { "left"; inherit; }
