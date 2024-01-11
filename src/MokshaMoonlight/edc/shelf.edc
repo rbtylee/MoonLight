@@ -1,3 +1,17 @@
+#define SIZE_SCRIPT									\
+script {										\
+			public message(Msg_Type:type, id, ...) {			\
+			new val = getarg(2);						\
+			if ((type == MSG_INT_SET) && (id == 0))				\
+				custom_state(PART:"spacer", "default", 0.0);		\
+			if ((type == MSG_INT_SET) && (id == 1))				\
+				custom_state(PART:"spacer", "vert", 0.0);		\
+			set_state_val(PART:"spacer", STATE_REL1_OFFSET, val, val);	\
+			set_state_val(PART:"spacer", STATE_REL2_OFFSET, 0 - val, 0 - val); \
+			set_state(PART:"spacer", "custom", 0.0);			\
+		       }								\
+		}
+
 group { "e/shelf/default/inset";
 	alias: "e/shelf/alternate/inset";
 	images.image: "shelf_inset.png" COMP;
@@ -54,17 +68,32 @@ group { "e/shelf/default/plain";
 }
 
 group { "e/shelf/invisible/base";
+	SIZE_SCRIPT
 	parts {
+	        part {
+		    name: "spacer"; nomouse;
+		    type: SPACER;
+		    desc {
+			state: "default" 0.0;
+			rel1.offset: 12 12;
+			rel2.offset: -12 -12;
+		    }
+		    desc {
+			state: "vert" 0.0; inherit;
+		    }
+		}
 		swallow { "e.swallow.content";
 			desc { "default";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 0 0;
+				rel.to: "spacer";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -1 -1;
 			}
 			desc { "vert";
 				rel1.relative: 0.0 0.0;
 				rel1.offset: 0 0;
+				rel.to: "spacer";
 				rel2.relative: 1.0 1.0;
 				rel2.offset: -1 -1;
 			}
@@ -112,19 +141,6 @@ program { POS; 											\
 	target: "e.swallow.content"; 						\
 }
 
-#define SIZE_SCRIPT									\
-script {										\
-			public message(Msg_Type:type, id, ...) {			\
-			new val = getarg(2);						\
-			if ((type == MSG_INT_SET) && (id == 0))				\
-				custom_state(PART:"spacer", "default", 0.0);		\
-			if ((type == MSG_INT_SET) && (id == 1))				\
-				custom_state(PART:"spacer", "vert", 0.0);		\
-			set_state_val(PART:"spacer", STATE_REL1_OFFSET, val, val);	\
-			set_state_val(PART:"spacer", STATE_REL2_OFFSET, 0 - val, 0 - val); \
-			set_state(PART:"spacer", "custom", 0.0);			\
-		       }								\
-		}
 
 //Shelf has rounded border, panel doesn't
 #define SHELF(NAME, IMAGE_TOP, IMAGE_LEFT, IMAGE_RIGHT, IMAGE_BOTTOM) \
