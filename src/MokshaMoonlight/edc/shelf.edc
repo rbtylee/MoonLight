@@ -68,6 +68,7 @@ group { "e/shelf/default/plain";
 }
 
 group { "e/shelf/invisible/base";
+	data.item: "shaped" "1";
 	SIZE_SCRIPT
 	parts {
 	        part {
