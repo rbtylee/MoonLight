@@ -1,7 +1,7 @@
 project('MokshaMoonlight',
   version: '1.25.99',
   default_options : ['buildtype=plain'],
-  meson_version : '>=0.49'
+  meson_version : '>=0.58.0'
 )
 
 pkgconfig = import('pkgconfig')
@@ -10,15 +10,15 @@ efl_depends              = dependency('efl'             , required: true)
 e_depends                = dependency('enlightenment'   , required: true)
 
 ##### install paths
-dir_prefix    = e_depends.get_pkgconfig_variable('prefix')
+dir_prefix    = e_depends.get_variable('prefix')
 dir_data      = join_paths(dir_prefix, 'share', 'enlightenment', 'data', 'themes')
-dir_prefix    = efl_depends.get_pkgconfig_variable('prefix')
+dir_prefix    = efl_depends.get_variable('prefix')
 elm_dir_th    = join_paths(dir_prefix, 'share', 'elementary', 'themes')
 
 ##### edje_cc binary compiler tool
 edje_cmd = get_option('edje-cc')
 if edje_cmd == ''
-  edje_cmd = join_paths(edje_depends.get_pkgconfig_variable('prefix'),
+  edje_cmd = join_paths(edje_depends.get_variable('prefix'),
                         'bin', 'edje_cc')
 endif
 
