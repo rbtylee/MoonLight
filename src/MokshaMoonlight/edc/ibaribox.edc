@@ -94,8 +94,8 @@ group { "e/modules/ibar/menu/item";
 	images.image: "menuitem.png" COMP;
 	images.image: "win_glow.png" COMP;
 	parts {
-		spacer { "icon";
-			desc { "default"; min: 32 32; max: 32 32;
+		spacer { "icon"; scale;
+			desc { "default"; min: 20 20; max: 20 20;
 				rel1.offset: 8 4;
 				rel2.offset: 2 -3;
 				align: 0.0 0.5;
