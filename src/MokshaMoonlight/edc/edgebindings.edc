@@ -103,11 +103,11 @@ group { "e/modules/conf_edgebindings/selection";
 		swallow { "e.swallow.slider";
 			desc { "default";
 				rel1.relative: 1 1;
-				rel1.offset: 5 2;
-				rel1.to_x: "e.swallow.background";
+				rel1.offset: 5 1;
+				rel1.to_x: "e.edge.bottom_right";
 				rel1.to_y: "e.box";
 				rel2.relative: 1 1;
-				rel2.offset: -5 -5;
+				rel2.offset: -5 -1;
 			}
 		}
 		textblock { "e.text.description"; nomouse; scale;
@@ -133,9 +133,9 @@ group { "e/modules/conf_edgebindings/selection";
 				rel2.relative: 0 0;
 				rel2.offset: -5 -5;
 				rel2.to: "e.edge.bottom_right";
-				text.font: "Sans:style=Bold"; text.size: 11;
+				text.font: "Sans:style=Bold"; text.size: 12;
 				text.align: 0.5 0.5;
-				text.fit: 1 1;
+				text.min: 1 1;
 			}
 		}
 	}
