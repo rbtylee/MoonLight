@@ -106,7 +106,7 @@ group "e/widgets/winlist/item";
 				image.border: 8 8 5 9;
 				fill.smooth : 0;
 			}
-			desc { "selected"; inherit; color: VISIBLE;
+			desc { "selected"; inherit; color: VISIBLE; vis;
 				rel1.offset: -2 0;
 				rel2.offset: 1 2;
 			}
