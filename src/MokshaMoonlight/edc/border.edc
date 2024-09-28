@@ -919,7 +919,7 @@ group { "e/widgets/border/dialog/border";
 		PART_EVENT_MAP("e.event.resize.b", 0, "bottom-center")
 		PART_EVENT_MAP("e.event.resize.tr", 0, "top-right")
 		PART_EVENT_MAP("e.event.resize.tl", 0, "top-left")
-		CLIPS("close-clip", 20 18, 20 18, "top-right", 1.0 0.0, 0 0, 0.0 1.0, -7 -8)
+		CLIPS("close-clip", 20 18, 20 18, "top-right", 1.0 0.0, 0 0, 0.0 1.0, -12 -8)
 		//CLIPS("close-clip", 20 18, 20 18, "top-left", 0.0 0.0, 0 0, 0.0 1.0, 30 -8)
 		BUTTONS("button-close", "close-clip", 17 17, "close-clip", "bd_button_close_unfocused.png")
 		PART_EVENT_MAP("e.event.close", 1, "button-close")
