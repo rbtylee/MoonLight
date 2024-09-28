@@ -554,9 +554,9 @@ group { "e/widgets/border/default/border";
 		BORDER2("right-border", "top-right", 1.0 1.0, -1 0, "bottom-right", 1.0 0.0, 0 0 )
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
-		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
+		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -2)
 		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
-		text { 	"e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale;
+		text { "e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale;
 			clip: "title.area.clip";
 			desc { "default"; color: VISIBLE; hid;
 				color3: VISIBLE;
@@ -641,9 +641,9 @@ group { "e/widgets/border/left_controls/border";
 		BORDER2("right-border", "top-right", 1.0 1.0, -1 0, "bottom-right", 1.0 0.0, 0 0 )
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
-		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
+		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -2)
 		TITLE_CLIP("title.area.clip", 1 20, "min-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
-		text { 	"e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title.area.clip";
+		text { "e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title.area.clip";
 			desc { "default"; color: VISIBLE; hid;
 				color3: VISIBLE;
 				color_class: "border_title";
@@ -726,10 +726,10 @@ group { "e/widgets/border/squared/border";
 		BORDER2("right-border", "top-right", 1.0 1.0, -1 0, "bottom-right", 1.0 0.0, 0 0 )
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
-		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
+		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -2)
 		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
 		//TITLE_CLIP("title.area.clip", 1 20, "min-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
-		text { 	"e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title.area.clip";
+		text { "e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title.area.clip";
 			desc { "default"; color: VISIBLE; hid;
 				color3: VISIBLE;
 				color_class: "border_title";
@@ -813,7 +813,7 @@ group { "e/widgets/border/noresize_dialog/border";
 		BORDER2("right-border", "top-right", 1.0 1.0, -1 0, "bottom-right", 1.0 0.0, 0 0 )
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
-		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
+		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -2)
 		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
 		//TITLE_CLIP("title.area.clip", 1 20, "close-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
 		text { "e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title.area.clip";
@@ -885,16 +885,16 @@ group { "e/widgets/border/dialog/border";
 		BORDER2("right-border", "top-right", 1.0 1.0, -1 0, "bottom-right", 1.0 0.0, 0 0 )
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
 		BORDER3("bottom-center", 5 5, 9999 5, "bottom-left", 1.0 1.0, 0 -6, "bottom-right", 0.0 1.0, -1 0, "bd_bottom.png", 1.0 1.0, 0.0 1.0, 0 -6)
-		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -6)
+		E_SWALLOW_CLIENT("e.swallow.client", "top-left", 0.0 1.0, 1 0, "bottom-right", 1.0 1.0, -2 -2)
 		//TITLE_CLIP("title.area.clip", 1 20, "close-clip", 1.0 0.5, 10 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
 		TITLE_CLIP("title.area.clip", 1 20, "top-left", 0.0 0.5, 5 0, "top-right", 1.0 0.5, -30 0, VISIBLE)
-		text { 	"e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse;	 scale; clip: "title.area.clip";
+		text { "e.text.title"; effect: SOFT_SHADOW BOTTOM; nomouse; scale; clip: "title.area.clip";
 			desc {"default"; color: VISIBLE; hid;
 				color3: VISIBLE;
 				color_class: "border_title";
 				rel1.to: "title.area.clip";
 				rel1.relative: 0.0 0.5;
-				rel1.offset: 0 4;
+				rel1.offset: 0 1;
 				rel2.to: "title.area.clip";
 				rel2.relative: 1.0 0.5;
 				rel2.offset: -5 0;
