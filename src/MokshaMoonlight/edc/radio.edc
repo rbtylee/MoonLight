@@ -4,7 +4,7 @@ group { "e/widgets/radio";
 	images.image: "radio_sel.png" COMP;
 	parts {
 		part { "base"; nomouse; scale;
-			desc { "default"; min: 19 19; max: 19 19;
+			desc { "default"; min: 11 11; max: 11 11;
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.relative: 0.0 0.0;
@@ -125,7 +125,7 @@ group { "e/widgets/radio_icon";
 	images.image: "radio_sel.png" COMP;
 	parts {
 		part { "base"; nomouse; scale;
-			desc { "default"; min: 19 19; max: 19 19;
+			desc { "default"; min: 11 11; max: 11 11;
 				align: 0.0 0.5;
 				fixed: 1 1;
 				rel1.relative: 0.0 0.0;

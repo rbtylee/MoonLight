@@ -101,7 +101,7 @@ group { "e/widgets/slider_vertical";
 			dragable.x: 0 0 0;
 			dragable.y: -1 1 0;
 			dragable.confine: "base";
-			desc { "default"; min: 11 11;	 color: "#00000000";
+			desc { "default"; min: 11 11; color: "#00000000";
 				fixed: 1 1;
 				rel1.relative: 0.5 0.5;
 				rel1.offset: 0 0;
@@ -118,7 +118,7 @@ group { "e/widgets/slider_vertical";
 				rel1.offset: -1 0;
 				rel2.to: "e.dragable.slider";
 				image.normal: "slider.png";
-				fill.smooth: 0;
+				fill.smooth: 1;
 			}
 			desc { "clicked"; inherit;
 				image.normal: "slider_clicked.png";
@@ -325,7 +325,7 @@ group { "e/widgets/slider_horizontal";
 				rel1.offset: 0 1;
 				rel2.to: "e.dragable.slider";
 				image.normal: "slider.png";
-				fill.smooth: 0;
+				fill.smooth: 1;
 			}
 			desc { "clicked"; inherit;
 				image.normal: "slider_clicked.png";
