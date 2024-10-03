@@ -212,7 +212,7 @@ group { "e/widgets/menu/default/check";
 	images.image: "check_sel.png" COMP;
 	parts {
 		part { "base"; nomouse; scale;
-			desc { "default"; min: 18 19; max: 18 19;
+			desc { "default"; min: 11 11; max: 11 11;
 				image.normal: "check_base.png";
 			}
 		}
@@ -276,7 +276,7 @@ group { "e/widgets/menu/default/radio";
 	images.image: "radio_sel.png" COMP;
 	parts {
 		part { "base"; nomouse; scale;
-			desc { "default"; min: 19 19; max: 19 19;
+			desc { "default"; min: 11 11; max: 11 11;
 				image.normal: "radio_base.png";
 			}
 			desc { "selected"; inherit;
