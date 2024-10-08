@@ -199,6 +199,11 @@ group { "e/modules/battery/main";
 				text.text_class: "module_small";
 			}
 		}
+		part { name: "e.text.health"; type: TEXT; mouse_events: 0;
+			desc { "default";
+				hid;
+			}
+		}
 		rect { "over";
 			desc { "default"; color: "#00000000"; }
 		}
@@ -332,6 +337,35 @@ group { "e/modules/battery/popup";
 				text.min: 1 1;
 				text.ellipsis: -1;
 				text.text_class: "module_normal";
+			}
+		}
+		rect { "separator"; nomouse;
+			desc { "default";
+				rel1.relative: 1.0 0.50;
+				rel1.to_x: "e.swallow.battery";
+				rel1.to_y: "e.swallow.battery";
+				rel1.offset: 0 -4;
+				rel2.offset: -5 0;
+				color: "#00000034";
+				min: 0 2;
+				max: 99999 2;
+			}
+		}
+		text { "e.text.health";
+			//~ effect: SHADOW BOTTOM;
+			scale: 1;
+			description { state: "default" 0.0;
+				rel1.relative: 1.0 0.75;
+				rel1.to_x: "e.swallow.battery";
+				rel1.to_y: "e.swallow.battery";
+				color: 45 45 45  255;
+				//~ color3: 0 0 0 128;
+				text { font: "Sans"; size: 8;
+					text: "health";
+					min: 1 1;
+					ellipsis: -1;
+					text_class: "module_normal";
+				}
 			}
 		}
 	}
