@@ -111,6 +111,7 @@ collections {
 	#include "edc/toolbar.edc"
 	#include "edc/transitions.edc"
 	#include "edc/wallpaper.edc"
+	#include "edc/wallpaper2.edc"
 	#include "edc/winlist.edc"
 	// Must be out of order
 	#include "edc/ilist.edc"
