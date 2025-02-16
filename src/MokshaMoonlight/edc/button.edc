@@ -79,7 +79,7 @@ group { "e/widgets/button";
 			desc { "icon"; inherit; hid; }
 			desc { "combo"; inherit;
 				rel1.relative: 1.0 0.0;
-				rel1.offset: 2 5;
+				rel1.offset: 2 3;
 				rel1.to_x: "e.swallow.icon";
 			 }
 			desc { "disabled"; inherit; color: "#C9B59C"; color_class: "button_text_disabled";
