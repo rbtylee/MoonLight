@@ -13,7 +13,7 @@ data {
 	item: "theme/name"    "MokshaMoonlight";
 	item: "theme/version" "rc";
 	item: "theme/author"  "Alberto 'Duma' Verdoja";
-	item: "gtk-theme"     "Moonlight-GTK";
+	item: "gtk-theme"     "MokshaMoonLight";
 	item: "icon-theme"    "MokshaMoonLight";
 	item: "version"       "110";
 }

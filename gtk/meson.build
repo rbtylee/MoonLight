@@ -1,4 +1,4 @@
-dest = join_paths(get_option('datadir'), 'themes', 'Moonlight-GTK')
+dest = join_paths(get_option('datadir'), 'themes', 'MokshaMoonLight')
 
 install_subdir(join_paths(meson.current_source_dir(), 'MokshaMoonlight'), 
                 install_dir: dest,
