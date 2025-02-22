@@ -1,0 +1,32 @@
+Meson is the build system used for this project. For more information
+please see [mesonbuild.com](https://mesonbuild.com)
+
+You will need the following build tools installed:
+
+- pkg-config
+- meson
+- ninja
+
+To build using meson
+====================
+meson setup build
+cd build
+ninja
+sudo ninja install
+
+
+Or without chdir
+================
+meson setup build
+ninja -C build
+sudo ninja -C build install
+
+
+Uninstall
+=========
+sudo ninja -C build uninstall
+
+
+Clean build
+===========
+rm -rf build/
