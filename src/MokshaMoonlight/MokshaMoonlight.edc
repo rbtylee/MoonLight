@@ -9,13 +9,14 @@
  *                                                                     *
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+efl_version: 1 25;
 data {
 	item: "theme/name"    "MokshaMoonlight";
 	item: "theme/version" "rc";
 	item: "theme/author"  "Alberto 'Duma' Verdoja";
 	item: "gtk-theme"     "MokshaMoonLight";
 	item: "icon-theme"    "MokshaMoonLight";
-	item: "version"       "110";
+	item: "version"       "125";
 }
 
 /// This stuff can be changed also with Settings -> Look -> Colors, but
