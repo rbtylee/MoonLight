@@ -544,12 +544,13 @@ group { "e/widgets/border/default/border";
 	images.image: "bd_top_left_over.png" COMP;
 	images.image: "win_shadow.png" COMP;
 	data.item: "shadow" "1";
+	data.item: "shaped" "1";
 	parts {
 		SHADOW_PART("top-left", -9 -10, "bottom-right", 9 10)
 		BORDER("top-left", 6 23, 6 23, 0.0 0.0, 3 22, 0.0 0.0, 3 0, "bd_top_left.png", 0.0 0.0, 0.0 0.0, 3 22)
 		BORDER("top-right", 6 23, 6 23, 1.0 0.0, 0 22, 1.0 0.0, -6 0, "bd_top_right.png", 1.0 0.0, 1.0 0.0, 0 22)
-		BORDER4("bottom-left", 5 5, 5 5, 0.0 1.0, 3 -6, 0.0 1.0, 3 0, "bd_bottom_left.png", 0.0 1.0, 0.0 1.0, 5 -6, 1 5)
-		BORDER4("bottom-right", 5 5, 5 5, 1.0 1.0, 0 -6, 1.0 1.0, -6 0, "bd_bottom_right.png", 1.0 1.0, 1.0 1.0, 0 -6, 1 5)
+		BORDER4("bottom-left", 5 5, 5 5, 0.0 1.0, 3 -6, 0.0 1.0, 3 0, "bd_bottom_left.png", 0.0 1.0, 0.0 1.0, 5 -6, 4 5)
+		BORDER4("bottom-right", 5 5, 5 5, 1.0 1.0, 0 -6, 1.0 1.0, -6 0, "bd_bottom_right.png", 1.0 1.0, 1.0 1.0, 0 -6, 4 5)
 		BORDER2("left-border", "top-left", 0.0 1.0, 0 0, "bottom-left", 0.0 0.0, 0 0)
 		BORDER2("right-border", "top-right", 1.0 1.0, -1 0, "bottom-right", 1.0 0.0, 0 0 )
 		BORDER3("top-center", 5 23, 9999 23, "top-left", 1.0 0.5, 0 0, "top-right", 0.0 0.5, -1 -2, "bd_top.png", 1.0 0.5, 0.0 0.5, 0 0)
