@@ -632,6 +632,7 @@ group { "e/widgets/border/default/border";
 group { "e/widgets/border/left_controls/border";
 	alias: "e/widgets/border/shaped/border";
 	data.item: "shadow" "1";
+	data.item: "shaped" "1";
 	parts {
 		SHADOW_PART("top-left", -9 -10, "bottom-right", 9 10)
 		BORDER("top-left", 6 23, 6 23, 0.0 0.0, 3 22, 0.0 0.0, 3 0, "bd_top_left.png", 0.0 0.0, 0.0 0.0, 3 22)
@@ -804,6 +805,7 @@ group { "e/widgets/border/squared/border";
 group { "e/widgets/border/noresize_dialog/border";
 	alias: "e/widgets/border/modal/border";
 	data.item: "shadow" "1";
+	data.item: "shaped" "1";
 	parts {
 		SHADOW_PART("top-left", -9 -10, "bottom-right", 9 10)
 		BORDER("top-left", 6 23, 6 23, 0.0 0.0, 3 22, 0.0 0.0, 3 0, "bd_top_left.png", 0.0 0.0, 0.0 0.0, 3 22)
@@ -876,6 +878,7 @@ group { "e/widgets/border/noresize_dialog/border";
 group { "e/widgets/border/dialog/border";
 	alias: "e/widgets/border/noresize/border";
 	data.item: "shadow" "1";
+	data.item: "shaped" "1";
 	parts {
 		SHADOW_PART("top-left", -9 -10, "bottom-right", 9 10)
 		BORDER("top-left", 6 23, 6 23, 0.0 0.0, 3 22, 0.0 0.0, 3 0, "bd_top_left.png", 0.0 0.0, 0.0 0.0, 3 22)
