@@ -151,6 +151,7 @@ group { NAME; 																							\
 	images.image: IMAGE_RIGHT COMP;														\
 	images.image: IMAGE_BOTTOM COMP;													\
 	SIZE_SCRIPT																\
+	data.item: "shaped" "1"; \
 	parts 																									\
 		part { "base"; nomouse;																	\
 			desc { "default"; color_class: "shelf_base";					\
