@@ -1369,7 +1369,7 @@ group { "e/fileman/default/icon/variable";
  }
 	styles {
 		style { "fileman_icon_name";
-		base: "font=Sans font_size=10 text_class=fileman_icon align=center color=#ffffffff wrap=mixed style=shadow,bottom shadow_color=#00000000 align=center ellipsis=1.0";
+		base: "font=Sans font_size=10 text_class=fileman_icon align=center color=#ccccccff wrap=mixed style=shadow,bottom shadow_color=#000000a0 align=center ellipsis=1.0";
 		}
 		style { "fileman_icon_name_selected";
 		base: "font=Sans font_size=10 text_class=fileman_icon align=center color=#000000ff wrap=mixed style=shadow,bottom shadow_color=#00000000 align=center ellipsis=1.0";
